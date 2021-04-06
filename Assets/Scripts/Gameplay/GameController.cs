@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
-{
+public class GameController : MonoBehaviour {
+    [Header("Game Controller")]
+
+    [SerializeField] private float roundTime = 180;
+
+    [Header(" - Config")]
+    [SerializeField] private Transform player;
+    public static Transform Player { get => Instance.player; }
     
-    public GameController Instance { get; private set; }
+    public static GameController Instance { get; private set; }
 
     private void Awake() {
         Instance = this;
@@ -13,6 +19,10 @@ public class GameController : MonoBehaviour
     }
 
     private void OnTransitionOpen() {
+        HUD.Instance.Init(roundTime);
+    }
+
+    public void PlayerDeath() {
 
     }
 }

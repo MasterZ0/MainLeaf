@@ -47,11 +47,11 @@ public class PlayerLocomotionController : MonoBehaviour
 
         shouldMove = velocity.magnitude > magnitude;
 
-        bool isAiming = (_movement.aimValue == 1f);
+        bool isAiming = (_movement.aimValue);
 
         if (isAiming)
         {
-            if ((_movement.fireValue == 1f))
+            if ((_movement.fireValue))
             {
                 _animator.SetTrigger("Fire");
                 arrow.SetActive(false);
@@ -71,7 +71,7 @@ public class PlayerLocomotionController : MonoBehaviour
          
 
             
-            _movement.fireValue = 0f;
+            _movement.fireValue = false;
         }
         _animator.SetBool("IsAiming", isAiming);
         _animator.SetBool("IsMoving", shouldMove);

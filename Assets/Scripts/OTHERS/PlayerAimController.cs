@@ -19,7 +19,7 @@ public class PlayerAimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (input.aimValue==1f && !aimCamera.activeInHierarchy)
+        if (input.aimValue && !aimCamera.activeInHierarchy)
         {
             mainCamera.SetActive(false);
             aimCamera.SetActive(true);
@@ -27,7 +27,7 @@ public class PlayerAimController : MonoBehaviour
             //Allow time for the camera to blend before enabling the UI
             StartCoroutine(ShowReticle());
         }
-        else if(input.aimValue != 1f && !mainCamera.activeInHierarchy)
+        else if(!input.aimValue && !mainCamera.activeInHierarchy)
         {
             mainCamera.SetActive(true);
             aimCamera.SetActive(false);
