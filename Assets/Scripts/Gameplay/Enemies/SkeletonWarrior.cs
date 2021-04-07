@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
-    [SerializeField] private bool t;
+    [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] private Transform target;
     public override void AwakeEnemy() {
-        throw new System.NotImplementedException();
     }
 
     public override void EnemyDeath() {
-        throw new System.NotImplementedException();
     }
 
     // Start is called before the first frame update
@@ -19,9 +19,14 @@ public class SkeletonWarrior : Enemy {
         
     }
 
+    float time = 2;
     // Update is called once per frame
     void Update()
     {
-        
+        time -= Time.deltaTime;
+        if(time <= 0) {
+            time = 2;
+            navMeshAgent.SetDestination(target.position);
+        }
     }
 }

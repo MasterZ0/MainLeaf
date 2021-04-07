@@ -18,17 +18,17 @@ public class MainMenu : MonoBehaviour
         nextButton = firstButton;
         currentScreen.SetActive(true);
 
-        GameManager.Instance.SetTransitionCallback(OnTransitionOpenEnd, OnTransitionCloseEnd);
+        GameManager.Instance.SetTransitionCallback(OnTransitionOpenEnd);
     }
 
     public void OnPlay() {
-        GameManager.Instance.LoadScene(Constants.Scene.MAIN_MENU, Constants.Scene.GAMEPLAY);
+        GameManager.Instance.LoadNewScene(Constants.Scene.GAMEPLAY);
     }
     public void OnChangeScreen(GameObject screen) {         // Altera a tela
         EventSystem.current.SetSelectedGameObject(null);
         nextScreen = screen;
 
-        GameManager.Instance.CloseTransition();
+        GameManager.Instance.CloseTransition(OnTransitionCloseEnd);
     }
     public void OnNextButton(Button button) {
         nextButton = button;

@@ -40,16 +40,17 @@ public class HUD : MonoBehaviour {
 
     public void Init(float roundTime) {
         time = roundTime;
+        starterCounterText.text = secondsToStart.ToString();
         startCounterAnimator.Play(Constants.Anim.COUNT);
     }
 
     private void UpdateTime() {
-        time += Time.fixedDeltaTime;
+        time -= Time.fixedDeltaTime;
         TimeSpan timeSpan = TimeSpan.FromSeconds(time);
         string displayTime = $"{Mathf.Floor((float)timeSpan.TotalHours).ToString("00")}:{timeSpan.ToString(@"mm\:ss")}";
         timerText.text = displayTime;
 
-        if(time >= 3) {
+        if(time <= 0) {
             EndGame();
         }
     }
@@ -72,12 +73,14 @@ public class HUD : MonoBehaviour {
 
     public void OnStarterCounterTrigger() {
         secondsToStart--;
-        if(secondsToStart <= 0) {
+        if(secondsToStart > 0) {
+            starterCounterText.text = secondsToStart.ToString();
+        }
+        else { 
             starterCounterText.text = "GO!";
             startCounterAnimator.Play(Constants.Anim.START);
-        }
-        else {
-            starterCounterText.text = secondsToStart.ToString();
+            timePaused = false;
+            GameController.Instance.StartGame();
         }
 
     }

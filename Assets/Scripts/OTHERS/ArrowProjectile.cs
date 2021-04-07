@@ -8,8 +8,7 @@ public class ArrowProjectile : MonoBehaviour
     [SerializeField] private float force;
     [SerializeField] private Rigidbody rigidbod;
     CinemachineImpulseSource source;
-    private void Awake()
-    {
+    private void Awake() {
         rigidbod.centerOfMass = transform.position;
     }
 

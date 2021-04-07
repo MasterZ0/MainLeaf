@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameController : MonoBehaviour {
     [Header("Game Controller")]
@@ -8,8 +10,8 @@ public class GameController : MonoBehaviour {
     [SerializeField] private float roundTime = 180;
 
     [Header(" - Config")]
-    [SerializeField] private Transform player;
-    public static Transform Player { get => Instance.player; }
+    [SerializeField] private PlayerInputs player;
+    public static Transform Player { get => Instance.player.transform; }
     
     public static GameController Instance { get; private set; }
 
@@ -23,6 +25,11 @@ public class GameController : MonoBehaviour {
     }
 
     public void PlayerDeath() {
+        player.SetControlsActive(false);
 
+    }
+
+    public void StartGame() {
+        player.SetControlsActive(true);
     }
 }

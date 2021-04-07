@@ -7,15 +7,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region Variables and Properties
+
+    [Header("GameManager")]
+    //[SerializeField] private bool testMode;
+
     [SerializeField] private Animator transitionAnimator;
 
-    private Action transitionOpenCallback;
-    private Action transitionTriggerCallback;
+    private Action fadeInCallback;
+    private Action fadeOutCallback;
     public static GameManager Instance { get; private set; }
 
-    private bool dontLoadScene;
     private string nextScene;
-    private string unloadScene;
+    private string currentScene;
     #endregion
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)] //(RuntimeInitializeLoadType.BeforeSceneLoad) ou Assemblies?
@@ -24,43 +27,41 @@ public class GameManager : MonoBehaviour
         Instance = Instantiate(gameManager);
         DontDestroyOnLoad(Instance.gameObject);
     }
-    private void Awake() {
 
-    }
 
+    #region Init Scene
     public void SetTransitionCallback(Action openCallback) {
-        transitionOpenCallback = openCallback;
+        fadeInCallback = openCallback;
     }
-    public void SetTransitionCallback(Action openCallback, Action closeCallback) {
-        transitionOpenCallback = openCallback;
-        transitionTriggerCallback = closeCallback;
-    }
-    public void LoadScene(string currentScene, string newScene) {
-        unloadScene = currentScene;
-        nextScene = newScene;
-        dontLoadScene = false;
+    #endregion
 
-        transitionAnimator.Play(Constants.Anim.FADE_OUT);
+    #region Animation Events
+    public void OnFadeInEnd() {
+        fadeInCallback();
     }
-    public void CloseTransition() {
-        dontLoadScene = true;
+    public void OnFadeOutEnd() {
+        fadeOutCallback();
+    }
+    public void CloseTransition(Action closeCallback) {
+        fadeOutCallback = closeCallback;
         transitionAnimator.Play(Constants.Anim.FADE_OUT);
     }
     public void OpenTransition() {
         transitionAnimator.Play(Constants.Anim.FADE_IN);
     }
+    #endregion
 
-    public void OnFadeInEnd() {
-        transitionOpenCallback();
+    #region Scene Manager
+    public void LoadNewScene(string nextScene) {
+        this.nextScene = nextScene;        
+        transitionAnimator.Play(Constants.Anim.FADE_OUT);
+        fadeOutCallback = () => StartCoroutine(LoadBasic());
     }
-    public void OnFadeOutEnd() {
-        if (dontLoadScene) {
-            transitionTriggerCallback();   // MainMenu
-            return;
-        }
+    public void ReloadScene() {
+        fadeOutCallback = () => StartCoroutine(LoadBasic());
+        transitionAnimator.Play(Constants.Anim.FADE_OUT);
+    }
 
-        StartCoroutine(LoadBasic());
-    }
     IEnumerator LoadBasic() {
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(nextScene);
@@ -71,10 +72,10 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator LoadAsynchronously() {
-        bool sameScene = nextScene == unloadScene;
+        bool sameScene = nextScene == currentScene;
 
         // Carregar nova cena
-        AsyncOperation operation = SceneManager.UnloadSceneAsync(unloadScene, sameScene ? UnloadSceneOptions.None : UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        AsyncOperation operation = SceneManager.UnloadSceneAsync(currentScene, sameScene ? UnloadSceneOptions.None : UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
         while (!operation.isDone) {
             yield return null;
         }
@@ -100,4 +101,5 @@ public class GameManager : MonoBehaviour
         // Iniciar cena
         transitionAnimator.Play(Constants.Anim.FADE_IN);
     }
+    #endregion
 }
