@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Limpar a memoria
-        ObjectPooler.instance.Clear(sameScene);
+        ObjectPooler.Instance.Clear(sameScene);
         if (!sameScene)
             Resources.UnloadUnusedAssets();
         GC.Collect();

@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 2509848927181436446}
   - component: {fileID: 2509848927181436445}
   - component: {fileID: 2509848927181436443}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,18 +157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299ec688b17617d45865123d7c97055a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0}
   magnitude: 0.4
   rotationLerp: 12
   animator: {fileID: 6664935025768086333}
-  shouldMove: 0
-  look: {fileID: 2509848928003626434}
   arrow: {fileID: 1361008573458122863}
-  arrowBone: {fileID: 5410631388077098620}
   character: {fileID: 5312287995257293516}
-  arrowPrefab: {fileID: 1398175234702782428, guid: 46ab6e35a0bf5984eb9850c398aa3951,
-    type: 3}
   firePoint: {fileID: 2509848927869263635}
+  followPoint: {fileID: 2509848928003626434}
+  arrowPrefab: {fileID: 1398175234702782424, guid: 46ab6e35a0bf5984eb9850c398aa3951,
+    type: 3}
 --- !u!1 &2509848927869263634
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,12 +390,6 @@ Animator:
 --- !u!1 &1361008573458122863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3474386766237460021, guid: f7e6e31c5324d874db515c8ca4922190,
-    type: 3}
-  m_PrefabInstance: {fileID: 2509848927321026138}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5410631388077098620 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7620841370868475942, guid: f7e6e31c5324d874db515c8ca4922190,
     type: 3}
   m_PrefabInstance: {fileID: 2509848927321026138}
   m_PrefabAsset: {fileID: 0}

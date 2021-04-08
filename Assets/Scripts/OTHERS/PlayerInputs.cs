@@ -29,7 +29,7 @@ public class PlayerInputs : MonoBehaviour {
         controls.Player.Jump.canceled += ctx => OnJump(false);
         controls.Player.Aim.started += ctx => OnAim(true);
         controls.Player.Aim.canceled += ctx => OnAim(false);
-        controls.Player.Fire.started += ctx => playerAnimations.Fire();
+        controls.Player.Fire.started += ctx => OnFire();
 
         if(hideMouse)
             Cursor.visible = false;
@@ -44,6 +44,10 @@ public class PlayerInputs : MonoBehaviour {
         else {
             controls.Disable();
         }
+    }
+    private void OnFire() {
+        if (aim)
+            playerAnimations.Fire();
     }
 
     private void OnAim(bool active) {

@@ -4,28 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerAnimations : MonoBehaviour {
-    
     [Header("Player Animations")]
-    public Vector2 velocity = Vector2.zero;
     public float magnitude = 0.25f;
     public float rotationLerp;
 
     [Header(" - Config")]
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private Transform character;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform look;
+
+    [Header(" - Prefab")]
+    public PooledObject arrowPrefab;
 
     private Vector2 smoothDeltaPosition = Vector2.zero;
-
-    public bool shouldMove;
-
-    public Transform look;
-
-    public GameObject arrow;
-
-    public Transform arrowBone;
-    public Transform character;
-    public GameObject arrowPrefab;
-
-    Vector3 oldPosition;
+    private Vector2 velocity = Vector2.zero;
+    private Vector3 oldPosition;
 
     // Turn left/right, walk all directions, jump, gethit, death
 
@@ -72,7 +67,7 @@ public class PlayerAnimations : MonoBehaviour {
             velocity = smoothDeltaPosition / Time.deltaTime;
         }
 
-        shouldMove = velocity.magnitude > magnitude;
+        bool shouldMove = velocity.magnitude > magnitude;
 
 
         if (isAiming) {
@@ -109,13 +104,13 @@ public class PlayerAnimations : MonoBehaviour {
 
     }
 
-    [SerializeField] private Transform firePoint;
 
     IEnumerator FireArrow()
     {
-        GameObject projectile = Instantiate(arrowPrefab);
+        // spaw > rotation > position
+        Vector3 position = firePoint.position + firePoint.forward;
+        PooledObject projectile = arrowPrefab.SpawObject(position, Quaternion.identity);
         projectile.transform.forward = look.forward;
-        projectile.transform.position = firePoint.position + firePoint.forward;
         //Wait for the position to update
         yield return new WaitForSeconds(0.1f);
 
@@ -124,7 +119,7 @@ public class PlayerAnimations : MonoBehaviour {
     }
 
     private void Die() {
-        animator.SetTrigger("Die    ");
+        animator.SetTrigger("Die");
     }
 
 

@@ -8,13 +8,10 @@ public class ObjectPooler : MonoBehaviour
     public Dictionary<string, Queue<PooledObject>> poolDictionary;
 
     public Action reloadAction;
-    public static ObjectPooler instance;
+    public static ObjectPooler Instance { get; private set; }
 
     private void Awake() {
-        if (instance == null) {
-            instance = this;
-        }
-
+        Instance = this;
         poolDictionary = new Dictionary<string, Queue<PooledObject>>();
     }
 

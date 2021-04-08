@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7361f95aaba48441be5d0818b5a01ed, type: 3}
   m_Name: SkeletonWarrior
   m_EditorClassIdentifier: 
-  life: 100
-  moveSpeed: 50
+  life: 120
+  moveSpeed: 70
   points: 10

@@ -7,5 +7,7 @@ public class EnemyData : ScriptableObject
 {
     public int life;
     public float moveSpeed;
+
+    public float attackDistance;
     public int points;
 }

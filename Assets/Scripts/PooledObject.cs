@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PooledObject : MonoBehaviour
-{
-    [Header("Pooled Object")]
-    [SerializeField]
-    private bool returnToQueue = true;
+public abstract class PooledObject : MonoBehaviour {
 
-    internal Queue<PooledObject> queuePool;
+    [Header("Pooled Object")]
+    [SerializeField] private bool returnToQueue = true;
+
+    public Queue<PooledObject> queuePool;
     protected abstract void StartObject();
     private bool returned;
 
-    internal void ActiveObject(Vector3 position, Quaternion rotation) // RECICLE OR SPAW
+    public void ActiveObject(Vector3 position, Quaternion rotation) // RECICLE OR SPAW
     {
         transform.position = position;
         transform.rotation = rotation;
@@ -21,26 +20,25 @@ public abstract class PooledObject : MonoBehaviour
         StartObject();
     }
 
-    internal void ActiveObject() {
+    public void ActiveObject() {
         gameObject.SetActive(true);
         StartObject();
     }
 
-    internal PooledObject SpawObject(Vector3 position, Quaternion rotation) // FIND OBJECT POOL
-    {
-        PooledObject obj = ObjectPooler.instance.SpawPooledObject(this);
+    public PooledObject SpawObject(Vector3 position, Quaternion rotation) { // Get object from pool
+        PooledObject obj = ObjectPooler.Instance.SpawPooledObject(this);
         obj.ActiveObject(position, rotation);
         return obj;
     }
 
-    internal void ReturnToPool() {
+    public void ReturnToPool() {
         if (!returned) {
             returned = true;
             gameObject.SetActive(false);
 
             if (returnToQueue) {
                 if (queuePool == null) {
-                    queuePool = ObjectPooler.instance.GetQueue(gameObject.name);
+                    queuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
                 }
                 queuePool.Enqueue(this);
             }

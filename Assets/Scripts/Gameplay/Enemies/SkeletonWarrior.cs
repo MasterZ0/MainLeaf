@@ -5,28 +5,26 @@ using UnityEngine.AI;
 
 public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
-    [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private Transform target;
+    [SerializeField] private Animator animator;
+
+    private Transform player;
+    private float time = .2f;
+    private const float updateFrequency = .2f;
     public override void AwakeEnemy() {
     }
-
+    void Start() {
+        player = GameController.Player;
+    }
     public override void EnemyDeath() {
+        Destroy(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void FixedUpdate()
     {
-        
-    }
-
-    float time = 2;
-    // Update is called once per frame
-    void Update()
-    {
-        time -= Time.deltaTime;
+        time -= Time.fixedDeltaTime;
         if(time <= 0) {
-            time = 2;
-            navMeshAgent.SetDestination(target.position);
+            time = updateFrequency;
+            navMeshAgent.SetDestination(player.position);
         }
     }
 }

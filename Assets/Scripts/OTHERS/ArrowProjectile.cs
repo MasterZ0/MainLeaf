@@ -3,37 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class ArrowProjectile : MonoBehaviour
-{
+public class ArrowProjectile : PooledObject {
+    [Header("Arrow Projectile")]
+    [SerializeField] private int damage;
     [SerializeField] private float force;
+
+    [Header(" - Config")]
     [SerializeField] private Rigidbody rigidbod;
-    CinemachineImpulseSource source;
+    [SerializeField] private CinemachineImpulseSource source;
     private void Awake() {
         rigidbod.centerOfMass = transform.position;
     }
 
-    public void Fire()
-    {
+    protected override void StartObject() {
+        rigidbod.isKinematic = false;
+    }
+    public void Fire() {
         rigidbod.AddForce(transform.forward * (100 * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
-        source = GetComponent<CinemachineImpulseSource>();
-
         source.GenerateImpulse(Camera.main.transform.forward);
     }
+    //private void OnTriggerEnter(Collider col) {
+        //print(col.name);
+        //rigidbod.velocity = Vector3.zero;
+        //rigidbod.isKinematic = true;
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name != "Player")
-        {
-            rigidbod.isKinematic = true;
-            StartCoroutine(Countdown());
+        //if (col.CompareTag(Constants.Tag.ENEMY)) {
+        //    col.GetComponent<Enemy>().TakeDamage(damage);
+        //    StartCoroutine(Countdown(.5f));
+        //}
+        //else {
+        //    StartCoroutine(Countdown(3));
+        //}
+    //}
+    public void OnCollisionEnter(Collision collision) {
+        rigidbod.isKinematic = true;
+
+        if (collision.gameObject.CompareTag(Constants.Tag.ENEMY)) {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            StartCoroutine(Countdown(.5f));
+        }
+        else {
+            StartCoroutine(Countdown(3));
         }
     }
 
-    IEnumerator Countdown()
-    {
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
+    IEnumerator Countdown(float countdown) {
+        yield return new WaitForSeconds(countdown);
+        ReturnToPool();
     }
-
 
 }

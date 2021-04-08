@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SkeletonMage : Enemy {
     [Header("Skeleton Mage")]
-
     private Transform player;
+
+    [Header("Prefab")]
+    [SerializeField] private PooledObject fireball;
     public override void AwakeEnemy() {
-        throw new System.NotImplementedException();
     }
 
     private void Start() {
@@ -21,6 +22,5 @@ public class SkeletonMage : Enemy {
 
     }
     public override void EnemyDeath() {
-        throw new System.NotImplementedException();
     }
 }

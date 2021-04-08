@@ -20,4 +20,8 @@
         public static string MAIN_MENU { get => "MainMenu"; }
         public static string GAMEPLAY { get => "Gameplay"; }
     }
+    public static class Tag {
+        public static string PLAYER { get => "Player"; }
+        public static string ENEMY { get => "Enemy"; }
+    }
 }

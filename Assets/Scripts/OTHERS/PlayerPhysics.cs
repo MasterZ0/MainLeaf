@@ -24,6 +24,9 @@ public class PlayerPhysics : MonoBehaviour {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, whatIsGround);
     }
 
+    public void TakeDamage(int damage) {
+        throw new NotImplementedException();
+    }
 
     public void UpdatePhysics(Vector2 move, float lookX, bool jump) {
         // Move
