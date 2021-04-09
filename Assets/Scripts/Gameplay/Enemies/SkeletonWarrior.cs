@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,25 +7,42 @@ using UnityEngine.AI;
 public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
     [SerializeField] private Animator animator;
+    [SerializeField] private AIMovement AIMovement;
 
-    private Transform player;
-    private float time = .2f;
-    private const float updateFrequency = .2f;
-    public override void AwakeEnemy() {
+    private NavMeshAgent navMeshAgent;
+    protected override void AwakeEnemy() {
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
-    void Start() {
-        player = GameController.Player;
+
+    protected override void ResetEnemy() {
+        // Walk Mode
+        enemyState = EnemyState.Patrolling;
+        AIMovement.Patrol(FindedPlayer);
     }
-    public override void EnemyDeath() {
+
+    private void FindedPlayer() {
+        // Run Mode
+        enemyState = EnemyState.Chasing;
+        AIMovement.ChaseTarget(Attack, () => AIMovement.Patrol(FindedPlayer));
+    }
+    private void Attack() {
+        // Attack
+        enemyState = EnemyState.Attacking;
+        print("Atck");
+        return;
+        animator.SetBool(Constants.Anim.ATTACK, true);
+        AIMovement.CheckTargetDistance();
+    }
+    protected override void EnemyDeath() {
         Destroy(gameObject);
     }
 
-    void FixedUpdate()
-    {
-        time -= Time.fixedDeltaTime;
-        if(time <= 0) {
-            time = updateFrequency;
-            navMeshAgent.SetDestination(player.position);
-        }
+    private void FixedUpdate() {
+        UpdateAnimations();
+    }
+
+    private void UpdateAnimations() {
+        Vector3 velocity = navMeshAgent.velocity;
+        animator.SetFloat(Constants.Anim.VELOCITY_Y, velocity.y);
     }
 }

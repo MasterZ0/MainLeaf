@@ -10,7 +10,9 @@ public class PlayerPhysics : MonoBehaviour {
     [SerializeField] private float groundRadius = .02f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 10f;
-    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float aimSpeed = 2f;
+    [SerializeField] private float walkSpeed = 7f;
+    [SerializeField] private float sprintSpeed = 12f;
 
     [Header(" - Config")]
     [SerializeField] private CharacterController characterController;
@@ -28,9 +30,12 @@ public class PlayerPhysics : MonoBehaviour {
         throw new NotImplementedException();
     }
 
-    public void UpdatePhysics(Vector2 move, float lookX, bool jump) {
+    public void UpdatePhysics(Vector2 move, float lookX, bool jump, bool sprint, bool aim) {
         // Move
         Vector3 position = (transform.right * move.x) + (transform.forward * move.y);
+        float moveSpeed = aim ? aimSpeed : sprint ? sprintSpeed : walkSpeed;
+
+        Vector3 posA = transform.position;
         characterController.Move(position * moveSpeed * Time.fixedDeltaTime);
 
         // Gravity and Jump
@@ -48,7 +53,6 @@ public class PlayerPhysics : MonoBehaviour {
 
         // Rotação do player
         transform.Rotate(Vector3.up * lookX);      
-
     }
 
     private void OnAnimatorMove() {

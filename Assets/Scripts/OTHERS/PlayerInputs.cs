@@ -22,9 +22,11 @@ public class PlayerInputs : MonoBehaviour {
 
     private bool jump;
     private bool aim;
+    private bool sprint;
     void Start() {
         controls = new Controls();
         controls.Enable();
+        controls.Player.Sprint.performed += ctx => sprint = ctx.ReadValueAsButton();
         controls.Player.Jump.started += ctx => OnJump(true);
         controls.Player.Jump.canceled += ctx => OnJump(false);
         controls.Player.Aim.started += ctx => OnAim(true);
@@ -72,8 +74,11 @@ public class PlayerInputs : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        playerAnimations.UpdateAnimation(move, aim);
-        playerPhysics.UpdatePhysics(move, look.x, jump);
+        Vector3 stepDistance = transform.position;
+
+        playerPhysics.UpdatePhysics(move, look.x, jump, sprint, aim);
+        stepDistance = transform.position - stepDistance;
+        playerAnimations.UpdateAnimation(move, aim, stepDistance);
         aimController.UpdateCameraRotation(look.y); // Rotação da camera
     }
 

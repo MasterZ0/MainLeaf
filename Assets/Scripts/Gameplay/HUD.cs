@@ -20,6 +20,10 @@ public class HUD : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI defeatedEnemiesText;
 
+    //public static event Action addPoints2; // event -> fora da class, pode somente se escrever
+    //public static Func<int, string> func; // action with return
+    //public delegate int ExempleDelagate(int points); // Definição
+    //public static ExempleDelagate addPoints; // Instancia, pode ser chamada e alterada
 
     public static HUD Instance { get; private set; }
 

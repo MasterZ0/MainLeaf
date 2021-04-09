@@ -1,4 +1,6 @@
-﻿public static class Constants 
+﻿using UnityEngine;
+
+public static class Constants 
 {
     public static class Path {
         public static string GAME_MANEGER { get => "GameManager"; }
@@ -15,6 +17,7 @@
         public static string VELOCITY_X { get => "VelocityX"; }
         public static string VELOCITY_Y { get => "VelocityY"; }
         public static string FIRE { get => "Fire"; }
+        public static string ATTACK { get => "Attack"; }
     }
     public static class Scene {
         public static string MAIN_MENU { get => "MainMenu"; }
@@ -23,5 +26,9 @@
     public static class Tag {
         public static string PLAYER { get => "Player"; }
         public static string ENEMY { get => "Enemy"; }
+    }
+    public static class Layer {
+        public static LayerMask PLAYER { get => 1; }
+        public static LayerMask ENEMY { get => 2; }
     }
 }

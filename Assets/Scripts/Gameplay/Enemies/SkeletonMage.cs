@@ -1,26 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonMage : Enemy {
+public sealed class SkeletonMage : Enemy {
     [Header("Skeleton Mage")]
-    private Transform player;
 
-    [Header("Prefab")]
+    [Header(" - Config")]
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private AIMovement AIMovement;
+
+    [Header(" - Prefab")]
     [SerializeField] private PooledObject fireball;
-    public override void AwakeEnemy() {
-    }
 
+
+    private Transform target;
+
+    protected override void ResetEnemy() {
+
+    }
     private void Start() {
-        player = GameController.Player;
+        target = GameController.Player;
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
+    protected void Attack() {
+        firePoint.LookAt(target);
+        fireball.SpawObject(firePoint.position, firePoint.rotation);
     }
-    public override void EnemyDeath() {
+    protected override void EnemyDeath() {
     }
+
+    
 }

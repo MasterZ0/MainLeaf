@@ -24,13 +24,18 @@ public class PlayerAnimations : MonoBehaviour {
 
     // Turn left/right, walk all directions, jump, gethit, death
 
+    void Init() {
+        int fire = Animator.StringToHash(Constants.Anim.FIRE);
+        animator.GetBool(fire);
+    }
+
     private void LateUpdate() {
         oldPosition = transform.position;
 
     }
-    public void UpdateAnimation(Vector2 move, bool aim) {
+    public void UpdateAnimation(Vector2 move, bool aim, Vector3 oldPosition) {
         SetCharacterRotation(move, aim);
-        Animation(aim);
+        Animation(move, aim);
     }
 
     private void SetCharacterRotation(Vector2 move, bool aim) {
@@ -52,7 +57,7 @@ public class PlayerAnimations : MonoBehaviour {
         }
     }
 
-    private void Animation(bool isAiming) {
+    private void Animation(Vector2 move, bool isAiming) {
         Vector3 worldDeltaPosition = oldPosition - transform.position; // nextposiotion?
 
         //Map to local space
@@ -81,9 +86,13 @@ public class PlayerAnimations : MonoBehaviour {
             }
         }
         animator.SetBool(Constants.Anim.IS_AIMING, isAiming);
+
         animator.SetBool(Constants.Anim.IS_MOVING, shouldMove);
         animator.SetFloat(Constants.Anim.VELOCITY_X, velocity.x);
-        animator.SetFloat(Constants.Anim.VELOCITY_Y, Mathf.Abs(velocity.y));
+        animator.SetFloat(Constants.Anim.VELOCITY_Y, velocity.y);
+        //animator.SetBool(Constants.Anim.IS_MOVING, move != Vector2.zero);
+        //animator.SetFloat(Constants.Anim.VELOCITY_X, move.x);
+        //animator.SetFloat(Constants.Anim.VELOCITY_Y, move.y);
     }
 
     public void Fire() {
@@ -92,19 +101,7 @@ public class PlayerAnimations : MonoBehaviour {
         StartCoroutine(FireArrow());
     }
 
-    private void OnAnimatorMove() {
-        print("alo");
-        //Update the position based on the next position;
-        //characterController.Move(_movement.nextPosition * Time.deltaTime);
-        //transform.position = _movement.nextPosition;
-    }
-
-    private void OnAnimatorIK(int layerIndex) {
-        print("IK + " + layerIndex);
-
-    }
-
-
+    
     IEnumerator FireArrow()
     {
         // spaw > rotation > position
@@ -122,5 +119,36 @@ public class PlayerAnimations : MonoBehaviour {
         animator.SetTrigger("Die");
     }
 
+    public void OnFootR() {
+    }
+    public void OnFootL() {
+    }
 
+    //Animator animator;
+    //Transform rightHandObj;
+    //Transform lookbObj;
+    //private void OnAnimatorIK(int layerIndex) {
+    //    bool Ik = true;
+    //    if (Ik) {
+    //        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+    //        animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+    //        animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandObj.position);
+    //        animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandObj.rotation);
+
+    //        animator.SetLookAtWeight(1);
+    //        animator.SetLookAtPosition(lookbObj.position);
+
+    //    }
+    //    else {
+    //        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
+    //        animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
+    //        animator.SetLookAtWeight(0);
+
+    //    }
+
+    //}
+
+    //public void OnAnimatorMove() {
+    //    print("anim move");
+    //}
 }

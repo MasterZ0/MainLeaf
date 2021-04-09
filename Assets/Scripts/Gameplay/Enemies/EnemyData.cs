@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enemy Data", menuName = "Scriptable Objects/Enemy Data", order = 0)]
-public class EnemyData : ScriptableObject
-{
+public class EnemyData : ScriptableObject {
     public int life;
     public float moveSpeed;
 
-    public float attackDistance;
+    public float attackRange;
     public int points;
+
+    [HideInInspector]
+    public float chaseRange = 50f;
 }
