@@ -17,8 +17,7 @@ public class ArrowProjectile : PooledObject {
 
     protected override void StartObject() {
         rigidbod.isKinematic = false;
-    }
-    public void Fire() {
+
         rigidbod.AddForce(transform.forward * (100 * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
         source.GenerateImpulse(Camera.main.transform.forward);
     }

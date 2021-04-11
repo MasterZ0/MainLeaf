@@ -88,4 +88,8 @@ public class HUD : MonoBehaviour {
         }
 
     }
+
+    public void UpdateAmmoCount(int ammo) {
+        ammoCountText.text = $"{ammo} x";
+    }
 }

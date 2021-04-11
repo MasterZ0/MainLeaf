@@ -20,15 +20,13 @@ public class PlayerInputs : MonoBehaviour {
     private Vector2 move;
     private Controls controls;
 
-    private bool jump;
     private bool aim;
     private bool sprint;
     void Start() {
         controls = new Controls();
         controls.Enable();
         controls.Player.Sprint.performed += ctx => sprint = ctx.ReadValueAsButton();
-        controls.Player.Jump.started += ctx => OnJump(true);
-        controls.Player.Jump.canceled += ctx => OnJump(false);
+        controls.Player.Jump.started += ctx => OnJump();
         controls.Player.Aim.started += ctx => OnAim(true);
         controls.Player.Aim.canceled += ctx => OnAim(false);
         controls.Player.Fire.started += ctx => OnFire();
@@ -36,6 +34,7 @@ public class PlayerInputs : MonoBehaviour {
         if(hideMouse)
             Cursor.visible = false;
 
+        playerAnimations.Init();
         SetControlsActive(true);
     }
 
@@ -51,15 +50,21 @@ public class PlayerInputs : MonoBehaviour {
         if (aim)
             playerAnimations.Fire();
     }
-
+    private void OnJump() {
+        if (playerPhysics.CanJump()) {
+            playerAnimations.Jump();
+        }
+    }
     private void OnAim(bool active) {
-        aim = active;
+        if (active && (playerPhysics.isGrounded || playerPhysics.isJumping)) {
+            aim = true;
+        }
+        else {
+            aim = false;
+        }
         aimController.OnAim(aim);
     }
 
-    private void OnJump(bool active) {
-        jump = active;
-    }
 
     void Update() {
         move = controls.Player.Move.ReadValue<Vector2>();
@@ -74,12 +79,22 @@ public class PlayerInputs : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Vector3 stepDistance = transform.position;
+        // Conditions
+        bool isGrounded = playerPhysics.isGrounded;
+        if(aim && (!isGrounded || playerPhysics.isJumping)) {
+            OnAim(false);
+        }
 
-        playerPhysics.UpdatePhysics(move, look.x, jump, sprint, aim);
+        // Physics
+        Vector3 stepDistance = transform.position;
+        playerPhysics.UpdatePhysics(move, look.x, sprint, aim);
         stepDistance = transform.position - stepDistance;
-        playerAnimations.UpdateAnimation(move, aim, stepDistance);
-        aimController.UpdateCameraRotation(look.y); // Rotação da camera
+
+        // Anim
+        playerAnimations.UpdateAnimation(move, stepDistance, aim, isGrounded);
+
+        // Cam
+        aimController.UpdateCameraRotation(look.y); 
     }
 
 

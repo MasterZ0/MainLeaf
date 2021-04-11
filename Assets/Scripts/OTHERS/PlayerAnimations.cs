@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,32 +11,36 @@ public class PlayerAnimations : MonoBehaviour {
 
     [Header(" - Config")]
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject arrow;
     [SerializeField] private Transform character;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private Transform look;
+    [SerializeField] private Transform aimCamera;
 
     [Header(" - Prefab")]
+    public float arrowMaxDistance = 40f;
+    public LayerMask whatIsHittable;
     public PooledObject arrowPrefab;
 
     private Vector2 smoothDeltaPosition = Vector2.zero;
     private Vector2 velocity = Vector2.zero;
-    private Vector3 oldPosition;
+
+    private Quaternion defaultRotation;
+    private bool ready;
 
     // Turn left/right, walk all directions, jump, gethit, death
 
-    void Init() {
-        int fire = Animator.StringToHash(Constants.Anim.FIRE);
-        animator.GetBool(fire);
+    public void Init() {
+        //int fire = Animator.StringToHash(Constants.Anim.FIRE);
     }
 
-    private void LateUpdate() {
-        oldPosition = transform.position;
+    public void UpdateAnimation(Vector2 move, Vector3 oldPosition, bool aim, bool isGrounded) {
+        if (!aim)
+            ready = false;
 
-    }
-    public void UpdateAnimation(Vector2 move, bool aim, Vector3 oldPosition) {
         SetCharacterRotation(move, aim);
-        Animation(move, aim);
+        Animation(oldPosition, aim);
+        defaultRotation = firePoint.rotation;
+
+        animator.SetBool(Constants.Anim.IS_GROUNDED, isGrounded);
     }
 
     private void SetCharacterRotation(Vector2 move, bool aim) {
@@ -56,9 +61,12 @@ public class PlayerAnimations : MonoBehaviour {
             character.localRotation = playerRotation;
         }
     }
+    public void Jump() {
+        animator.SetTrigger(Constants.Anim.JUMP);
+    }
 
-    private void Animation(Vector2 move, bool isAiming) {
-        Vector3 worldDeltaPosition = oldPosition - transform.position; // nextposiotion?
+    private void Animation(Vector3 worldDeltaPosition, bool isAiming) {
+        //Vector3 worldDeltaPosition = transform.position - oldPosition; // nextposiotion?
 
         //Map to local space
         float dX = Vector3.Dot(transform.right, worldDeltaPosition);
@@ -78,43 +86,45 @@ public class PlayerAnimations : MonoBehaviour {
         if (isAiming) {
 
 
-            if (animator.GetCurrentAnimatorStateInfo(2).IsName(Constants.Anim.FIRE)) {
-                arrow.SetActive(false);
-            }
-            else {
-                arrow.SetActive(true);
-            }
+            //if (animator.GetCurrentAnimatorStateInfo(2).IsName(Constants.Anim.FIRE)) {
+            //    arrow.SetActive(false);
+            //}
+            //else {
+            //    arrow.SetActive(true);
+            //}
         }
         animator.SetBool(Constants.Anim.IS_AIMING, isAiming);
 
         animator.SetBool(Constants.Anim.IS_MOVING, shouldMove);
         animator.SetFloat(Constants.Anim.VELOCITY_X, velocity.x);
-        animator.SetFloat(Constants.Anim.VELOCITY_Y, velocity.y);
+        animator.SetFloat(Constants.Anim.VELOCITY_Z, velocity.y);
+        animator.SetFloat(Constants.Anim.MOVE_SPEED, velocity.magnitude / 7);
         //animator.SetBool(Constants.Anim.IS_MOVING, move != Vector2.zero);
         //animator.SetFloat(Constants.Anim.VELOCITY_X, move.x);
         //animator.SetFloat(Constants.Anim.VELOCITY_Y, move.y);
     }
+    public void OnFire() {
+        // Ammon --
+        bool successful = Physics.Raycast(aimCamera.position, aimCamera.forward, out RaycastHit hit, arrowMaxDistance, whatIsHittable);
+        if (successful) {
+            firePoint.LookAt(hit.point);
+            arrowPrefab.SpawObject(firePoint.position, firePoint.rotation);
+        }
+        else {
+            arrowPrefab.SpawObject(firePoint.position, defaultRotation);
+        }
+    }
+
+    public void OnReadyToShoot() {
+        ready = true;
+    }
 
     public void Fire() {
-        animator.SetTrigger(Constants.Anim.FIRE);
-        arrow.SetActive(false);
-        StartCoroutine(FireArrow());
+        if (ready) {
+            ready = false;
+            animator.SetTrigger(Constants.Anim.FIRE);
+        }
     }
-
-    
-    IEnumerator FireArrow()
-    {
-        // spaw > rotation > position
-        Vector3 position = firePoint.position + firePoint.forward;
-        PooledObject projectile = arrowPrefab.SpawObject(position, Quaternion.identity);
-        projectile.transform.forward = look.forward;
-        //Wait for the position to update
-        yield return new WaitForSeconds(0.1f);
-
-        projectile.GetComponent<ArrowProjectile>().Fire();
-        
-    }
-
     private void Die() {
         animator.SetTrigger("Die");
     }

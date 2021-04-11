@@ -1,0 +1,21 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.2f1 (e5d502d80fbb) revision 15062274'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 18362.476; Version 1903; 64bit' Language: 'pt' Physical Memory: 16250 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker10
+-projectPath
+D:/Games/Zero3/Unity/MainLeaf
+-logFile
+Logs/AssetImportWorker10.log
+-srvPort
+64293
+Successfully changed project path to: D:/Games/Zero3/Unity/MainLeaf
+D:/Games/Zero3/Unity/MainLeaf
+Using Asset Import Pipeline V2.

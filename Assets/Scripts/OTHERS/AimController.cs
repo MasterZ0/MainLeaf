@@ -30,6 +30,7 @@ public class AimController : MonoBehaviour {    // Controla a camera
             StartCoroutine(ShowReticle());
         }
         else {
+            StopAllCoroutines();
             aimReticle.SetActive(false);
         }
     }

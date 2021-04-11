@@ -12,6 +12,7 @@ public class AIMovement : MonoBehaviour
     [SerializeField] private FieldOfView fieldOfView;
 
     private Transform target;
+    public Vector3 Velocity { get => navMeshAgent.velocity; }
 
     [SerializeField] private EnemyData enemyData;
 

@@ -12,12 +12,16 @@ public static class Constants
         public static string START { get => "Start"; }
         public static string COUNT { get => "Count"; }
 
-        public static string IS_AIMING { get => "IsAiming"; }
-        public static string IS_MOVING { get => "IsMoving"; }
+        public static string MOVE_SPEED { get => "MoveSpeed"; }
         public static string VELOCITY_X { get => "VelocityX"; }
         public static string VELOCITY_Y { get => "VelocityY"; }
+        public static string VELOCITY_Z { get => "VelocityZ"; }
+        public static string IS_AIMING { get => "IsAiming"; }
+        public static string IS_MOVING { get => "IsMoving"; }
+        public static string IS_GROUNDED { get => "IsGrounded"; }
         public static string FIRE { get => "Fire"; }
         public static string ATTACK { get => "Attack"; }
+        public static string JUMP { get => "Jump"; }
     }
     public static class Scene {
         public static string MAIN_MENU { get => "MainMenu"; }

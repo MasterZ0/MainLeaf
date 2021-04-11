@@ -8,10 +8,9 @@ public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
     [SerializeField] private Animator animator;
     [SerializeField] private AIMovement AIMovement;
-
-    private NavMeshAgent navMeshAgent;
+    [SerializeField] private MeshCollider sword;
     protected override void AwakeEnemy() {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        base.AwakeEnemy();
     }
 
     protected override void ResetEnemy() {
@@ -29,9 +28,11 @@ public class SkeletonWarrior : Enemy {
         // Attack
         enemyState = EnemyState.Attacking;
         print("Atck");
+        sword.enabled = true;
         return;
         animator.SetBool(Constants.Anim.ATTACK, true);
         AIMovement.CheckTargetDistance();
+        sword.enabled = false;
     }
     protected override void EnemyDeath() {
         Destroy(gameObject);
@@ -42,7 +43,7 @@ public class SkeletonWarrior : Enemy {
     }
 
     private void UpdateAnimations() {
-        Vector3 velocity = navMeshAgent.velocity;
-        animator.SetFloat(Constants.Anim.VELOCITY_Y, velocity.y);
+        Vector3 velocity = AIMovement.Velocity;
+        animator.SetFloat(Constants.Anim.VELOCITY_Y, velocity.z);
     }
 }
