@@ -44,6 +44,6 @@ public class GameMenu : MonoBehaviour {
     }
 
     public void OnQuit() {
-        GameManager.Instance.LoadNewScene(Constants.Scene.MAIN_MENU);
+        GameManager.Instance.LoadNewScene(SceneIndexes.MainMenu);
     }
 }

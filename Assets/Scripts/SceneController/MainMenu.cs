@@ -62,7 +62,7 @@ public class MainMenu : MonoBehaviour {
         animator.SetBool(CHARACTER_INFO, true);
     }
     public void OnPlay() {
-        GameManager.Instance.LoadNewScene(Constants.Scene.GAMEPLAY);
+        GameManager.Instance.LoadNewScene(SceneIndexes.Gameplay);
         PlayerPrefs.SetInt(Constants.PlayerPrefs.Int.SELECTED_CHARACTER, 0);
     }
     public void OnQuit() {

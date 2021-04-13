@@ -1,19 +1,7 @@
 using UnityEngine;
 
 public static class UtilityFunctions {
-    /// /// <summary>
-    /// Retorn a value between 0 to <paramref name="range"/>, other than <paramref name="current"/>
-    /// </summary>
-    public static int NewRandomNumber(int current, int range) {
-        if (range == 0)
-            return 0;
-
-        int random = Random.Range(0, range + 1);
-        while (random == current) {
-            random = Random.Range(0, range + 1);
-        }
-        return random;
-    }
+    
 
     /// <summary>
     /// Calculation: (1 - <paramref name="t"/>) <paramref name="p0"/> + <paramref name="t"/> * <paramref name="p1"/>

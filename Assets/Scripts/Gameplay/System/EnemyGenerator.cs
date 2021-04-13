@@ -135,11 +135,10 @@ public class EnemyGenerator : MonoBehaviour {
         public float radius;
         public void Execute() {
             result = position[0];
-            //Determinar qual ponto escolher, baseado nos paramentros e posição do player
-            System.Random seed = new System.Random();
+            //Determinar qual ponto escolher, baseado nos paramentros e posição do playerss
 
-            float angle = new Unity.Mathematics.Random((uint)seed.Next()).NextFloat(0, 360);
-            float area = new Unity.Mathematics.Random((uint)seed.Next()).NextFloat(0, radius);
+            float angle = new Unity.Mathematics.Random(1).NextFloat(0, 360);
+            float area = new Unity.Mathematics.Random(1).NextFloat(0, radius);
             result.x += area * math.cos(angle * Mathf.Deg2Rad);
             result.z += area * math.sin(angle * Mathf.Deg2Rad);
         }

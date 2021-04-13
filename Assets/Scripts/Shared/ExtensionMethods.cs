@@ -2,6 +2,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class ExtensionMethods {
+    /// /// <summary>
+    /// Retorn a value between 0 to <paramref name="length"/>, other than <paramref name="current"/>
+    /// </summary>
+    public static int NewRandomIndex(this int current, int length) {
+        if (length < 1)
+            return 0;
+
+        int random = Random.Range(0, length);
+        while (random == current) {
+            random = Random.Range(0, length);
+        }
+        return random;
+    }
     public static float Remap(this float value, float minIn, float maxIn, float minOut, float maxOut) {
         return minOut + (value - minIn) * (maxOut - minOut) / (maxIn - minIn);
     }
