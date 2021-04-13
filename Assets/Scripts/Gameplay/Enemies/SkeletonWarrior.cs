@@ -9,8 +9,10 @@ public class SkeletonWarrior : Enemy {
     [SerializeField] private Animator animator;
     [SerializeField] private AIMovement AIMovement;
     [SerializeField] private MeshCollider sword;
+    [SerializeField] private SkinnedMeshRenderer eyes;
     protected override void AwakeEnemy() {
         base.AwakeEnemy();
+        ResetEnemy();
     }
 
     protected override void ResetEnemy() {
@@ -35,7 +37,9 @@ public class SkeletonWarrior : Enemy {
         sword.enabled = false;
     }
     protected override void EnemyDeath() {
-        Destroy(gameObject);
+        print("Is Dead");
+        animator.SetTrigger(Constants.Anim.DEATH);
+        eyes.material.color = Color.clear;
     }
 
     private void FixedUpdate() {
@@ -43,7 +47,6 @@ public class SkeletonWarrior : Enemy {
     }
 
     private void UpdateAnimations() {
-        Vector3 velocity = AIMovement.Velocity;
-        animator.SetFloat(Constants.Anim.VELOCITY_Y, velocity.z);
+        animator.SetFloat(Constants.Anim.VELOCITY_Y, AIMovement.Velocity.z);
     }
 }

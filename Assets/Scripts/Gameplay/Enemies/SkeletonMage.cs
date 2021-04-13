@@ -8,7 +8,9 @@ public sealed class SkeletonMage : Enemy {
 
     [Header(" - Config")]
     [SerializeField] private Transform firePoint;
-    [SerializeField] private AIMovement AIMovement;
+    [SerializeField] private AIMovement aiMovement;
+    [SerializeField] private Animator animator;
+    [SerializeField] private SkinnedMeshRenderer eyes;
 
     [Header(" - Prefab")]
     [SerializeField] private PooledObject fireball;
@@ -23,11 +25,13 @@ public sealed class SkeletonMage : Enemy {
         target = GameController.Player;
     }
 
-    protected void Attack() {
+    private void Attack() {
         firePoint.LookAt(target);
         fireball.SpawObject(firePoint.position, firePoint.rotation);
     }
     protected override void EnemyDeath() {
+        animator.SetTrigger(Constants.Anim.DEATH);
+        eyes.material.color = Color.clear;
     }
 
     

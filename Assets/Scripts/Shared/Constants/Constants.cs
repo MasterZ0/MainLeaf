@@ -2,6 +2,11 @@
 
 public static class Constants 
 {
+    public static class PlayerPrefs {
+        public static class Int {
+            public static string SELECTED_CHARACTER { get => "SelectedCharacter"; }
+        }
+    }
     public static class Path {
         public static string GAME_MANEGER { get => "GameManager"; }
         public static string HIT { get => "Materials/Hit"; }
@@ -22,10 +27,11 @@ public static class Constants
         public static string FIRE { get => "Fire"; }
         public static string ATTACK { get => "Attack"; }
         public static string JUMP { get => "Jump"; }
+        public static string DEATH { get => "Death"; }
     }
     public static class Scene {
-        public static string MAIN_MENU { get => "MainMenu"; }
-        public static string GAMEPLAY { get => "Gameplay"; }
+        public static int MAIN_MENU { get => 1; }
+        public static int GAMEPLAY { get => 2; }
     }
     public static class Tag {
         public static string PLAYER { get => "Player"; }

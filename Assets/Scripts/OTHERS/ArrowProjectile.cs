@@ -9,6 +9,7 @@ public class ArrowProjectile : PooledObject {
     [SerializeField] private float force;
 
     [Header(" - Config")]
+    [SerializeField] private PooledObject impactEffect;
     [SerializeField] private Rigidbody rigidbod;
     [SerializeField] private CinemachineImpulseSource source;
     private void Awake() {
@@ -39,7 +40,8 @@ public class ArrowProjectile : PooledObject {
 
         if (collision.gameObject.CompareTag(Constants.Tag.ENEMY)) {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-            StartCoroutine(Countdown(.5f));
+            impactEffect.SpawObject(transform.position, transform.rotation);
+            ReturnToPool();
         }
         else {
             StartCoroutine(Countdown(3));
