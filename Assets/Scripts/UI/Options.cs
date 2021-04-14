@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,86 +8,86 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour {
 
-    [Header("Config Internal")]
-    public AudioMixer audioMixer;
+    [Header("Options")]
+    public GameObject externalPanel;
+    public Button controlsTab;
+    //public AudioMixer audioMixer;
     public Slider musicSlider, sfxSlider, voiceSlider;
-    public GameObject[] panels;
 
+    [Header(" - Texts")]
     public TextMeshProUGUI musicTMP;
     public TextMeshProUGUI soundEffectsTMP;
     public TextMeshProUGUI voiceTMP;
 
-
-    private Button lastControlBtn;
+    private Button lastTab;
     private GameObject lastPanel;
-
+    private Action onCloseCallback;
     private bool firstSelect;
-    public void Init() {
+    private static Options Instance { get; set; } 
+    public void Awake() {
+        Instance = this;
+
         float volume;
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME);
-        audioMixer.SetFloat("Music", volume);
+        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, 100);
+        //audioMixer.SetFloat("Music", volume);
         musicSlider.value = volume;
         musicTMP.text = $"{(volume + 80) * 1.25f}%";
 
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME);
-        audioMixer.SetFloat("SoundEffects", volume);
+        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME, 100);
+        //audioMixer.SetFloat("SoundEffects", volume);
         sfxSlider.value = volume;
         soundEffectsTMP.text = $"{(volume + 80) * 1.25f}%";
 
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME);
-        audioMixer.SetFloat("Voice", volume);
+        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, 100);
+        //audioMixer.SetFloat("Voice", volume);
         voiceSlider.value = volume;
         voiceTMP.text = $"{(volume + 80) * 1.25f}%";
     }
 
-    public void SetMusicVolume(float volume) {
-        audioMixer.SetFloat("Music", volume);
+    public static void OpenOption(Action closeCallback) {
+        Instance.onCloseCallback = closeCallback;
+        Instance.Open();
+    }
+
+    private void Open() {
+        externalPanel.SetActive(true);
+        controlsTab.Select();
+    }
+    public void OnCloseOptions() {
+        // lastPanel.SetActive(false);
+        externalPanel.SetActive(false);
+        onCloseCallback();
+    }
+
+    public void OnSetMusicVolume(float volume) {
+        //audioMixer.SetFloat("Music", volume);
         musicTMP.text = $"{(volume + 80) * 1.25f}%";
 
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, volume);
     }
-    public void SetSFXVolume(float volume) {
+    public void OnSetSFXVolume(float volume) {
 
-        audioMixer.SetFloat("SoundEffects", volume);
+        //audioMixer.SetFloat("SoundEffects", volume);
         //sfxAudioManager.Play("Select");
         soundEffectsTMP.text = $"{(volume + 80) * 1.25f}%";
 
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME, volume);
     }
-    public void SetVoiceVolume(float volume) {
+    public void OnSetVoiceVolume(float volume) {
 
-        audioMixer.SetFloat("Voice", volume);
+        //audioMixer.SetFloat("Voice", volume);
         //voicesAudioManager.Play("VoiceTest");
         voiceTMP.text = $"{(volume + 80) * 1.25f}%";
 
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, volume);
     }
 
-    public void OnSwitchPanel(int index) {
-        if (lastPanel == panels[index]) {
-            firstSelect = false;
-            return;
-        }
-
-        if (lastPanel) {
-            lastPanel.SetActive(false);
-        }
-        lastPanel = panels[index];
-        panels[index].SetActive(true);
-
-        if (firstSelect) {
-            firstSelect = false;
-            return;
-        }
-        //sfxAudioManager.Play("Select");
-    }
-
     public void OnOpenControlsPanel(Button button) {
         firstSelect = true;
         //sfxAudioManager.Play("Submit");
 
-        if (lastControlBtn) {
-            lastControlBtn.Select();
+        if (lastTab) {
+            lastTab.Select();
         }
         else {
             button.Select();
@@ -98,7 +99,7 @@ public class Options : MonoBehaviour {
         //sfxAudioManager.Play("Submit");
     }
     public void OnControlsSelectBtn(Button button) {
-        lastControlBtn = button;
+        lastTab = button;
         if (firstSelect) {
             firstSelect = false;
             return;
@@ -131,10 +132,6 @@ public class Options : MonoBehaviour {
     }
     private void OnEnable() {
         firstSelect = true;
-        panels[0].SetActive(true);
-    }
-    private void OnDisable() {
-        lastPanel.SetActive(false);
     }
 }
 

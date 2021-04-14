@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour {
     [SerializeField] private int secondsToStart = 3;
 
     [Header(" - Texts")]
+    [SerializeField] private Mask hideMask;
     [SerializeField] private Slider lifeBar;
     [SerializeField] private Animator startCounterAnimator;
 
@@ -19,6 +20,7 @@ public class HUD : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI starterCounterText;
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI defeatedEnemiesText;
+
 
     //public static event Action addPoints2; // event -> fora da class, pode somente se escrever
     //public static Func<int, string> func; // action with return
@@ -35,17 +37,18 @@ public class HUD : MonoBehaviour {
     private void Awake() {
         Instance = this;
     }
+    public void Init(float roundTime) {
+        time = roundTime;
+        starterCounterText.text = secondsToStart.ToString();
+        startCounterAnimator.Play(Constants.Anim.COUNT);
+    }
+    public void HideHud(bool active) => hideMask.enabled = active;
+
     private void FixedUpdate() {
         if (timePaused)
             return;
 
         UpdateTime();
-    }
-
-    public void Init(float roundTime) {
-        time = roundTime;
-        starterCounterText.text = secondsToStart.ToString();
-        startCounterAnimator.Play(Constants.Anim.COUNT);
     }
 
     private void UpdateTime() {

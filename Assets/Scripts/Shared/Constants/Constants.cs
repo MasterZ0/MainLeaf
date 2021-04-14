@@ -34,6 +34,8 @@ public static class Constants
         public static string ATTACK { get => "Attack"; }
         public static string JUMP { get => "Jump"; }
         public static string DEATH { get => "Death"; }
+        public static string SELECT { get => "Select"; }
+        public static string DESELECT { get => "Deselect"; }
     }
     public static class Tag {
         public static string PLAYER { get => "Player"; }

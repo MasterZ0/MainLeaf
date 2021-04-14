@@ -14,9 +14,10 @@ public class GameController : MonoBehaviour {
     public static Transform Player { get => Instance.player.transform; }
     
     public static GameController Instance { get; private set; }
-
     private void Awake() {
         Instance = this;
+    }
+    private void Start() {
         GameManager.Instance.SetTransitionCallback(OnTransitionOpen);
     }
 

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
     [SerializeField] private Animator animator;
-    [SerializeField] private AIMovement AIMovement;
+    [SerializeField] private AIMovement aiMovement;
     [SerializeField] private MeshCollider sword;
     [SerializeField] private SkinnedMeshRenderer eyes;
     protected override void AwakeEnemy() {
@@ -18,13 +18,13 @@ public class SkeletonWarrior : Enemy {
     protected override void ResetEnemy() {
         // Walk Mode
         enemyState = EnemyState.Patrolling;
-        AIMovement.Patrol(FindedPlayer);
+        aiMovement.Patrol(FindedPlayer);
     }
 
     private void FindedPlayer() {
         // Run Mode
         enemyState = EnemyState.Chasing;
-        AIMovement.ChaseTarget(Attack, () => AIMovement.Patrol(FindedPlayer));
+        aiMovement.ChaseTarget(Attack, () => aiMovement.Patrol(FindedPlayer));
     }
     private void Attack() {
         // Attack
@@ -33,7 +33,7 @@ public class SkeletonWarrior : Enemy {
         sword.enabled = true;
         return;
         animator.SetBool(Constants.Anim.ATTACK, true);
-        AIMovement.CheckTargetDistance();
+        aiMovement.CheckTargetDistance();
         sword.enabled = false;
     }
     protected override void EnemyDeath() {
@@ -47,6 +47,7 @@ public class SkeletonWarrior : Enemy {
     }
 
     private void UpdateAnimations() {
-        animator.SetFloat(Constants.Anim.VELOCITY_Y, AIMovement.Velocity.z);
+        aiMovement.StopAllCoroutines();
+        animator.SetFloat(Constants.Anim.VELOCITY_Y, aiMovement.Velocity.z);
     }
 }

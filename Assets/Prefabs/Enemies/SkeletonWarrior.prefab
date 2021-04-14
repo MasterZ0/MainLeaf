@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 2558286554461118000}
   - component: {fileID: 5737108421343498764}
   m_Layer: 11
-  m_Name: SkeletonWarrior 2
+  m_Name: SkeletonWarrior
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,8 +1276,8 @@ MonoBehaviour:
   deathFx: {fileID: 114358004396844976, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
   disappearFx: {fileID: 11400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   animator: {fileID: 1210024330873283473}
-  AIMovement: {fileID: 5737108421343498764}
-  sword: {fileID: 0}
+  aiMovement: {fileID: 5737108421343498764}
+  sword: {fileID: 2659269086163198984}
   eyes: {fileID: 1210024330869202263}
 --- !u!114 &2558286554461118000
 MonoBehaviour:
@@ -1315,6 +1315,13 @@ MonoBehaviour:
   navMeshAgent: {fileID: 1709829926342539079}
   fieldOfView: {fileID: 2558286554461118000}
   enemyData: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
+  radius: 1
+  distance: 0
+  target: {fileID: 0}
+  whatIsObstacles:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacles: []
 --- !u!1 &1210024330882797629
 GameObject:
   m_ObjectHideFlags: 0

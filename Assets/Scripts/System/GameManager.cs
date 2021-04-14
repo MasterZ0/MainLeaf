@@ -60,7 +60,17 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
 #if !UNITY_EDITOR
         LoadScene(scenes[(int)SceneIndexes.MainMenu]);
 #else
-        OpenFromEditor();
+        if (!Application.isPlaying) {
+            OpenFromEditor();
+        }
+        else {
+            string sceneName = SceneManager.GetActiveScene().name;
+            currentScene = scenes.First(s => s.name == sceneName);
+            foreach (SceneAsset staticScene in currentScene.staticScenes) {
+                loadedStaticScenes.Add(staticScene);
+
+            }
+        }
 #endif
     }
     private void OnValidate() {
@@ -95,6 +105,7 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
 
     #region Scene Manager
     private void LoadScene(ScenePack newScene) {
+        Time.timeScale = 0f;
         loadingOperations.Clear();
 
         LoadDynamicScenes(newScene);
@@ -113,6 +124,20 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
         StartCoroutine(GetSceneLoadProgress());
     }
 
+    private void LoadDynamicScenes(ScenePack newScene) {
+
+        // Descarrega as atuais scenas dinamicas
+        loadingOperations.Add(SceneManager.UnloadSceneAsync(currentScene.scene.name));
+        foreach (SceneAsset dynamicScene in currentScene.dynamicScenes) {
+            loadingOperations.Add(SceneManager.UnloadSceneAsync(dynamicScene.name));
+        }
+
+        // Carregar a cena principal e suas cenas linkadas
+        loadingOperations.Add(SceneManager.LoadSceneAsync(newScene.scene.name, LoadSceneMode.Additive));
+        foreach (SceneAsset dynamicScene in newScene.dynamicScenes) {
+            loadingOperations.Add(SceneManager.LoadSceneAsync(dynamicScene.name, LoadSceneMode.Additive));
+        }
+    }
     private void LoadStaticScenes(ScenePack newScene) {
         // Verifica a lista das cenas estáticas carregas, e remove as que não serão usadas
         for (int i = 0; i < loadedStaticScenes.Count; i++) {
@@ -139,21 +164,6 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
         }
     }
 
-    private void LoadDynamicScenes(ScenePack newScene) {
-
-        // Descarrega as atuais scenas dinamicas
-        loadingOperations.Add(SceneManager.UnloadSceneAsync(currentScene.scene.name));
-        foreach (SceneAsset dynamicScene in currentScene.dynamicScenes) {
-            loadingOperations.Add(SceneManager.UnloadSceneAsync(dynamicScene.name));
-        }
-
-        // Carregar a cena principal e suas cenas linkadas
-        loadingOperations.Add(SceneManager.LoadSceneAsync(newScene.scene.name, LoadSceneMode.Additive));
-        foreach (SceneAsset scene in newScene.dynamicScenes) {
-            loadingOperations.Add(SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive));
-        }
-    }
-
     private IEnumerator GetSceneLoadProgress() {
         for (int i = 0; i < loadingOperations.Count; i++) {
             while (!loadingOperations[i].isDone) {
@@ -168,7 +178,8 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
             }
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene.scene.name));
-        
+        Time.timeScale = 1f;
+
         transitionAnimator.Play(Constants.Anim.FADE_IN);    // load fase
     }
 

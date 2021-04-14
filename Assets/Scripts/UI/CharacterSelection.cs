@@ -10,6 +10,7 @@ public class CharacterSelection : MonoBehaviour {
     [Header("Character Selection")]
     [SerializeField] private IntEvent onConfirm;
     [SerializeField] private UnityEvent onCancel;
+    [SerializeField] private Animator[] characterSelection;
     [SerializeField] private Character[] characters;
 
     [Header(" - Panel")]
@@ -42,8 +43,12 @@ public class CharacterSelection : MonoBehaviour {
         controls.UI.Submit.started += ctx => OnConfirmCharacter();
         controls.UI.Cancel.started += ctx => OnCloseCharacterSeletion();
     }
-    public void Active() {
+    /// <summary>
+    /// Enable character selection controls
+    /// </summary>
+    public void SetActive() { 
         controls.Enable();
+        characterSelection[characterIndex].Play(Constants.Anim.SELECT);
 
         foreach (SelectionColor sc in characters[characterIndex].selection) {
             sc.SetColor(Color.green);
@@ -53,7 +58,10 @@ public class CharacterSelection : MonoBehaviour {
         if (direction == 0)
             return;
 
+        characterSelection[characterIndex].Play(Constants.Anim.DESELECT);
         characterIndex = characterIndex.Navigate(characters.Length, direction > 0);
+        characterSelection[characterIndex].Play(Constants.Anim.SELECT);
+
         for (int i = 0; i < characters.Length; i++) {
             Color color = i == characterIndex ? Color.green : Color.black;
 
@@ -67,6 +75,7 @@ public class CharacterSelection : MonoBehaviour {
         controls.Disable();
         onCancel.Invoke();
 
+        characterSelection[characterIndex].Play(Constants.Anim.DESELECT);
         foreach (SelectionColor sc in characters[characterIndex].selection) {
             sc.SetColor(Color.black);
         }
@@ -74,6 +83,7 @@ public class CharacterSelection : MonoBehaviour {
     private void OnConfirmCharacter() {
         controls.Disable();
         onConfirm.Invoke(characterIndex);
+        characterSelection[characterIndex].Play(Constants.Anim.DESELECT);
         UpdatePanel();
 
         foreach (SelectionColor sc in characters[characterIndex].selection) {
