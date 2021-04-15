@@ -22,10 +22,10 @@ public class GameController : MonoBehaviour {
     }
 
     private void OnTransitionOpen() {
-        HUD.Instance.Init(roundTime);
+        HUD.Instance.StartGame(roundTime);
     }
 
-    public void PlayerDeath() {
+    public void OnPlayerDeath() {
         player.SetControlsActive(false);
 
     }

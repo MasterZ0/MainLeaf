@@ -13,6 +13,13 @@ public class FieldOfView : MonoBehaviour {
     [SerializeField] private LayerMask obstacleMask;
 
     public float ViewRadius { get => viewRadius;  }
+
+    public bool HasTarget() {
+        // target está vivo?
+
+        return false;
+    }
+
     public float ViewAngle { get => viewAngle;  }
         
     private const float delayToSearch = .2f;
@@ -36,11 +43,11 @@ public class FieldOfView : MonoBehaviour {
         for (int i = 0; i < targetsInViewRadius.Length; i++) {
             Transform target = targetsInViewRadius[i].transform;
 
-            Vector3 dirToTarget = (target.position - eye.position).normalized;
-            if (Vector3.Angle(eye.forward, dirToTarget) < viewAngle / 2) { // Está dentro do angulo de visão?
+            Vector3 targetDirection = (target.position - eye.position).normalized;
+            if (Vector3.Angle(eye.forward, targetDirection) < viewAngle / 2) { // Está dentro do angulo de visão?
                 float distToTarget = Vector3.Distance(eye.position, target.position);
 
-                if (!Physics.Raycast(eye.position, dirToTarget, distToTarget, obstacleMask)) { // Se não houver nenhum obstaculo
+                if (!Physics.Raycast(eye.position, targetDirection, distToTarget, obstacleMask)) { // Se não houver nenhum obstaculo
                     findedCallback(target);
                     return true;
                 }

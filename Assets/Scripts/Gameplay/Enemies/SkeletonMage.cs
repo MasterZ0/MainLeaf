@@ -8,7 +8,7 @@ public sealed class SkeletonMage : Enemy {
 
     [Header(" - Config")]
     [SerializeField] private Transform firePoint;
-    [SerializeField] private AIMovement aiMovement;
+    [SerializeField] private AIController aiMovement;
     [SerializeField] private Animator animator;
     [SerializeField] private SkinnedMeshRenderer eyes;
 
@@ -17,13 +17,16 @@ public sealed class SkeletonMage : Enemy {
 
 
     private Transform target;
-
-    protected override void ResetEnemy() {
-
-    }
     private void Start() {
         target = GameController.Player;
     }
+    protected override void OnEnable() {
+        base.OnEnable();
+    }
+    protected override void OnEnablePooledObject() {
+        base.OnEnablePooledObject();
+    }
+    
 
     private void Attack() {
         firePoint.LookAt(target);

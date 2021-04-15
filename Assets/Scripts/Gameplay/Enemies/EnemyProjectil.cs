@@ -11,7 +11,7 @@ public class EnemyProjectil : PooledObject {
     [SerializeField] private Rigidbody rigidbod;
     [SerializeField] private PooledObject impactEffect;
 
-    protected override void StartObject() {
+    protected override void OnEnablePooledObject() {
         rigidbod.isKinematic = false;
         rigidbod.AddForce(transform.forward * (100 * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
     }
@@ -20,10 +20,10 @@ public class EnemyProjectil : PooledObject {
         rigidbod.isKinematic = true;
 
         if (collision.gameObject.CompareTag(Constants.Tag.PLAYER)) {
-            collision.gameObject.GetComponent<PlayerPhysics>().TakeDamage(damage);
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         }
 
         impactEffect.SpawObject(transform.position, Quaternion.identity);
-        ReturnToPool();
+        DesactivePooledObject();
     }
 }

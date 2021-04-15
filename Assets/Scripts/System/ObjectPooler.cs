@@ -8,6 +8,8 @@ public class ObjectPooler : MonoBehaviour
     public Dictionary<string, Queue<PooledObject>> poolDictionary;
 
     public Action reloadAction;
+
+    public event Action OnReloadScene;
     public static ObjectPooler Instance { get; private set; }
 
     private void Awake() {
@@ -54,8 +56,7 @@ public class ObjectPooler : MonoBehaviour
 
         PooledObject newObj = Instantiate(prefab, transform);
         newObj.gameObject.SetActive(false);
-        newObj.queuePool = pool;                // Ele sabe o caminho de casa
-        reloadAction += newObj.OnReloadScene;   // Se inscreveu no reload
+        newObj.QueuePool = pool;                // Ele sabe o caminho de casa
         return newObj;
     }
 }

@@ -2,27 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Opções, ou o objeto já está instanciado na cena, ou ele será instanciado
 public abstract class PooledObject : MonoBehaviour {
 
     [Header("Pooled Object")]
-    [SerializeField] private bool returnToQueue = true;
+    [SerializeField] private bool pooledQueue = true;
+    public bool PooledQueue { get => pooledQueue; set => pooledQueue = value; }
 
-    public Queue<PooledObject> queuePool;
-    protected abstract void StartObject();
-    private bool returned;
+    public Queue<PooledObject> QueuePool { get; set; }
+    protected abstract void OnEnablePooledObject();
+
+    protected virtual void Start() {
+        ObjectPooler.Instance.OnReloadScene += OnReloadScene;
+    }
+
+    protected virtual void OnEnable() {
+        if(pooledQueue)
+            OnEnablePooledObject();
+    }
+    protected virtual void OnDisable() {
+        ReturnToPool();
+    }
 
     public void ActiveObject(Vector3 position, Quaternion rotation) // RECICLE OR SPAW
     {
         transform.position = position;
         transform.rotation = rotation;
-        returned = false;
         gameObject.SetActive(true);
-        StartObject();
     }
 
     public void ActiveObject() {
         gameObject.SetActive(true);
-        StartObject();
+        OnEnablePooledObject();
     }
 
     public PooledObject SpawObject(Vector3 position, Quaternion rotation) { // Get object from pool
@@ -31,22 +42,21 @@ public abstract class PooledObject : MonoBehaviour {
         return obj;
     }
 
-    public void ReturnToPool() {
-        if (!returned) {
-            returned = true;
-            gameObject.SetActive(false);
+    public void DesactivePooledObject() {
+        gameObject.SetActive(false);
+    }
 
-            if (returnToQueue) {
-                if (queuePool == null) {
-                    queuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
-                }
-                queuePool.Enqueue(this);
+    private void ReturnToPool() {
+        if (pooledQueue) {
+            if (QueuePool == null) {
+                QueuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
             }
+            QueuePool.Enqueue(this);
         }
     }
 
-    public void OnReloadScene() {
-        if (returnToQueue && gameObject.activeSelf)
+    private void OnReloadScene() {
+        if (pooledQueue && gameObject.activeSelf)
             ReturnToPool();
     }
 }

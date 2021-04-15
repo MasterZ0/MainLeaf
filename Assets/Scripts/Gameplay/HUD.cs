@@ -26,7 +26,6 @@ public class HUD : MonoBehaviour {
     //public static Func<int, string> func; // action with return
     //public delegate int ExempleDelagate(int points); // Definição
     //public static ExempleDelagate addPoints; // Instancia, pode ser chamada e alterada
-
     public static HUD Instance { get; private set; }
 
     private float time;
@@ -37,11 +36,30 @@ public class HUD : MonoBehaviour {
     private void Awake() {
         Instance = this;
     }
-    public void Init(float roundTime) {
+    #region Init
+    public void StartGame(float roundTime) {
         time = roundTime;
         starterCounterText.text = secondsToStart.ToString();
         startCounterAnimator.Play(Constants.Anim.COUNT);
     }
+
+    public void PlayerSetup(int maxLife) {
+        // Influenciar tamanho da barra?
+    }
+
+    public void OnPlayerDeath() {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateLife(float percentage) {
+        lifeBar.value = percentage;
+        if (percentage <= 0) {
+            GameController.Instance.OnPlayerDeath();
+        }
+    }
+
+    #endregion
+
     public void HideHud(bool active) => hideMask.enabled = active;
 
     private void FixedUpdate() {
@@ -71,12 +89,6 @@ public class HUD : MonoBehaviour {
         totalPoints += enemyPoints;
     }
 
-    public void UpdateLife(float percentage) {
-        lifeBar.value = percentage;
-        if(percentage <= 0) {
-            GameController.Instance.PlayerDeath();
-        }
-    }
 
     public void OnStarterCounterTrigger() {
         secondsToStart--;

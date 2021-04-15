@@ -24,6 +24,10 @@ public class FieldOfViewEditor : Editor {
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleA * fow.ViewRadius);
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleB * fow.ViewRadius);
 
+
+
+        //Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, visionAngle) * visionDirection * visionRange);
+
     }
 
     public Vector3 DirFromAngle(float angleInDegress) {

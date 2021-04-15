@@ -28,7 +28,7 @@ public class SpawnSmoke : PooledObject {
         pointLight.intensity = 0;
 
     }
-    protected override void StartObject() {
+    protected override void OnEnablePooledObject() {
         pointLight.intensity = 0;
         StartCoroutine(Smoke());
     }
@@ -53,7 +53,7 @@ public class SpawnSmoke : PooledObject {
         lightState = LightState.Disappearing;
         yield return new WaitForSeconds(delayToDestroy);
 
-        ReturnToPool();
+        DesactivePooledObject();
     }
 
 }

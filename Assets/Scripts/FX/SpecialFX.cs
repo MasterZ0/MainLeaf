@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpecialFX : PooledObject
 {
-    protected override void StartObject() {
+    protected override void OnEnablePooledObject() {
         throw new System.NotImplementedException();
     }
 }

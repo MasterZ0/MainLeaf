@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 // Responsável por guardar os dados base e receber dano
-public abstract class Enemy : PooledObject {
+public abstract class Enemy : PooledObject, IDamageable {
     [Header("Enemy Config")]
-    [SerializeField] protected EnemyData enemyData;
+    [SerializeField] protected EnemyAttributes enemyData;
     [SerializeField] protected SkinnedMeshRenderer[] skinnedMeshRenderers;
 
     [Header(" - Prefabs")]
@@ -15,12 +16,15 @@ public abstract class Enemy : PooledObject {
     private Material hitMaterial;
 
     private bool isDead;
-    public EnemyState enemyState { get; protected set; }    
+    public EnemyState enemyState { get; protected set; }
+
+    public bool IsDead => throw new NotImplementedException();
+
     private int currentLife;
 
-    private void Awake() => AwakeEnemy();
-    protected virtual void AwakeEnemy() { // Metodo para proteger o Awake desta classe
+    public event Action DeathEvent;
 
+    protected virtual void Awake() {
         hitMaterial = Resources.Load<Material>(Constants.Path.HIT);
 
         defaultMaterials = new Material[skinnedMeshRenderers.Length];
@@ -28,11 +32,9 @@ public abstract class Enemy : PooledObject {
             defaultMaterials[i] = skinnedMeshRenderers[i].material;
         }
     }
-    protected override void StartObject() {
-        currentLife = enemyData.life;
-        ResetEnemy();
+    protected override void OnEnablePooledObject() {
+        currentLife = enemyData.maxLife;
     }
-    protected abstract void ResetEnemy();   // Este metodo é chamado quando o inimigo renascer
     public virtual bool TakeDamage(int damage) {
         currentLife -= damage;
         StartCoroutine(HitMaterial());
@@ -42,6 +44,7 @@ public abstract class Enemy : PooledObject {
         }
         return false;
     }
+    protected abstract void EnemyDeath();   // Animação de morte, desabilitar rb, coroutines, etc...
 
     private void KillEnemy() {
         if (isDead)
@@ -53,11 +56,10 @@ public abstract class Enemy : PooledObject {
         EnemyDeath();
         StartCoroutine(DestroyEnemy());
     }
-    protected abstract void EnemyDeath();   // Animação de morte, desabilitar rb, coroutines, etc...
     private IEnumerator DestroyEnemy() {
         yield return new WaitForSeconds(2);
         disappearFx.SpawObject(transform.position, transform.rotation);
-        ReturnToPool();
+        DesactivePooledObject();
     }
     private IEnumerator HitMaterial() {
         for (int i = 0; i < skinnedMeshRenderers.Length; i++) {

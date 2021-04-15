@@ -1639,8 +1639,8 @@ GameObject:
   - component: {fileID: 3980257347106261033}
   - component: {fileID: 5061369356230544831}
   - component: {fileID: 9193056618883368733}
-  - component: {fileID: 7247538586682175708}
   - component: {fileID: 7247538586682175697}
+  - component: {fileID: 5814430450184944222}
   m_Layer: 11
   m_Name: SkeletonMage
   m_TagString: Enemy
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6923987aa9f29e46b883760a8ec830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnToQueue: 1
+  pooledQueue: 1
   enemyData: {fileID: 11400000, guid: 13504cbddee8a424a8729a5773f714d1, type: 2}
   skinnedMeshRenderers:
   - {fileID: 7247538588385201558}
@@ -1748,25 +1748,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7247538586682175708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7247538588382019830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfea15d5b00791f43bc5411c4141095d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1
-  distance: 1.87
-  target: {fileID: 0}
-  whatIsObstacles:
-    serializedVersion: 2
-    m_Bits: 0
-  obstacles: []
 --- !u!114 &7247538586682175697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,6 +1769,74 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &5814430450184944222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247538588382019830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksPerTick: 500
+  behavior: {fileID: 11400000, guid: 85b4ce3be3f296847b1bd7a5540bb01c, type: 2}
+  paused: 0
+  restartWhenFinished: 0
+  blackboard:
+    intParams: 
+    intParamsNames: []
+    intParamsLostDefaultValue: 
+    boolParams: 
+    boolParamsNames: []
+    boolParamsLostDefaultValue: 
+    floatParams: []
+    floatParamsNames: []
+    floatParamsLostDefaultValue: 
+    stringParams: []
+    stringParamsNames: []
+    stringParamsLostDefaultValue: 
+    colorParams: []
+    colorParamsNames: []
+    colorParamsLostDefaultValue: 
+    objectParams:
+    - {fileID: 0}
+    - {fileID: 0}
+    objectParamsNames:
+    - AIController
+    - Player
+    objectParamsLostDefaultValue: 
+    layerMaskParams: []
+    layerMaskParamsNames: []
+    layerMaskParamsLostDefaultValue: 
+    enumParamsNames: []
+    enumParamsLostDefaultValue: 
+    vector2Params: []
+    vector2ParamsNames: []
+    vector2ParamsLostDefaultValue: 
+    vector3Params: []
+    vector3ParamsNames: []
+    vector3ParamsLostDefaultValue: 
+    vector4Params: []
+    vector4ParamsNames: []
+    vector4ParamsLostDefaultValue: 
+    rectParams: []
+    rectParamsNames: []
+    rectParamsLostDefaultValue: 
+    animationCurveParams: []
+    animationCurveParamsNames: []
+    animationCurveParamsLostDefaultValue: 
+    boundsParams: []
+    boundsParamsNames: []
+    boundsParamsLostDefaultValue: 
+    gradientParams: []
+    gradientParamsNames: []
+    gradientParamsLostDefaultValue: 
+    quaternionParams: []
+    quaternionParamsNames: []
+    quaternionParamsLostDefaultValue: 
 --- !u!1 &7247538588382019832
 GameObject:
   m_ObjectHideFlags: 0

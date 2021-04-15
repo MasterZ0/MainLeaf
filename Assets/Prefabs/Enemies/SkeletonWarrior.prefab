@@ -1172,6 +1172,7 @@ GameObject:
   - component: {fileID: 1709829926342539076}
   - component: {fileID: 2558286554461118000}
   - component: {fileID: 5737108421343498764}
+  - component: {fileID: 1223122685549275883}
   m_Layer: 11
   m_Name: SkeletonWarrior
   m_TagString: Enemy
@@ -1266,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9998c32d7747045b5c961ef7b1833e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnToQueue: 1
+  pooledQueue: 1
   enemyData: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
   skinnedMeshRenderers:
   - {fileID: 1210024330869202261}
@@ -1322,6 +1323,72 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   obstacles: []
+--- !u!114 &1223122685549275883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210024330882797627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksPerTick: 500
+  behavior: {fileID: 11400000, guid: c6d27701328b4c447b7fee87af3af398, type: 2}
+  paused: 0
+  restartWhenFinished: 0
+  blackboard:
+    intParams: 
+    intParamsNames: []
+    intParamsLostDefaultValue: 
+    boolParams: 
+    boolParamsNames: []
+    boolParamsLostDefaultValue: 
+    floatParams: []
+    floatParamsNames: []
+    floatParamsLostDefaultValue: 
+    stringParams: []
+    stringParamsNames: []
+    stringParamsLostDefaultValue: 
+    colorParams: []
+    colorParamsNames: []
+    colorParamsLostDefaultValue: 
+    objectParams:
+    - {fileID: 1709829926342539076}
+    objectParamsNames:
+    - AIController
+    objectParamsLostDefaultValue: 
+    layerMaskParams: []
+    layerMaskParamsNames: []
+    layerMaskParamsLostDefaultValue: 
+    enumParamsNames: []
+    enumParamsLostDefaultValue: 
+    vector2Params: []
+    vector2ParamsNames: []
+    vector2ParamsLostDefaultValue: 
+    vector3Params: []
+    vector3ParamsNames: []
+    vector3ParamsLostDefaultValue: 
+    vector4Params: []
+    vector4ParamsNames: []
+    vector4ParamsLostDefaultValue: 
+    rectParams: []
+    rectParamsNames: []
+    rectParamsLostDefaultValue: 
+    animationCurveParams: []
+    animationCurveParamsNames: []
+    animationCurveParamsLostDefaultValue: 
+    boundsParams: []
+    boundsParamsNames: []
+    boundsParamsLostDefaultValue: 
+    gradientParams: []
+    gradientParamsNames: []
+    gradientParamsLostDefaultValue: 
+    quaternionParams: []
+    quaternionParamsNames: []
+    quaternionParamsLostDefaultValue: 
 --- !u!1 &1210024330882797629
 GameObject:
   m_ObjectHideFlags: 0
