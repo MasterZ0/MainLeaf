@@ -19,7 +19,7 @@ public class ArrowProjectile : PooledObject {
     protected override void OnEnablePooledObject() {
         rigidbod.isKinematic = false;
 
-        rigidbod.AddForce(transform.forward * (100 * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
+        rigidbod.AddForce(transform.forward * (force * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
         source.GenerateImpulse(Camera.main.transform.forward);
     }
     //private void OnTriggerEnter(Collider col) {
@@ -40,7 +40,7 @@ public class ArrowProjectile : PooledObject {
 
         if (collision.gameObject.CompareTag(Constants.Tag.ENEMY)) {
             collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
-            impactEffect.SpawObject(transform.position, transform.rotation);
+            impactEffect.SpawnObject(transform.position, transform.rotation);
             DesactivePooledObject();
         }
         else {

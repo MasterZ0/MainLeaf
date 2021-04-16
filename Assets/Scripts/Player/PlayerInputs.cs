@@ -22,20 +22,34 @@ public class PlayerInputs : MonoBehaviour {
 
     private bool aim;
     private bool sprint;
+    private bool isDead;
     void Start() {
         controls = new Controls();
-        controls.Enable();
         controls.Player.Sprint.performed += OnSprint;
         controls.Player.Jump.started += ctx => OnJump();
         controls.Player.Aim.started += ctx => OnAim(true);
         controls.Player.Aim.canceled += ctx => OnAim(false);
         controls.Player.Fire.started += ctx => OnFire();
-
+        GameController.OnChangeState += OnChangeGameState; 
+        // TODO: Transformar habilidades em Factory
         if(hideMouse)
             Cursor.visible = false;
 
         playerAnimations.Init();
         SetControlsActive(true);
+    }
+    private void OnChangeGameState(GameState gameState) {
+        if (gameState == GameState.Playing) {
+            controls.Enable();
+            return;
+        }
+
+        if (gameState == GameState.PlayerDied) {
+            cameraController.PlayerDeath();
+            playerAnimations.PlayerDeath();
+            isDead = true;
+        }
+        controls.Disable();
     }
 
     public void OnSprint(InputAction.CallbackContext ctx) {
@@ -72,6 +86,9 @@ public class PlayerInputs : MonoBehaviour {
 
 
     void Update() {
+        if (isDead)
+            return;
+
         move = controls.Player.Move.ReadValue<Vector2>();
         look = controls.Player.Look.ReadValue<Vector2>();
 

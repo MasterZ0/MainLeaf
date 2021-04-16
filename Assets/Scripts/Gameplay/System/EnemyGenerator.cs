@@ -16,22 +16,34 @@ public class EnemyGenerator : MonoBehaviour {
     [SerializeField] [Range(0, 1)] private float chanceToSpawnClosePlayer;
 
     [Header(" - Config ")]
+    [SerializeField] private Transform player;
     [SerializeField] private SpawnSmoke spawSmoke;
     [SerializeField] private Enemy[] enemies;
     [SerializeField] private Transform[] spawPoints;
 
-    private Transform player;
     private NativeArray<float3> spawPointsPos;
     private float time = 1;
+    private bool spawEnemies;
     private void Start() {
-        player = GameController.Player;
+        GameController.OnChangeState += OnChangeState;
         spawPointsPos = new NativeArray<float3>(spawPoints.Length, Allocator.Persistent);
         for (int i = 0; i < spawPoints.Length; i++) {
             spawPointsPos[i] = spawPoints[i].position;
         }
     }
 
+    private void OnChangeState(GameState gameState) {
+        spawEnemies = gameState == GameState.Playing;
+        if(gameState == GameState.Win) {
+            // Kill Everybody
+        }
+    }
+    
+
     private void Update() {
+        if (!spawEnemies)
+            return;
+
         time -= Time.deltaTime;
         if(time <= 0) {
             time = spawFrequency;
@@ -112,7 +124,7 @@ public class EnemyGenerator : MonoBehaviour {
 
         print(spawPointsPos[0] + " " + findPosition.result);
         //<<<< MELHORAR METHODO
-        SpawnSmoke smoke = spawSmoke.SpawObject(findPosition.result, Quaternion.identity).GetComponent<SpawnSmoke>();  
+        SpawnSmoke smoke = spawSmoke.SpawnObject(findPosition.result, Quaternion.identity).GetComponent<SpawnSmoke>();  
         smoke.Callback = OnSpaw;
 
         spawPointsPos.Dispose();
@@ -121,7 +133,7 @@ public class EnemyGenerator : MonoBehaviour {
 
     public void OnSpaw(Vector3 position) {
         int random = UnityEngine.Random.Range(0, enemies.Length);
-        PooledObject enemy = enemies[random].SpawObject(position, Quaternion.identity);
+        PooledObject enemy = enemies[random].SpawnObject(position, Quaternion.identity);
         enemy.transform.LookAt(player);
     }
 

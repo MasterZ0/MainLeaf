@@ -1,19 +1,20 @@
-using Pada1.BBCore;
-using Pada1.BBCore.Framework;
-using Pada1.BBCore.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-[Action("Game/RunAway")]
-public class RunAway : BasePrimitiveAction {
+namespace AI {
+    public class RunAway {
 
-    public override void OnStart() {
-        base.OnStart();
+        //public override void OnStart() {
+        //    base.OnStart();
+        //}
+
+        //public override TaskStatus OnUpdate() {
+        //    // Find Oposite Point
+        //    // Find Random point
+        //    return TaskStatus.RUNNING;
+        //}
     }
 
-    public override TaskStatus OnUpdate() {
-        return TaskStatus.RUNNING;
-    }
 }

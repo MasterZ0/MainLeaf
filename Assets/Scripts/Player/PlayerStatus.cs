@@ -12,14 +12,14 @@ public abstract class PlayerStatus : MonoBehaviour, IDamageable {
 
     public bool IsDead { get; private set; }
 
-    public event Action DeathEvent;
-    public event Action<float> TakeDamageEvent;
+    public event Action DeathEvent = delegate { };
+    public event Action<int> OnUpdateAmmo = delegate { };
+    public event Action<float> TakeDamageEvent = delegate { }; //  Percentage
+
 
     private void Start() {
-        DeathEvent += GameController.Instance.OnPlayerDeath;
-        DeathEvent += HUD.Instance.OnPlayerDeath;
-        TakeDamageEvent += HUD.Instance.UpdateLife;
-        HUD.Instance.PlayerSetup(playerData.maxLife);
+        DeathEvent += () => GameController.SetGameState(GameState.PlayerDied);
+        HUD.SetupPlayer(playerData.maxLife, ref TakeDamageEvent, OnUpdateAmmo);
         currentLife = playerData.maxLife;
     }
 
@@ -29,8 +29,7 @@ public abstract class PlayerStatus : MonoBehaviour, IDamageable {
             DeathEvent();            
             return true;
         }
-        TakeDamageEvent(currentLife / playerData.maxLife); // ex: 100 / 200 = .5%
+        TakeDamageEvent.Invoke((float)currentLife / playerData.maxLife); // ex: 100 / 200 = .5%
         return false;
     }
-
 }

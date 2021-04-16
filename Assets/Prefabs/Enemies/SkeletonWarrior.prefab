@@ -1210,7 +1210,7 @@ Animator:
   m_GameObject: {fileID: 1210024330882797627}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7277fe458c98528478a9a17164dedb9a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 37594f01984414613b3ba897e300f3e9, type: 2}
+  m_Controller: {fileID: 9100000, guid: a232a997013c11443b978268f7c03c33, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledQueue: 1
-  enemyData: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
+  enemyAttributes: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
   skinnedMeshRenderers:
   - {fileID: 1210024330869202261}
   - {fileID: 1210024330869202263}
@@ -1313,9 +1313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c327251e949b5247a1c779559ecfa15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 1709829926342539079}
-  fieldOfView: {fileID: 2558286554461118000}
-  enemyData: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
   radius: 1
   distance: 0
   target: {fileID: 0}
@@ -1323,6 +1320,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   obstacles: []
+  fieldOfView: {fileID: 2558286554461118000}
+  currentSpeed: 0
+  timeStopped: 2
+  isChasing: 0
 --- !u!114 &1223122685549275883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,8 +1358,10 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 1709829926342539076}
+    - {fileID: 0}
     objectParamsNames:
     - AIController
+    - Player
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []

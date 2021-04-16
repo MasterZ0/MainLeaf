@@ -1,0 +1,126 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.2f1 (e5d502d80fbb) revision 15062274'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 18362.476; Version 1903; 64bit' Language: 'pt' Physical Memory: 16250 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Games/Zero3/Unity/MainLeaf
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54570
+Successfully changed project path to: D:/Games/Zero3/Unity/MainLeaf
+D:/Games/Zero3/Unity/MainLeaf
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 227.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.2f1 (e5d502d80fbb)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Games/Zero3/Unity/MainLeaf/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c8c)
+    Vendor:   NVIDIA
+    VRAM:     4018 MB
+    Driver:   23.21.13.9125
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56868
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003820 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 236.14 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.169 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006099 seconds.
+Begin MonoManager ReloadAssembly
+Unloading broken assembly Library/ScriptAssemblies/Assembly-CSharp-Editor.dll, this assembly can cause crashes in the runtime
+
+Unloading broken assembly Library/ScriptAssemblies/Assembly-CSharp.dll, this assembly can cause crashes in the runtime
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 391.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+NoiseLib::GatherNoiseTypes: Failed to get types from assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GatherNoiseTypes () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:306)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GenerateHeaderFiles () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:577)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:.cctor () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:40)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs Line: 306)
+
+NoiseLib::GatherNoiseTypes: Failed to get types from assembly: Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GatherNoiseTypes () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:306)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GenerateHeaderFiles () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:577)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:.cctor () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:40)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs Line: 306)
+
+NoiseLib::GatherFractalTypes: Failed to get types from assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GatherFractalTypes () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:355)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GenerateHeaderFiles () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:578)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:.cctor () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:40)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs Line: 355)
+
+NoiseLib::GatherFractalTypes: Failed to get types from assembly: Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GatherFractalTypes () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:355)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:GenerateHeaderFiles () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:578)
+UnityEditor.Experimental.TerrainAPI.NoiseLib:.cctor () (at Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs:40)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/NoiseLib/API/NoiseLib.cs Line: 355)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.619 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 2.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4654 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 258.5 MB.
+System memory in use after: 258.6 MB.
+
+Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 5175.
+Total: 6.711900 ms (FindLiveObjects: 0.591600 ms CreateObjectMapping: 0.686900 ms MarkObjects: 5.180600 ms  DeleteObjects: 0.250200 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

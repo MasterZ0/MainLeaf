@@ -5,24 +5,23 @@ using UnityEngine;
 // Responsável por guardar os dados base e receber dano
 public abstract class Enemy : PooledObject, IDamageable {
     [Header("Enemy Config")]
-    [SerializeField] protected EnemyAttributes enemyData;
+    [SerializeField] protected EnemyAttributes enemyAttributes;
     [SerializeField] protected SkinnedMeshRenderer[] skinnedMeshRenderers;
 
     [Header(" - Prefabs")]
     [SerializeField] protected PooledObject deathFx;
     [SerializeField] protected PooledObject disappearFx;
 
+    public EnemyState enemyState { get; protected set; }
+    public EnemyAttributes EnemyAttributes { get => enemyAttributes; }
+    public bool IsDead { get; private set; }
+
     private Material[] defaultMaterials;
     private Material hitMaterial;
 
-    private bool isDead;
-    public EnemyState enemyState { get; protected set; }
-
-    public bool IsDead => throw new NotImplementedException();
-
     private int currentLife;
 
-    public event Action DeathEvent;
+    public static event Action<Enemy> OnEnemyDeath = delegate { };
 
     protected virtual void Awake() {
         hitMaterial = Resources.Load<Material>(Constants.Path.HIT);
@@ -33,34 +32,27 @@ public abstract class Enemy : PooledObject, IDamageable {
         }
     }
     protected override void OnEnablePooledObject() {
-        currentLife = enemyData.maxLife;
+        currentLife = enemyAttributes.maxLife;
     }
     public virtual bool TakeDamage(int damage) {
         currentLife -= damage;
-        StartCoroutine(HitMaterial());
         if(currentLife <= 0) {
             KillEnemy();
             return true;
         }
+        StartCoroutine(HitMaterial());
         return false;
     }
-    protected abstract void EnemyDeath();   // Animação de morte, desabilitar rb, coroutines, etc...
-
     private void KillEnemy() {
-        if (isDead)
-            return;
-
-        isDead = true;
-        deathFx.SpawObject(transform.position, transform.rotation);
-        HUD.Instance.AddPoints(enemyData.points);
+        IsDead = true;
+        gameObject.layer = Constants.Layer.INVINCIBLE;
+        deathFx.SpawnObject(transform.position, transform.rotation);
+        OnEnemyDeath.Invoke(this);
         EnemyDeath();
         StartCoroutine(DestroyEnemy());
     }
-    private IEnumerator DestroyEnemy() {
-        yield return new WaitForSeconds(2);
-        disappearFx.SpawObject(transform.position, transform.rotation);
-        DesactivePooledObject();
-    }
+    protected abstract void EnemyDeath();   // Animação de morte, desabilitar rb, coroutines, etc...    
+   
     private IEnumerator HitMaterial() {
         for (int i = 0; i < skinnedMeshRenderers.Length; i++) {
             skinnedMeshRenderers[i].material = hitMaterial;
@@ -71,14 +63,9 @@ public abstract class Enemy : PooledObject, IDamageable {
             skinnedMeshRenderers[i].material = defaultMaterials[i];
         }
     }
-}
-public enum EnemyState {
-    Begin,
-    Patrolling,     // Patrulhar
-    Chasing,        // Corre atrás do player
-    Attacking,      // Attack
-    RunAway,        // Mago - corre do player
-    FindPosition,   // Mago - tenta encontra posição
-    Dead,           // Inimigo Morreu
-    Victory,        // Player morreu
+    private IEnumerator DestroyEnemy() {
+        yield return new WaitForSeconds(2);
+        disappearFx.SpawnObject(transform.position, transform.rotation);
+        DesactivePooledObject();
+    }
 }

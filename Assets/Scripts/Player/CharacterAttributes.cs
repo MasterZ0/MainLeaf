@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Character Data", menuName = "Scriptable Objects/Character Data", order = 0)]
 public class CharacterAttributes : ScriptableObject {
 
     public int maxLife;         // Resistence
-    public int moveSpeed;       // Agility
+    public float moveSpeed;       // Agility
 
     public int attackDamage;    // Physical
     public int abilityPower;    // Magic (Damage/Support)

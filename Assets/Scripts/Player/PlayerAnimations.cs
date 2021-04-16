@@ -33,7 +33,7 @@ public class PlayerAnimations : MonoBehaviour {
         //int fire = Animator.StringToHash(Constants.Anim.FIRE);
 
         damageable = GetComponent<IDamageable>();
-        damageable.DeathEvent += OnDamage;
+        //damageable.DeathEvent += OnDamage;
     }
 
     void OnDamage() {
@@ -69,6 +69,11 @@ public class PlayerAnimations : MonoBehaviour {
             character.localRotation = playerRotation;
         }
     }
+
+    public void PlayerDeath() {
+        animator.SetTrigger(Constants.Anim.DEATH);
+    }
+
     public void Jump() {
         animator.SetTrigger(Constants.Anim.JUMP);
     }
@@ -116,10 +121,10 @@ public class PlayerAnimations : MonoBehaviour {
         bool successful = Physics.Raycast(aimCamera.position, aimCamera.forward, out RaycastHit hit, arrowMaxDistance, whatIsHittable);
         if (successful) {
             firePoint.LookAt(hit.point);
-            arrowPrefab.SpawObject(firePoint.position, firePoint.rotation);
+            arrowPrefab.SpawnObject(firePoint.position, firePoint.rotation);
         }
         else {
-            arrowPrefab.SpawObject(firePoint.position, defaultRotation);
+            arrowPrefab.SpawnObject(firePoint.position, defaultRotation);
         }
     }
 
@@ -144,7 +149,7 @@ public class PlayerAnimations : MonoBehaviour {
 
     private void OnDestroy() {
         if(damageable != null) {
-            damageable.DeathEvent -= OnDamage;
+            //damageable.DeathEvent -= OnDamage;
         }
     }
 

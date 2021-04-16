@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class Options : MonoBehaviour {
 
     [Header("Options")]
-    public GameObject externalPanel;
+    //public GameObject externalPanel;
+    public GameObject[] panels;
     public Button controlsTab;
     //public AudioMixer audioMixer;
     public Slider musicSlider, sfxSlider, voiceSlider;
@@ -23,7 +24,8 @@ public class Options : MonoBehaviour {
     private GameObject lastPanel;
     private Action onCloseCallback;
     private bool firstSelect;
-    private static Options Instance { get; set; } 
+    private static Options Instance { get; set; }
+
     public void Awake() {
         Instance = this;
 
@@ -44,18 +46,19 @@ public class Options : MonoBehaviour {
         voiceTMP.text = $"{(volume + 80) * 1.25f}%";
     }
 
-    public static void OpenOption(Action closeCallback) {
-        Instance.onCloseCallback = closeCallback;
-        Instance.Open();
+    public static void OpenOption(Action closeCallback) => Instance.Open(closeCallback);    
+
+    private void Open(Action closeCallback) {
+        onCloseCallback = closeCallback;
+        gameObject.SetActive(true);
+        controlsTab.Select();
+        firstSelect = true;
     }
 
-    private void Open() {
-        externalPanel.SetActive(true);
-        controlsTab.Select();
-    }
+    #region Buttons Event 
     public void OnCloseOptions() {
         // lastPanel.SetActive(false);
-        externalPanel.SetActive(false);
+        gameObject.SetActive(false);
         onCloseCallback();
     }
 
@@ -130,9 +133,8 @@ public class Options : MonoBehaviour {
         firstSelect = true;
         //sfxAudioManager.Play(sfxName);
     }
-    private void OnEnable() {
-        firstSelect = true;
-    }
+
+    #endregion
 }
 
 /*

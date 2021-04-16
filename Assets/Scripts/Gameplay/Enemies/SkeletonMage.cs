@@ -5,37 +5,40 @@ using UnityEngine;
 
 public sealed class SkeletonMage : Enemy {
     [Header("Skeleton Mage")]
-
-    [Header(" - Config")]
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private AIController aiMovement;
+    [SerializeField] private AIController aiController;
     [SerializeField] private Animator animator;
     [SerializeField] private SkinnedMeshRenderer eyes;
+    [SerializeField] private Transform[] firePoint;
 
     [Header(" - Prefab")]
     [SerializeField] private PooledObject fireball;
 
+    private int attack;
+    private Vector3 targetPosition;
 
-    private Transform target;
-    private void Start() {
-        target = GameController.Player;
-    }
-    protected override void OnEnable() {
-        base.OnEnable();
+    protected override void Awake() {
+        base.Awake();
+        aiController.OnAttack += OnAttack;
+        aiController.Init(enemyAttributes);
     }
     protected override void OnEnablePooledObject() {
         base.OnEnablePooledObject();
     }
-    
-
-    private void Attack() {
-        firePoint.LookAt(target);
-        fireball.SpawObject(firePoint.position, firePoint.rotation);
+    private void FixedUpdate() {
+        float moveSpeed = enemyAttributes.sprintSpeed / aiController.Velocity.magnitude;
+        animator.SetFloat(Constants.Anim.MOVE_SPEED, moveSpeed);
+    }
+    private void OnAttack() {
+        attack = UnityEngine.Random.Range(0, 2);
+        animator.SetInteger(Constants.Anim.ATTACK, attack);
+        firePoint[attack].LookAt(aiController.target.position);
+    }
+    public void OnSpawnFireball() {
+        animator.SetInteger(Constants.Anim.ATTACK, -1);        
+        fireball.SpawnObject(firePoint[attack].position, firePoint[attack].rotation);
     }
     protected override void EnemyDeath() {
         animator.SetTrigger(Constants.Anim.DEATH);
         eyes.material.color = Color.clear;
     }
-
-    
 }

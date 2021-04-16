@@ -4,31 +4,31 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(AIController))]
+[CustomEditor(typeof(FieldOfView))]
 public class AIMovementEditor : Editor {
 
     Transform transform;
-    AIController aiMovement;
+    FieldOfView fieldOfView;
 
     private const float visualizeRadius = 2;
     private void OnEnable() {
-        aiMovement = target as AIController;
-        transform = aiMovement.transform;
+        fieldOfView = target as FieldOfView;
+        transform = fieldOfView.transform;
     }
     private void OnSceneGUI() {
         // Block from radius -> 32 = .96875f, 16 = .9375f, 8 = .875f
 
         Handles.color = Color.white;
         Handles.DrawWireArc(transform.position, Vector3.up, Vector3.forward, 360, visualizeRadius);
-        if (aiMovement.target == null)
+        if (fieldOfView.Target == null)
             return;
 
         Handles.color = Color.yellow;
-        Handles.DrawLine(transform.position, PlaceOnRadius(aiMovement.target.position));
+        Handles.DrawLine(transform.position, PlaceOnRadius(fieldOfView.Target.position));
         Handles.color = Color.green;
 
 
-        Vector3[] intencities = aiMovement.Intensity();
+        Vector3[] intencities = fieldOfView.Intensity();
         Vector3 maxIntencity = Vector3.right;
         foreach (Vector3 intencity in intencities) {
             if (maxIntencity.magnitude < intencity.magnitude) {

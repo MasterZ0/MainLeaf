@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &438116731509376242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8413957291821493158}
+  m_Layer: 0
+  m_Name: FirePoint 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8413957291821493158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438116731509376242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.458, y: 0.53, z: 1.492}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7247538588382256278}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3077769935475258428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3804122267680553396}
+  m_Layer: 0
+  m_Name: FirePoint 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3804122267680553396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077769935475258428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.187, y: 0.034, z: 1.497}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7247538588382256278}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4443947691166559680
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7247538588382019720}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7247538588382256278}
@@ -1639,8 +1699,9 @@ GameObject:
   - component: {fileID: 3980257347106261033}
   - component: {fileID: 5061369356230544831}
   - component: {fileID: 9193056618883368733}
-  - component: {fileID: 7247538586682175697}
+  - component: {fileID: 5254730419663780810}
   - component: {fileID: 5814430450184944222}
+  - component: {fileID: 7247538586682175697}
   m_Layer: 11
   m_Name: SkeletonMage
   m_TagString: Enemy
@@ -1664,6 +1725,8 @@ Transform:
   - {fileID: 7247538588382256348}
   - {fileID: 7247538588382256318}
   - {fileID: 7076185064781355962}
+  - {fileID: 3804122267680553396}
+  - {fileID: 8413957291821493158}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -1677,7 +1740,7 @@ Animator:
   m_GameObject: {fileID: 7247538588382019830}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 93cd09d2f59607a498d9fe1871b5f6a7, type: 3}
-  m_Controller: {fileID: 22100000, guid: 0341c2063d5404e388b8180fa8e4f7cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 89bea4fe4ad492145992ed5c2f8f9bc3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1707,25 +1770,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7247538588382019830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6923987aa9f29e46b883760a8ec830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pooledQueue: 1
-  enemyData: {fileID: 11400000, guid: 13504cbddee8a424a8729a5773f714d1, type: 2}
+  enemyAttributes: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
   skinnedMeshRenderers:
   - {fileID: 7247538588385201558}
   - {fileID: 7247538588385201552}
   - {fileID: 7247538588385201556}
-  deathFx: {fileID: 0}
-  disappearFx: {fileID: 0}
-  firePoint: {fileID: 0}
-  aiMovement: {fileID: 0}
-  animator: {fileID: 0}
-  eyes: {fileID: 0}
-  fireball: {fileID: 8242416526201526921, guid: 16df5ca33880bf7409922364f4bdcc3d,
-    type: 3}
+  deathFx: {fileID: 114358004396844976, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
+  disappearFx: {fileID: 11400004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  aiController: {fileID: 5254730419663780810}
+  animator: {fileID: 7247538588389421908}
+  eyes: {fileID: 7247538588385201552}
+  firePoint:
+  - {fileID: 0}
+  fireball: {fileID: 332208419175519520, guid: 96d94cd0019013841ad87cc57b399568, type: 3}
 --- !u!195 &9193056618883368733
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1748,7 +1811,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7247538586682175697
+--- !u!114 &5254730419663780810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1757,18 +1820,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7247538588382019830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466e53f8c48ef3e44991fe9fdc9a1f67, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c327251e949b5247a1c779559ecfa15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 15
-  viewAngle: 75
-  eye: {fileID: 7076185064781355962}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
+  fieldOfView: {fileID: 7247538586682175697}
+  timeStopped: 2
 --- !u!114 &5814430450184944222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,8 +1848,10 @@ MonoBehaviour:
     boolParams: 
     boolParamsNames: []
     boolParamsLostDefaultValue: 
-    floatParams: []
-    floatParamsNames: []
+    floatParams:
+    - 2
+    floatParamsNames:
+    - TargetMemoryDuration
     floatParamsLostDefaultValue: 
     stringParams: []
     stringParamsNames: []
@@ -1802,11 +1860,9 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 5254730419663780810}
     objectParamsNames:
     - AIController
-    - Player
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -1837,6 +1893,28 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
+--- !u!114 &7247538586682175697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247538588382019830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466e53f8c48ef3e44991fe9fdc9a1f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 15
+  viewAngle: 75
+  eye: {fileID: 7076185064781355962}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacles: []
 --- !u!1 &7247538588382019832
 GameObject:
   m_ObjectHideFlags: 0

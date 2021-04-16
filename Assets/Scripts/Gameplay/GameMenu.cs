@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,24 +11,31 @@ public class GameMenu : MonoBehaviour {
     [SerializeField] private GameObject gameMenuPanel;
     [SerializeField] private Button resumeBtn;
 
-    private Controls controls;
+    private static Controls controls;
+    public static event Action<bool> OnPause;
 
     private bool paused;
-    void Start()
-    {
+    void Start() {
         controls = new Controls();
-        controls.UI.Start.performed += ctx => OnPause();
-        controls.Enable();
+        controls.UI.Start.performed += ctx => OnPressPause();
     }
     private void OnDisable() => controls.Disable();
+    public static void SetActive(bool active) {
+        if (active) {
+            controls.Enable();
+        }
+        else {
+            controls.Disable();
+        }
+    }
 
-    private void OnPause() {
+    private void OnPressPause() {
         if (paused)
             return;
 
         paused = true;
         Time.timeScale = 0f;
-        HUD.Instance.HideHud(true);
+        OnPause.Invoke(true);
         gameMenuPanel.SetActive(true);
         StartCoroutine(DelaySelect());
     }
@@ -39,7 +47,7 @@ public class GameMenu : MonoBehaviour {
     public void OnResume(bool confirm) {
         EventSystem.current.SetSelectedGameObject(null);
 
-        HUD.Instance.HideHud(false);
+        OnPause.Invoke(false);
         gameMenuPanel.SetActive(false);
         Time.timeScale = 1f;
         paused = false;

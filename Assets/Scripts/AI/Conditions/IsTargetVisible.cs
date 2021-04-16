@@ -1,23 +1,22 @@
-using BBUnity.Conditions;
-using Pada1.BBCore;
-using UnityEngine;
 
-[Condition("Game/Perception/IsTargetVisible")]
-public class IsTargetVisible : GOCondition {
+namespace AI {
+    public class IsTargetVisible {
 
-    [InParam("AIController")]
-    private FieldOfView fieldOfView;
+        //[InParam("AIController")]
+        //private AIController aiController;
 
-    [InParam("TargetMemoryDuration")]
-    private float targetMemoryDuration;
-    private float forgetTargetTime;
+        //[InParam("TargetMemoryDuration")]
+        //private float targetMemoryDuration;
+        //private float forgetTargetTime;
 
-    public override bool Check() {
+        //public override bool Check() {
 
-        if (fieldOfView.HasTarget()) {
-            forgetTargetTime = Time.time + targetMemoryDuration;
-            return true;
-        }
-        return Time.time < forgetTargetTime;
+        //    if (aiController.HasTarget()) {
+        //        forgetTargetTime = Time.time + targetMemoryDuration;
+        //        return true;
+        //    }
+        //    return Time.time < forgetTargetTime;
+        //}
     }
+
 }

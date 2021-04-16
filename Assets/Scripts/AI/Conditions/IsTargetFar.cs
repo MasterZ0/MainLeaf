@@ -1,13 +1,13 @@
-using BBUnity.Conditions;
-using Pada1.BBCore;
 
-[Condition("Game/Perception/IsTargetFar")]
-public class IsTargetFar : GOCondition {
+namespace AI {
+    public class IsTargetFar {
 
-    [InParam("AIController")]
-    private AIController aiController;
+        //[InParam("AIController")]
+        //private AIController aiController;
 
-    public override bool Check() {
-        return aiController.TargetIsClose();
+        //public override bool Check() {
+        //    return aiController.TargetClose();
+        //}
     }
+
 }

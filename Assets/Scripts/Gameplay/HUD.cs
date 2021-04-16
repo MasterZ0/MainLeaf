@@ -5,14 +5,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUD : MonoBehaviour {
-    [Header("HUD")]
-    [SerializeField] private int secondsToStart = 3;
 
-    [Header(" - Texts")]
+public class HUD : MonoBehaviour {
+
+    [Header(" - Config")]
     [SerializeField] private Mask hideMask;
     [SerializeField] private Slider lifeBar;
     [SerializeField] private Animator startCounterAnimator;
+
+    [Header(" - Screens")]
+    [SerializeField] private GameObject gameScreen;
+    [SerializeField] private GameObject resultScreen;
+    [SerializeField] private GameObject deathScreen;
+
+    [SerializeField] private Button replayBtn;
+    [SerializeField] private Button playAgainBtn;
 
     [Header(" - Texts")]
     [SerializeField] private TextMeshProUGUI ammoCountText;
@@ -21,46 +28,53 @@ public class HUD : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI defeatedEnemiesText;
 
-
-    //public static event Action addPoints2; // event -> fora da class, pode somente se escrever
-    //public static Func<int, string> func; // action with return
-    //public delegate int ExempleDelagate(int points); // Definição
-    //public static ExempleDelagate addPoints; // Instancia, pode ser chamada e alterada
-    public static HUD Instance { get; private set; }
+    private static HUD Instance;
 
     private float time;
+    private int secondsToStart;
     private int defeatedEnemies;
     private int totalPoints;
     private bool timePaused = true;
 
+    #region Init
     private void Awake() {
         Instance = this;
+        Enemy.OnEnemyDeath += UpdateScore;
+        GameMenu.OnPause += HideHud;
+        GameController.OnChangeState += OnChangeGameState;
     }
-    #region Init
-    public void StartGame(float roundTime) {
+    public static void SetupGameController(float roundTime, int secondsToStart) {
+        Instance.StartGame(roundTime, secondsToStart);
+    }
+    public static void SetupPlayer(int maxLife, ref Action<float> updateLife, Action<int> updateAmmoCount) {
+        Instance.SetupPlayerd(maxLife, ref updateLife, updateAmmoCount);
+    }
+    private void SetupPlayerd(int maxLife, ref Action<float> updateLife, Action<int> updateAmmoCount) {
+        // max life influencia no tamanho da barra
+        updateLife += UpdateLife;
+        updateAmmoCount += UpdateAmmoCount;
+    }
+
+    private void StartGame(float roundTime, int _secondsToStart) {
         time = roundTime;
+        secondsToStart = _secondsToStart;
         starterCounterText.text = secondsToStart.ToString();
         startCounterAnimator.Play(Constants.Anim.COUNT);
     }
 
-    public void PlayerSetup(int maxLife) {
-        // Influenciar tamanho da barra?
-    }
+    private void HideHud(bool hide) => hideMask.enabled = hide;
 
-    public void OnPlayerDeath() {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateLife(float percentage) {
-        lifeBar.value = percentage;
-        if (percentage <= 0) {
-            GameController.Instance.OnPlayerDeath();
+    
+    private void OnChangeGameState(GameState gameState) {
+        if (gameState == GameState.PlayerDied) {
+            DeathScreen();
         }
+    }
+    private void UpdateLife(float percentage) {
+        lifeBar.value = percentage;
     }
 
     #endregion
-
-    public void HideHud(bool active) => hideMask.enabled = active;
 
     private void FixedUpdate() {
         if (timePaused)
@@ -76,19 +90,38 @@ public class HUD : MonoBehaviour {
         timerText.text = displayTime;
 
         if(time <= 0) {
-            EndGame();
+            timePaused = true;
+            Victory();
         }
     }
 
-    private void EndGame() {
+    private void Victory() {
+        GameController.SetGameState(GameState.Win);
+
         pointsText.text = totalPoints.ToString();
         defeatedEnemiesText.text = defeatedEnemies.ToString();
-    }
-    public void AddPoints(int enemyPoints) {
-        defeatedEnemies++;
-        totalPoints += enemyPoints;
+
+        gameScreen.SetActive(false);
+        resultScreen.SetActive(true);
+        playAgainBtn.Select();
+        GameMenu.SetActive(false);
     }
 
+    private void DeathScreen() {
+        gameScreen.SetActive(false);
+        deathScreen.SetActive(true);
+        replayBtn.Select();
+        GameMenu.SetActive(false);
+    }
+
+    private void UpdateScore(Enemy enemy) {
+        defeatedEnemies++;
+        totalPoints += enemy.EnemyAttributes.points;
+    }
+
+    private void UpdateAmmoCount(int ammo) {
+        ammoCountText.text = $"{ammo} x";
+    }
 
     public void OnStarterCounterTrigger() {
         secondsToStart--;
@@ -99,12 +132,12 @@ public class HUD : MonoBehaviour {
             starterCounterText.text = "GO!";
             startCounterAnimator.Play(Constants.Anim.START);
             timePaused = false;
-            GameController.Instance.StartGame();
+            GameController.SetGameState(GameState.Playing);
         }
-
     }
-
-    public void UpdateAmmoCount(int ammo) {
-        ammoCountText.text = $"{ammo} x";
+    private void OnDestroy() {
+        Enemy.OnEnemyDeath -= UpdateScore;
+        GameMenu.OnPause -= HideHud;
+        GameController.OnChangeState -= OnChangeGameState;
     }
 }

@@ -1,36 +1,24 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class GameController : MonoBehaviour {
-    [Header("Game Controller")]
 
+    [SerializeField] private int secondsToStart = 3;
     [SerializeField] private float roundTime = 180;
 
-    [Header(" - Config")]
-    [SerializeField] private PlayerInputs player;
-    public static Transform Player { get => Instance.player.transform; }
-    
-    public static GameController Instance { get; private set; }
+    public static event Action<GameState> OnChangeState = delegate { };
     private void Awake() {
-        Instance = this;
+        SetGameState(GameState.Initializing);
     }
     private void Start() {
         GameManager.Instance.SetTransitionCallback(OnTransitionOpen);
     }
 
     private void OnTransitionOpen() {
-        HUD.Instance.StartGame(roundTime);
+        HUD.SetupGameController(roundTime, secondsToStart);
     }
 
-    public void OnPlayerDeath() {
-        player.SetControlsActive(false);
-
-    }
-
-    public void StartGame() {
-        player.SetControlsActive(true);
+    public static void SetGameState(GameState gameState) {
+        OnChangeState.Invoke(gameState);
     }
 }

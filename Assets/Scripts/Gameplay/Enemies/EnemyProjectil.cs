@@ -13,7 +13,7 @@ public class EnemyProjectil : PooledObject {
 
     protected override void OnEnablePooledObject() {
         rigidbod.isKinematic = false;
-        rigidbod.AddForce(transform.forward * (100 * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
+        rigidbod.AddForce(transform.forward * (force * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
     }
 
     public void OnCollisionEnter(Collision collision) {
@@ -23,7 +23,18 @@ public class EnemyProjectil : PooledObject {
             collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         }
 
-        impactEffect.SpawObject(transform.position, Quaternion.identity);
+        impactEffect.SpawnObject(transform.position, Quaternion.identity);
+        DesactivePooledObject();
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        rigidbod.isKinematic = true;
+
+        if (other.CompareTag(Constants.Tag.PLAYER)) {
+            other.GetComponent<IDamageable>().TakeDamage(damage);
+        }
+
+        impactEffect.SpawnObject(transform.position, Quaternion.identity);
         DesactivePooledObject();
     }
 }

@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour {    // Controla a camera
     [SerializeField] private GameObject standardCamera;
     [SerializeField] private GameObject aimCamera;
     [SerializeField] private GameObject sprintCamera;
+    [SerializeField] private GameObject deathCamera;
 
     private float xRotation = 0f;
     public void UpdateCameraRotation(float lookY) {
@@ -45,5 +46,9 @@ public class CameraController : MonoBehaviour {    // Controla a camera
     {
         yield return new WaitForSeconds(0.25f);
         aimReticle.SetActive(enabled);
+    }
+
+    public void PlayerDeath() {
+        deathCamera.SetActive(true);
     }
 }

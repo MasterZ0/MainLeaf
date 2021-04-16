@@ -15,7 +15,7 @@ public static class Constants
     }
     public static class Path {
         public static string HIT { get => "Materials/Hit"; }
-        public static string PERSISTENT_SCENE { get => "Assets/Scenes/PersistentScene.unity"; }
+        public static string PERSISTENT_SCENE { get => "Assets/Scenes/Static/GameManager.unity"; }
     }
     public static class Anim {
         public static string FADE_IN { get => "FadeIn"; }
@@ -44,5 +44,6 @@ public static class Constants
     public static class Layer {
         public static LayerMask PLAYER { get => 1; }
         public static LayerMask ENEMY { get => 2; }
+        public static LayerMask INVINCIBLE { get => 6; }
     }
 }

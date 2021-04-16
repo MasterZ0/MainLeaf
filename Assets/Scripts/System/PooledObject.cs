@@ -6,9 +6,7 @@ using UnityEngine;
 public abstract class PooledObject : MonoBehaviour {
 
     [Header("Pooled Object")]
-    [SerializeField] private bool pooledQueue = true;
-    public bool PooledQueue { get => pooledQueue; set => pooledQueue = value; }
-
+    [SerializeField] private bool returnToQueue = true;
     public Queue<PooledObject> QueuePool { get; set; }
     protected abstract void OnEnablePooledObject();
 
@@ -17,11 +15,12 @@ public abstract class PooledObject : MonoBehaviour {
     }
 
     protected virtual void OnEnable() {
-        if(pooledQueue)
+        if(returnToQueue)
             OnEnablePooledObject();
     }
     protected virtual void OnDisable() {
-        ReturnToPool();
+        if(returnToQueue)
+            ReturnToPool();
     }
 
     public void ActiveObject(Vector3 position, Quaternion rotation) // RECICLE OR SPAW
@@ -33,10 +32,9 @@ public abstract class PooledObject : MonoBehaviour {
 
     public void ActiveObject() {
         gameObject.SetActive(true);
-        OnEnablePooledObject();
     }
 
-    public PooledObject SpawObject(Vector3 position, Quaternion rotation) { // Get object from pool
+    public PooledObject SpawnObject(Vector3 position, Quaternion rotation) { // Get object from pool
         PooledObject obj = ObjectPooler.Instance.SpawPooledObject(this);
         obj.ActiveObject(position, rotation);
         return obj;
@@ -47,16 +45,14 @@ public abstract class PooledObject : MonoBehaviour {
     }
 
     private void ReturnToPool() {
-        if (pooledQueue) {
-            if (QueuePool == null) {
-                QueuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
-            }
-            QueuePool.Enqueue(this);
+        if (QueuePool == null) {
+            QueuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
         }
+        QueuePool.Enqueue(this);
     }
 
     private void OnReloadScene() {
-        if (pooledQueue && gameObject.activeSelf)
+        if (returnToQueue && gameObject.activeSelf)
             ReturnToPool();
     }
 }
