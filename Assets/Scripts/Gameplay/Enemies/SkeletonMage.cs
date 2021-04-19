@@ -19,7 +19,7 @@ public sealed class SkeletonMage : Enemy {
     protected override void Awake() {
         base.Awake();
         aiController.OnAttack += OnAttack;
-        aiController.Init(enemyAttributes);
+        aiController.Init(this);
     }
     protected override void OnEnablePooledObject() {
         base.OnEnablePooledObject();
@@ -31,7 +31,7 @@ public sealed class SkeletonMage : Enemy {
     private void OnAttack() {
         attack = UnityEngine.Random.Range(0, 2);
         animator.SetInteger(Constants.Anim.ATTACK, attack);
-        firePoint[attack].LookAt(aiController.target.position);
+        firePoint[attack].LookAt(aiController.Target.position);
     }
     public void OnSpawnFireball() {
         animator.SetInteger(Constants.Anim.ATTACK, -1);        

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(AIController))]
 public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
     [SerializeField] private Animator animator;
@@ -15,14 +14,17 @@ public class SkeletonWarrior : Enemy {
     protected override void Awake() {
         base.Awake();
         aiMovement.OnAttack += OnAttack;
-        aiMovement.Init(enemyAttributes);
+        aiMovement.Init(this);
     }
 
     protected override void OnEnablePooledObject() {
         base.OnEnablePooledObject();
     }
     private void FixedUpdate() {
-        float moveSpeed = enemyAttributes.sprintSpeed / aiMovement.Velocity.magnitude;
+        float moveSpeed = 0;
+        if (aiMovement.Velocity.magnitude > 0)
+            moveSpeed = enemyAttributes.sprintSpeed / aiMovement.Velocity.magnitude;
+
         animator.SetFloat(Constants.Anim.MOVE_SPEED, moveSpeed);
     }
     public void OnActiveSword() {
@@ -33,7 +35,7 @@ public class SkeletonWarrior : Enemy {
         animator.SetInteger(Constants.Anim.ATTACK, -1);
     }
     private void OnAttack() {
-        float dirX = (aiMovement.target.position - transform.position).normalized.x;
+        float dirX = (aiMovement.Target.position - transform.position).normalized.x;
         int attack = dirX > .2f ? 1 : dirX < -.2f ? -1 : 0; // 1 or -1 or 0
         animator.SetInteger(Constants.Anim.ATTACK, attack) ;
     }

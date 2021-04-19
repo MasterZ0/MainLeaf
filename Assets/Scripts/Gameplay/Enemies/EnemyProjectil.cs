@@ -16,25 +16,25 @@ public class EnemyProjectil : PooledObject {
         rigidbod.AddForce(transform.forward * (force * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
     }
 
+
     public void OnCollisionEnter(Collision collision) {
         rigidbod.isKinematic = true;
-
         if (collision.gameObject.CompareTag(Constants.Tag.PLAYER)) {
-            collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(new Damage(gameObject, damage, collision.transform.position));
         }
 
         impactEffect.SpawnObject(transform.position, Quaternion.identity);
         DesactivePooledObject();
     }
 
-    private void OnTriggerEnter(Collider other) {
-        rigidbod.isKinematic = true;
+    //private void OnTriggerEnter(Collider other) {
+    //    rigidbod.isKinematic = true;
 
-        if (other.CompareTag(Constants.Tag.PLAYER)) {
-            other.GetComponent<IDamageable>().TakeDamage(damage);
-        }
+    //    if (other.CompareTag(Constants.Tag.PLAYER)) {
+    //        other.GetComponent<IDamageable>().TakeDamage(new Damage());
+    //    }
 
-        impactEffect.SpawnObject(transform.position, Quaternion.identity);
-        DesactivePooledObject();
-    }
+    //    impactEffect.SpawnObject(transform.position, Quaternion.identity);
+    //    DesactivePooledObject();
+    //}
 }

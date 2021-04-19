@@ -1700,8 +1700,7 @@ GameObject:
   - component: {fileID: 5061369356230544831}
   - component: {fileID: 9193056618883368733}
   - component: {fileID: 5254730419663780810}
-  - component: {fileID: 5814430450184944222}
-  - component: {fileID: 7247538586682175697}
+  - component: {fileID: 1945801104350101232}
   m_Layer: 11
   m_Name: SkeletonMage
   m_TagString: Enemy
@@ -1775,7 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6923987aa9f29e46b883760a8ec830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledQueue: 1
+  returnToQueue: 1
   enemyAttributes: {fileID: 11400000, guid: 1fb4504c9752b3b4994dbdafb4284b02, type: 2}
   skinnedMeshRenderers:
   - {fileID: 7247538588385201558}
@@ -1823,9 +1822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c327251e949b5247a1c779559ecfa15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfView: {fileID: 7247538586682175697}
+  fieldOfView: {fileID: 0}
   timeStopped: 2
---- !u!114 &5814430450184944222
+--- !u!114 &1945801104350101232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1834,87 +1833,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 7247538588382019830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTasksPerTick: 500
-  behavior: {fileID: 11400000, guid: 85b4ce3be3f296847b1bd7a5540bb01c, type: 2}
-  paused: 0
-  restartWhenFinished: 0
-  blackboard:
-    intParams: 
-    intParamsNames: []
-    intParamsLostDefaultValue: 
-    boolParams: 
-    boolParamsNames: []
-    boolParamsLostDefaultValue: 
-    floatParams:
-    - 2
-    floatParamsNames:
-    - TargetMemoryDuration
-    floatParamsLostDefaultValue: 
-    stringParams: []
-    stringParamsNames: []
-    stringParamsLostDefaultValue: 
-    colorParams: []
-    colorParamsNames: []
-    colorParamsLostDefaultValue: 
-    objectParams:
-    - {fileID: 5254730419663780810}
-    objectParamsNames:
-    - AIController
-    objectParamsLostDefaultValue: 
-    layerMaskParams: []
-    layerMaskParamsNames: []
-    layerMaskParamsLostDefaultValue: 
-    enumParamsNames: []
-    enumParamsLostDefaultValue: 
-    vector2Params: []
-    vector2ParamsNames: []
-    vector2ParamsLostDefaultValue: 
-    vector3Params: []
-    vector3ParamsNames: []
-    vector3ParamsLostDefaultValue: 
-    vector4Params: []
-    vector4ParamsNames: []
-    vector4ParamsLostDefaultValue: 
-    rectParams: []
-    rectParamsNames: []
-    rectParamsLostDefaultValue: 
-    animationCurveParams: []
-    animationCurveParamsNames: []
-    animationCurveParamsLostDefaultValue: 
-    boundsParams: []
-    boundsParamsNames: []
-    boundsParamsLostDefaultValue: 
-    gradientParams: []
-    gradientParamsNames: []
-    gradientParamsLostDefaultValue: 
-    quaternionParams: []
-    quaternionParamsNames: []
-    quaternionParamsLostDefaultValue: 
---- !u!114 &7247538586682175697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7247538588382019830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466e53f8c48ef3e44991fe9fdc9a1f67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRadius: 15
-  viewAngle: 75
-  eye: {fileID: 7076185064781355962}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  obstacles: []
+  startWhenEnabled: 1
+  asynchronousLoad: 0
+  pauseWhenDisabled: 0
+  restartWhenComplete: 0
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 11400000, guid: 395077cb50c885449885e8a1268cbdd0, type: 2}
+  mBehaviorSource:
+    behaviorName: SkeletonMage
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"Num","IsShared":true,"Int32mValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.6.8
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
 --- !u!1 &7247538588382019832
 GameObject:
   m_ObjectHideFlags: 0

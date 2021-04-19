@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b9011c78a4adbdc479753bf0dd6fb4da, type: 2}
 --- !u!1 &4117745
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0726ce8cf3af75f448d9b1aaa150d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  externalPanel: {fileID: 1038579596}
+  panels: []
   controlsTab: {fileID: 633182959}
   musicSlider: {fileID: 1463501147}
   sfxSlider: {fileID: 728274697}

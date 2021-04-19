@@ -24,6 +24,11 @@ public class EnemyGenerator : MonoBehaviour {
     private NativeArray<float3> spawPointsPos;
     private float time = 1;
     private bool spawEnemies;
+    public static Transform[] points;
+    private void Awake() {
+        points = spawPoints;
+    }
+
     private void Start() {
         GameController.OnChangeState += OnChangeState;
         spawPointsPos = new NativeArray<float3>(spawPoints.Length, Allocator.Persistent);

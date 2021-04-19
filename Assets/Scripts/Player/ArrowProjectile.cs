@@ -39,7 +39,7 @@ public class ArrowProjectile : PooledObject {
         rigidbod.isKinematic = true;
 
         if (collision.gameObject.CompareTag(Constants.Tag.ENEMY)) {
-            collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(new Damage(damage));
             impactEffect.SpawnObject(transform.position, transform.rotation);
             DesactivePooledObject();
         }

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: SkeletonMage
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: SkeletonMage
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(228.727264,-6.090906)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(0.920722961,106.13681)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(1.90473366,114.4741)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-414.288757,129.733)"},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"AI.HaveTarget","NodeData":{"Offset":"(-80.66254,141.790955)"},"ID":4,"Name":"Have
+        Target","Instant":true,"SharedAIControlleraiController":{"Type":"AI.SharedAIController","Name":null}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(64.55875,134.413162)"},"ID":5,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-135.714325,151.4284)"},"ID":6,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityVector3.Distance","NodeData":{"Offset":"(-70,130)","Comment":"Target
+        is close?"},"ID":7,"Name":"Distance","Instant":true,"SharedVector3firstVector3":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedVector3secondVector3":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedFloatstoreResult":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"TargetDistance","IsShared":true,"SinglemValue":0}},{"Type":"AI.RunAway","NodeData":{"Offset":"(60,130)"},"ID":8,"Name":"Run
+        Away","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(141.428467,147.142456)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityVector3.Distance","NodeData":{"Offset":"(-60,134)","Comment":"Target
+        is Far?"},"ID":10,"Name":"Distance","Instant":true,"SharedVector3firstVector3":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedVector3secondVector3":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedFloatstoreResult":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"IsShared":true,"SinglemValue":0}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityNavMeshAgent.SetDestination","NodeData":{"Offset":"(74.45114,129.9729)"},"ID":11,"Name":"Set
+        Destination","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedVector3destination":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"IsShared":true,"Vector3mValue":"(0,0,0)"}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(420,150)"},"ID":12,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"AI.CanAim","NodeData":{"Offset":"(-80,130)","Comment":"Have
+        obstacles?"},"ID":13,"Name":"Can Aim","Instant":true,"SharedAIControlleraiController":{"Type":"AI.SharedAIController","Name":null}},{"Type":"AI.Attack","NodeData":{"Offset":"(68.3104553,128.908691)"},"ID":14,"Name":"Attack","Instant":true}]},{"Type":"AI.FindPosition","NodeData":{"Offset":"(637.9363,154.818771)"},"ID":15,"Name":"Find
+        Position","Instant":true,"SingleviewRadius":0,"LayerMasktargetMask":0,"LayerMaskobstacleMask":0}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-137.142944,127.142876)"},"ID":16,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"AI.ReceivedDamage","NodeData":{"Offset":"(-65.43518,129.2909)"},"ID":17,"Name":"Received
+        Damage","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.SetFieldValue","NodeData":{"Offset":"(84.5454254,128.636353)"},"ID":18,"Name":"Set
+        Field Value","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringcomponentName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"SharedStringfieldName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(145.857071,130.142883)"},"ID":19,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"AI.TargetIsVisible","NodeData":{"Offset":"(-71.34439,128.154663)"},"ID":20,"Name":"Target
+        Is Visible","Instant":true,"SharedFloatviewRadius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":30},"SharedFloatviewAngle":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"LayerMaskobstacleMask":9,"LayerMasktargetMask":10},{"Type":"BehaviorDesigner.Runtime.Tasks.SetFieldValue","NodeData":{"Offset":"(77.51929,128.154663)"},"ID":21,"Name":"Set
+        Field Value","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringcomponentName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"SharedStringfieldName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]},{"Type":"AI.Patrol","NodeData":{"Offset":"(341.4617,129.9235)"},"ID":22,"Name":"Patrol","Instant":true}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"TargetDistance","IsShared":true,"SinglemValue":0},{"Type":"AI.SharedAIController","Name":"AIController","IsShared":true}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.6.8

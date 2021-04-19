@@ -38,23 +38,6 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
 
     #endregion
 
-    public void OpenFromEditor() {
-        Scene scene = SceneManager.GetActiveScene();
-
-        if (scene == SceneManager.GetSceneByBuildIndex(0))
-            return;
-
-        ScenePack current = scenes.First(s => s.name == scene.name);
-
-        foreach (SceneAsset s in current.dynamicScenes) {
-            EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(s), OpenSceneMode.Additive);
-        }
-
-        foreach (SceneAsset s in current.staticScenes) {
-            EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(s), OpenSceneMode.Additive);
-        }
-    }
-
     private void Awake() {
         Instance = this;
 #if !UNITY_EDITOR
@@ -73,6 +56,24 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
         }
 #endif
     }
+
+    public void OpenFromEditor() {
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene == SceneManager.GetSceneByBuildIndex(0))
+            return;
+
+        ScenePack current = scenes.First(s => s.name == scene.name);
+
+        foreach (SceneAsset s in current.dynamicScenes) {
+            EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(s), OpenSceneMode.Additive);
+        }
+
+        foreach (SceneAsset s in current.staticScenes) {
+            EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(s), OpenSceneMode.Additive);
+        }
+    }
+
     private void OnValidate() {
         for (int i = 0; i < scenes.Length; i++) {
             scenes[i].name = ((SceneIndexes)i).ToString();

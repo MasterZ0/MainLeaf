@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 [InitializeOnLoad]
 public class Startup {
     static Startup() {
-        EditorSceneManager.sceneOpened += LoadPersistentScene;
+        EditorSceneManager.sceneOpened += LoadGameManager;
         EditorSceneManager.sceneSaving += Saving;
     }
 
-    static void LoadPersistentScene(Scene scene, OpenSceneMode mode) {
+    static void LoadGameManager(Scene scene, OpenSceneMode mode) {
         if (mode == OpenSceneMode.Single && scene.buildIndex > 0) {
             //string path = EditorSceneManager.GetSceneByBuildIndex(0).path;
             EditorSceneManager.OpenScene(Constants.Path.PERSISTENT_SCENE, OpenSceneMode.Additive);

@@ -23,8 +23,8 @@ public abstract class PlayerStatus : MonoBehaviour, IDamageable {
         currentLife = playerData.maxLife;
     }
 
-    public virtual bool TakeDamage(int damage) { 
-        currentLife -= damage;
+    public virtual bool TakeDamage(Damage damage) { 
+        currentLife -= damage.value;
         if(currentLife <= 0) {
             DeathEvent();            
             return true;

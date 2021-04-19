@@ -22,6 +22,7 @@ public abstract class Enemy : PooledObject, IDamageable {
     private int currentLife;
 
     public static event Action<Enemy> OnEnemyDeath = delegate { };
+    public event Action OnTakeDamage = delegate { };
 
     protected virtual void Awake() {
         hitMaterial = Resources.Load<Material>(Constants.Path.HIT);
@@ -34,8 +35,8 @@ public abstract class Enemy : PooledObject, IDamageable {
     protected override void OnEnablePooledObject() {
         currentLife = enemyAttributes.maxLife;
     }
-    public virtual bool TakeDamage(int damage) {
-        currentLife -= damage;
+    public virtual bool TakeDamage(Damage damage) {
+        currentLife -= damage.value;
         if(currentLife <= 0) {
             KillEnemy();
             return true;
