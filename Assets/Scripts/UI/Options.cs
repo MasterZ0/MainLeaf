@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Options : MonoBehaviour {
 
     [Header("Options")]
-    //public GameObject externalPanel;
+    public GameObject externalPanel;
     public GameObject[] panels;
     public Button controlsTab;
     //public AudioMixer audioMixer;
@@ -21,13 +21,14 @@ public class Options : MonoBehaviour {
     public TextMeshProUGUI voiceTMP;
 
     private Button lastTab;
-    private GameObject lastPanel;
+    private GameObject currentPanel;
     private Action onCloseCallback;
     private bool firstSelect;
     private static Options Instance { get; set; }
 
-    public void Awake() {
+    private void Awake() {
         Instance = this;
+        currentPanel = panels[0];
 
         float volume;
         volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, 100);
@@ -50,15 +51,15 @@ public class Options : MonoBehaviour {
 
     private void Open(Action closeCallback) {
         onCloseCallback = closeCallback;
-        gameObject.SetActive(true);
+        externalPanel.SetActive(true);
         controlsTab.Select();
         firstSelect = true;
     }
 
     #region Buttons Event 
     public void OnCloseOptions() {
-        // lastPanel.SetActive(false);
-        gameObject.SetActive(false);
+        currentPanel.SetActive(false);
+        externalPanel.SetActive(false);
         onCloseCallback();
     }
 
@@ -83,6 +84,13 @@ public class Options : MonoBehaviour {
         voiceTMP.text = $"{(volume + 80) * 1.25f}%";
 
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, volume);
+    }
+
+    public void OnSelectTab(int index) {
+        currentPanel.SetActive(false);
+        panels[index].SetActive(true);
+        currentPanel = panels[index];
+
     }
 
     public void OnOpenControlsPanel(Button button) {

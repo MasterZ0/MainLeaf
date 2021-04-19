@@ -587,7 +587,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0726ce8cf3af75f448d9b1aaa150d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels: []
+  externalPanel: {fileID: 1038579596}
+  panels:
+  - {fileID: 496336719}
+  - {fileID: 509642777}
+  - {fileID: 1623892098}
+  - {fileID: 1363218482}
   controlsTab: {fileID: 633182959}
   musicSlider: {fileID: 1463501147}
   sfxSlider: {fileID: 728274697}
@@ -1255,7 +1260,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1271,7 +1276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1623892098}
+      objectReference: {fileID: 211711053}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1300,7 +1305,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: OnSelectTab
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1315,7 +1320,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Options, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1326,6 +1331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Options, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1583,7 +1593,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1599,7 +1609,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1363218482}
+      objectReference: {fileID: 211711053}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1628,7 +1638,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: OnSelectTab
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1643,7 +1653,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Options, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -1654,6 +1664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Options, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -3038,7 +3053,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -3054,7 +3069,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 509642777}
+      objectReference: {fileID: 211711053}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3083,7 +3098,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: OnSelectTab
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -3098,7 +3113,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Options, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -3109,6 +3124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Options, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -4980,7 +5000,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -4996,7 +5016,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 496336719}
+      objectReference: {fileID: 211711053}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5025,7 +5045,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: OnSelectTab
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -5040,7 +5060,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Options, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}

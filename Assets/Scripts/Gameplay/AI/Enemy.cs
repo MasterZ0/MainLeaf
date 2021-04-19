@@ -22,7 +22,7 @@ public abstract class Enemy : PooledObject, IDamageable {
     private int currentLife;
 
     public static event Action<Enemy> OnEnemyDeath = delegate { };
-    public event Action OnTakeDamage = delegate { };
+    public event Action<Damage> OnTakeDamage = delegate { };
 
     protected virtual void Awake() {
         hitMaterial = Resources.Load<Material>(Constants.Path.HIT);

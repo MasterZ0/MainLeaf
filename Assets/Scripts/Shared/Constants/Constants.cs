@@ -33,6 +33,7 @@ public static class Constants
         public static string FIRE { get => "Fire"; }
         public static string ATTACK { get => "Attack"; }
         public static string JUMP { get => "Jump"; }
+        public static string IS_ARMED { get => "IsArmed"; }
         public static string DEATH { get => "Death"; }
         public static string SELECT { get => "Select"; }
         public static string DESELECT { get => "Deselect"; }

@@ -26,14 +26,24 @@ namespace AI {
         public bool checkObstacles;      //boleana de retorno
         public LayerMask obscleLayer;      //boleana de retorno
 
+        private bool attackDone;
         private float sqrMagnitude;
         public override void OnStart() {
-            base.OnStart();
+            sqrMagnitude = viewDistance.Value * viewDistance.Value;
         }
 
         public override TaskStatus OnUpdate() {
             if (transform == null)
                 return TaskStatus.Failure;
+
+            if (isAttacking.Value) {    // Está atacando?
+                if (attackDone) {
+                    isAttacking.Value = false;
+                    return TaskStatus.Success;
+                }
+                return TaskStatus.Running ;
+            }
+                
 
 
             Vector3 direction = (transform.position - targetObject.Value.transform.position);
@@ -41,13 +51,18 @@ namespace AI {
 
                 float angle = Vector3.Dot(transform.forward, direction.normalized).Remap(-1, 1, 0, 360);
                 if (angle < viewDistance.Value) {
-                    aiController.Value.AttackStarted();
+                    attackDone = false;
                     isAttacking.Value = true;
+                    aiController.Value.StartAttack(AttackDone);
                     return TaskStatus.Running;
                 }
             }
 
             return TaskStatus.Failure;
+        }
+
+        private void AttackDone() {
+            attackDone = true;
         }
 
         public override void OnReset() {
@@ -62,7 +77,7 @@ namespace AI {
         }
         public void DrawLineOfSight(Transform transform, Vector3 positionOffset, float fieldOfViewAngle, float viewDistance) {
 #if UNITY_EDITOR
-            UnityEditor.Handles.color = new Color(1, 0, 0, .1f);
+            UnityEditor.Handles.color = new Color(1, 0, 0, .02f);
             var halfFOV = fieldOfViewAngle * 0.5f;
             var beginDirection = Quaternion.AngleAxis(-halfFOV, transform.up) * transform.forward;
             UnityEditor.Handles.DrawSolidArc(transform.TransformPoint(positionOffset), transform.up, beginDirection, fieldOfViewAngle, viewDistance);

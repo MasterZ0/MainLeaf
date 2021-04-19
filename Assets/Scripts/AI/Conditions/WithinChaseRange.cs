@@ -17,6 +17,8 @@ namespace AI {
         [RequiredField]
         public SharedGameObject targetObject;
         [RequiredField]
+        public SharedAIController aiController;
+        [RequiredField]
         public SharedBool isChasing;
 
         private float sqrMagnitude;
@@ -34,9 +36,10 @@ namespace AI {
             if (Vector3.SqrMagnitude(direction) < sqrMagnitude) {
                 return TaskStatus.Success;
             }
+
+            aiController.Value.SetTarget(null);
             return TaskStatus.Failure;
         }
-
         public override void OnReset() {
             targetObject = null;
             magnitude = 5;

@@ -22,13 +22,9 @@ public class MainMenu : MonoBehaviour {
     private static string SELECTION { get => "Selection"; }
     private static string CHANGE_SCREEN { get => "ChangeScreen"; }
 
-    private Options options;
-
     private GameObject currentCam;
     void Start() {
         currentCam = mainScreenCam;
-        //options = Options.Instance;
-
         GameManager.Instance.SetTransitionCallback(() => animator.SetTrigger(CHANGE_SCREEN));
     }
 
@@ -49,10 +45,9 @@ public class MainMenu : MonoBehaviour {
         currentCam = optionsCam;
 
         animator.SetInteger(SELECTION, -1);
-        onHideEnd = () => Options.OpenOption(() => {    // Abra options, e quando options fechar, abra main screen
-            OnOpenMainScreen();
+        onHideEnd = () => Options.OpenOption(OnOpenMainScreen
             //animator.SetTrigger(CHANGE_SCREEN);
-        });
+        );
     }
     public void OnOpenCredits() {
         EventSystem.current.SetSelectedGameObject(null);

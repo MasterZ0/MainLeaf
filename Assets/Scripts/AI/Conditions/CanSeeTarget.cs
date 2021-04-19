@@ -11,7 +11,7 @@ namespace AI {
  
 
         public SharedGameObject returnedObject;
-        private Vector3 offset;
+        public Vector3 offset;
 
         public LayerMask obstacleMask;
         public LayerMask targetMask;
@@ -40,8 +40,10 @@ namespace AI {
                 Vector3 targetDirection = (target.position - transform.position + offset).normalized;
                 if (Vector3.Angle(transform.forward, targetDirection) < viewAngle / 2) { // Está dentro do angulo de visão?
                     float distToTarget = Vector3.Distance(transform.position + offset, target.position);
+                    Debug.Log("Finding...");
 
-                    if (!Physics.Raycast(transform.position + offset, targetDirection, distToTarget, obstacleMask)) { // Se não houver nenhum obstaculo
+                    if (!Physics.Raycast(transform.position + offset, targetDirection, distToTarget + 1, obstacleMask)) { // Se não houver nenhum obstaculo
+                        Debug.Log("Find" + targetDirection);
                         returnedObject.Value = target.gameObject;
                         return true;
                     }

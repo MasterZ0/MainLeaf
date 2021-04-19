@@ -11,10 +11,20 @@ public class SkeletonWarrior : Enemy {
     [SerializeField] private MeshCollider sword;
     [SerializeField] private SkinnedMeshRenderer eyes;
 
+    private Transform target;
+    private Action onAttackEnd;
     protected override void Awake() {
         base.Awake();
-        aiMovement.OnAttack += OnAttack;
         aiMovement.Init(this);
+        aiMovement.OnUpdateTarget += OnUpdateTarget;    // Estado de anim = armed
+        aiMovement.OnStartAttack += OnAttack;           // Estado de anim = attack
+        onAttackEnd = aiMovement.OnAttackSuccess;       // Callback ao finalizar o ataque
+        OnTakeDamage += aiMovement.OnTakeDamage;        // Evento ao receber dano (Detectar inimigo)
+    }
+
+    private void OnUpdateTarget(Transform newTarget) {
+        target = newTarget;
+        animator.SetBool(Constants.Anim.IS_ARMED, newTarget);
     }
 
     protected override void OnEnablePooledObject() {
@@ -27,17 +37,19 @@ public class SkeletonWarrior : Enemy {
 
         animator.SetFloat(Constants.Anim.MOVE_SPEED, moveSpeed);
     }
+    private void OnAttack() {
+        Debug.Log("Atk running");
+        float dirX = (target.position - transform.position).normalized.x;
+        int attack = (dirX < -.2f) ? 0 : (dirX > .2f) ? 2 : 1; // left 0, center 1, right 2
+        animator.SetInteger(Constants.Anim.ATTACK, attack) ;
+    }
     public void OnActiveSword() {
         sword.enabled = true;
     }
     public void OnDesativeSword() {
+        onAttackEnd.Invoke();
         sword.enabled = true;
         animator.SetInteger(Constants.Anim.ATTACK, -1);
-    }
-    private void OnAttack() {
-        float dirX = (aiMovement.Target.position - transform.position).normalized.x;
-        int attack = dirX > .2f ? 1 : dirX < -.2f ? -1 : 0; // 1 or -1 or 0
-        animator.SetInteger(Constants.Anim.ATTACK, attack) ;
     }
     protected override void EnemyDeath() {
         aiMovement.StopAllCoroutines();
