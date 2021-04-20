@@ -24,7 +24,7 @@ public class EnemyProjectil : PooledObject {
         }
 
         impactEffect.SpawnObject(transform.position, Quaternion.identity);
-        DesactivePooledObject();
+        ReturnToPool();
     }
 
     //private void OnTriggerEnter(Collider other) {

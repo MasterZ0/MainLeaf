@@ -10,14 +10,25 @@ public class EnemyAttributes : ScriptableObject {
 
     public float attackRange;
     public int points;
-    public Loot[] loot;
+    public Loot[] loots;
 
     [HideInInspector]
     public float chaseRange = 50f;
     
+    [System.Serializable]
     public struct Loot {
-        public GameObject loot;    //item type = Ammon, gold, life
+        public Item item;    //item type = Ammon, gold, life
+        [Range(0, 100)]
         public float chance;
+    }
+
+    public void SpawnLoot(Vector3 spawnPosition) {
+
+        foreach (Loot loot in loots) {
+            float luck = Random.Range(0, 100f);
+            if(luck <= loot.chance)
+                loot.item.SpawnObject(spawnPosition, Quaternion.identity);
+        }
     }
 }
 

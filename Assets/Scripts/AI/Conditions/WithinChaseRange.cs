@@ -23,6 +23,7 @@ namespace AI {
 
         private float sqrMagnitude;
         private Vector3 targetPosition;
+
         public override void OnStart() {    // WITHIN
             sqrMagnitude = magnitude.Value * magnitude.Value;
             targetPosition = targetObject.Value.transform.position;

@@ -36,6 +36,9 @@ public abstract class Enemy : PooledObject, IDamageable {
         currentLife = enemyAttributes.maxLife;
     }
     public virtual bool TakeDamage(Damage damage) {
+        if (IsDead)
+            return false;
+
         currentLife -= damage.value;
         if(currentLife <= 0) {
             KillEnemy();
@@ -66,7 +69,8 @@ public abstract class Enemy : PooledObject, IDamageable {
     }
     private IEnumerator DestroyEnemy() {
         yield return new WaitForSeconds(2);
+        enemyAttributes.SpawnLoot(transform.position);
         disappearFx.SpawnObject(transform.position, transform.rotation);
-        DesactivePooledObject();
+        ReturnToPool();
     }
 }

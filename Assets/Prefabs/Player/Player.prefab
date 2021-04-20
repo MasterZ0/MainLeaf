@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideMouse: 0
-  walkMouseSensitivity: 50
-  aimMouseSensitivity: 10
+  walkMouseSensitivity: 15
+  aimMouseSensitivity: 5
   cameraController: {fileID: 2509848927181436445}
   playerPhysics: {fileID: 2509848927181436446}
   playerAnimations: {fileID: 2509848927181436443}
@@ -117,8 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8c21544e705d46b494e7a6e419677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowCount: 25
   playerData: {fileID: 11400000, guid: f0c6ccb70b7436c4dbc286ecf8c7473e, type: 2}
-  groundRadius: 0.05
+  groundRadius: 0.44
   mass: 1.5
   jumpHeight: 1
   aimSpeed: 1
@@ -173,6 +174,7 @@ MonoBehaviour:
   standardCamera: {fileID: 0}
   aimCamera: {fileID: 0}
   sprintCamera: {fileID: 0}
+  deathCamera: {fileID: 0}
 --- !u!1 &2509848927869263634
 GameObject:
   m_ObjectHideFlags: 0

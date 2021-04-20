@@ -1,12 +1,109 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst;
-using Unity.Collections;
-using Unity.Jobs;
-using Unity.Mathematics;
 using UnityEngine;
+//using System;
+//using Unity.Burst;
+//using Unity.Collections;
+//using Unity.Jobs;
+//using Unity.Mathematics;
+public class EnemyGenerator : MonoBehaviour {
+    [Header("Enemy Generator")]
+    [SerializeField] [Min(.5f)] private float spawFrequency;
+    [SerializeField] private float spawRadius;
+    [SerializeField] private float maxEnemies;
 
+    [SerializeField] [Range(40, 250)] private float minimumSpawnDistanceFromPlayer = 100f;
+    [SerializeField] [Range(0, 1)] private float chanceToSpawnClosePlayer;
+
+    [Header(" - Config ")]
+    [SerializeField] private Transform player;
+    [SerializeField] private SpawnSmoke spawSmoke;
+    [SerializeField] private Enemy[] enemies;
+    [SerializeField] private GameObject[] spawPoints;
+
+    private Vector3[] spawPointsPos;
+    private float time = 1;
+    private bool spawEnemies;
+    private List<Enemy> enemiesSpawned = new List<Enemy>();
+    public static List<GameObject> SpawPoints { get; private set; }
+
+    private void Awake() {
+        SpawPoints = new List<GameObject>(spawPoints);
+        GameController.OnChangeState += OnChangeState;
+        Enemy.OnEnemyDeath += OnEnemyDeath;
+    }
+
+    private void Start() {
+        spawPointsPos = new Vector3[spawPoints.Length];
+        for (int i = 0; i < spawPoints.Length; i++) {
+            spawPointsPos[i] = spawPoints[i].transform.position;
+        }
+    }
+
+    private void OnChangeState(GameState gameState) {
+        spawEnemies = gameState == GameState.Playing;
+        if (gameState == GameState.Win) {
+            // Kill Everybody
+        }
+    }
+
+
+    private void Update() {
+        if (!spawEnemies)
+            return;
+
+        time -= Time.deltaTime;
+        if (time <= 0) {
+            time = spawFrequency;
+
+            if(enemiesSpawned.Count < maxEnemies)
+                SpawEnemie();
+        }
+    }
+
+    private void SpawEnemie() {
+        SpawnSmoke smoke = spawSmoke.SpawnObject(GetRandomPosition(), Quaternion.identity).GetComponent<SpawnSmoke>();
+        smoke.Callback = OnSpaw;
+    }
+
+    private Vector3 GetRandomPosition() {
+        int index = Random.Range(0, spawPointsPos.Length);
+        Vector3 result = spawPointsPos[index];
+
+        int angle = Random.Range(0, 360);
+        float area = Random.Range(0, spawRadius);
+
+        result.x += area * Mathf.Cos(angle * Mathf.Deg2Rad);
+        result.z += area * Mathf.Sin(angle * Mathf.Deg2Rad);
+        return result;
+    }
+
+    public void OnSpaw(Vector3 position) {
+        int random = Random.Range(0, enemies.Length);
+        Enemy enemy = enemies[random].SpawnObject(position, Quaternion.identity).GetComponent<Enemy>();
+        enemy.transform.LookAt(player);
+        enemiesSpawned.Add(enemy);
+    }
+
+    public void OnEnemyDeath(Enemy enemy) {
+        if (enemiesSpawned.Contains(enemy)) {
+            enemiesSpawned.Remove(enemy);
+        }
+        else {
+            Debug.LogError($"Inimigo inexperado {enemy}");
+        }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        foreach (GameObject sp in spawPoints) {
+            Gizmos.DrawWireSphere(sp.transform.position, spawRadius);
+        }
+    }
+
+}
+
+/*      JOB SYSTEM
 public class EnemyGenerator : MonoBehaviour {
     [Header("Enemy Generator")]
     [SerializeField] [Min(.5f)] private float spawFrequency;
@@ -19,22 +116,23 @@ public class EnemyGenerator : MonoBehaviour {
     [SerializeField] private Transform player;
     [SerializeField] private SpawnSmoke spawSmoke;
     [SerializeField] private Enemy[] enemies;
-    [SerializeField] private Transform[] spawPoints;
+    [SerializeField] private GameObject[] spawPoints;
 
     private NativeArray<float3> spawPointsPos;
     private float time = 1;
     private bool spawEnemies;
-    public static Transform[] points;
+    public static List<GameObject> SpawPoints { get; private set; }
+
     private void Awake() {
-        points = spawPoints;
+        SpawPoints = new List<GameObject>(spawPoints);
+        GameController.OnChangeState += OnChangeState;
     }
 
     private void Start() {
-        GameController.OnChangeState += OnChangeState;
         spawPointsPos = new NativeArray<float3>(spawPoints.Length, Allocator.Persistent);
         for (int i = 0; i < spawPoints.Length; i++) {
-            spawPointsPos[i] = spawPoints[i].position;
-        }
+            spawPointsPos[i] = spawPoints[i].transform.position;
+        }        
     }
 
     private void OnChangeState(GameState gameState) {
@@ -116,7 +214,7 @@ public class EnemyGenerator : MonoBehaviour {
 
         NativeArray<float3> spawPointsPos = new NativeArray<float3>(spawPoints.Length, Allocator.TempJob);
         for (int i = 0; i < spawPoints.Length; i++) {
-            spawPointsPos[i] = spawPoints[i].position;
+            spawPointsPos[i] = spawPoints[i].transform.position;
         }
 
         FindPosition findPosition = new FindPosition
@@ -162,8 +260,9 @@ public class EnemyGenerator : MonoBehaviour {
     }
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        foreach (Transform sp in spawPoints) {
-            Gizmos.DrawWireSphere(sp.position, spawRadius);
+        foreach (GameObject sp in spawPoints) {
+            Gizmos.DrawWireSphere(sp.transform.position, spawRadius);
         }
     }
 }
+*/

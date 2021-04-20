@@ -46,6 +46,7 @@ public class PlayerInputs : MonoBehaviour {
 
         if (gameState == GameState.PlayerDied) {
             cameraController.PlayerDeath();
+            playerPhysics.PlayerDeath();
             playerAnimations.PlayerDeath();
             isDead = true;
         }
@@ -66,8 +67,9 @@ public class PlayerInputs : MonoBehaviour {
         }
     }
     private void OnFire() {
-        if (aim)
+        if (aim && playerPhysics.Fire()) {
             playerAnimations.Fire();
+        }
     }
     private void OnJump() {
         if (playerPhysics.CanJump()) {
@@ -86,9 +88,6 @@ public class PlayerInputs : MonoBehaviour {
 
 
     void Update() {
-        if (isDead)
-            return;
-
         move = controls.Player.Move.ReadValue<Vector2>();
         look = controls.Player.Look.ReadValue<Vector2>();
 
@@ -101,6 +100,9 @@ public class PlayerInputs : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (isDead)
+            return;
+
         // Conditions
         bool isGrounded = playerPhysics.isGrounded;
         if(aim && (!isGrounded || playerPhysics.isJumping)) {

@@ -38,9 +38,8 @@ public class SkeletonWarrior : Enemy {
         animator.SetFloat(Constants.Anim.MOVE_SPEED, moveSpeed);
     }
     private void OnAttack() {
-        Debug.Log("Atk running");
         float dirX = (target.position - transform.position).normalized.x;
-        int attack = (dirX < -.2f) ? 0 : (dirX > .2f) ? 2 : 1; // left 0, center 1, right 2
+        int attack = (dirX < -.5f) ? 0 : (dirX > .5f) ? 2 : 1; // left 0, center 1, right 2
         animator.SetInteger(Constants.Anim.ATTACK, attack) ;
     }
     public void OnActiveSword() {

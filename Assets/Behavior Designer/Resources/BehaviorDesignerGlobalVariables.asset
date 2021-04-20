@@ -14,16 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mVariableData:
     variableStartIndex: 
-    JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedGameObjectList","Name":"Waypoints","IsShared":true,"IsGlobal":true,"List`1mValue":[0,1,2]}]}'
+    JSONSerialization: '{"Variables":[]}'
     fieldSerializationData:
       typeName: []
       fieldNameHash: 
       startIndex: 
       dataPosition: 
-      unityObjects:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+      unityObjects: []
       byteData: 
       byteDataArray: 
   mVersion: 1.6.8

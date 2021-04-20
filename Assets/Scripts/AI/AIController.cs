@@ -22,7 +22,7 @@ public class AIController : MonoBehaviour {
     }
 
     public void SetTarget(GameObject target) {
-        OnUpdateTarget.Invoke(target.transform);
+        OnUpdateTarget.Invoke(target?.transform);
     }
 
     public void StartAttack(Action callback) {  // Attack -> TaskStatus = Running

@@ -19,3 +19,7 @@ public enum GameState {
     Win,            // Tempo acabou
     PlayerDied      // Player morreu
 }
+public enum ItemType {
+    Arrow, 
+    Life
+}

@@ -41,7 +41,7 @@ public class ArrowProjectile : PooledObject {
         if (collision.gameObject.CompareTag(Constants.Tag.ENEMY)) {
             collision.gameObject.GetComponent<IDamageable>().TakeDamage(new Damage(damage));
             impactEffect.SpawnObject(transform.position, transform.rotation);
-            DesactivePooledObject();
+            ReturnToPool();
         }
         else {
             StartCoroutine(Countdown(3));
@@ -50,7 +50,7 @@ public class ArrowProjectile : PooledObject {
 
     IEnumerator Countdown(float countdown) {
         yield return new WaitForSeconds(countdown);
-        DesactivePooledObject();
+        ReturnToPool();
     }
 
 }

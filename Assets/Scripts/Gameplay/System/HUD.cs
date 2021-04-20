@@ -46,10 +46,10 @@ public class HUD : MonoBehaviour {
     public static void SetupGameController(float roundTime, int secondsToStart) {
         Instance.StartGame(roundTime, secondsToStart);
     }
-    public static void SetupPlayer(int maxLife, ref Action<float> updateLife, Action<int> updateAmmoCount) {
-        Instance.SetupPlayerd(maxLife, ref updateLife, updateAmmoCount);
+    public static void SetupPlayer(int maxLife, ref Action<float> updateLife, ref Action<int> updateAmmoCount) {
+        Instance.SetupPlayerd(maxLife, ref updateLife, ref updateAmmoCount);
     }
-    private void SetupPlayerd(int maxLife, ref Action<float> updateLife, Action<int> updateAmmoCount) {
+    private void SetupPlayerd(int maxLife, ref Action<float> updateLife, ref Action<int> updateAmmoCount) {
         // max life influencia no tamanho da barra
         updateLife += UpdateLife;
         updateAmmoCount += UpdateAmmoCount;

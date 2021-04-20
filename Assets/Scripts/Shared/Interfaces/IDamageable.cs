@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable
-{
+public interface IDamageable {
     bool TakeDamage(Damage damage);
     bool IsDead { get; }
+    // Retorna dados do gameobject?
 }
 
 public struct Damage {

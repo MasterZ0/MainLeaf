@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: SkeletonWarrior
   m_EditorClassIdentifier: 
   maxLife: 100
-  walkSpeed: 5
-  sprintSpeed: 10
+  walkSpeed: 2.5
+  sprintSpeed: 5
   attackRange: 0
   points: 10
+  loots:
+  - item: {fileID: 2836794119747992214, guid: f24f6596281a7094c827b48e4c4b43fe, type: 3}
+    chance: 100
+  - item: {fileID: 8049698915244824685, guid: 2064840bac4c0d7499805637a73e0354, type: 3}
+    chance: 100
   chaseRange: 50

@@ -35,8 +35,8 @@ public class SpawnSmoke : PooledObject {
 
     private void Update() {
         pointLight.intensity += lightState switch {
-            LightState.Warming => Time.deltaTime / delayToDestroy * lightIntensity,
-            LightState.Disappearing => -Time.deltaTime / delayToDestroy * lightIntensity,
+            LightState.Warming => Time.deltaTime / warming * lightIntensity,                // pointLight.intensity++
+            LightState.Disappearing => -Time.deltaTime / delayToDestroy * lightIntensity,   // pointLight.intensity--
             _ => 0
         };
     }
@@ -53,7 +53,7 @@ public class SpawnSmoke : PooledObject {
         lightState = LightState.Disappearing;
         yield return new WaitForSeconds(delayToDestroy);
 
-        DesactivePooledObject();
+        ReturnToPool();
     }
 
 }

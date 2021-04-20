@@ -18,7 +18,7 @@ public class ParticleVFX : PooledObject {
 		{
 			yield return new WaitForSeconds(0.5f);
 			if(!ps.IsAlive(true)) {
-				DesactivePooledObject();
+				ReturnToPool();
 				break;
 			}
 		}

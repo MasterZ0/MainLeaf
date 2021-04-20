@@ -19,13 +19,8 @@ namespace AI {
         public SharedAIController aiController;
         [RequiredField]
         public SharedGameObject targetObject;
-        [RequiredField]
-        public SharedBool isAttacking;      //boleana de retorno
 
-        [Header("Use Raycast")]
-        public bool checkObstacles;      //boleana de retorno
-        public LayerMask obscleLayer;      //boleana de retorno
-
+        private bool isAttacking;
         private bool attackDone;
         private float sqrMagnitude;
         public override void OnStart() {
@@ -36,9 +31,9 @@ namespace AI {
             if (transform == null)
                 return TaskStatus.Failure;
 
-            if (isAttacking.Value) {    // Está atacando?
+            if (isAttacking) {    // Está atacando?
                 if (attackDone) {
-                    isAttacking.Value = false;
+                    isAttacking = false;
                     return TaskStatus.Success;
                 }
                 return TaskStatus.Running ;
@@ -52,7 +47,7 @@ namespace AI {
                 float angle = Vector3.Dot(transform.forward, direction.normalized).Remap(-1, 1, 0, 360);
                 if (angle < viewDistance.Value) {
                     attackDone = false;
-                    isAttacking.Value = true;
+                    isAttacking = true;
                     aiController.Value.StartAttack(AttackDone);
                     return TaskStatus.Running;
                 }

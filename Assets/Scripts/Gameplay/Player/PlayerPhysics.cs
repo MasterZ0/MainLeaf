@@ -43,7 +43,17 @@ public class PlayerPhysics : PlayerStatus {
         characterController.Move(velocity * Time.fixedDeltaTime);
 
         // Rotação do player
-        transform.Rotate(Vector3.up * lookX);      
+        transform.Rotate(Vector3.up * lookX);
+    }
+    public bool CanJump() {
+        if (isGrounded && !isJumping) {
+            return true;
+        }
+        return false;
+    }
+
+    public void PlayerDeath() {
+        characterController.enabled = false;
     }
 
     public void OnJump() {
@@ -55,16 +65,4 @@ public class PlayerPhysics : PlayerStatus {
         isJumping = false;
     }
 
-    private void OnAnimatorMove() {
-        //Update the position based on the next position;
-        //characterController.Move(_movement.nextPosition * Time.deltaTime);
-        //transform.position = _movement.nextPosition;
-    }
-
-    public bool CanJump() {
-        if(isGrounded && !isJumping) {
-            return true;
-        }
-        return false;
-    }
 }

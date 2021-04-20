@@ -18,10 +18,6 @@ public abstract class PooledObject : MonoBehaviour {
         if(returnToQueue)
             OnEnablePooledObject();
     }
-    protected virtual void OnDisable() {
-        if(returnToQueue)
-            ReturnToPool();
-    }
 
     public void ActiveObject(Vector3 position, Quaternion rotation) // RECICLE OR SPAW
     {
@@ -39,16 +35,14 @@ public abstract class PooledObject : MonoBehaviour {
         obj.ActiveObject(position, rotation);
         return obj;
     }
-
-    public void DesactivePooledObject() {
+    public void ReturnToPool() {
         gameObject.SetActive(false);
-    }
-
-    private void ReturnToPool() {
-        if (QueuePool == null) {
-            QueuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
+        if (returnToQueue) {
+            if (QueuePool == null) {
+                QueuePool = ObjectPooler.Instance.GetQueue(gameObject.name);
+            }
+            QueuePool.Enqueue(this);
         }
-        QueuePool.Enqueue(this);
     }
 
     private void OnReloadScene() {
