@@ -18,8 +18,8 @@ public class HUD : MonoBehaviour {
     [SerializeField] private GameObject resultScreen;
     [SerializeField] private GameObject deathScreen;
 
-    [SerializeField] private Button replayBtn;
-    [SerializeField] private Button playAgainBtn;
+    [SerializeField] private Button playAgainDeathBtn;
+    [SerializeField] private Button playAgainWinBtn;
 
     [Header(" - Texts")]
     [SerializeField] private TextMeshProUGUI ammoCountText;
@@ -39,9 +39,9 @@ public class HUD : MonoBehaviour {
     #region Init
     private void Awake() {
         Instance = this;
-        Enemy.OnEnemyDeath += UpdateScore;
-        GameMenu.OnPause += HideHud;
+        GameController.OnEnemyDeath += UpdateScore;
         GameController.OnChangeState += OnChangeGameState;
+        GameMenu.OnPause += HideHud;
     }
     public static void SetupGameController(float roundTime, int secondsToStart) {
         Instance.StartGame(roundTime, secondsToStart);
@@ -55,10 +55,14 @@ public class HUD : MonoBehaviour {
         updateAmmoCount += UpdateAmmoCount;
     }
 
-    private void StartGame(float roundTime, int _secondsToStart) {
+    private void StartGame(float roundTime, int secondsToStart) {
         time = roundTime;
-        secondsToStart = _secondsToStart;
-        starterCounterText.text = secondsToStart.ToString();
+        TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+        timerText.text = $"{Mathf.Floor((float)timeSpan.TotalHours).ToString("00")}:{timeSpan.ToString(@"mm\:ss")}";
+
+        this.secondsToStart = secondsToStart;
+        starterCounterText.text = this.secondsToStart.ToString();
+
         startCounterAnimator.Play(Constants.Anim.COUNT);
     }
 
@@ -86,10 +90,9 @@ public class HUD : MonoBehaviour {
     private void UpdateTime() {
         time -= Time.fixedDeltaTime;
         TimeSpan timeSpan = TimeSpan.FromSeconds(time);
-        string displayTime = $"{Mathf.Floor((float)timeSpan.TotalHours).ToString("00")}:{timeSpan.ToString(@"mm\:ss")}";
-        timerText.text = displayTime;
+        timerText.text = $"{Mathf.Floor((float)timeSpan.TotalHours).ToString("00")}:{timeSpan.ToString(@"mm\:ss")}";
 
-        if(time <= 0) {
+        if (time <= 0) {
             timePaused = true;
             Victory();
         }
@@ -103,15 +106,13 @@ public class HUD : MonoBehaviour {
 
         gameScreen.SetActive(false);
         resultScreen.SetActive(true);
-        playAgainBtn.Select();
-        GameMenu.SetActive(false);
+        playAgainWinBtn.Select();
     }
 
     private void DeathScreen() {
         gameScreen.SetActive(false);
         deathScreen.SetActive(true);
-        replayBtn.Select();
-        GameMenu.SetActive(false);
+        playAgainDeathBtn.Select();
     }
 
     private void UpdateScore(Enemy enemy) {
@@ -122,6 +123,13 @@ public class HUD : MonoBehaviour {
     private void UpdateAmmoCount(int ammo) {
         ammoCountText.text = $"{ammo} x";
     }
+    public void OnPlayAgain() {
+        GameManager.Instance.ReloadScene();
+    }
+    public void OnQuit() {
+        GameManager.Instance.LoadNewScene(SceneIndexes.MainMenu);
+    }
+
 
     public void OnStarterCounterTrigger() {
         secondsToStart--;
@@ -136,8 +144,8 @@ public class HUD : MonoBehaviour {
         }
     }
     private void OnDestroy() {
-        Enemy.OnEnemyDeath -= UpdateScore;
-        GameMenu.OnPause -= HideHud;
+        GameController.OnEnemyDeath -= UpdateScore;
         GameController.OnChangeState -= OnChangeGameState;
+        GameMenu.OnPause -= HideHud;
     }
 }

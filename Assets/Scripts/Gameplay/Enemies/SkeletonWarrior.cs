@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class SkeletonWarrior : Enemy {
     [Header("Skeleton Warrior")]
     [SerializeField] private Animator animator;
-    [SerializeField] private AIController aiMovement;
+    [SerializeField] private AIController aiController;
     [SerializeField] private MeshCollider sword;
     [SerializeField] private SkinnedMeshRenderer eyes;
 
@@ -15,11 +15,11 @@ public class SkeletonWarrior : Enemy {
     private Action onAttackEnd;
     protected override void Awake() {
         base.Awake();
-        aiMovement.Init(this);
-        aiMovement.OnUpdateTarget += OnUpdateTarget;    // Estado de anim = armed
-        aiMovement.OnStartAttack += OnAttack;           // Estado de anim = attack
-        onAttackEnd = aiMovement.OnAttackSuccess;       // Callback ao finalizar o ataque
-        OnTakeDamage += aiMovement.OnTakeDamage;        // Evento ao receber dano (Detectar inimigo)
+        aiController.Init(this);
+        aiController.OnUpdateTarget += OnUpdateTarget;    // Estado de anim = armed
+        aiController.OnStartAttack += OnAttack;           // Estado de anim = attack
+        onAttackEnd = aiController.OnAttackSuccess;       // Callback ao finalizar o ataque
+        OnTakeDamage += aiController.OnTakeDamage;        // Evento ao receber dano (Detectar inimigo)
     }
 
     private void OnUpdateTarget(Transform newTarget) {
@@ -29,11 +29,12 @@ public class SkeletonWarrior : Enemy {
 
     protected override void OnEnablePooledObject() {
         base.OnEnablePooledObject();
+        eyes.material.color = Color.white;
     }
     private void FixedUpdate() {
         float moveSpeed = 0;
-        if (aiMovement.Velocity.magnitude > 0)
-            moveSpeed = enemyAttributes.sprintSpeed / aiMovement.Velocity.magnitude;
+        if (aiController.Velocity.magnitude > 0)
+            moveSpeed = enemyAttributes.sprintSpeed / aiController.Velocity.magnitude;
 
         animator.SetFloat(Constants.Anim.MOVE_SPEED, moveSpeed);
     }
@@ -46,12 +47,14 @@ public class SkeletonWarrior : Enemy {
         sword.enabled = true;
     }
     public void OnDesativeSword() {
-        onAttackEnd.Invoke();
         sword.enabled = true;
         animator.SetInteger(Constants.Anim.ATTACK, -1);
     }
+    public void OnAttackEnd() {
+        onAttackEnd.Invoke();
+    }
     protected override void EnemyDeath() {
-        aiMovement.StopAllCoroutines();
+        //aiMovement.StopAllCoroutines();
         sword.enabled = false;
         animator.SetTrigger(Constants.Anim.DEATH);
         eyes.material.color = Color.clear;

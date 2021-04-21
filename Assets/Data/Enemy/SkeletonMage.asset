@@ -19,7 +19,7 @@ MonoBehaviour:
   points: 10
   loots:
   - item: {fileID: 2836794119747992214, guid: f24f6596281a7094c827b48e4c4b43fe, type: 3}
-    chance: 20
+    chance: 15
   - item: {fileID: 8049698915244824685, guid: 2064840bac4c0d7499805637a73e0354, type: 3}
     chance: 80
   chaseRange: 50

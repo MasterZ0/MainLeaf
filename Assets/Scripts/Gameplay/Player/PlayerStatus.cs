@@ -20,7 +20,7 @@ public abstract class PlayerStatus : MonoBehaviour, IDamageable, ICollector {
 
 
     private void Start() {
-        DeathEvent += () => GameController.SetGameState(GameState.PlayerDied);
+        DeathEvent += OnPlayerDeath;
         HUD.SetupPlayer(playerData.maxLife, ref TakeDamageEvent, ref OnUpdateAmmo);
         currentLife = playerData.maxLife;
 
@@ -57,4 +57,11 @@ public abstract class PlayerStatus : MonoBehaviour, IDamageable, ICollector {
         }
     }
 
+    private void OnPlayerDeath() {
+        GameController.SetGameState(GameState.PlayerDied);
+    }
+
+    private void OnDestroy() {
+        DeathEvent -= OnPlayerDeath;
+    }
 }

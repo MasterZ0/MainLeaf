@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8c21544e705d46b494e7a6e419677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowCount: 25
+  arrowCount: 30
   playerData: {fileID: 11400000, guid: f0c6ccb70b7436c4dbc286ecf8c7473e, type: 2}
   groundRadius: 0.44
   mass: 1.5

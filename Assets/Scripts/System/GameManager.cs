@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
     }
 
     [Header("GameManager")]
+    [SerializeField] private float loadingLerpSpeed;
+
+    [Space]
     [SerializeField] private Animator transitionAnimator;
     [SerializeField] private Slider progressBar;
     [SerializeField] private ScenePack[] scenes;
@@ -106,6 +109,7 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
 
     #region Scene Manager
     private void LoadScene(ScenePack newScene) {
+        progressBar.value = 0;
         Time.timeScale = 0f;
         loadingOperations.Clear();
 
@@ -141,20 +145,13 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
     }
     private void LoadStaticScenes(ScenePack newScene) {
         // Verifica a lista das cenas estáticas carregas, e remove as que não serão usadas
+        List<SceneAsset> newSceneList = new List<SceneAsset>(newScene.staticScenes);
         for (int i = 0; i < loadedStaticScenes.Count; i++) {
-            bool contains = false;
-            foreach (SceneAsset staticScene in newScene.staticScenes) {
-                if (loadedStaticScenes.Contains(staticScene)) {
-                    contains = true;
-                    break;
-                }
-            }
-            if (!contains) {   // Se não contem, remova
+            if (!newSceneList.Contains(loadedStaticScenes[i])) {
                 loadingOperations.Add(SceneManager.UnloadSceneAsync(loadedStaticScenes[i].name));
                 loadedStaticScenes.Remove(loadedStaticScenes[i]);
             }
         }
-
         // Verifica a nova lista de cenas estáticas
         for (int i = 0; i < newScene.staticScenes.Length; i++) {
 
@@ -173,13 +170,15 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
                 foreach (AsyncOperation operation in loadingOperations) {
                     totalSceneProgress += operation.progress;
                 }
-
-                progressBar.value = totalSceneProgress / loadingOperations.Count; // round to int?
+                progressBar.value = Mathf.Lerp(progressBar.value, totalSceneProgress / loadingOperations.Count, loadingLerpSpeed);
+                //progressBar.value = totalSceneProgress / loadingOperations.Count; // round to int?
                 yield return null;
             }
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene.scene.name));
         Time.timeScale = 1f;
+        progressBar.value = 1;
+        yield return new WaitForFixedUpdate();
 
         transitionAnimator.Play(Constants.Anim.FADE_IN);    // load fase
     }

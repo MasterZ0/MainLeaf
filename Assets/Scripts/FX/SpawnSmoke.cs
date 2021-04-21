@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.VFX;
 
 public class SpawnSmoke : PooledObject {
@@ -15,7 +16,7 @@ public class SpawnSmoke : PooledObject {
     [SerializeField] private float warming = 2;
     [SerializeField] private float disappears = 3;
     [SerializeField] private float delayToDestroy = 2;
-    [SerializeField] private Light pointLight;
+    [SerializeField] private HDAdditionalLightData pointLight;
     [SerializeField] private VisualEffect visualEffect;
 
     public Action<Vector3> Callback { private get; set; }
@@ -25,7 +26,6 @@ public class SpawnSmoke : PooledObject {
 
     private void Awake() {
         lightIntensity = pointLight.intensity;
-        pointLight.intensity = 0;
 
     }
     protected override void OnEnablePooledObject() {
@@ -33,10 +33,10 @@ public class SpawnSmoke : PooledObject {
         StartCoroutine(Smoke());
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         pointLight.intensity += lightState switch {
-            LightState.Warming => Time.deltaTime / warming * lightIntensity,                // pointLight.intensity++
-            LightState.Disappearing => -Time.deltaTime / delayToDestroy * lightIntensity,   // pointLight.intensity--
+            LightState.Warming => Time.fixedDeltaTime * lightIntensity / warming,                // pointLight.intensity++
+            LightState.Disappearing => -Time.fixedDeltaTime * lightIntensity / delayToDestroy ,   // pointLight.intensity--
             _ => 0
         };
     }
@@ -45,7 +45,7 @@ public class SpawnSmoke : PooledObject {
         lightState = LightState.Warming;
         yield return new WaitForSeconds(warming);
 
-        Callback(transform.position);
+        Callback?.Invoke(transform.position);
         lightState = LightState.Waiting;
         yield return new WaitForSeconds(disappears);
 

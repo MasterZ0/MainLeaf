@@ -15,7 +15,7 @@ public class GameMenu : MonoBehaviour {
     public static event Action<bool> OnPause;
 
     private bool paused;
-    void Start() {
+    void Awake() {
         controls = new Controls();
         controls.UI.Start.performed += ctx => OnPressPause();
     }

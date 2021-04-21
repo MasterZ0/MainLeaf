@@ -21,7 +21,6 @@ public abstract class Enemy : PooledObject, IDamageable {
 
     private int currentLife;
 
-    public static event Action<Enemy> OnEnemyDeath = delegate { };
     public event Action<Damage> OnTakeDamage = delegate { };
 
     protected virtual void Awake() {
@@ -34,6 +33,7 @@ public abstract class Enemy : PooledObject, IDamageable {
     }
     protected override void OnEnablePooledObject() {
         currentLife = enemyAttributes.maxLife;
+        IsDead = false;
     }
     public virtual bool TakeDamage(Damage damage) {
         if (IsDead)
@@ -47,11 +47,10 @@ public abstract class Enemy : PooledObject, IDamageable {
         StartCoroutine(HitMaterial());
         return false;
     }
-    private void KillEnemy() {
+    public void KillEnemy() {
         IsDead = true;
-        gameObject.layer = Constants.Layer.INVINCIBLE;
         deathFx.SpawnObject(transform.position, transform.rotation);
-        OnEnemyDeath.Invoke(this);
+        GameController.EnemyDeath(this);
         EnemyDeath();
         StartCoroutine(DestroyEnemy());
     }

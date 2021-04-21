@@ -30,7 +30,7 @@ public class EnemyGenerator : MonoBehaviour {
     private void Awake() {
         SpawPoints = new List<GameObject>(spawPoints);
         GameController.OnChangeState += OnChangeState;
-        Enemy.OnEnemyDeath += OnEnemyDeath;
+        GameController.OnEnemyDeath += OnEnemyDeath;
     }
 
     private void Start() {
@@ -43,7 +43,9 @@ public class EnemyGenerator : MonoBehaviour {
     private void OnChangeState(GameState gameState) {
         spawEnemies = gameState == GameState.Playing;
         if (gameState == GameState.Win) {
-            // Kill Everybody
+            foreach (Enemy enemy in enemiesSpawned) {
+                enemy.KillEnemy();
+            }
         }
     }
 

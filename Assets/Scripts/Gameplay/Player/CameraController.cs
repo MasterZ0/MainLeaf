@@ -37,16 +37,15 @@ public class CameraController : MonoBehaviour {    // Controla a camera
             aimReticle.SetActive(false);
         }
     }
+    IEnumerator ShowReticle() {
+        yield return new WaitForSeconds(0.25f);
+        aimReticle.SetActive(true);
+    }
     public void SetSprint(bool active) {
         standardCamera.SetActive(!active);
         sprintCamera.SetActive(active);
     }
 
-    IEnumerator ShowReticle()
-    {
-        yield return new WaitForSeconds(0.25f);
-        aimReticle.SetActive(enabled);
-    }
 
     public void PlayerDeath() {
         deathCamera.SetActive(true);

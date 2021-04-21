@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 28205.768
+  m_Intensity: 28000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   warming: 2
   disappears: 3
   delayToDestroy: 2
-  pointLight: {fileID: 7675306880622861740}
+  pointLight: {fileID: 7675306880622861739}
   visualEffect: {fileID: 4804680618414582252}
 --- !u!73398921 &3372620354342748355
 VFXRenderer:
