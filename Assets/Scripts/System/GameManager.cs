@@ -38,18 +38,19 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
     private List<AsyncOperation> loadingOperations = new List<AsyncOperation>();
     private ScenePack currentScene;
     public static GameManager Instance { get; private set; }
+    public static MusicManager MusicManager { get; private set; }
 
     #endregion
 
     private void Awake() {
-        Instance = this;
 #if !UNITY_EDITOR
         LoadScene(scenes[(int)SceneIndexes.MainMenu]);
 #else
         if (!Application.isPlaying) {
             OpenFromEditor();
+            return;
         }
-        else {
+        else {  // Saves the scenes loaded in the editor
             string sceneName = SceneManager.GetActiveScene().name;
             currentScene = scenes.First(s => s.name == sceneName);
             foreach (SceneAsset staticScene in currentScene.staticScenes) {
@@ -58,6 +59,13 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
             }
         }
 #endif
+        Init();
+    }
+
+    private void Init() {
+        Instance = this;
+        MusicManager = GetComponent<MusicManager>();
+        AudioSettings.Setup();
     }
 
     public void OpenFromEditor() {

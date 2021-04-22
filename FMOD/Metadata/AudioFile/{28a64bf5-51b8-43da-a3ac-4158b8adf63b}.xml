@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{28a64bf5-51b8-43da-a3ac-4158b8adf63b}">
+		<property name="assetPath">
+			<value>SFX/fissure4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.4645351473922901</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dbb69c64-6823-43cc-85dc-e6a023864c46}</destination>
+		</relationship>
+	</object>
+</objects>

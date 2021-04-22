@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour {
     private GameObject currentCam;
     void Start() {
         currentCam = mainScreenCam;
+        GameManager.MusicManager.ChangeMusic(Music.MainMenu);
         GameManager.Instance.SetTransitionCallback(() => animator.SetTrigger(CHANGE_SCREEN));
     }
 

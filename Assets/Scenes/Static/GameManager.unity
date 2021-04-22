@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddba2812771ace840bc422915e23c423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingLerpSpeed: 0.6
+  loadingLerpSpeed: 1
   transitionAnimator: {fileID: 1494829047}
   progressBar: {fileID: 3687321092656446241}
   scenes:
@@ -1336,6 +1336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1902270794360696067}
   - component: {fileID: 4389347409465133280}
+  - component: {fileID: 6789707350589343570}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1343,6 +1344,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6789707350589343570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789707350589343569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1076d5f16977f40488183fe3cc7501e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musics:
+  - musicPath: event:/Music/MainMenu
+    music: 0
+  - musicPath: event:/Music/Gameplay
+    music: 1
 --- !u!114 &8096380352002520044
 MonoBehaviour:
   m_ObjectHideFlags: 0

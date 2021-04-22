@@ -23,3 +23,8 @@ public enum ItemType {
     Arrow, 
     Life
 }
+public enum Music {
+    MainMenu,
+    Gameplay,
+    None
+}

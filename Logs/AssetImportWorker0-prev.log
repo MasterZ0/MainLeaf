@@ -15,11 +15,11 @@ D:/Games/Zero3/Unity/MainLeaf
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-65032
+61805
 Successfully changed project path to: D:/Games/Zero3/Unity/MainLeaf
 D:/Games/Zero3/Unity/MainLeaf
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 6925.28 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 207.76 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.2f1 (e5d502d80fbb)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/Resources/UnitySubsystems
@@ -35,16 +35,357 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56240
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56576
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003912 seconds.
+Registered in 0.002592 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 590.48 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 213.20 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.445 seconds
+- Completed reload, in  1.677 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.387809 seconds.
+Registered in 0.011741 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 194.52 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Mono: successfully reloaded assembly
+- Completed reload, in  3.667 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 2.98 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 184 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 154.5 MB.
+System memory in use after: 154.6 MB.
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 5807.
+Total: 7.116100 ms (FindLiveObjects: 2.638900 ms CreateObjectMapping: 0.661600 ms MarkObjects: 3.504500 ms  DeleteObjects: 0.309500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/_TerrainAutoUpgrade/layer_Sandyb3407d0e55802f81.terrainlayer
+  artifactKey: Guid(b1316ff226d163644b32a930f8a09722) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_TerrainAutoUpgrade/layer_Sandyb3407d0e55802f81.terrainlayer using Guid(b1316ff226d163644b32a930f8a09722) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4384bbe2d801a65ffed3b6a3e34b20a') in 0.109687 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007532 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.62 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+The assembly search path `D:/Games/Zero3/Unity/MainLeaf/Assets/Behavior Designer/Runtime` does not exist
+at <empty>:line 0
+
+The assembly search path `D:/Games/Zero3/Unity/MainLeaf/Assets/Behavior Designer/Editor` does not exist
+at <empty>:line 0
+
+The assembly search path `D:/Games/Zero3/Unity/MainLeaf/Assets/Behavior Designer/Runtime` does not exist
+at <empty>:line 0
+
+The assembly search path `D:/Games/Zero3/Unity/MainLeaf/Assets/Behavior Designer/Editor` does not exist
+at <empty>:line 0
+
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Mono: successfully reloaded assembly
+- Completed reload, in  2.002 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.53 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 153.8 MB.
+System memory in use after: 154.0 MB.
+
+Unloading 80 unused Assets to reduce memory usage. Loaded Objects now: 5815.
+Total: 5.980100 ms (FindLiveObjects: 0.498000 ms CreateObjectMapping: 0.475100 ms MarkObjects: 4.505600 ms  DeleteObjects: 0.481300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 65.196804 seconds.
+  path: Assets/Editor Default Resources
+  artifactKey: Guid(614a438657d532541a668347dba0ee0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources using Guid(614a438657d532541a668347dba0ee0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd89400ced6c75c51c80dd8199987d6dd') in 0.004476 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 24.539023 seconds.
+  path: Assets/Editor Default Resources/FMOD
+  artifactKey: Guid(0098ee476320b9141b1c92a2ddc5f9fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD using Guid(0098ee476320b9141b1c92a2ddc5f9fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '553689890e604432af739e47f3739f7d') in 0.003444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.053768 seconds.
+  path: Assets/Editor Default Resources/FMOD/AddIcon.png
+  artifactKey: Guid(3300e81f02e64924eb7cb7782713b126) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/AddIcon.png using Guid(3300e81f02e64924eb7cb7782713b126) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '169211eb07bcd5d15822fa9be575db36') in 0.085857 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000419 seconds.
+  path: Assets/Editor Default Resources/FMOD/CopyIcon.png
+  artifactKey: Guid(6e164dcb85fc8ad4b9ab2f1e883862d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/CopyIcon.png using Guid(6e164dcb85fc8ad4b9ab2f1e883862d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b507793633ccd97a0abff9c3c73b4b7') in 0.008315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000388 seconds.
+  path: Assets/Editor Default Resources/FMOD/TransportPlayButtonOn.png
+  artifactKey: Guid(2d777c9a14189d241aea1afeeeff448c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/TransportPlayButtonOn.png using Guid(2d777c9a14189d241aea1afeeeff448c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6f1957a315d28a4ceccb5076c486654') in 0.009879 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000460 seconds.
+  path: Assets/Editor Default Resources/FMOD/BrowserIcon.png
+  artifactKey: Guid(c783b763d12874147876e070661b66ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/BrowserIcon.png using Guid(c783b763d12874147876e070661b66ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b28ccddba9cfda5f9a7c42b635e3c8d7') in 0.007914 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/Editor Default Resources/FMOD/SearchIconBlack.png
+  artifactKey: Guid(99471facfde9fb84dbe4a81ad570ebce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/SearchIconBlack.png using Guid(99471facfde9fb84dbe4a81ad570ebce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdf67711bb6d05f97d1a68d3fbbef7b7') in 0.008479 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000310 seconds.
+  path: Assets/Editor Default Resources/FMOD/FolderIconClosed.png
+  artifactKey: Guid(70efeb6d97126f843b30b8ed62d18a4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/FolderIconClosed.png using Guid(70efeb6d97126f843b30b8ed62d18a4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b69daaf763c7c790a974def3e2fc195') in 0.009978 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000406 seconds.
+  path: Assets/Editor Default Resources/FMOD/Selected.png
+  artifactKey: Guid(38be8eaefa585de4aa1781acb0adc866) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/Selected.png using Guid(38be8eaefa585de4aa1781acb0adc866) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f72e4146b052a2e8143d89cc86a085d9') in 0.008050 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000418 seconds.
+  path: Assets/Editor Default Resources/FMOD/StudioIcon.png
+  artifactKey: Guid(a4edfa5854cdec34b98b1c55f0562bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/StudioIcon.png using Guid(a4edfa5854cdec34b98b1c55f0562bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a4391aa8070e9075f314abec86aac43') in 0.009625 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000527 seconds.
+  path: Assets/Editor Default Resources/FMOD/ArrowDown.png
+  artifactKey: Guid(d5400a23002b107479debec613434ad6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/ArrowDown.png using Guid(d5400a23002b107479debec613434ad6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '026b0499008308b28002d5b3f82cc5bb') in 0.008443 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/Editor Default Resources/FMOD/TransportStopButtonOn.png
+  artifactKey: Guid(eab53cb0959d1244aadeacf8b76c755c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/TransportStopButtonOn.png using Guid(eab53cb0959d1244aadeacf8b76c755c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ce43684b2037d789ce89b8d5a708515') in 0.007412 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/Editor Default Resources/FMOD/TransportOpen.png
+  artifactKey: Guid(b0fb832e401d1514a9611735d8d340b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/TransportOpen.png using Guid(b0fb832e401d1514a9611735d8d340b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bde47a9516bc5349c3a85ca51a97de8c') in 0.007743 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/Editor Default Resources/FMOD/SnapshotIcon.png
+  artifactKey: Guid(cf2bba5fb8be7e64ca39979f18eb372a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/SnapshotIcon.png using Guid(cf2bba5fb8be7e64ca39979f18eb372a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f90073cb59426cd63b8de2acf259415a') in 0.008877 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/Editor Default Resources/FMOD/TransportPlayButtonOff.png
+  artifactKey: Guid(29258b1336a580946bc144df00b74ac1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/TransportPlayButtonOff.png using Guid(29258b1336a580946bc144df00b74ac1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01205dfcaeb2ab5b6f01595792d97bd3') in 0.007790 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000430 seconds.
+  path: Assets/Editor Default Resources/FMOD/Border.png
+  artifactKey: Guid(40848578d1961334d820821bec6175a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/Border.png using Guid(40848578d1961334d820821bec6175a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6a4c6ba1ebaaaceddec686c27328027') in 0.007149 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/Editor Default Resources/FMOD/SelectedAlt.png
+  artifactKey: Guid(8ce9b717b1bc7564cbe35664f2f178a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/SelectedAlt.png using Guid(8ce9b717b1bc7564cbe35664f2f178a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3016c4ecee6f6f3fca5a65280bbb354e') in 0.011777 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Editor Default Resources/FMOD/NotFound.png
+  artifactKey: Guid(1138ab068176f29499337d7a73dfecd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/NotFound.png using Guid(1138ab068176f29499337d7a73dfecd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52655a4884ec1e01ccb460aa7ce4f698') in 0.007145 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000358 seconds.
+  path: Assets/Editor Default Resources/FMOD/preview.png
+  artifactKey: Guid(0793eda432fc5df4ab1291e6baacd771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/preview.png using Guid(0793eda432fc5df4ab1291e6baacd771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6db388b8bcb50d3e43748f059f316905') in 0.008712 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000430 seconds.
+  path: Assets/Editor Default Resources/FMOD/previewemitter.png
+  artifactKey: Guid(9519043db3741934fa01455c47683e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/previewemitter.png using Guid(9519043db3741934fa01455c47683e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ab8e4e91f9a371f8e45bfc3b943d188') in 0.008800 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000388 seconds.
+  path: Assets/Editor Default Resources/FMOD/EventIcon.png
+  artifactKey: Guid(a602f206f9cb31f439c79a2fe23687c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/EventIcon.png using Guid(a602f206f9cb31f439c79a2fe23687c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c95116b432177075374e3b0c931050b9') in 0.007786 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000361 seconds.
+  path: Assets/Editor Default Resources/FMOD/LevelMeterOff.png
+  artifactKey: Guid(48dc5470d93f669419f294fcd33f7b7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/LevelMeterOff.png using Guid(48dc5470d93f669419f294fcd33f7b7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1eadf6728fec16eb746cf20b841768c') in 0.011400 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Editor Default Resources/FMOD/TransportStopButtonOff.png
+  artifactKey: Guid(cafa069c15865d543a07375373f0a18e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/TransportStopButtonOff.png using Guid(cafa069c15865d543a07375373f0a18e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6e0e2d2adccc7baa679e48654fa5ce0') in 0.009566 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Editor Default Resources/FMOD/BankIcon.png
+  artifactKey: Guid(a7e06068a7215854a84bf5ed8280ed15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/BankIcon.png using Guid(a7e06068a7215854a84bf5ed8280ed15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cddf209932b2712ddf9530ec7dfef01') in 0.007523 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/Editor Default Resources/FMOD/ArrowIcon.png
+  artifactKey: Guid(01c0101f357b9da4ba78b8f58c290f86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/ArrowIcon.png using Guid(01c0101f357b9da4ba78b8f58c290f86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1566d8cebd54bcd79129037677f10c02') in 0.011633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/Editor Default Resources/FMOD/SearchIcon.png
+  artifactKey: Guid(1b785acb38b002542a02d6c4cbb1fa6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/SearchIcon.png using Guid(1b785acb38b002542a02d6c4cbb1fa6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '331b49d321ae5f6ebd1899aa26a06341') in 0.008609 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/Editor Default Resources/FMOD/LevelMeter.png
+  artifactKey: Guid(21e7a3d41a926364a8b9a6704ebe80d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/LevelMeter.png using Guid(21e7a3d41a926364a8b9a6704ebe80d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84f08af6000609caeec3f1500e8c9951') in 0.007224 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/Editor Default Resources/FMOD/Delete.png
+  artifactKey: Guid(196080340db65c44883dd3f599556fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/Delete.png using Guid(196080340db65c44883dd3f599556fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60b6d0723eb2e31c887120622ee1d13e') in 0.007326 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000312 seconds.
+  path: Assets/Editor Default Resources/FMOD/FolderIconOpen.png
+  artifactKey: Guid(d2b54e4f7f80b9448a41d3c5985f5672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/FolderIconOpen.png using Guid(d2b54e4f7f80b9448a41d3c5985f5672) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b78031ab25552fcdb2e8491cbdccac7b') in 0.009045 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/Editor Default Resources/FMOD/ArrowUp.png
+  artifactKey: Guid(82ff72577988cdb4a95bd92f1d0bc129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor Default Resources/FMOD/ArrowUp.png using Guid(82ff72577988cdb4a95bd92f1d0bc129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8ebe6f20769d8b12e72d5f828b83bd8') in 0.007654 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 33.390427 seconds.
+  path: Assets/Gizmos
+  artifactKey: Guid(078cf2b5cfda79c4694d58eda75bf991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Gizmos using Guid(078cf2b5cfda79c4694d58eda75bf991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b2a7d607b4c48751849d4d62b98087b') in 0.002374 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.611987 seconds.
+  path: Assets/Plugins
+  artifactKey: Guid(8e1ef26051e4e4a4f9f19e457070f8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins using Guid(8e1ef26051e4e4a4f9f19e457070f8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '179687ef84b08127c6c19e817111a591') in 0.002762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.382864 seconds.
+  path: Assets/VFX/Fire.vfx
+  artifactKey: Guid(7910204b4d1d518479abeeb85147bea4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX/Fire.vfx using Guid(7910204b4d1d518479abeeb85147bea4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1b9a7b18872bb3fbf2db9a05201587c') in 0.089909 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/VFX/SmokeB.vfx
+  artifactKey: Guid(28e8e8a242d7ddd409eb8dd648e1d21f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX/SmokeB.vfx using Guid(28e8e8a242d7ddd409eb8dd648e1d21f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f8c394e03e5a745157b851e421dae3c') in 0.063400 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/VFX/SmokeB 1.vfx
+  artifactKey: Guid(0c3a98637d860894dbabd4d5ae5c379a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX/SmokeB 1.vfx using Guid(0c3a98637d860894dbabd4d5ae5c379a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abb501345ade9a6259ba522173e32706') in 0.004239 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/VFX/Smoke.vfx
+  artifactKey: Guid(6cdf940ddb4a0044aaa29908de292565) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VFX/Smoke.vfx using Guid(6cdf940ddb4a0044aaa29908de292565) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8313b3ca0d5bd08f43d3451a57004add') in 0.031465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 54.253453 seconds.
+  path: Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset
+  artifactKey: Guid(635daf56b5685494e99467bccd50559d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset using Guid(635daf56b5685494e99467bccd50559d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [FMOD] Cannot find properties for platform default, creating default properties
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+FMODUnity.Settings:AffirmPlatformProperties (FMODUnity.Platform) (at Assets/Plugins/FMOD/src/Runtime/Settings.cs:735)
+FMODUnity.Settings:AddMissingPlatforms () (at Assets/Plugins/FMOD/src/Runtime/Settings.cs:447)
+FMODUnity.Settings:OnEnable () (at Assets/Plugins/FMOD/src/Runtime/Settings.cs:803)
+
+(Filename: Assets/Plugins/FMOD/src/Runtime/Settings.cs Line: 735)
+
+[FMOD] Cannot find properties for platform playInEditor, creating default properties
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+FMODUnity.Settings:AffirmPlatformProperties (FMODUnity.Platform) (at Assets/Plugins/FMOD/src/Runtime/Settings.cs:735)
+FMODUnity.Settings:AddMissingPlatforms () (at Assets/Plugins/FMOD/src/Runtime/Settings.cs:448)
+FMODUnity.Settings:OnEnable () (at Assets/Plugins/FMOD/src/Runtime/Settings.cs:803)
+
+(Filename: Assets/Plugins/FMOD/src/Runtime/Settings.cs Line: 735)
+
+ -> (artifact id: '86f7bfa71f1d2ba86d40b58f2913c8f9') in 0.129140 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3242.390710 seconds.
+  path: Assets/Bow and Hammer Sound Effects
+  artifactKey: Guid(6965e7f08657d084582616c2735d7676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bow and Hammer Sound Effects using Guid(6965e7f08657d084582616c2735d7676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4e06eb33a982d4fd3ceefe8ad15fd37') in 0.004832 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.999427 seconds.
+  path: Assets/Audio
+  artifactKey: Guid(67adf0c99fee34944829ffa31674dce3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio using Guid(67adf0c99fee34944829ffa31674dce3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '395d51e6e9cccc86e3dcdfab5be93b8c') in 0.003678 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.129621 seconds.
+  path: Assets/Audio/fire2.wav
+  artifactKey: Guid(b87bbabab8ec53e48b8143e98401f344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/fire2.wav using Guid(b87bbabab8ec53e48b8143e98401f344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0a743c329426169eb5c316ec6b9b392') in 0.060369 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000387 seconds.
+  path: Assets/Audio/fire6.wav
+  artifactKey: Guid(3da8e693d6d092640b87fea411eb6747) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/fire6.wav using Guid(3da8e693d6d092640b87fea411eb6747) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '976ce17617ae119628783883ed45057c') in 0.008208 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000335 seconds.
+  path: Assets/Audio/fire4.wav
+  artifactKey: Guid(ee664635e6d8fac4eb08276d7a315b71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/fire4.wav using Guid(ee664635e6d8fac4eb08276d7a315b71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c06e767d5653492a2affc9b1a20d203a') in 0.008272 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000402 seconds.
+  path: Assets/Audio/fire5.wav
+  artifactKey: Guid(cbfcaa38305fe404fb333d18be16e168) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/fire5.wav using Guid(cbfcaa38305fe404fb333d18be16e168) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2651ebef3cf9c7dfa2c7e59d1baef1c8') in 0.010104 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

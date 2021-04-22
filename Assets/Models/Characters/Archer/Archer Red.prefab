@@ -1631,7 +1631,6 @@ GameObject:
   - component: {fileID: 9127210239390274919}
   - component: {fileID: 5230096313722496741}
   - component: {fileID: 2019189592249293646}
-  - component: {fileID: 8736513391701751286}
   m_Layer: 0
   m_Name: Archer Red
   m_TagString: Untagged
@@ -1779,39 +1778,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 4753677464859267366}
     m_Active: 1
   m_Effectors: []
---- !u!114 &8736513391701751286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5537164977549460556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a806c6829ff0b9543841d9e34da85c78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onFootLeft:
-    m_PersistentCalls:
-      m_Calls: []
-  onFootRight:
-    m_PersistentCalls:
-      m_Calls: []
-  onFire:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
-        m_MethodName: OnFire
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &5557141645663679012
 GameObject:
   m_ObjectHideFlags: 0

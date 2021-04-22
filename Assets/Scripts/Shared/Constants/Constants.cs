@@ -4,6 +4,7 @@ public static class Constants
 {
     public static class PlayerPrefs {
         public static class Float {
+            public static string MASTER_VOLUME { get => "MasterVolume"; }
             public static string MUSIC_VOLUME { get => "MusicVolume"; }
             public static string SFX_VOLUME { get => "SfxVolume"; }
             public static string VOICE_VOLUME { get => "VoiceVolume"; }

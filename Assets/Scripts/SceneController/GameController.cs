@@ -9,20 +9,21 @@ public class GameController : MonoBehaviour {
     public static event Action<GameState> OnChangeState = delegate { };
     public static event Action<Enemy> OnEnemyDeath = delegate { };
     private void Start() {
-        SetGameState(GameState.Initializing);
+        GameManager.MusicManager.ChangeMusic(Music.Gameplay);
         GameManager.Instance.SetTransitionCallback(OnTransitionOpen);
     }
 
     private void OnTransitionOpen() {
+        SetGameState(GameState.Initializing);
         HUD.SetupGameController(roundTime, secondsToStart);
         GameMenu.SetActive(true);
     }
 
     public static void SetGameState(GameState gameState) {
-        GameMenu.SetActive(gameState == GameState.Playing);
+        GameMenu.SetActive(gameState == GameState.Initializing || gameState == GameState.Playing);
 
         if (gameState == GameState.Win)
-            OnEnemyDeath = null;
+            OnEnemyDeath = null;    // Quando inimigos morrerem, não aumente a pontuação
 
         OnChangeState.Invoke(gameState);
     }
