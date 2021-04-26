@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialFX : PooledObject
-{
+public class SpecialFX : PooledObject {
+
+    [Header("Special FX")]
+    [SerializeField] private ParticleSystem particleSystem;
+
     protected override void OnEnablePooledObject() {
-        throw new System.NotImplementedException();
+        StartCoroutine(WaitToFinish());
+    }
+
+    IEnumerator WaitToFinish() {
+        yield return new WaitUntil(() => !particleSystem.isPlaying);
+        ReturnToPool();
     }
 }

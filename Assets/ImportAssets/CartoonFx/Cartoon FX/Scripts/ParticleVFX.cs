@@ -3,23 +3,21 @@ using System.Collections;
 
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleVFX : PooledObject {
-	ParticleSystem ps;
+	[SerializeField] private ParticleSystem particleSystem;
 
-	private void Start() {
-		ps = GetComponent<ParticleSystem>();
+	private void Awake() {
+		if(particleSystem == null)
+			particleSystem = GetComponent<ParticleSystem>();
 	}
 
     protected override void OnEnablePooledObject() {
 		StartCoroutine(CheckIfAlive());
 	}
-	IEnumerator CheckIfAlive ()	{
-		
-		while(ps != null)
-		{
+	IEnumerator CheckIfAlive() {
+		while (particleSystem) {
 			yield return new WaitForSeconds(0.5f);
-			if(!ps.IsAlive(true)) {
+			if (!particleSystem.IsAlive(true)) {
 				ReturnToPool();
-				break;
 			}
 		}
 	}

@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7912016573168149781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Select
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Select
+  guid: a75f04f82b8aec4e9f5ad03c7a92adf1
+  Banks:
+  - {fileID: -2317317618946846147}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 39
 --- !u!114 &-4869578419996560502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,7 +60,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 637546499177482975
+  lastModified: 637546899626878414
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -56,7 +79,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637546499176496632
+  lastModified: 637546899627637253
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -82,13 +105,39 @@ MonoBehaviour:
   - {fileID: 8164436351175090753}
   - {fileID: 2435221854261640783}
   - {fileID: 4956001205116907502}
+  - {fileID: -7912016573168149781}
+  - {fileID: 6337602988623128516}
+  - {fileID: 2332154814053904722}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2317317618946846147}
   StringsBanks:
   - {fileID: 2522174224233676196}
-  stringsBankWriteTime: 637546499176536523
+  stringsBankWriteTime: 637546899627677140
   cacheVersion: 6
+--- !u!114 &2332154814053904722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Cancel
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Cancel
+  guid: d83d46720814174eb1bcc7f7f5b46f18
+  Banks:
+  - {fileID: -2317317618946846147}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 563
 --- !u!114 &2435221854261640783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,11 +176,11 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637546499176536523
+  lastModified: 637546899627677140
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1176
+    Value: 1358
   Exists: 1
 --- !u!114 &4097780759065355504
 MonoBehaviour:
@@ -148,7 +197,7 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/MainMenu.bank
   Name: MainMenu
   StudioPath: bank:/MainMenu
-  lastModified: 637546499177015248
+  lastModified: 637546899627317629
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -198,6 +247,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 180976
+--- !u!114 &6337602988623128516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Confirm
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Confirm
+  guid: a9c93286e04d524fa70b5471b754e7ae
+  Banks:
+  - {fileID: -2317317618946846147}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 507
 --- !u!114 &8164436351175090753
 MonoBehaviour:
   m_ObjectHideFlags: 0

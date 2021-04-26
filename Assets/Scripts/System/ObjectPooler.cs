@@ -39,7 +39,6 @@ public class ObjectPooler : MonoBehaviour
         return GetObject(queue, pooledObject);
     }
 
-
     public Queue<PooledObject> GetQueue(string objectName) {
         if (poolDictionary.ContainsKey(objectName))
             return poolDictionary[objectName];

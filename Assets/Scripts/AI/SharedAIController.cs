@@ -1,6 +1,4 @@
 using BehaviorDesigner.Runtime;
-using System;
-using UnityEngine;
 
 namespace AI {
     [System.Serializable]

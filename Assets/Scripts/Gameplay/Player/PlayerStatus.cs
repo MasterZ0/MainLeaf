@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PlayerStatus : MonoBehaviour, IDamageable, ICollector {
+    [SerializeField] private bool imortal;
 
     [Header("Player Status")]
     [SerializeField] private int arrowCount;
@@ -37,7 +38,9 @@ public abstract class PlayerStatus : MonoBehaviour, IDamageable, ICollector {
     }
 
     public virtual bool TakeDamage(Damage damage) { 
-        currentLife -= damage.value;
+        if(!imortal)
+            currentLife -= damage.value;
+
         if(currentLife <= 0) {
             IsDead = true;
             DeathEvent();            

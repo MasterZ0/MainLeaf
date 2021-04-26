@@ -39,6 +39,7 @@ public abstract class Enemy : PooledObject, IDamageable {
         if (IsDead)
             return false;
 
+        OnTakeDamage.Invoke(damage);
         currentLife -= damage.value;
         if(currentLife <= 0) {
             KillEnemy();

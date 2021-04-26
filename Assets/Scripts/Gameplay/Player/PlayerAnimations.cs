@@ -19,7 +19,7 @@ public class PlayerAnimations : MonoBehaviour {
     [Header(" - Prefab")]
     public float arrowMaxDistance = 40f;
     public LayerMask whatIsHittable;
-    public PooledObject arrowPrefab;
+    public ArrowProjectile arrowPrefab;
 
     private Vector2 smoothDeltaPosition = Vector2.zero;
     private Vector2 velocity = Vector2.zero;
@@ -121,10 +121,10 @@ public class PlayerAnimations : MonoBehaviour {
         bool successful = Physics.Raycast(aimCamera.position, aimCamera.forward, out RaycastHit hit, arrowMaxDistance, whatIsHittable);
         if (successful) {
             firePoint.LookAt(hit.point);
-            arrowPrefab.SpawnObject(firePoint.position, firePoint.rotation);
+            arrowPrefab.SpawnObject(firePoint.position, firePoint.rotation).GetComponent<ArrowProjectile>().Fire(transform);
         }
         else {
-            arrowPrefab.SpawnObject(firePoint.position, defaultRotation);
+            arrowPrefab.SpawnObject(firePoint.position, defaultRotation).GetComponent<ArrowProjectile>().Fire(transform);
         }
     }
 

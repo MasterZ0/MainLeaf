@@ -8,26 +8,20 @@ public sealed class SkeletonMage : Enemy {
     [SerializeField] private AIController aiController;
     [SerializeField] private Animator animator;
     [SerializeField] private SkinnedMeshRenderer eyes;
-    [SerializeField] private Transform[] firePoint;
+    [SerializeField] private Transform firePoint;
 
     [Header(" - Prefab")]
     [SerializeField] private PooledObject fireball;
 
-    private int attack;
-    private Action onAttackEnd;
+    private Transform target;
+    private Vector3 targetDirection;
     protected override void Awake() {
         base.Awake();
         aiController.Init(this);
         aiController.OnUpdateTarget += OnUpdateTarget;    // Estado de anim = armed
         aiController.OnStartAttack += OnAttack;           // Estado de anim = attack
-        onAttackEnd = aiController.OnAttackSuccess;       // Callback ao finalizar o ataque
         OnTakeDamage += aiController.OnTakeDamage;        // Evento ao receber dano (Detectar inimigo)
     }
-
-    private void OnUpdateTarget(Transform newTarget) {
-        animator.SetBool(Constants.Anim.IS_ARMED, newTarget);
-    }
-
     protected override void OnEnablePooledObject() {
         base.OnEnablePooledObject();
         eyes.material.color = Color.white;
@@ -36,23 +30,23 @@ public sealed class SkeletonMage : Enemy {
         float moveSpeed = enemyAttributes.sprintSpeed / aiController.Velocity.magnitude;
         animator.SetFloat(Constants.Anim.MOVE_SPEED, moveSpeed);
     }
+    private void OnUpdateTarget(Transform newTarget) {
+        target = newTarget;
+        animator.SetBool(Constants.Anim.IS_ARMED, newTarget);
+    }
+
     private void OnAttack() {
-        attack = UnityEngine.Random.Range(0, 2);
-        animator.SetInteger(Constants.Anim.ATTACK, attack);
+        animator.SetTrigger(Constants.Anim.ATTACK);
+        targetDirection = target.position + Vector3.up * 1.2f;
     }
     public void OnSpawnFireball() {
-        animator.SetInteger(Constants.Anim.ATTACK, -1);
-        fireball.SpawnObject(firePoint[attack].position, firePoint[attack].rotation);
-    }
-    public void OnAttackEnd() {
-        onAttackEnd.Invoke();
+        firePoint.LookAt(targetDirection);
+        fireball.SpawnObject(firePoint.position, firePoint.rotation);
     }
     protected override void EnemyDeath() {
         //aiMovement.StopAllCoroutines();
+        aiController.Die();
         animator.SetTrigger(Constants.Anim.DEATH);
         eyes.material.color = Color.clear;
     }
-
-
-
 }

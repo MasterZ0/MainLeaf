@@ -19,16 +19,16 @@ public class EnemyGenerator : MonoBehaviour {
     [SerializeField] private Transform player;
     [SerializeField] private SpawnSmoke spawSmoke;
     [SerializeField] private Enemy[] enemies;
-    [SerializeField] private GameObject[] spawPoints;
+    [SerializeField] private Transform[] spawPoints;
 
     private Vector3[] spawPointsPos;
     private float time = 1;
     private bool spawEnemies;
     private List<Enemy> enemiesSpawned = new List<Enemy>();
-    public static List<GameObject> SpawPoints { get; private set; }
+    public static List<Transform> SpawPoints { get; private set; }
 
     private void Awake() {
-        SpawPoints = new List<GameObject>(spawPoints);
+        SpawPoints = new List<Transform>(spawPoints);
         GameController.OnChangeState += OnChangeState;
         GameController.OnEnemyDeath += OnEnemyDeath;
     }
@@ -36,7 +36,7 @@ public class EnemyGenerator : MonoBehaviour {
     private void Start() {
         spawPointsPos = new Vector3[spawPoints.Length];
         for (int i = 0; i < spawPoints.Length; i++) {
-            spawPointsPos[i] = spawPoints[i].transform.position;
+            spawPointsPos[i] = spawPoints[i].position;
         }
     }
 
@@ -98,8 +98,8 @@ public class EnemyGenerator : MonoBehaviour {
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        foreach (GameObject sp in spawPoints) {
-            Gizmos.DrawWireSphere(sp.transform.position, spawRadius);
+        foreach (Transform sp in spawPoints) {
+            Gizmos.DrawWireSphere(sp.position, spawRadius);
         }
     }
 

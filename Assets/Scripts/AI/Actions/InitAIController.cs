@@ -1,9 +1,5 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static BehaviorDesigner.Runtime.BehaviorManager;
 
 namespace AI {
     [TaskCategory("AI")]
@@ -11,7 +7,7 @@ namespace AI {
         [RequiredField]
         public SharedAIController aiController;
         [RequiredField]
-        public SharedGameObjectList waypoints;
+        public SharedTransformList waypoints;
         [RequiredField]
         public SharedFloat walkSpeed;
         [RequiredField]

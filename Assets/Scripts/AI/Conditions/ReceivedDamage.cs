@@ -1,5 +1,6 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using UnityEngine;
 
 namespace AI {
     [TaskCategory("AI")]
@@ -12,8 +13,12 @@ namespace AI {
         public SharedGameObject returnedObject;
 
         public override TaskStatus OnUpdate() {
-            returnedObject.Value = aiController.Value.ReicevedDamage();
-            return returnedObject.Value != null ? TaskStatus.Success : TaskStatus.Failure;
+            Transform target = aiController.Value.ReicevedDamage();
+            if(target == null) {
+                return TaskStatus.Failure;
+            }
+            returnedObject.Value = target.gameObject;
+            return TaskStatus.Success;
         }
 
         //public override bool Check() {

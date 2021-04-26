@@ -10,9 +10,9 @@ namespace AI {
     [TaskCategory("AI")]
     public class Attack : Action {  // Verifica se está dentro do raio
         [Header("Settings")]
-        public SharedFloat fieldOfViewAngle = 180;
-        public SharedFloat viewDistance = 10;
-        public SharedVector3 offset;
+        public float viewAngle = 180;
+        public float viewDistance = 10;
+        public Vector3 offset;
 
         [Header("Config")]
         [RequiredField]
@@ -24,7 +24,7 @@ namespace AI {
         private bool attackDone;
         private float sqrMagnitude;
         public override void OnStart() {
-            sqrMagnitude = viewDistance.Value * viewDistance.Value;
+            sqrMagnitude = viewDistance * viewDistance;
         }
 
         public override TaskStatus OnUpdate() {
@@ -38,14 +38,12 @@ namespace AI {
                 }
                 return TaskStatus.Running ;
             }
-                
 
 
-            Vector3 direction = (transform.position - targetObject.Value.transform.position);
+            Vector3 targetPos = targetObject.Value.transform.position;
+            Vector3 direction = targetPos - transform.position + offset;
             if (Vector3.SqrMagnitude(direction) < sqrMagnitude) {
-
-                float angle = Vector3.Dot(transform.forward, direction.normalized).Remap(-1, 1, 0, 360);
-                if (angle < viewDistance.Value) {
+                if (Vector3.Angle(transform.forward, direction.normalized) < viewAngle / 2) {
                     attackDone = false;
                     isAttacking = true;
                     aiController.Value.StartAttack(AttackDone);
@@ -61,14 +59,14 @@ namespace AI {
         }
 
         public override void OnReset() {
-            fieldOfViewAngle = 180;
+            viewAngle = 180;
             viewDistance = 2.5f;
             offset = Vector3.zero;
         }
 
         public override void OnDrawGizmos() {
             UnityEditor.Handles.color = Color.red;
-            DrawLineOfSight(Owner.transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value);
+            DrawLineOfSight(Owner.transform, offset, viewAngle, viewDistance);
         }
         public void DrawLineOfSight(Transform transform, Vector3 positionOffset, float fieldOfViewAngle, float viewDistance) {
 #if UNITY_EDITOR

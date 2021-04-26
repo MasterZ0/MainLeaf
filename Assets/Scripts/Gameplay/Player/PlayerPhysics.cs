@@ -57,11 +57,9 @@ public class PlayerPhysics : PlayerStatus {
     }
 
     public void OnJump() {
-        print("Jump");
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity * mass);
     }
     public void OnLanding() {
-        print("Land");
         isJumping = false;
     }
 

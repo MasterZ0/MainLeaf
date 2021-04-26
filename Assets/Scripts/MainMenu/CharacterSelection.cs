@@ -6,12 +6,28 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CharacterSelection : MonoBehaviour {
+    [System.Serializable]
+    private struct Character {
+        [Header("Character")]
+        public string name;
+        [Range(0, 1)] public float style;
+        [Range(1, 5)] public int damage;
+        [Range(1, 5)] public int agility;
+        [Range(1, 5)] public int support;
+        [Range(1, 5)] public int resistence;
+
+        [Header("- Config")]
+        public Animator nameAnimator;
+        public SelectionColor[] selection;
+    }
 
     [Header("Character Selection")]
-    [SerializeField] private IntEvent onConfirm;
-    [SerializeField] private UnityEvent onCancel;
-    [SerializeField] private Animator[] characterSelection;
     [SerializeField] private Character[] characters;
+
+    [Header(" - Event")]
+    [SerializeField] private IntEvent onSubmit;
+    [SerializeField] private UnityEvent onSelect;
+    [SerializeField] private UnityEvent onCancel;
 
     [Header(" - Panel")]
     [SerializeField] private TextMeshProUGUI nameTMP;
@@ -21,46 +37,47 @@ public class CharacterSelection : MonoBehaviour {
     [SerializeField] private GameObject[] support;
     [SerializeField] private GameObject[] resistence;
 
-    [System.Serializable]
-    private struct Character {
-        public string name;
-        [Range(0, 1)] public float style;        
-        [Range(1, 5)] public int damage;
-        [Range(1, 5)] public int agility;
-        [Range(1, 5)] public int support;
-        [Range(1, 5)] public int resistence;
-
-        [Space]
-        public SelectionColor[] selection;
-    }
-
     private Controls controls;
     private int characterIndex;
 
     private void Awake() {
         controls = new Controls();
-        controls.UI.Navigate.started += ctx => OnChangeCharacter(ctx.ReadValue<Vector2>().x);
-        controls.UI.Submit.started += ctx => OnConfirmCharacter();
-        controls.UI.Cancel.started += ctx => OnCloseCharacterSeletion();
+        controls.UI.Navigate.started += ctx => OnNavigate(ctx.ReadValue<Vector2>().x);
+        controls.UI.Submit.started += ctx => OnSubmit();
+        controls.UI.Cancel.started += ctx => OnCancel();
     }
     /// <summary>
     /// Enable character selection controls
     /// </summary>
     public void SetActive() { 
         controls.Enable();
-        characterSelection[characterIndex].Play(Constants.Anim.SELECT);
+        onSelect.Invoke();  // Disable the first select
+        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, true);
 
         foreach (SelectionColor sc in characters[characterIndex].selection) {
             sc.SetColor(Color.green);
         }
     }
-    private void OnChangeCharacter(float direction) {
+
+    private void OnSubmit() {
+        controls.Disable();
+        onSubmit.Invoke(characterIndex);
+        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, false);
+        UpdatePanel();
+
+        foreach (SelectionColor sc in characters[characterIndex].selection) {
+            sc.SetColor(Color.black);
+        }
+    }
+    private void OnNavigate(float direction) {
         if (direction == 0)
             return;
 
-        characterSelection[characterIndex].Play(Constants.Anim.DESELECT);
+        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, false);
         characterIndex = characterIndex.Navigate(characters.Length, direction > 0);
-        characterSelection[characterIndex].Play(Constants.Anim.SELECT);
+
+        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, true);
+        onSelect.Invoke();
 
         for (int i = 0; i < characters.Length; i++) {
             Color color = i == characterIndex ? Color.green : Color.black;
@@ -70,22 +87,11 @@ public class CharacterSelection : MonoBehaviour {
             }
         }
     }
-
-    private void OnCloseCharacterSeletion() {
+    private void OnCancel() {
         controls.Disable();
         onCancel.Invoke();
 
-        characterSelection[characterIndex].Play(Constants.Anim.DESELECT);
-        foreach (SelectionColor sc in characters[characterIndex].selection) {
-            sc.SetColor(Color.black);
-        }
-    }
-    private void OnConfirmCharacter() {
-        controls.Disable();
-        onConfirm.Invoke(characterIndex);
-        characterSelection[characterIndex].Play(Constants.Anim.DESELECT);
-        UpdatePanel();
-
+        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, false);
         foreach (SelectionColor sc in characters[characterIndex].selection) {
             sc.SetColor(Color.black);
         }

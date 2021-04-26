@@ -22,10 +22,6 @@ public class Navigator : Selectable, IEventSystemHandler {
 
     private const string END = "End";
     public void Init(string[] stringPackege, int currentIndex) {
-        if (stringPackege.Length < 2) {
-            Debug.LogError("Packege is too small");
-            return;
-        }
         if(currentIndex < 0 || currentIndex >= stringPackege.Length) {
             Debug.LogError($"Index out of range. Length: {stringPackege.Length}, Current Index: {currentIndex}");
             return;

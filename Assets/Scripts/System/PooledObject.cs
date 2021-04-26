@@ -15,7 +15,7 @@ public abstract class PooledObject : MonoBehaviour {
     }
 
     protected virtual void OnEnable() {
-        if(returnToQueue)
+        if (returnToQueue)
             OnEnablePooledObject();
     }
 

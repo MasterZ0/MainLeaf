@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7361f95aaba48441be5d0818b5a01ed, type: 3}
   m_Name: SkeletonMage
   m_EditorClassIdentifier: 
-  maxLife: 0
-  walkSpeed: 0
-  sprintSpeed: 0
+  maxLife: 40
+  walkSpeed: 2
+  sprintSpeed: 4
   attackRange: 0
   points: 10
   loots:

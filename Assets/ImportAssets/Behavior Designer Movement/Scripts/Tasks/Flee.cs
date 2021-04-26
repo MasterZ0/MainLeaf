@@ -13,8 +13,11 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         [Tooltip("The distance to look ahead when fleeing")]
         public SharedFloat lookAheadDistance = 5;
         [Tooltip("The GameObject that the agent is fleeing from")]
-        public SharedGameObject target;
 
+        [RequiredField]
+        public SharedGameObject target;
+        [RequiredField]
+        public SharedFloat moveSpeed;
         private bool hasMoved;
 
         public override void OnStart()

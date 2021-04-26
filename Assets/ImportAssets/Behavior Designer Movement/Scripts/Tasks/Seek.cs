@@ -28,7 +28,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
                 return TaskStatus.Success;
             }
 
-            SetDestination(Target());
+            bool sucess = SetDestination(Target());
+            Debug.Log(sucess + ": " + targetPosition.Value);
 
             return TaskStatus.Running;
         }

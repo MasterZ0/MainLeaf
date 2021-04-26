@@ -17,78 +17,70 @@ public class AudioSettings : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI sfxTMP;
     [SerializeField] private TextMeshProUGUI voiceTMP;
 
-    private static Bus master, music, sfx, voice;
+    [Header(" - Audio")]
+    [EventRef]
+    [SerializeField] private string sfxTest;
+    [EventRef]
+    [SerializeField] private string voiceTest;
+
+    private static Bus masterBus, musicBus, sfxBus, voiceBus;
     private EventInstance sfxTestEvent;
     private EventInstance voiceTestEvent;
 
-    private void Awake() {
+    public static void Setup() {
+        masterBus = RuntimeManager.GetBus("bus:/Master");
+        musicBus = RuntimeManager.GetBus("bus:/Master/Music");
+        sfxBus = RuntimeManager.GetBus("bus:/Master/SFX");
+        voiceBus = RuntimeManager.GetBus("bus:/Master/Voice");
 
-        float volume;
-        //volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MASTER_VOLUME, 1f);
-        master.getVolume(out volume);
+        float volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MASTER_VOLUME, 1f);
+        masterBus.setVolume(volume);
+
+        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, .8f);
+        musicBus.setVolume(volume);
+
+        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME, .8f);
+        sfxBus.setVolume(volume);
+
+        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, .8f);
+        voiceBus.setVolume(volume);
+    }
+
+    private void Awake() {
+        masterBus.getVolume(out float volume);
         masterTMP.text = $"{volume * 100}%";
         masterSlider.value = volume;
 
-        //volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, .8f);
-        music.getVolume(out volume);
+        musicBus.getVolume(out volume);
         musicTMP.text = $"{volume * 100}%";
         musicSlider.value = volume;
 
-        //volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME, .8f);
-        sfx.getVolume(out volume);
+        sfxBus.getVolume(out volume);
         sfxTMP.text = $"{volume * 100}%";
         sfxSlider.value = volume;
 
-        //volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, .8f);
-        voice.getVolume(out volume);
+        voiceBus.getVolume(out volume);
         voiceTMP.text = $"{volume * 100}%";
         voiceSlider.value = volume;
 
-        sfxTestEvent = RuntimeManager.CreateInstance("event:/SFX/SFXTest");
-        voiceTestEvent = RuntimeManager.CreateInstance("event:/SFX/VoiceTest");
+        sfxTestEvent = RuntimeManager.CreateInstance(sfxTest);
+        voiceTestEvent = RuntimeManager.CreateInstance(voiceTest);
     }
-
-    public static void Setup() {
-        float volume;
-
-        master = RuntimeManager.GetBus("bus:/Master");
-        music = RuntimeManager.GetBus("bus:/Master/Music");
-        sfx = RuntimeManager.GetBus("bus:/Master/SFX");
-        voice = RuntimeManager.GetBus("bus:/Master/Voice");
-
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MASTER_VOLUME, 1f);
-        master.setVolume(volume);
-
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, .8f);
-        music.setVolume(volume);
-
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME, .8f);
-        sfx.setVolume(volume);
-
-        volume = PlayerPrefs.GetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, .8f);
-        voice.setVolume(volume);
-    }
-
     public void OnSetMasterVolume(float volume) {
-
         volume = Mathf.Round(volume * 100) / 100;
-        master.setVolume(volume);
+        masterBus.setVolume(volume);
         masterTMP.text = $"{volume * 100}%";
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.MASTER_VOLUME, volume);
     }
     public void OnSetMusicVolume(float volume) {
-
         volume = Mathf.Round(volume * 100) / 100;
-        music.setVolume(volume);
+        musicBus.setVolume(volume);
         musicTMP.text = $"{volume * 100}%";
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.MUSIC_VOLUME, volume);
     }
     public void OnSetSFXVolume(float volume) {
-        //if (!active)
-        //    return;
-
         volume = Mathf.Round(volume * 100) / 100;
-        sfx.setVolume(volume);        
+        sfxBus.setVolume(volume);        
         sfxTMP.text = $"{volume * 100}%";
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.SFX_VOLUME, volume);
 
@@ -99,11 +91,8 @@ public class AudioSettings : MonoBehaviour {
         }
     }
     public void OnSetVoiceVolume(float volume) {
-        //if (!active)
-        //    return;
-
         volume = Mathf.Round(volume * 100) / 100;
-        voice.setVolume(volume);
+        voiceBus.setVolume(volume);
         voiceTMP.text = $"{volume * 100}%";
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.Float.VOICE_VOLUME, volume);
 

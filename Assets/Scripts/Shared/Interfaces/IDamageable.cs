@@ -10,12 +10,12 @@ public interface IDamageable {
 }
 
 public struct Damage {
-    public GameObject sender;
+    public Transform sender;
     public Vector3 hitDirection;
     public int value;
-    public Damage(GameObject sender, int value, Vector3 receiver) {
+    public Damage(Transform sender, int value, Vector3 receiver) {
         this.sender = sender;
-        hitDirection = (receiver - sender.transform.position).normalized;
+        hitDirection = (receiver - sender.position).normalized;
         this.value = value;
     }
     public Damage(int value) {

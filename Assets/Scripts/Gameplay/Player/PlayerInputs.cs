@@ -45,6 +45,9 @@ public class PlayerInputs : MonoBehaviour {
             SetControlsActive(true);
     }
     private void OnChangeGameState(GameState gameState) {
+        if (ignoreTime && gameState == GameState.Initializing)
+            return;
+
         if (gameState == GameState.Playing) {
             controls.Enable();
             return;

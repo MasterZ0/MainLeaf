@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class ArrowProjectile : PooledObject {
+public class ArrowProjectile : PooledObject  {
     [Header("Arrow Projectile")]
     [SerializeField] private int damage;
     [SerializeField] private float force;
@@ -12,6 +12,8 @@ public class ArrowProjectile : PooledObject {
     [SerializeField] private PooledObject impactEffect;
     [SerializeField] private Rigidbody rigidbod;
     [SerializeField] private CinemachineImpulseSource source;
+
+    private Transform sender;
     private void Awake() {
         rigidbod.centerOfMass = transform.position;
     }
@@ -21,6 +23,10 @@ public class ArrowProjectile : PooledObject {
 
         rigidbod.AddForce(transform.forward * (force * Random.Range(1.3f, 1.7f)), ForceMode.Impulse);
         source.GenerateImpulse(Camera.main.transform.forward);
+    }
+
+    public void Fire(Transform sender) {
+        this.sender = sender;
     }
     //private void OnTriggerEnter(Collider col) {
     //    print(col.name);
@@ -39,7 +45,7 @@ public class ArrowProjectile : PooledObject {
         rigidbod.isKinematic = true;
 
         if (collision.gameObject.CompareTag(Constants.Tag.ENEMY)) {
-            collision.gameObject.GetComponent<IDamageable>().TakeDamage(new Damage(damage));
+            collision.gameObject.GetComponent<IDamageable>().TakeDamage(new Damage(sender, damage, collision.transform.position));
             impactEffect.SpawnObject(transform.position, transform.rotation);
             ReturnToPool();
         }
