@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Static/Options.unity
     guid: 9ff710b4a3d751246a88cab8e55ba5c0
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 3984716696cd7e648a7fc17abd1af84a,
+      type: 2}

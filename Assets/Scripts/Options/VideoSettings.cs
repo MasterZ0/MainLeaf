@@ -7,7 +7,7 @@ public class VideoSettings : MonoBehaviour {
     [Header("VideoSettings")]
     [SerializeField] private string fullscreenOn;
     [SerializeField] private string fullscreenOff;
-    [SerializeField] private string[] graficsOptions;
+    [SerializeField] private string[] graphicsOptions;
 
     [Header(" - Config")]
     [SerializeField] private Navigator fullScreenNavigator;
@@ -40,7 +40,7 @@ public class VideoSettings : MonoBehaviour {
 
 
         fullScreenNavigator.Init(fullscreenOptions, fullscreenIndex);
-        graphicsNavigator.Init(graficsOptions, graficsIndex);
+        graphicsNavigator.Init(graphicsOptions, graficsIndex);
         resolutionNavigator.Init(resolutionsOptions.ToArray(), resolutionsIndex);
     }
 

@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 [ExecuteAlways]
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour // Atualizar map != navmash
         public SceneAsset scene;
         public SceneAsset[] dynamicScenes;  // Cenas que precisam ser recarregadas
         public SceneAsset[] staticScenes;   // UI ou que não precisam ser recarregadas
+
+        public AssetReference test;
     }
 
     [Header("GameManager")]

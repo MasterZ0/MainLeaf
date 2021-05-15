@@ -1,0 +1,753 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.2f1 (e5d502d80fbb) revision 15062274'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 18362.476; Version 1903; 64bit' Language: 'pt' Physical Memory: 16250 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Games/Zero3/Unity/MainLeaf
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+65127
+Successfully changed project path to: D:/Games/Zero3/Unity/MainLeaf
+D:/Games/Zero3/Unity/MainLeaf
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 304.79 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.2f1 (e5d502d80fbb)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Games/Zero3/Unity/MainLeaf/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c8c)
+    Vendor:   NVIDIA
+    VRAM:     4018 MB
+    Driver:   23.21.13.9125
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56076
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004242 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 266.33 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.145 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.021157 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 290.70 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Mono: successfully reloaded assembly
+- Completed reload, in  6.022 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 4.39 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 183 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 166.6 MB.
+System memory in use after: 166.8 MB.
+
+Unloading 107 unused Assets to reduce memory usage. Loaded Objects now: 6556.
+Total: 64.549400 ms (FindLiveObjects: 1.297500 ms CreateObjectMapping: 1.040600 ms MarkObjects: 61.530900 ms  DeleteObjects: 0.677700 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0002_Death-hero01_003.png.png
+  artifactKey: Guid(b3c04a5271807c640a03f3fb5ae786d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0002_Death-hero01_003.png.png using Guid(b3c04a5271807c640a03f3fb5ae786d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ee2cb4d481bb9345ec5d65d309b7623') in 0.447322 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000661 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0032_Run-hero01_003.png.png
+  artifactKey: Guid(af6ae02fd9c7e21469520e6ef3584512) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0032_Run-hero01_003.png.png using Guid(af6ae02fd9c7e21469520e6ef3584512) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f6adc50b22f7c2157611074b1919359') in 0.111313 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000418 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0070_Sneaking-hero01_014.png.png
+  artifactKey: Guid(c86e786bb0285d74d95878aa884c5547) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0070_Sneaking-hero01_014.png.png using Guid(c86e786bb0285d74d95878aa884c5547) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8090ac8d369f90498576c96a562214ed') in 0.052894 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0076_Walk-hero01_001.png.png
+  artifactKey: Guid(1c8813d31ffd98a479e46073593bb548) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0076_Walk-hero01_001.png.png using Guid(1c8813d31ffd98a479e46073593bb548) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2e9224d6cbda02bf12014ce485b3809') in 0.035462 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000435 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0028_Jump-hero01_008.png.png
+  artifactKey: Guid(dff624a12dcaf2449bc8a009862a5b5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0028_Jump-hero01_008.png.png using Guid(dff624a12dcaf2449bc8a009862a5b5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81bb9e061e61be1751df8d672ea247a9') in 0.050799 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000474 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0027_Jump-hero01_007.png.png
+  artifactKey: Guid(6cf8f8310a7d78c4f82dbfcf7a751722) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0027_Jump-hero01_007.png.png using Guid(6cf8f8310a7d78c4f82dbfcf7a751722) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5c94ac2574c8eedaaa39df37900c380') in 0.024726 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000417 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0063_Sneaking-hero01_007.png.png
+  artifactKey: Guid(05a853b08f06b7f43b7b633a25e26824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0063_Sneaking-hero01_007.png.png using Guid(05a853b08f06b7f43b7b633a25e26824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a8b960f5b42ac3bc44a2aa8c8ff86a9') in 0.059238 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000417 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0004_Death-hero01_005.png.png
+  artifactKey: Guid(d95abc955531fc74a8b78a2f38ea2b27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0004_Death-hero01_005.png.png using Guid(d95abc955531fc74a8b78a2f38ea2b27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c57468ca756ada5958084651bce77c05') in 0.025136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000433 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0051_Sit-down01-hero01_012.png.png
+  artifactKey: Guid(ca6c13ce0b952e641b50b1db44019e47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0051_Sit-down01-hero01_012.png.png using Guid(ca6c13ce0b952e641b50b1db44019e47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b832a3087207003001e1026a14ac740e') in 0.046175 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000426 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0029_Jump-hero01_009.png.png
+  artifactKey: Guid(b4ec506303401bf4f93bf3b26bfdf6cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0029_Jump-hero01_009.png.png using Guid(b4ec506303401bf4f93bf3b26bfdf6cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8c400921fe41a17905117268df09cc0') in 0.040394 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0012_Idle-hero01_004.png.png
+  artifactKey: Guid(0d143f17689a5284b83cc9432e23fddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0012_Idle-hero01_004.png.png using Guid(0d143f17689a5284b83cc9432e23fddf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5129e3803691119e889551d4dfd1bb85') in 0.024463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000400 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0001_Death-hero01_002.png.png
+  artifactKey: Guid(93e79b346ab1b1f468151d0f9e934e1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0001_Death-hero01_002.png.png using Guid(93e79b346ab1b1f468151d0f9e934e1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e78f1a76f27ec09ee8efb3aec078484') in 0.045393 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0033_Run-hero01_004.png.png
+  artifactKey: Guid(710ce97603adb5b408e12d20e3bf921c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0033_Run-hero01_004.png.png using Guid(710ce97603adb5b408e12d20e3bf921c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60bcc06ea9de1df3ed42decaaa96c837') in 0.066407 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000406 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0023_Jump-hero01_003.png.png
+  artifactKey: Guid(aa46273beaf9b754796fd5b406354759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0023_Jump-hero01_003.png.png using Guid(aa46273beaf9b754796fd5b406354759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c038f89ede973a12cbed596bbaa2794') in 0.039270 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000594 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0068_Sneaking-hero01_012.png.png
+  artifactKey: Guid(21f046eb0c3498f4f9fd14558adf7fcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0068_Sneaking-hero01_012.png.png using Guid(21f046eb0c3498f4f9fd14558adf7fcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a43597a1dcb8874590fa43a8df57b2b') in 0.112551 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000396 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0009_Idle-hero01_001.png.png
+  artifactKey: Guid(8e9c5d874756b8149a84d8cca1b510a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0009_Idle-hero01_001.png.png using Guid(8e9c5d874756b8149a84d8cca1b510a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fc13f4cd7459543700d08477ae16e4a') in 0.058037 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000426 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0053_Slide-hero01_001.png.png
+  artifactKey: Guid(b21d32133a9db444685ed5d3309fcab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0053_Slide-hero01_001.png.png using Guid(b21d32133a9db444685ed5d3309fcab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a24fce613274d8ee0592c5c5825f645') in 0.090291 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000431 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0057_Sneaking-hero01_001.png.png
+  artifactKey: Guid(ad3b2630950258048ad16e1d5ca29945) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0057_Sneaking-hero01_001.png.png using Guid(ad3b2630950258048ad16e1d5ca29945) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31ea8f540e8675d3db35a44526a60e83') in 0.050962 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000399 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0050_Sit-down01-hero01_011.png.png
+  artifactKey: Guid(2039624fa77f67147adb63586bf78d7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0050_Sit-down01-hero01_011.png.png using Guid(2039624fa77f67147adb63586bf78d7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9854b6f9d09a7d3776d9604396b0d8c7') in 0.095024 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0064_Sneaking-hero01_008.png.png
+  artifactKey: Guid(d83f9a86a1a19e6449b55557feeaa2fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0064_Sneaking-hero01_008.png.png using Guid(d83f9a86a1a19e6449b55557feeaa2fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90c9d0642d34288226e73ebd88de24ef') in 0.065750 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000468 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0058_Sneaking-hero01_002.png.png
+  artifactKey: Guid(1697877e30e563944b64e5f3f5d85b19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0058_Sneaking-hero01_002.png.png using Guid(1697877e30e563944b64e5f3f5d85b19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a23b1343f3102d2b78a5da77e40a765e') in 0.065091 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000508 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0066_Sneaking-hero01_010.png.png
+  artifactKey: Guid(00f11936e8d3464448a8e3794e604e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0066_Sneaking-hero01_010.png.png using Guid(00f11936e8d3464448a8e3794e604e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761bc708a86cf10b084a1373a67cce2b') in 0.025808 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0037_Sit-down00-hero01_001.png.png
+  artifactKey: Guid(0db3c1c1b6548b348bc41528f221dc2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0037_Sit-down00-hero01_001.png.png using Guid(0db3c1c1b6548b348bc41528f221dc2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '160aefa3454ab3d2c7609183ff6dbf4d') in 0.044932 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000422 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0069_Sneaking-hero01_013.png.png
+  artifactKey: Guid(536c8fe91e140f247902234f4907df10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0069_Sneaking-hero01_013.png.png using Guid(536c8fe91e140f247902234f4907df10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '367b432ecefb2ea08a45a9767d796a7d') in 0.073781 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000638 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0025_Jump-hero01_005.png.png
+  artifactKey: Guid(3a017b670e45b7e4b8b352b05fcb342d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0025_Jump-hero01_005.png.png using Guid(3a017b670e45b7e4b8b352b05fcb342d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87e52f2ffae5f7571a9bc7f50e933683') in 0.079788 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000444 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0013_Idle-hero01_005.png.png
+  artifactKey: Guid(e14fb8ff893cef141bda873dd21049d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0013_Idle-hero01_005.png.png using Guid(e14fb8ff893cef141bda873dd21049d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '463aa9dfd6d7800886235e2ae67f298e') in 0.061288 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000399 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0042_Sit-down01-hero01_003.png.png
+  artifactKey: Guid(ce70e300a5d46ac448094915bfcdea83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0042_Sit-down01-hero01_003.png.png using Guid(ce70e300a5d46ac448094915bfcdea83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5de0f8a7713a187b827fbf64415903f') in 0.026704 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000447 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0047_Sit-down01-hero01_008.png.png
+  artifactKey: Guid(e3b9c72bbfe1fa64888b763ef7bf8364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0047_Sit-down01-hero01_008.png.png using Guid(e3b9c72bbfe1fa64888b763ef7bf8364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbe9e9b08f6e971720d8db07f7c120b2') in 0.150947 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000431 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0054_Slide-hero01_002.png.png
+  artifactKey: Guid(57f74d9c59d3b68479eb441ad23e9162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0054_Slide-hero01_002.png.png using Guid(57f74d9c59d3b68479eb441ad23e9162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbdc77a4992b8bffd45584a81520ba0f') in 0.029567 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000386 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0044_Sit-down01-hero01_005.png.png
+  artifactKey: Guid(7ffcde817a975df41baf94db8b2902a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0044_Sit-down01-hero01_005.png.png using Guid(7ffcde817a975df41baf94db8b2902a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db6c3daca49ffa998502a34c71733043') in 0.052524 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000321 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0065_Sneaking-hero01_009.png.png
+  artifactKey: Guid(bc53d19021019a646b47ae852bc8a60d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0065_Sneaking-hero01_009.png.png using Guid(bc53d19021019a646b47ae852bc8a60d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0851a1c45fa5ad2223ace79225262495') in 0.053740 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0003_Death-hero01_004.png.png
+  artifactKey: Guid(b34f02fc22bc1684ca56f028f048bfbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0003_Death-hero01_004.png.png using Guid(b34f02fc22bc1684ca56f028f048bfbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2fb33d917797fc0fe51c078400fbe1a') in 0.019548 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0021_Jump-hero01_001.png.png
+  artifactKey: Guid(0d2150a782b4e81478260887565ce4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0021_Jump-hero01_001.png.png using Guid(0d2150a782b4e81478260887565ce4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51c32531ce96973b14ea483c54335fb0') in 0.040959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0007_Death-hero01_008.png.png
+  artifactKey: Guid(0a5b5513809c15d4ea8f2aa5e651887b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0007_Death-hero01_008.png.png using Guid(0a5b5513809c15d4ea8f2aa5e651887b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f24f1ff35725f2b68a0661d7bc5e1ed5') in 0.033612 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0026_Jump-hero01_006.png.png
+  artifactKey: Guid(7503f95eb2921744da9462c8cfdcd1f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0026_Jump-hero01_006.png.png using Guid(7503f95eb2921744da9462c8cfdcd1f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7942dba8afecfe45592f1adca522fb7') in 0.093890 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000410 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0046_Sit-down01-hero01_007.png.png
+  artifactKey: Guid(980767095bc4d5247bb32788f6df59a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0046_Sit-down01-hero01_007.png.png using Guid(980767095bc4d5247bb32788f6df59a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c90c2320e6da9a9c8870137c222d6d5d') in 0.028669 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000346 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0077_Walk-hero01_002.png.png
+  artifactKey: Guid(ffdabf894642609439a83cae41ebe5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0077_Walk-hero01_002.png.png using Guid(ffdabf894642609439a83cae41ebe5f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cea0aee29436aa19f114fa06d7fe64f7') in 0.036052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000338 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0052_Sit-down01-hero01_013.png.png
+  artifactKey: Guid(d371a56aaef2e3f49ade2888eac07d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0052_Sit-down01-hero01_013.png.png using Guid(d371a56aaef2e3f49ade2888eac07d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03d87e98aa8bf3280819d37233eea821') in 0.052118 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000396 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0018_Idle-hero01_010.png.png
+  artifactKey: Guid(80bf18bf3247e6d44a902d101e62a02c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0018_Idle-hero01_010.png.png using Guid(80bf18bf3247e6d44a902d101e62a02c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6c771f5118f07d4d3c86b51e9dc074c') in 0.028237 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000454 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0017_Idle-hero01_009.png.png
+  artifactKey: Guid(872f7d64c4cef7148bc8771281480d5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0017_Idle-hero01_009.png.png using Guid(872f7d64c4cef7148bc8771281480d5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5050cdea3d6fa4a0de87850573d589e1') in 0.028200 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000331 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0062_Sneaking-hero01_006.png.png
+  artifactKey: Guid(0417c81f66cbc224ba6dfa00197fc8e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0062_Sneaking-hero01_006.png.png using Guid(0417c81f66cbc224ba6dfa00197fc8e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2022e1f4933af1884a0d11aff6d7d289') in 0.046979 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000383 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0010_Idle-hero01_002.png.png
+  artifactKey: Guid(92396ed923886e5408c067cdeb1dd47c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0010_Idle-hero01_002.png.png using Guid(92396ed923886e5408c067cdeb1dd47c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04e5089faee005164a602fd35da0f79c') in 0.077537 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0000_Death-hero01_001.png.png
+  artifactKey: Guid(bddfc164a0fa0dc419c8583cce28d9b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0000_Death-hero01_001.png.png using Guid(bddfc164a0fa0dc419c8583cce28d9b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5bf37ddbc3ae81ee296c1b111e4912c') in 0.047008 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0035_Run-hero01_006.png.png
+  artifactKey: Guid(6695f55c133c1a6468fd5244811f2133) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0035_Run-hero01_006.png.png using Guid(6695f55c133c1a6468fd5244811f2133) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5a940931b742bd28389b061f3cc3b4f') in 0.073314 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0056_Slide-hero01_004.png.png
+  artifactKey: Guid(c9831b01c23dbaa4ea005595e0cd2ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0056_Slide-hero01_004.png.png using Guid(c9831b01c23dbaa4ea005595e0cd2ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72d8fa6f0381d8d2290dc217ff5a3114') in 0.027651 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0005_Death-hero01_006.png.png
+  artifactKey: Guid(9843c9b01348a7d4cb3c532c5dbf2af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0005_Death-hero01_006.png.png using Guid(9843c9b01348a7d4cb3c532c5dbf2af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36001570aa302213c22c11b060031ec2') in 0.017738 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0030_Run-hero01_001.png.png
+  artifactKey: Guid(39e6967630aff0047aabc14c533e713d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0030_Run-hero01_001.png.png using Guid(39e6967630aff0047aabc14c533e713d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2d6de4272e9b93f669b6bf632e1fb0e') in 0.016967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000372 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0039_Sit-down00-hero01_003.png.png
+  artifactKey: Guid(e2ba667f804b218448b28fec73726f6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0039_Sit-down00-hero01_003.png.png using Guid(e2ba667f804b218448b28fec73726f6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0abf072efda1f32f83eb770d00c7e4f6') in 0.032557 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000423 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0043_Sit-down01-hero01_004.png.png
+  artifactKey: Guid(2e80bbabf0571ba4884b075f306ace91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0043_Sit-down01-hero01_004.png.png using Guid(2e80bbabf0571ba4884b075f306ace91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36eb5d600240f3f8c6129f2cba990e84') in 0.028130 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0071_Sneaking-hero01_015.png.png
+  artifactKey: Guid(ad59e1568ae3c8b409c91e126395cdd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0071_Sneaking-hero01_015.png.png using Guid(ad59e1568ae3c8b409c91e126395cdd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70e78559ae2a24c937b063dcaa8502c2') in 0.030023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000393 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0040_Sit-down01-hero01_001.png.png
+  artifactKey: Guid(f7f61cdf286167d4881a9a11aeb11959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0040_Sit-down01-hero01_001.png.png using Guid(f7f61cdf286167d4881a9a11aeb11959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0f13a29706215a7bb20cb3b89dc88f1') in 0.028854 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0024_Jump-hero01_004.png.png
+  artifactKey: Guid(eb78529d36b8b5542b131d82b0af1add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0024_Jump-hero01_004.png.png using Guid(eb78529d36b8b5542b131d82b0af1add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d8643a17329f7840f264dc7160db95d') in 0.016292 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000333 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0045_Sit-down01-hero01_006.png.png
+  artifactKey: Guid(df8ceb8cee776b240906fa15aaee5806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0045_Sit-down01-hero01_006.png.png using Guid(df8ceb8cee776b240906fa15aaee5806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7423bcbafdc2d6de201265866fe51bc') in 0.036384 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0019_Idle-hero01_011.png.png
+  artifactKey: Guid(a15808e57ec0ee0459c65e20e02e5fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0019_Idle-hero01_011.png.png using Guid(a15808e57ec0ee0459c65e20e02e5fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b28cf0237cdf2fb7af5519ad1de06289') in 0.066995 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000366 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0031_Run-hero01_002.png.png
+  artifactKey: Guid(68c06d8eb3112bd4f816c33ec6981fd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0031_Run-hero01_002.png.png using Guid(68c06d8eb3112bd4f816c33ec6981fd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b143d550d2c7574c4e87d79a38263fa6') in 0.024319 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000322 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0060_Sneaking-hero01_004.png.png
+  artifactKey: Guid(7043219c6f19af34ebd15b49dcdc6f07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0060_Sneaking-hero01_004.png.png using Guid(7043219c6f19af34ebd15b49dcdc6f07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6b6d8750a986eae9d1ea6c79713d283') in 0.014604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000385 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0011_Idle-hero01_003.png.png
+  artifactKey: Guid(ae404e0d95d797144b496b0dcb9e012e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0011_Idle-hero01_003.png.png using Guid(ae404e0d95d797144b496b0dcb9e012e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a080bed06b8da8f47ecba8e1b76b7be') in 0.028192 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000426 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0022_Jump-hero01_002.png.png
+  artifactKey: Guid(633272e61f2f6b749ab2619bb5e9033d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0022_Jump-hero01_002.png.png using Guid(633272e61f2f6b749ab2619bb5e9033d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '654b595fdca863257af65119b09628d7') in 0.068965 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0067_Sneaking-hero01_011.png.png
+  artifactKey: Guid(b809fc6efd8eaba42bbfb31231ac2f43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0067_Sneaking-hero01_011.png.png using Guid(b809fc6efd8eaba42bbfb31231ac2f43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bccb52a75d4dffc20dffed25efefd356') in 0.029651 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0059_Sneaking-hero01_003.png.png
+  artifactKey: Guid(fcbd62b3c863f0a49b21ea5182f828c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0059_Sneaking-hero01_003.png.png using Guid(fcbd62b3c863f0a49b21ea5182f828c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18cfcb874a4091708e2908b1381cd611') in 0.031546 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0036_Run-hero01_007.png.png
+  artifactKey: Guid(fe1b54c3e5a3ced40a21d5922f73dd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0036_Run-hero01_007.png.png using Guid(fe1b54c3e5a3ced40a21d5922f73dd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de4db00b371d99a0bca8eb390f4c4a16') in 0.015404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000410 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0049_Sit-down01-hero01_010.png.png
+  artifactKey: Guid(e069257304625904d8ebd49b16941557) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0049_Sit-down01-hero01_010.png.png using Guid(e069257304625904d8ebd49b16941557) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee13f4b3e8c281549fa0823255334dba') in 0.067197 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0014_Idle-hero01_006.png.png
+  artifactKey: Guid(8c3c66fb148ee1e43be87362905ba50f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0014_Idle-hero01_006.png.png using Guid(8c3c66fb148ee1e43be87362905ba50f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e6c0c21d78799c64ae217178f5d790c') in 0.046898 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000456 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0073_Sneaking-hero01_017.png.png
+  artifactKey: Guid(30fe4cf1f7aef944bae9a58cb985297a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0073_Sneaking-hero01_017.png.png using Guid(30fe4cf1f7aef944bae9a58cb985297a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74b50ccd1de21ceb857e0cf19137a990') in 0.113868 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000301 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0034_Run-hero01_005.png.png
+  artifactKey: Guid(dde19be22410c9c4f961e9f8bf86bb25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0034_Run-hero01_005.png.png using Guid(dde19be22410c9c4f961e9f8bf86bb25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dd472b5feb8dc0bc1ff4bf8d9bfb82a') in 0.067206 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0015_Idle-hero01_007.png.png
+  artifactKey: Guid(2479ea279bd3abd4d9f8c0cf87a60c3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0015_Idle-hero01_007.png.png using Guid(2479ea279bd3abd4d9f8c0cf87a60c3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fb50bfdaed8dc66c73e03bde0d75b66') in 0.062798 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000296 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0008_Death-hero01_009.png.png
+  artifactKey: Guid(fd228208198992449b8808986503725e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0008_Death-hero01_009.png.png using Guid(fd228208198992449b8808986503725e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c00229fc7e269ca0179e2a43f4914232') in 0.012673 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0075_Sneaking-hero01_019.png.png
+  artifactKey: Guid(5bb7f989b5c588d4d9b4a242c58e036f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0075_Sneaking-hero01_019.png.png using Guid(5bb7f989b5c588d4d9b4a242c58e036f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '754eee73ce36485c40620abac3d3f1d0') in 0.047431 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000388 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0072_Sneaking-hero01_016.png.png
+  artifactKey: Guid(c4b144be086330c409f95c61897fbd71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0072_Sneaking-hero01_016.png.png using Guid(c4b144be086330c409f95c61897fbd71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b788ba82775b25cca1e45528cc43a12') in 0.027675 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000366 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0016_Idle-hero01_008.png.png
+  artifactKey: Guid(035831451b62b924fa2c79c1b883edd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0016_Idle-hero01_008.png.png using Guid(035831451b62b924fa2c79c1b883edd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20c7af5d64af0a0dbe5d94270aa11b65') in 0.056090 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000380 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0038_Sit-down00-hero01_002.png.png
+  artifactKey: Guid(69168719f7f63bb42882710b843c2bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0038_Sit-down00-hero01_002.png.png using Guid(69168719f7f63bb42882710b843c2bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31d9125076b0bf3163e78b5377c8f559') in 0.024406 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0074_Sneaking-hero01_018.png.png
+  artifactKey: Guid(89979e4aebbe875458d3a3c4e3cd9fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0074_Sneaking-hero01_018.png.png using Guid(89979e4aebbe875458d3a3c4e3cd9fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05aad1f3ba87215cd882c9c2962e986f') in 0.015230 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0006_Death-hero01_007.png.png
+  artifactKey: Guid(e59d0a9cc0c6c3848b3f70d7dd603dc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0006_Death-hero01_007.png.png using Guid(e59d0a9cc0c6c3848b3f70d7dd603dc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66bd5d1424088ad4d04b4f6b264d70f3') in 0.013793 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0020_Idle-hero01_012.png.png
+  artifactKey: Guid(15088532d7aa5864dad4cf48eebe22ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0020_Idle-hero01_012.png.png using Guid(15088532d7aa5864dad4cf48eebe22ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e323148220d8c8ef8ea0e1c1446afa6c') in 0.030593 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000524 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0061_Sneaking-hero01_005.png.png
+  artifactKey: Guid(4b9ab9ca4844762458e5eff72a98fb93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0061_Sneaking-hero01_005.png.png using Guid(4b9ab9ca4844762458e5eff72a98fb93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e66104a31a710cd5188be486be363bfe') in 0.036461 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0041_Sit-down01-hero01_002.png.png
+  artifactKey: Guid(356dcc270961224439f7f9820701de8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0041_Sit-down01-hero01_002.png.png using Guid(356dcc270961224439f7f9820701de8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '178f9a199d5c9658051c63684260af47') in 0.068109 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000315 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0048_Sit-down01-hero01_009.png.png
+  artifactKey: Guid(9d402b03d9c400040b0c0f3a1b65bc30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0048_Sit-down01-hero01_009.png.png using Guid(9d402b03d9c400040b0c0f3a1b65bc30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0af10ee1a9fdd2d5c840da21e97b3744') in 0.014083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0055_Slide-hero01_003.png.png
+  artifactKey: Guid(b90f3ed7b0bcfbf409933d7610efacff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Easy performant outline/Demo/Models for Demo scene/Free 2D Demo Character sprite sheet/Sprite sheet/_0055_Slide-hero01_003.png.png using Guid(b90f3ed7b0bcfbf409933d7610efacff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea27b2451309cb9d6f4da740136dc173') in 0.048149 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.015334 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 3.67 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Unable to allocate new scene culling mask
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene (bool)
+UnityEditor.SceneManagement.EditorSceneManager:NewPreviewScene ()
+UnityEditor.PreviewScene:.ctor (string)
+UnityEditor.PreviewRenderUtility:.ctor ()
+UnityEditor.Texture3DPreview:InitPreviewUtility ()
+UnityEditor.Texture3DPreview:OnEnable ()
+
+[C:\buildslave\unity\build\Editor/Src/SceneManager/EditorSceneManager.cpp line 672]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.384 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.21 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 203.1 MB.
+System memory in use after: 203.4 MB.
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 7735.
+Total: 30.572100 ms (FindLiveObjects: 0.755300 ms CreateObjectMapping: 0.636800 ms MarkObjects: 28.829300 ms  DeleteObjects: 0.347700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 351.067006 seconds.
+  path: Assets/Scenes/Static/GameManager.unity
+  artifactKey: Guid(ed5734217d957264eb92628294539625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Static/GameManager.unity using Guid(ed5734217d957264eb92628294539625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c99a20108f002e2229b74b94d726aa2d') in 0.115040 seconds 
