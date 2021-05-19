@@ -6,6 +6,10 @@ public class GameController : MonoBehaviour {
     [SerializeField] private int secondsToStart = 3;
     [SerializeField] private float roundTime = 180;
 
+    public static event Action Playing = delegate { };
+    public static event Action Victory = delegate { };
+    public static event Action GameOver = delegate { };
+    public static GameState CurrentState { get; private set; }
     public static event Action<GameState> OnChangeState = delegate { };
     public static event Action<Enemy> OnEnemyDeath = delegate { };
     private void Start() {

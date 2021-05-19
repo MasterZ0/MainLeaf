@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -24,3 +24,4 @@ public class Startup {
             Debug.LogError($"ALERTA! VOCÊ ACABOU DE SALVAR ALTERAÇÕES NA CENA '{scene.name}'");
     }
 }
+#endif

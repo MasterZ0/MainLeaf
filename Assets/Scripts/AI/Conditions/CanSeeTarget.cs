@@ -50,11 +50,13 @@ namespace AI {
             return false;
         }
 
+#if UNITY_EDITOR
         public override void OnDrawGizmos() {
             //Vector3 direction = Quaternion.Euler(0, -aiController.ViewAngle / 2, 0) * transform.forward;
             Vector3 direction = Quaternion.AngleAxis(-viewAngle / 2, Vector3.up) * Owner.transform.forward;
             Handles.color = new Color(1f, 1f, 0f, 0.002f);
             Handles.DrawSolidArc(Owner.transform.position + offset, Owner.transform.up, direction, viewAngle, viewRadius);
         }
+#endif
     }
 }

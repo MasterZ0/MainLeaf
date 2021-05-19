@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Character Data", menuName = "Scriptable Objects/Character Data", order = 0)]
+[CreateAssetMenu(fileName = "New Character Data", menuName = "Scriptable Objects/Character Data", order = 1)]
 public class CharacterAttributes : ScriptableObject {
 
     public int maxLife;         // Resistence

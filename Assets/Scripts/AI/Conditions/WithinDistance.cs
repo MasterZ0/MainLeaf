@@ -55,6 +55,8 @@ namespace AI {
         }
 
         // Draw the chase radius
+
+#if UNITY_EDITOR
         public override void OnDrawGizmos() {
             if (Owner == null) {
                 return;
@@ -62,5 +64,6 @@ namespace AI {
             UnityEditor.Handles.color = gizmos;
             UnityEditor.Handles.DrawWireDisc(Owner.transform.position + offset, Owner.transform.up, radius);
         }
+#endif
     }
 }
