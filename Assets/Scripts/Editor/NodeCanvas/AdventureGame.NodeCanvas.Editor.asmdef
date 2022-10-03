@@ -1,0 +1,20 @@
+{
+    "name": "AdventureGame.NodeCanvas.Editor",
+    "rootNamespace": "AdventureGame.NodeCanvas.Editor",
+    "references": [
+        "GUID:bf294c4ea7f261a489d057e3c0857933",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c",
+        "GUID:d055970d43ebe2d449fe0b1d2fd48b63"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

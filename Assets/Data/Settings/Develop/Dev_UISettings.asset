@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbde2b94faf8fdc46bfbd86f0a316296, type: 3}
+  m_Name: Dev_UISettings
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: damageColors
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[AdventureGame.Shared.DamageType,
+        AdventureGame.Shared],[TMPro.TMP_ColorGradient, Unity.TextMeshPro]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[AdventureGame.Shared.DamageType,
+        AdventureGame.Shared]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: effectColors
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[AdventureGame.Shared.EffectType,
+        AdventureGame.Shared],[TMPro.TMP_ColorGradient, Unity.TextMeshPro]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[AdventureGame.Shared.EffectType,
+        AdventureGame.Shared]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  manualScrollSpeed: 30
+  negativeAttributeColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveAttributeColor: {r: 0, g: 1, b: 0, a: 1}
+  rebindTimeOut: 10
+  timeToSkipCutscene: 2
+  characterDelay: 0.05
+  commaDelay: 0.1
+  sentenceDelay: 0.5
+  itemMaxColor: {fileID: 0}
+  popupDialogueDuration: 1.5
+  playerDefaultDamageColor: {fileID: 0}
+  notificationDuration: 3
+  delayForWelcomeMessage: 3
+  delayForDefeatMessage: 2
+  delayToHideBossLife: 2

@@ -1,0 +1,19 @@
+{
+    "name": "AdventureGame.UI",
+    "rootNamespace": "AdventureGame.UI",
+    "references": [
+        "GUID:1267bfca6e7ce15418881b876f7bf534",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:5839b00855d5d3d49b6555e170509995",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

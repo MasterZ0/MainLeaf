@@ -1,0 +1,17 @@
+{
+    "name": "AdventureGame.Projectiles",
+    "rootNamespace": "",
+    "references": [
+        "GUID:df55f17f78f75a643aff19957150ab7f",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

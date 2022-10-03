@@ -1,0 +1,18 @@
+using NodeCanvas.Framework;
+using ParadoxNotion.Design;
+using AdventureGame.Shared;
+
+#ROOTNAMESPACEBEGIN# 
+
+    [Category(ProjectPath.ApplicationName + "/NewActionTask")]
+    [Description("Please describe what this ActionTask does.")]
+    public class #SCRIPTNAME# : ActionTask 
+    {
+        [RequiredField] public BBParameter<string> example = "Hello world";
+
+        protected override void OnExecute() 
+        {
+            EndAction(true);
+        }
+    }
+#ROOTNAMESPACEEND#
