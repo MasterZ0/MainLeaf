@@ -20,11 +20,10 @@ namespace AdventureGame.MainMenu
         [SerializeField] private GameObject optionsCam;
         [SerializeField] private GameObject creditsCam;
         [SerializeField] private GameObject characterSelectionCam;
-        [SerializeField] private GameObject[] charactersCam;
 
-        private Action onHideEnd;
-        private static string SELECTION { get => "Selection"; }
-        private static string CHANGE_SCREEN { get => "ChangeScreen"; }
+        private const string MainScreen_FadeIn = "MainScreen_FadeIn";
+        private const string CharacterInfo_FadeIn = "CharacterInfo_FadeIn";
+        private const string Credits_FadeIn = "Credits_FadeIn";
 
         private GameObject currentCam;
         void Start()
@@ -42,64 +41,50 @@ namespace AdventureGame.MainMenu
             mainScreenCam.SetActive(true);
             currentCam = mainScreenCam;
 
-            animator.SetInteger(SELECTION, 0);
-            animator.SetTrigger(CHANGE_SCREEN);
+            animator.Play(MainScreen_FadeIn);
         }
         public void OnOpenOptions()
         {
             EventSystem.current.SetSelectedGameObject(null);
 
-            currentCam.SetActive(false);
-            optionsCam.SetActive(true);
-            currentCam = optionsCam;
+            SwitchCamera(optionsCam);
+            animator.Play(MainScreen_FadeIn);
 
-            animator.SetInteger(SELECTION, -1);
             //onHideEnd = () => Options.OpenOption(OnOpenMainScreen);
         }
+
+        public void SwitchCamera(GameObject newCamera) // New component?
+        {
+            currentCam.SetActive(false);
+            currentCam = newCamera;
+            currentCam.SetActive(true);
+        }
+
         public void OnOpenCredits()
         {
             EventSystem.current.SetSelectedGameObject(null);
 
-            currentCam.SetActive(false);
-            creditsCam.SetActive(true);
-            currentCam = creditsCam;
+            SwitchCamera(creditsCam);
 
-            animator.SetInteger(SELECTION, 1);
-            onHideEnd = () => animator.SetTrigger(CHANGE_SCREEN);
+            animator.Play(Credits_FadeIn);
         }
         public void OnCloseCredits()
         {
             EventSystem.current.SetSelectedGameObject(null);
 
-            currentCam.SetActive(false);
-            mainScreenCam.SetActive(true);
-            currentCam = mainScreenCam;
-
-            animator.SetInteger(SELECTION, 0);
-            onHideEnd = () => animator.SetTrigger(CHANGE_SCREEN);
+            SwitchCamera(mainScreenCam);
         }
-        public void OnOpenCharacterSelection(bool submit)
+        public void OnOpenCharacterSelection()
         {
             EventSystem.current.SetSelectedGameObject(null);
 
-            currentCam.SetActive(false);
-            characterSelectionCam.SetActive(true);
-            currentCam = characterSelectionCam;
+            SwitchCamera(characterSelectionCam);
 
-            animator.SetInteger(SELECTION, -1);
+            animator.Play(CharacterInfo_FadeIn);
 
-            onHideEnd = characterSelection.SetActive;
+            // After
+            characterSelection.SetActive();
         }
-        public void OnOpenCharacterInfo(int index)
-        {
-            currentCam.SetActive(false);
-            charactersCam[index].SetActive(true);
-            currentCam = charactersCam[index];
-
-            animator.SetInteger(SELECTION, 2);
-            animator.SetTrigger(CHANGE_SCREEN);
-        }
-        public void OnHideEnd() => onHideEnd();
 
         public void OnPlay()
         {

@@ -14,9 +14,9 @@ namespace AdventureGame.MainMenu
         [SerializeField] private GameObject[] support;
         [SerializeField] private GameObject[] resistence;
 
-        private CharacterPreview currentCharacter;
+        private SelectableCharacter currentCharacter;
 
-        public void ShowInfo(CharacterPreview preview)
+        public void ShowInfo(SelectableCharacter preview)
         {
             currentCharacter = preview;
 

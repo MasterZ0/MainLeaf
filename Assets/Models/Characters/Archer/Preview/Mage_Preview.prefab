@@ -102,6 +102,21 @@ PrefabInstance:
       propertyPath: renderers.Array.data[1]
       value: 
       objectReference: {fileID: 5318026837400327892}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: renderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 5318026838752515606}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: renderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5318026837400327892}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321d88f7b95c7f94384849e497879f5d, type: 3}
 --- !u!4 &4658856629722775918 stripped
@@ -2188,8 +2203,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b3e477a321ff14e897bae330cf903a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderers: []
-  selectionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  characterSettings: {fileID: 0}
+  nameAnimator: {fileID: 0}
+  outline: {fileID: 0}
 --- !u!1 &5318026838752515600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1869139687976666386, guid: 13ca357e45411aa449512af538c61c22,
@@ -2208,8 +2253,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b3e477a321ff14e897bae330cf903a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderers: []
-  selectionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  characterSettings: {fileID: 0}
+  nameAnimator: {fileID: 0}
+  outline: {fileID: 0}
 --- !u!137 &5318026838752515606 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1869139687976666388, guid: 13ca357e45411aa449512af538c61c22,

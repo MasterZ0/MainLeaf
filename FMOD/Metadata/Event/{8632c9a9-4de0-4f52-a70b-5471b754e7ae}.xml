@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{8632c9a9-4de0-4f52-a70b-5471b754e7ae}">
 		<property name="name">
-			<value>Confirm</value>
+			<value>Submit</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>

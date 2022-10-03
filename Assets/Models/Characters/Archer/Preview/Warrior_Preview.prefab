@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 355268682055434393, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 434986661904067511, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
       propertyPath: m_Name
@@ -121,6 +126,26 @@ PrefabInstance:
         type: 3}
       propertyPath: color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: defaultColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: defaultColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: defaultColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: defaultColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3050704502103704300, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}

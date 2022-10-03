@@ -9,7 +9,9 @@ namespace AdventureGame.MainMenu
     public class CharacterSelection : MonoBehaviour
     {
         [Header("Character Selection")]
-        [SerializeField] private CharacterPreview[] characters;
+        [SerializeField] private SelectableCharacter[] characters;
+        [SerializeField] private GameObject[] charactersCam;
+        [SerializeField] private MainMenu mainMenu;
 
         [Header(" - Event")]
         [SerializeField] private UnityEvent<int> onSubmit;
@@ -25,6 +27,8 @@ namespace AdventureGame.MainMenu
         {
             onSelect.Invoke(); 
             characters[characterIndex].Select();
+
+            mainMenu.SwitchCamera(charactersCam[characterIndex]);
         }
 
         private void OnSubmit()

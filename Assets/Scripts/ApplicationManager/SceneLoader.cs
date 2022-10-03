@@ -12,7 +12,6 @@ namespace AdventureGame.ApplicationManager
         ApplicationManager,
         Intro,
         MainMenu,
-        Cutscene,
         Gameplay
     }
 

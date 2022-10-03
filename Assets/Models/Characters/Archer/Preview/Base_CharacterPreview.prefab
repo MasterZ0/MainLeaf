@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bd1c07ed3c2124ba6f572937312235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
   renderers: []
 --- !u!114 &4128240721158792549
 MonoBehaviour:
@@ -107,8 +107,9 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
-  nameAnimator: {fileID: 0}
   characterSettings: {fileID: 0}
+  nameAnimator: {fileID: 0}
+  outline: {fileID: 0}
 --- !u!114 &5687459419868331500
 MonoBehaviour:
   m_ObjectHideFlags: 0

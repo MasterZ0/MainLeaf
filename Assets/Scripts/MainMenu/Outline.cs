@@ -1,22 +1,21 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AdventureGame.MainMenu
 {
+    /// It is necessary to have the <see cref="OutlineCustomPass"/> component in the scene and correctly configure the objects layer
     public class Outline : MonoBehaviour
     {
-        [OnValueChanged(nameof(OnChangeColor))]
-        [SerializeField] private Color color;
+        [SerializeField] private Color defaultColor;
         [SerializeField] private Renderer[] renderers;
 
         private const string SelectionColor = "_SelectionColor";
 
         private void OnValidate()
         {
-            OnChangeColor();
+            SetColor(defaultColor);
         }
 
-        private void OnChangeColor()
+        public void SetColor(Color color)
         {
             MaterialPropertyBlock[] propertyBlock = new MaterialPropertyBlock[renderers.Length];
 
