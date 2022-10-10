@@ -2745,53 +2745,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15b65a00388534642a1ac27ee88b43f3, type: 3}
---- !u!28 &371722650
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lightning_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 8
-  m_Height: 1
-  m_CompleteImageSize: 128
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMasterTextureLimit: 0
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 0
-  m_PlatformBlob: 
-  image data: 128
-  _typelessdata: 1106ba41c3f58041029b3cc20000803f1106ba415d8f5641b0e236c20000803fab9fc1414d9d3341caf03ac20000803f5b12b9413e0a0741029b35c20000803f25b4bb41d8a3e840b0e237c20000803fbf4dc541b047a9402cf733c20000803f0b85d0419c9949407daf36c20000803fa0c8bb410052b83d7daf34c20000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &373338192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5335,6 +5288,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 514630a4715471e4180ce9a0a6c5c236, type: 3}
+--- !u!28 &654388090
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lightning_PositionMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 8
+  m_Height: 1
+  m_CompleteImageSize: 128
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMasterTextureLimit: 0
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 0
+  m_PlatformBlob: 
+  image data: 128
+  _typelessdata: 1106ba41c3f58041029b3cc20000803f1106ba415d8f5641b0e236c20000803fab9fc1414d9d3341caf03ac20000803f5b12b9413e0a0741029b35c20000803f25b4bb41d8a3e840b0e237c20000803fbf4dc541b047a9402cf733c20000803f0b85d0419c9949407daf36c20000803fa0c8bb410052b83d7daf34c20000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &665581591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12898,9 +12898,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1457053067}
-  - component: {fileID: 1457053066}
-  - component: {fileID: 1457053068}
-  - component: {fileID: 1457053069}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -12908,20 +12905,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1457053066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457053065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cd989c7b64c9e4db972c54f997c978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsToStart: 3
-  roundTime: 180
 --- !u!4 &1457053067
 Transform:
   m_ObjectHideFlags: 0
@@ -12939,72 +12922,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1457053068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457053065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b4e3ced3c0d55349850d7ae8ea4ba13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawFrequency: 2
-  spawRadius: 5
-  maxEnemies: 10
-  minimumSpawnDistanceFromPlayer: 100
-  chanceToSpawnClosePlayer: 0
-  player: {fileID: 0}
-  spawSmoke: {fileID: 7675306881100246288, guid: 03795b136be8bfe4a9ec36443aff9e03,
-    type: 3}
-  enemies:
-  - {fileID: 1709829926342539076, guid: 7a9188f58f258c042b7850e0e7669b61, type: 3}
-  - {fileID: 5061369356230544831, guid: b8a8c465da76ca041a5f44c2dff87c07, type: 3}
-  spawPoints:
-  - {fileID: 1690135245}
-  - {fileID: 2035135811}
-  - {fileID: 1659874383}
-  - {fileID: 189585103}
-  - {fileID: 1330559715}
-  - {fileID: 73133421}
-  - {fileID: 943080453}
-  - {fileID: 718323293}
-  - {fileID: 823670782}
-  - {fileID: 2039133329}
-  - {fileID: 1567163281}
-  - {fileID: 265676868}
-  - {fileID: 979376800}
-  - {fileID: 809645165}
-  - {fileID: 1883027509}
-  - {fileID: 1089199637}
-  - {fileID: 576025500}
-  - {fileID: 2006263563}
-  - {fileID: 821277102}
-  - {fileID: 1681861047}
-  - {fileID: 1050335910}
-  - {fileID: 584829954}
-  - {fileID: 1795679865}
-  - {fileID: 1265336492}
-  - {fileID: 1668397610}
-  - {fileID: 1161887333}
---- !u!114 &1457053069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457053065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -638047543, guid: da41a8dd3b5ec434a802d9b5a2a0a777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateInterval: 0
-  updateIntervalSeconds: 0
-  executionsPerTick: 0
-  maxTaskExecutionsPerTick: 100
 --- !u!1001 &1459985935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14631,7 +14548,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 371722650}
+      objectReference: {fileID: 654388090}
     - target: {fileID: 3943474332033452245, guid: ed06378267a080f4c83e1c3ec7e39694,
         type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Overridden

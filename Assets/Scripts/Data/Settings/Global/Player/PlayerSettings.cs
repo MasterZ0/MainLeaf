@@ -10,7 +10,7 @@ namespace AdventureGame.Data
     /// Stores all player Basic Settings
     /// </summary>
     [CreateAssetMenu(menuName = MenuPath.SettingsGlobal + "Player", fileName = "PlayerSettings")]
-    public class CharacterSettings : ScriptableObject 
+    public class PlayerSettings : ScriptableObject
     {
         [SerializeField] private LocalizedString characterName;
 
@@ -20,17 +20,15 @@ namespace AdventureGame.Data
         [TabGroup("Player", "Physics"), HideLabel, InlineProperty]
         [SerializeField] private PlayerPhysicsSettings physics;
 
-        //[TabGroup("Player", "Visual"), HideLabel, InlineProperty]
-        //[SerializeField] private PlayerVisualSettings visual;
+        [TabGroup("Player", "Visual"), HideLabel, InlineProperty]
+        [SerializeField] private PlayerVisualSettings visual;
 
         //[TabGroup("Player", "Action Windows"), HideLabel, InlineProperty]
         //[SerializeField] private PlayerActionWindowSettings actionWindows;
 
-        //[TabGroup("Player", "Default Inventory"), HideLabel, InlineProperty]
-        //[SerializeField] private DefaultInventory defaultInventory;
-
         public LocalizedString CharacterName => characterName;
         public PlayerStatusSettings Status => status;
         public PlayerPhysicsSettings Physics => physics;
+        public PlayerVisualSettings Visual => visual;
     }
 }

@@ -60,13 +60,20 @@ namespace AdventureGame.Editor
             string settingsPath = $"{ApplicationName} Settings";
 
             // GameValues
-            GameSettings simulatorValues = AssetDatabase.LoadAssetAtPath<GameSettings>(ProjectPath.GameSettingsPath);
+            GameSettings simulatorValues = AssetDatabase.LoadAssetAtPath<GameSettings>(ProjectPath.GameSettingsAsset);
             tree.Add(settingsPath, simulatorValues, GetEnvironmentIcon());
 
             // Environmments
             tree.Add($"{settingsPath}/General", GameSettings.General, EditorIcons.SettingsCog);
-            tree.Add($"{settingsPath}/Player", GameSettings.Player, EditorIcons.SingleUser);
             tree.Add($"{settingsPath}/UI", GameSettings.UI, EditorIcons.ImageCollection);
+
+            tree.Add($"{settingsPath}/Players", GameSettings.Players, EditorIcons.SingleUser);
+            tree.AddAllAssetsAtPath($"{settingsPath}/Players", $"{ProjectPath.GameSettingsPath}/{GameSettings.Environment}/Players", typeof(ScriptableObject), true);
+
+            tree.EnumerateTree(x =>
+            {
+                x.Name = x.Name.UnderscoreByReduction().GetNiceString();
+            });
 
             // Sort
             tree.EnumerateTree().SortMenuItemsByName();

@@ -165,6 +165,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237774250834035762, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
+      propertyPath: characterSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a78e07a402c918439fdb03661726da4,
+        type: 2}
+    - target: {fileID: 1237774250834035762, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
       propertyPath: renderers.Array.size
       value: 2
       objectReference: {fileID: 0}

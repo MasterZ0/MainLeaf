@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590a174a0295fad4cac3e004efbb89d7, type: 3}
+  m_Name: Dev_Archer
+  m_EditorClassIdentifier: 
+  characterName:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  status:
+    baseHP: 25
+    baseMP: 25
+    baseSP: 25
+    style: 0
+    damage: 1
+    agility: 1
+    support: 1
+    resistence: 1
+    lowStaminaRegeneration: 1
+    defaultStaminaRegeneration: 0.25
+    defaultManaRegeneration: 0.25
+  physics:
+    aimMoveSpeed: 2
+    walkSpeed: 4
+    sprintSpeed: 10
+    maxFallingVelocity: 11
+    groundedGravity: 3
+    fallingGravity: 3
+    jumpGravity: 1
+    jumpRangeDuration: {x: 0.12, y: 0.35}
+    jumpVelocity: 1
+    groundCheckRadius: 0.02
+    airDashVelocity: 8
+    airDashDuration: 0.3
+    groundDashVelocity: 8
+    groundDashDuration: 0.4
+    raycastBoxLength: 1
+    dodgeYVelocity: 4
+    dodgeZVelocity: 8
+    minimumDodgeXVelocity: 3
+    dodgeDamp: 9
+    minDodgeDuration: 0.2
+    invincibilityTimeAfterInjury: 1
+    injuryVelocity: {x: 5, y: 5}
+    injuryTime: 0.2
+    dyingMinTime: 0.2
+    deathVelocity: {x: 6, y: 6}

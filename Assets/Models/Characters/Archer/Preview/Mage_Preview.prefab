@@ -89,6 +89,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237774250834035762, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
+      propertyPath: characterSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: afa02b33f881786419b0ce9aea16a8c8,
+        type: 2}
+    - target: {fileID: 1237774250834035762, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
       propertyPath: renderers.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2233,6 +2239,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   characterSettings: {fileID: 0}
+  characterCam: {fileID: 0}
   nameAnimator: {fileID: 0}
   outline: {fileID: 0}
 --- !u!1 &5318026838752515600 stripped
@@ -2283,6 +2290,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   characterSettings: {fileID: 0}
+  characterCam: {fileID: 0}
   nameAnimator: {fileID: 0}
   outline: {fileID: 0}
 --- !u!137 &5318026838752515606 stripped

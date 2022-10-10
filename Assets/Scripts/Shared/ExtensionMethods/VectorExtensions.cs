@@ -16,6 +16,16 @@ namespace AdventureGame.Shared.ExtensionMethods
             return Random.Range(range.x, range.y);
         }
 
+        public static Vector3 Multiply(this Vector3 a, Vector3 b)
+        {
+            return new Vector3()
+            {
+                x = a.x * b.x,
+                y = a.y * b.y,
+                z = a.z * b.z,
+            };
+        }
+
         public static int RandomRangeAround(this Vector2 range)
         {
             float value = Random.Range(range.x, range.y);

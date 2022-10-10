@@ -1,43 +1,70 @@
-using AdventureGame.Inputs;
-using System.Collections;
-using System.Collections.Generic;
+using AdventureGame.Data;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace AdventureGame.MainMenu
 {
     public class CharacterSelection : MonoBehaviour
     {
         [Header("Character Selection")]
-        [SerializeField] private SelectableCharacter[] characters;
-        [SerializeField] private GameObject[] charactersCam;
         [SerializeField] private MainMenu mainMenu;
+        [SerializeField] private SelectableCharacter[] characters;
 
-        [Header(" - Event")]
-        [SerializeField] private UnityEvent<int> onSubmit;
-        [SerializeField] private UnityEvent onSelect;
-        [SerializeField] private UnityEvent onCancel;
+        [Header("Character Preview Panel")]
+        [SerializeField] private TextMeshProUGUI nameTMP;
+        [SerializeField] private Slider style;
+        [SerializeField] private GameObject[] damage;
+        [SerializeField] private GameObject[] agility;
+        [SerializeField] private GameObject[] support;
+        [SerializeField] private GameObject[] resistence;
 
-        private int characterIndex;
+        private SelectableCharacter currentCharacter;
+
+        private void Awake()
+        {
+            currentCharacter = characters[0];
+
+            foreach (SelectableCharacter character in characters)
+            {
+                character.Init(this);
+            }
+        }
+
+        public void ShowInfo(SelectableCharacter preview)
+        {
+            mainMenu.ShowCharacter(preview.CharacterCam);
+
+            currentCharacter = preview;
+
+            nameTMP.text = preview.CharacterSettings.CharacterName;
+
+            PlayerStatusSettings status = preview.CharacterSettings.Status;
+            style.value = status.style;
+
+            for (int i = 0; i < damage.Length; i++)
+            {
+                damage[i].SetActive(i <= status.damage - 1);
+                agility[i].SetActive(i <= status.agility - 1);
+                support[i].SetActive(i <= status.support - 1);
+                resistence[i].SetActive(i <= status.resistence - 1);
+            }
+
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+        internal void Cancel()
+        {
+            mainMenu.OnCloseCharacterSelection();
+        }
 
         /// <summary>
         /// Enable character selection controls
         /// </summary>
-        public void SetActive()
+        public void SelectCharacter()
         {
-            onSelect.Invoke(); 
-            characters[characterIndex].Select();
-
-            mainMenu.SwitchCamera(charactersCam[characterIndex]);
-        }
-
-        private void OnSubmit()
-        {
-            onSubmit.Invoke(characterIndex);
-        }
-        private void OnCancel()
-        {
-            onCancel.Invoke();
+            currentCharacter.Select();
         }
     }
 }

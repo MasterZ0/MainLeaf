@@ -13,7 +13,7 @@ namespace AdventureGame.BattleSystem
         public DamageType DamageType;
         public bool CanBlock;
 
-        [SerializeReference, TypeSelection]
-        public List<HitEffect> HitEffects = new List<HitEffect>();
+        //[SerializeReference, TypeSelection]
+        //public List<HitEffect> HitEffects = new List<HitEffect>();
     }
 }

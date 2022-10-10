@@ -17,6 +17,7 @@ namespace AdventureGame.AppOptions
 
         public void Init() // LoadOptions
         {
+            return;
             videoOptions.LoadVideoSettings();
             audioOptions.LoadAudioSettings();
             controlsOptions.LoadInputSettings();

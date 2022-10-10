@@ -12,11 +12,11 @@ namespace AdventureGame.Data {
     public class EnvironmentSettings : ScriptableObject 
     {
         [SerializeField] private GeneralSettings generalSettings;
-        [SerializeField] private CharacterSettings playerSettings;
+        [SerializeField] private PlayersSettings playersSettings;
         [SerializeField] private UISettings uiSettings;
 
         public GeneralSettings GeneralSettings => generalSettings;
-        public CharacterSettings PlayerSettings => playerSettings;
+        public PlayersSettings PlayersSettings => playersSettings;
         public UISettings UISettings => uiSettings;
     }
 }

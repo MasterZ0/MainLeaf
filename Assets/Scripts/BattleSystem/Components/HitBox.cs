@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace AdventureGame.BattleSystem
@@ -16,34 +15,11 @@ namespace AdventureGame.BattleSystem
             KilledDamageable
         }
 
-        public event Action<IHittable> OnApplyDamage;
-
-        protected DamageData DamageData { get; private set; }
-        protected Func<Damage> createDamage;
-
-        public void SetDamage(DamageData damage, bool isFixedDamage = false)
-        {
-            DamageData = damage;
-            if (isFixedDamage)
-            {
-                Damage dam = new Damage(damage);
-                createDamage = () => dam;
-            }
-            else
-            {
-                createDamage = () => new Damage(damage);
-            }
-        }
+        protected Damage Damage { get; private set; }
 
         public void SetDamage(Damage damage)
         {
-            createDamage = () => damage;
-        }
-
-        /// <summary> Player Only </summary>
-        public void SetDamageGetter(Func<Damage> playerDamage)
-        {
-            createDamage = playerDamage;
+            Damage = damage;
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -67,11 +43,10 @@ namespace AdventureGame.BattleSystem
 
             if (collision.attachedRigidbody.TryGetComponent(out IHittable hittable))
             {
-                OnApplyDamage?.Invoke(hittable);
                 Vector2 contact = collision.ClosestPoint(transform.position);
-                Damage damage = createDamage();
-                damage.AddHitBoxInfo(transform, contact);
-                DamageInfo info = hittable.TakeDamage(damage);
+
+                Damage.AddHitBoxInfo(this, contact);
+                hittable.TakeDamage(Damage);
 
                 if (hittable is IDamageable damageable)
                 {
@@ -89,7 +64,7 @@ namespace AdventureGame.BattleSystem
 
         protected virtual void AfterHit(TargetHitType targetHit) { }
 
-        public static HitBox operator +(HitBox hitBox, DamageData damage)
+        public static HitBox operator +(HitBox hitBox, Damage damage)
         {
             hitBox.SetDamage(damage);
             return hitBox;

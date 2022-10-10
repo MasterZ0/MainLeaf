@@ -9,97 +9,86 @@ namespace AdventureGame.Inputs
     /// </summary>
     public class PlayerInputs : BaseInput
     {
-        public Vector2 Directional 
-        {
-            get 
-            {
-                if (!controls.Player.enabled) 
-                    return Vector2.zero;
+        public event Action<Vector2> OnMoveCamera = delegate { };
+        public event Action OnJumpReleased = delegate { };
+        public event Action OnJumpPressed = delegate { };
+        public event Action OnDashPressed = delegate { };
+        public event Action OnDashReleased = delegate { };
+        public event Action OnPrimarySkillPressed = delegate { };
+        public event Action OnPrimarySkillReleased = delegate { };
+        public event Action OnSecondarySkillPressed = delegate { };
+        public event Action OnSecondarySkillReleased = delegate { };
 
-                Vector2 direction = controls.Player.Move.ReadValue<Vector2>();
-                direction.x = Mathf.Round(direction.x);
-                direction.y = Mathf.Round(direction.y);
-
-                return direction;
-            }
-        }
-        
-        public bool DirectionalPressed => Directional != Vector2.zero;
-        public bool UpDirectionPressed => Directional.y > 0;
-        public bool DownDirectionPressed => Directional.y < 0;
-        public bool HorizontalDirectionPressed => Mathf.Abs(Directional.x) > 0;
-        public bool VerticalDirectionPressed => Mathf.Abs(Directional.y) > 0;
-
+        public bool MovePressed => Move != Vector2.zero;
+        public bool JumpPressed { get; private set; }
+        public bool DashPressed { get; private set; }
         public bool PrimarySkillPressed { get; private set; }
         public bool SecondarySkillPressed { get; private set; }
-        public bool JumpPressed { get; private set; }
 
-        public event Action OnJumpUp = delegate { };
-        public event Action OnJumpDown = delegate { };
-        public event Action OnDashDown = delegate { };
-        public event Action OnPrimarySkillDown = delegate { };
-        public event Action OnPrimarySkillUp = delegate { };
-        public event Action OnSecondarySkillDown = delegate { };
-        public event Action OnSecondarySkillUp = delegate { };
-        
-        public PlayerInputs(bool enable = true) : base(InputManager.Controls, enable)
+        public Vector2 Move => controls.Player.Move.ReadValue<Vector2>();
+        public Vector2 Look => controls.Player.Look.ReadValue<Vector2>();
+
+        public PlayerInputs(bool enable = true) : base(enable)
         {
-            controls.Player.Jump.started += SendJumpDown;
-            controls.Player.Jump.canceled += SendJumpUp;
-            controls.Player.Dash.started += SendDashDown;
+            controls.Player.Jump.started += OnJumpDown;
+            controls.Player.Jump.canceled += OnJumpUp;
+            controls.Player.Dash.started += OnDashDown;
+            controls.Player.Dash.canceled += OnDashUp;
             controls.Player.PrimarySkill.started += SendPrimarySkillDown;
             controls.Player.PrimarySkill.canceled += SendPrimarySkillUp;
             controls.Player.SecondarySkill.started += SendSecondarySkillDown;
             controls.Player.SecondarySkill.canceled += SendSecondarySkillUp;
+            controls.Player.Look.started += OnLook;
         }
 
-        public override void Dispose()
-        {
-            controls.Player.Jump.started -= SendJumpDown;
-            controls.Player.Jump.canceled -= SendJumpUp;
-            controls.Player.Dash.started -= SendDashDown;
-            controls.Player.PrimarySkill.started -= SendPrimarySkillDown;
-            controls.Player.PrimarySkill.canceled -= SendPrimarySkillUp;
-            controls.Player.SecondarySkill.started -= SendSecondarySkillDown;
-            controls.Player.SecondarySkill.canceled -= SendSecondarySkillUp;
-        }
+        private void OnLook(CallbackContext ctx) => OnMoveCamera(ctx.ReadValue<Vector2>());
 
-        private void SendSecondarySkillDown(CallbackContext _) 
-        {
-            SecondarySkillPressed = true;
-            OnSecondarySkillDown();
-        }
-
-        private void SendSecondarySkillUp(CallbackContext _) 
-        {
-            SecondarySkillPressed = false;
-            OnSecondarySkillUp();
-        }
-
-        private void SendJumpDown(CallbackContext _) 
+        private void OnJumpDown(CallbackContext _)
         {
             JumpPressed = true;
-            OnJumpDown();
+            OnJumpPressed();
         }
-        
-        private void SendJumpUp(CallbackContext _) 
+
+        private void OnJumpUp(CallbackContext _)
         {
             JumpPressed = false;
-            OnJumpUp();
+            OnJumpReleased();
+        }
+
+        private void OnDashDown(CallbackContext _)
+        {
+            DashPressed = true;
+            OnDashPressed();
+        }
+
+        private void OnDashUp(CallbackContext _)
+        {
+            DashPressed = false;
+            OnDashReleased();
         }
 
         private void SendPrimarySkillDown(CallbackContext _)
         {
             PrimarySkillPressed = true;
-            OnPrimarySkillDown();
+            OnPrimarySkillPressed();
         }
 
         private void SendPrimarySkillUp(CallbackContext _)
         {
             PrimarySkillPressed = false;
-            OnPrimarySkillUp();
+            OnPrimarySkillReleased();
         }
 
-        private void SendDashDown(CallbackContext _) => OnDashDown();
+        private void SendSecondarySkillDown(CallbackContext _)
+        {
+            SecondarySkillPressed = true;
+            OnSecondarySkillPressed();
+        }
+
+        private void SendSecondarySkillUp(CallbackContext _)
+        {
+            SecondarySkillPressed = false;
+            OnSecondarySkillReleased();
+        }
     }
 }

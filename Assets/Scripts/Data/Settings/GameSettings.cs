@@ -28,7 +28,7 @@ namespace AdventureGame.Data {
         public static EnvironmentState Environment { get; private set; }
         private static Dictionary<EnvironmentState, EnvironmentSettings> Datas { get; set; }
         public static GeneralSettings General => Datas[Environment].GeneralSettings;
-        public static CharacterSettings Player => Datas[Environment].PlayerSettings;
+        public static PlayersSettings Players => Datas[Environment].PlayersSettings;
         public static UISettings UI => Datas[Environment].UISettings;
         
         public void OnValidate() => Initialize();

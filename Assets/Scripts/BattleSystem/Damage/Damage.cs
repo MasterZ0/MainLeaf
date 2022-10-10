@@ -1,5 +1,6 @@
 ﻿using AdventureGame.Shared;
 using AdventureGame.Shared.ExtensionMethods;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,66 +8,45 @@ namespace AdventureGame.BattleSystem
 {
     public class Damage
     {
-        public Transform HitBoxSender { get; private set; }
-        public Vector2 ContactPoint { get; private set; }
+        // Damage
         public int Value { get; private set; }
-        public int BlockingDamage { get; }
-        public bool Critical { get; }
+        public int StaminaDamage { get; } // Only blockable damages
+        // public int Intensity { get; } // Injury?
         public bool CanBlock { get; }
         public DamageType DamageType { get; }
-        public Transform Sender { get; }
-        public string SenderName { get; }
+        public IAttacker Sender { get; }
         public List<HitEffect> HitEffects { get; }
 
-        private const string UNKNOWN_SENDER_NAME = "Unknown";
+        // Hitbox
+        public HitBox HitBoxSender { get; private set; }
+        public Vector2 ContactPoint { get; private set; }
 
-        private Damage(DamageData damageData, Transform sender)
+        public Damage(DamageData damageData, IAttacker sender)
         {
+            StaminaDamage = damageData.Value.x;
+            Value = damageData.Value.RandomRange();
+
             CanBlock = damageData.CanBlock;
             DamageType = damageData.DamageType;
-            HitEffects = damageData.HitEffects;
+            //HitEffects = damageData.HitEffects;
             Sender = sender;
-            SenderName = Sender != null ? Sender.name : UNKNOWN_SENDER_NAME;
-        }
-        
-        public Damage(DamageData damageData) : this (damageData, null)
-        {
-            BlockingDamage = damageData.Value.y;
-            Value = damageData.Value.RandomRange();
         }
 
-        /// <summary> Player Only </summary>
-        public Damage(DamageData damageData, Transform sender, int damage, bool critical) : this (damageData, sender)
+        public Damage(int value)
         {
-            BlockingDamage = damageData.Value.y;
-            Critical = critical;
-            Value = damage;
+            Value = value;
         }
 
-        /// <summary> Aberration receving monster death damage </summary>
-        /// <remarks> MasterZ: There is no associated HitBox or Contact, you can change this method if necessary </remarks>
-        public Damage(Transform sender, int damageValue)
+        public void AddHitBoxInfo(HitBox hitBox, Vector2 contact)
         {
-            Sender = sender;
-            SenderName = Sender != null ? Sender.name : UNKNOWN_SENDER_NAME;
-            Value = damageValue;
-            HitEffects = new List<HitEffect>();
-            DamageType = DamageType.Default;
-        }
-        
-        /// <summary> Aberration </summary>
-        public void SetDamage(int damage) => Value = damage;
-        
-        public void AddHitBoxInfo(Transform hitboxSender, Vector2 contactPoint)
-        {
-            HitBoxSender = hitboxSender;
-            ContactPoint = contactPoint;
+            HitBoxSender = hitBox;
+            ContactPoint = contact;
         }
 
         /// <summary> Get Knockback direction </summary>
         public float GetXDirection(Transform transform)
         {
-            float targetX = HitBoxSender.position.x - transform.position.x;
+            float targetX = HitBoxSender.transform.position.x - transform.position.x;
             return targetX > 0 ? 1 : -1;
         }
         

@@ -45,13 +45,14 @@ namespace AdventureGame.Inputs
         {
             Controls.LoadBindingOverridesFromJson(rebinds);
             RefreshAllRebinderIcons();
+            InputManager.UpdateBindings(rebinds);
         }
 
         private void Save()
         {
             string overridersAsJson = Controls.SaveBindingOverridesAsJson();
             SaveBindingOverrides(overridersAsJson);
-            InputManager.OnRebindControls();
+            InputManager.UpdateBindings(overridersAsJson);
         }
 
         public void CleanInput(InputRebinder inputRebinder)
@@ -63,7 +64,7 @@ namespace AdventureGame.Inputs
             RefreshRebinderIcon(inputRebinder, action);
         }
 
-        protected void OnResetAllInputs()
+        protected void ResetAllInputs()
         {
             Controls.RemoveAllBindingOverrides();
             Save();
@@ -118,7 +119,7 @@ namespace AdventureGame.Inputs
             Save();
             rebindOperation.Dispose();
 
-            RefreshRebinderIcon(currentInputRebinder , rebindOperation.action);
+            RefreshRebinderIcon(currentInputRebinder, rebindOperation.action);
 
             StartCoroutine(DelayToSelect(controlsEnabled));
         }

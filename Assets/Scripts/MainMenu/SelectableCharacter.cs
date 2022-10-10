@@ -8,19 +8,32 @@ namespace AdventureGame.MainMenu
     public class SelectableCharacter : Selectable
     {
         [Header("Selectable Character")]
-        [SerializeField] private CharacterSettings characterSettings;
+        [SerializeField] private PlayerSettings characterSettings;
 
         [Header("Components")]
+        [SerializeField] private GameObject characterCam;
         [SerializeField] private Animator nameAnimator;
         [SerializeField] private Outline outline;
 
-        public CharacterSettings CharacterSettings => characterSettings;
+        public GameObject CharacterCam => characterCam;
+        public PlayerSettings CharacterSettings => characterSettings;
 
         private UISettings Settings => GameSettings.UI;
+        private CharacterSelection controller;
 
-        public void Init(CharacterPreviewPanel previewPanel)
+        public void Init(CharacterSelection characterSelection)
         {
-            previewPanel.ShowInfo(this);
+            controller = characterSelection;
+        }
+
+        public void OnSubmit()
+        {
+            controller.ShowInfo(this);
+        }
+
+        public void OnCancel()
+        {
+            controller.Cancel();
         }
 
         public override void OnSelect(BaseEventData eventData)

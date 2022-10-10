@@ -1,0 +1,20 @@
+{
+    "name": "AdventureGame.NodeCanvas.AI.Enemy",
+    "rootNamespace": "AdventureGame.NodeCanvas.AI.Enemy",
+    "references": [
+        "GUID:d055970d43ebe2d449fe0b1d2fd48b63",
+        "GUID:df55f17f78f75a643aff19957150ab7f",
+        "GUID:fcbe015298788f64d8404a9bf040f4db",
+        "GUID:d43ea55eb0e35f4429a5e067829e5e87",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

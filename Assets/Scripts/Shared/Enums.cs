@@ -10,10 +10,4 @@
         FloatLands,
         Elderend
     }
-
-    public enum CastMethod
-    {
-        Ray,
-        Box,
-    }
 }

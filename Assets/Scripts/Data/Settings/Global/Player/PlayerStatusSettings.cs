@@ -16,11 +16,11 @@ namespace AdventureGame.Data
         [SerializeField] private int baseSP = 25;
 
         [Title("Multipliers")]
-        [Range(0, 1)] public float style;
-        [Range(1, 5)] public int damage;
-        [Range(1, 5)] public int agility;
-        [Range(1, 5)] public int support;
-        [Range(1, 5)] public int resistence;
+        [Range(0, 1)] public float style;   
+        [Range(0, 5)] public int damage;
+        [Range(0, 5)] public int agility;
+        [Range(0, 5)] public int support;
+        [Range(0, 5)] public int resistence;
 
         [Title("Stamina")]
         [Range(0, 2f)]

@@ -10,10 +10,10 @@ namespace AdventureGame.Inputs
     {
         [SerializeField] private InputSpriteMapData map;
 
-        /// <summary> Change device or change the bindings </summary>
-        public static event Action<DeviceController> OnUpdateDevice = delegate { };
+        public static event Action<DeviceController> OnChangeDevice = delegate { };
+        public static event Action OnChangeBindings;
         public static DeviceController CurrentDevice => inputDetector.CurrentInput;
-        public static InputSpriteMapData Map { get; private set; }
+        public static string OverrideBindings { get; private set; } = string.Empty;
         public static Controls Controls
         {
             get
@@ -25,6 +25,7 @@ namespace AdventureGame.Inputs
                 return controls;
             }
         }
+        private static InputSpriteMapData Map { get; set; }
 
         private static Controls controls;
         private static InputDetector inputDetector;
@@ -45,10 +46,8 @@ namespace AdventureGame.Inputs
 
         private void OnDeviceChange(DeviceController device)
         {
-            OnUpdateDevice(device);
+            OnChangeDevice(device);
         }
-
-        public static void OnRebindControls() => OnUpdateDevice(inputDetector.CurrentInput); // Could be a different event
 
         public static Sprite GetPlayerIcon(InputActionReference inputActionReference, DeviceController device)
         {
@@ -59,6 +58,12 @@ namespace AdventureGame.Inputs
             InputBinding binding = correspondingAction.bindings.FirstOrDefault(b => b.groups == schemeGroup);
 
             return GetPlayerIcon(binding.effectivePath, device);
+        }
+
+        public static void UpdateBindings(string bindings)
+        {
+            OverrideBindings = bindings;
+            OnChangeBindings();
         }
 
         public static Sprite GetPlayerIcon(string effectivePath, DeviceController inputType)

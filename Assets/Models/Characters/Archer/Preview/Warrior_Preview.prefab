@@ -94,6 +94,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237774250834035762, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
+      propertyPath: characterSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 130292fbf93b2124385058ac584a715b,
+        type: 2}
+    - target: {fileID: 1237774250834035762, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
       propertyPath: renderers.Array.size
       value: 2
       objectReference: {fileID: 0}

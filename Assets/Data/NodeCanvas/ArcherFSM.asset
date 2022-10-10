@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: ArcherFSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"aimMoveSpeed":{"_name":"AimMoveSpeed","_targetVariableID":"915e8972-a5f6-459c-b251-9038a6842799"},"walkSpeed":{"_name":"WalkSpeed","_targetVariableID":"73e782d7-7912-4a07-8b30-6676b4a8048d"},"sprintSpeed":{"_name":"SprintSpeed","_targetVariableID":"7af17009-0ca4-417d-8f69-8796caba6f01"},"$type":"AdventureGame.Player.States.InitArcherPS"}]},"_position":{"x":561.1831,"y":301.4177},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_position":{"x":792.1829,"y":447.4177},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_nestedFSM":{"_value":2},"_position":{"x":1067.288,"y":289.2977},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":3},"_position":{"x":1061.0,"y":612.2},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"3"},{"_nestedFSM":{"_value":4},"_position":{"x":488.0,"y":742.2},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkMode":1,"conditions":[{"_invert":true,"$type":"AdventureGame.Player.States.CheckGroundPS"},{"valueA":{"_name":"Jumping","_targetVariableID":"83cc36bc-cca4-40b6-a6c6-ea589516276e"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"inputButton":{"_value":4},"$type":"AdventureGame.Player.States.CheckInputPS"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"4"},"_isDisabled":true,"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"$type":"AdventureGame.Player.States.CheckGroundPS"},{"valueA":{"_name":"Jumping","_targetVariableID":"83cc36bc-cca4-40b6-a6c6-ea589516276e"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"inputButton":{"_value":4},"_invert":true,"$type":"AdventureGame.Player.States.CheckInputPS"},{"valueA":{"_name":"Shooting","_targetVariableID":"eb917386-26f7-4ab3-b837-193a5d9167e6"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"_isDisabled":true,"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: fe2e29ad76a0bc2408c182e66f748529, type: 2}
+  - {fileID: 11400000, guid: 781ae787383ff3a4287797b0987fa275, type: 2}
+  - {fileID: 11400000, guid: a68db5a7911aae94f810c32c631f54e5, type: 2}
+  - {fileID: 11400000, guid: 18ea132735136e94186fd7a83ce8cf8d, type: 2}
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: -192, y: -154}
+    _zoomFactor: 1
+  _haltSerialization: 0

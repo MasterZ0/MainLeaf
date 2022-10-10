@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace AdventureGame.Inputs
 {
@@ -9,15 +10,21 @@ namespace AdventureGame.Inputs
 
         private int activationFrame;
 
-        public BaseInput(bool enable) : this(new Controls(), enable) { }
-        public BaseInput(Controls controls, bool enable)
+        public BaseInput(bool enable)
         {
-            this.controls = controls;
+            controls = new Controls();
+            OnUpdateBindings();
+            InputManager.OnChangeBindings += OnUpdateBindings;
 
             if (enable)
             {
                 controls.Enable();
             }
+        }
+
+        private void OnUpdateBindings()
+        {
+            controls.LoadBindingOverridesFromJson(InputManager.OverrideBindings);
         }
 
         public void SetActive(bool active)
@@ -34,8 +41,9 @@ namespace AdventureGame.Inputs
             activationFrame = Time.frameCount + 1; // +1 Avoid bug
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
+            InputManager.OnChangeBindings -= OnUpdateBindings;
             controls.Dispose();
         }
     }

@@ -1,0 +1,17 @@
+{
+    "name": "AdventureGame.Shake",
+    "rootNamespace": "AdventureGame.Shake",
+    "references": [
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

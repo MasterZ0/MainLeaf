@@ -27,18 +27,7 @@ namespace AdventureGame.Shared.NodeCanvas
 
         // Player
         private const string Player = AdventureGame + "/Player";
-        public const string PlayerGeneral = Player + "/General";
-        public const string PlayerInteractions = Player + "/Interactions";
-        public const string PlayerInventory = Player + "/Inventory";
-
-        // Ritual
-        public const string Rituals = AdventureGame + "/Rituals";
-        public const string ArenaRitual = Rituals + "/Arena"; 
-        public const string WheelRitual = Rituals + "/Wheel"; 
-        public const string Specials = Rituals + "/Wheel";
-        
-        // Scene Objects
-        public const string SceneObjects = AdventureGame + "/SceneObjects";
+        public const string PlayerStates = Player + "/States";
         
         // Unity
         private const string Unity = AdventureGame + "/Unity";

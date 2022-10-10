@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ac67abdc37e334ab0de022e57ef59a, type: 3}
+  m_Name: Staging
+  m_EditorClassIdentifier: 
+  generalSettings: {fileID: 11400000, guid: b1ab49fedf699f042b38be96f011cb7f, type: 2}
+  playersSettings: {fileID: 11400000, guid: 92740e60de82ccc41a761b9c17548309, type: 2}
+  uiSettings: {fileID: 11400000, guid: bdbc4e461b4fe4e4fab5c41c0bf4256d, type: 2}

@@ -8,7 +8,8 @@
         public const string ApplicationManagerScene = "Assets/Scenes/ApplicationManager.unity";
 
         // Data
-        public const string GameSettingsPath = "Assets/Data/Settings/GameSettings.asset";
+        public const string GameSettingsAsset = GameSettingsPath + "/GameSettings.asset";
+        public const string GameSettingsPath = "Assets/Data/GameSettings";
         public const string LevelDataPath = "Assets/Data/Settings/LevelData.asset";
     }
 }

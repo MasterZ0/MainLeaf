@@ -7,6 +7,7 @@ namespace AdventureGame.AppOptions
     {
         public int resolutionWidth;
         public int resolutionHeight;
+        public int graphicsQuality;
         public bool fullScreen = true;
     }
 

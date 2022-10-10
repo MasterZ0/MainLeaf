@@ -16,16 +16,20 @@ namespace AdventureGame.Inputs
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Image image;
 
-        private void Awake()
+        private void Start()
         {
-            InputManager.OnUpdateDevice += OnUpdateDevice;
+            InputManager.OnChangeDevice += OnUpdateDevice;
+            InputManager.OnChangeBindings += OnChangeBindings;
             OnUpdateDevice(InputManager.CurrentDevice);
         }
 
         private void OnDestroy()
         {
-            InputManager.OnUpdateDevice -= OnUpdateDevice;
+            InputManager.OnChangeDevice -= OnUpdateDevice;
+            InputManager.OnChangeBindings -= OnChangeBindings;
         }
+
+        private void OnChangeBindings() => OnUpdateDevice(InputManager.CurrentDevice);
 
         private void OnUpdateDevice(DeviceController inputType)
         {

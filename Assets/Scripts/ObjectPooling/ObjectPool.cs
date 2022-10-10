@@ -31,7 +31,7 @@ namespace AdventureGame.ObjectPooling
             return SpawnPooledObject<T>(prefab, default, default, parent);
         }
 
-        public static T SpawnPooledObject<T>(GameObject prefab, Vector2 position = default, Quaternion rotation = default, Transform parent = null) where T : Component
+        public static T SpawnPooledObject<T>(GameObject prefab, Vector3 position = default, Quaternion rotation = default, Transform parent = null) where T : Component
         {
             T component = prefab.GetComponent<T>(); //From pool
             return SpawnPooledObject(component, position, rotation, parent);
@@ -42,7 +42,7 @@ namespace AdventureGame.ObjectPooling
             return SpawnPooledObject(prefab, default, default, parent);
         }
 
-        public static T SpawnPooledObject<T>(T prefab, Vector2 position = default, Quaternion rotation = default, Transform parent = null) where T : Component
+        public static T SpawnPooledObject<T>(T prefab, Vector3 position = default, Quaternion rotation = default, Transform parent = null) where T : Component
         {
             if (parent == null)
             {

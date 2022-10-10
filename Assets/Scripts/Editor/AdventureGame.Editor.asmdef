@@ -3,12 +3,13 @@
     "rootNamespace": "AdventureGame.Editor",
     "references": [
         "GUID:9e24947de15b9834991c9d8411ea37cf",
-        "GUID:69448af7b92c7f342b298e06a37122aa",
-        "GUID:dd5c1ada27d80c842960f5c13e8b384c",
-        "GUID:35334e9fce2041042a58f9101a81d24c",
-        "GUID:84651a3751eca9349aac36a66bba901b",
         "GUID:d055970d43ebe2d449fe0b1d2fd48b63",
-        "GUID:bf294c4ea7f261a489d057e3c0857933"
+        "GUID:69448af7b92c7f342b298e06a37122aa",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:35334e9fce2041042a58f9101a81d24c",
+        "GUID:bf294c4ea7f261a489d057e3c0857933",
+        "GUID:d43ea55eb0e35f4429a5e067829e5e87",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
     ],
     "includePlatforms": [
         "Editor"

@@ -20,7 +20,7 @@ namespace AdventureGame.Editor
 
         private static void GameValuesValidation() 
         {
-            AssetDatabase.LoadAssetAtPath<GameSettings>(ProjectPath.GameSettingsPath);
+            AssetDatabase.LoadAssetAtPath<GameSettings>(ProjectPath.GameSettingsAsset);
         }
 
         private static void LoadGameManager(Scene scene, OpenSceneMode mode) 

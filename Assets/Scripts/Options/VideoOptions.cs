@@ -12,16 +12,25 @@ namespace AdventureGame.AppOptions
         [Header("Texts")]
         [SerializeField] private LocalizedString fullscreenOn;
         [SerializeField] private LocalizedString fullscreenOff;
+        [Space]
+        [SerializeField] private LocalizedString qualityLow;
+        [SerializeField] private LocalizedString qualityMedium;
+        [SerializeField] private LocalizedString qualityHigh;
 
         [Header("Components")]
         [SerializeField] private Navigator resolutionNavigator;
         [SerializeField] private Navigator fullScreenNavigator;
+        [SerializeField] private Navigator graphicsQualityNavigator;
 
         private List<Resolution> resolutions = new List<Resolution>();
         private VideoOptionsData videoData;
 
         private readonly Vector2 AspectRatioRange = new Vector2(1.6f, 1.8f);
         private const int MinResolution = 240;
+
+        private string[] FullscreenOptions => new string[] { fullscreenOff, fullscreenOn };
+        private string[] GraphicQualityOptions => new string[] { qualityLow, qualityMedium, qualityHigh };
+
 
         private void Awake()
         {
@@ -40,8 +49,8 @@ namespace AdventureGame.AppOptions
 
         private void UpdateFullScreenTexts()
         {
-            string[] fullscreenOptions = new string[2] { fullscreenOff, fullscreenOn };
-            fullScreenNavigator.UpdateTexts(fullscreenOptions);
+            fullScreenNavigator.UpdateTexts(FullscreenOptions);
+            graphicsQualityNavigator.UpdateTexts(GraphicQualityOptions);
         }
 
         public void LoadVideoSettings()
@@ -56,22 +65,21 @@ namespace AdventureGame.AppOptions
                 videoData = new VideoOptionsData();
                 videoData.resolutionWidth = Screen.currentResolution.width;
                 videoData.resolutionHeight = Screen.currentResolution.height;
+                videoData.graphicsQuality = QualitySettings.GetQualityLevel();
 
                 PersistenceManager.SaveGlobalFile(videoData);
             }
 
-            SetupNavigators();
+            fullScreenNavigator.Init(FullscreenOptions, videoData.fullScreen ? 1 : 0);
+            graphicsQualityNavigator.Init(GraphicQualityOptions, videoData.graphicsQuality);
+            SetupResolutions();
 
             Screen.SetResolution(videoData.resolutionWidth, videoData.resolutionHeight, videoData.fullScreen);
+            QualitySettings.SetQualityLevel(videoData.graphicsQuality);
         }
 
-        private void SetupNavigators()
+        private void SetupResolutions()
         {
-            // Fullscreen
-            string[] fullscreenOptions = new string[2] { fullscreenOff, fullscreenOn };
-            fullScreenNavigator.Init(fullscreenOptions, videoData.fullScreen ? 1 : 0);
-
-            // Resolutions
             Resolution[] aux = Screen.resolutions;
             List<string> resolutionsOptions = new List<string>();
 
@@ -119,19 +127,25 @@ namespace AdventureGame.AppOptions
         }
 
         #region Set Option
-        public void SetFullscreen(int isFullscreen)
+        public void OnSetFullscreen(int isFullscreen)
         {
             bool fullScreen = isFullscreen == 1 ? true : false;
             Screen.fullScreen = fullScreen;
             videoData.fullScreen = fullScreen;
         }
 
-        public void SetResolution(int resolutionIndex)
+        public void OnSetResolution(int resolutionIndex)
         {
             Resolution resolution = resolutions[resolutionIndex];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
             videoData.resolutionWidth = resolution.width;
             videoData.resolutionHeight = resolution.height;
+        }
+
+        public void OnSetQuality(int qualityIndex)
+        {
+            QualitySettings.SetQualityLevel(qualityIndex);
+            videoData.graphicsQuality = qualityIndex;
         }
         #endregion
     }

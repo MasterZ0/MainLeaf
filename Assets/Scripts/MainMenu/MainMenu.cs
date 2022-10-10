@@ -1,4 +1,6 @@
 ﻿using AdventureGame.ApplicationManager;
+using AdventureGame.Shared;
+using AdventureGame.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,80 +18,75 @@ namespace AdventureGame.MainMenu
         [SerializeField] private CharacterSelection characterSelection;
 
         [Header(" - Cameras")]
+        [SerializeField] private GameEvent onSceneFadeOutEnd;
         [SerializeField] private GameObject mainScreenCam;
         [SerializeField] private GameObject optionsCam;
         [SerializeField] private GameObject creditsCam;
         [SerializeField] private GameObject characterSelectionCam;
 
         private const string MainScreen_FadeIn = "MainScreen_FadeIn";
+        private const string MainScreen_FadeOut = "MainScreen_FadeOut";
         private const string CharacterInfo_FadeIn = "CharacterInfo_FadeIn";
+        private const string CharacterInfo_FadeOut = "CharacterInfo_FadeOut";
         private const string Credits_FadeIn = "Credits_FadeIn";
+        private const string Credits_FadeOut = "Credits_FadeOut";
 
         private GameObject currentCam;
-        void Start()
+        private Action onFadeOutEnd;
+
+        private void Awake()
         {
             currentCam = mainScreenCam;
+            onSceneFadeOutEnd += OnOpenMainScreen;
             //GameManager.MusicManager.ChangeMusic(Music.MainMenu);
             //GameManager.Instance.SetTransitionCallback(() => animator.SetTrigger(CHANGE_SCREEN));
         }
+        private void OnOpenMainScreen() => animator.Play(MainScreen_FadeIn);
 
-        public void OnOpenMainScreen()
+        #region Button Events
+        public void OnOpenOptions() // Fade Out MainScreen -> Auto Open Option
         {
-            EventSystem.current.SetSelectedGameObject(null);
-
-            currentCam.SetActive(false);
-            mainScreenCam.SetActive(true);
-            currentCam = mainScreenCam;
-
-            animator.Play(MainScreen_FadeIn);
-        }
-        public void OnOpenOptions()
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-
             SwitchCamera(optionsCam);
-            animator.Play(MainScreen_FadeIn);
 
-            //onHideEnd = () => Options.OpenOption(OnOpenMainScreen);
+            onFadeOutEnd = () => UIManager.Options.OpenSettings(OnCloseCharacterSelection); 
         }
 
-        public void SwitchCamera(GameObject newCamera) // New component?
+        private void OnCloseOption() // Fade In with Aut Select
         {
-            currentCam.SetActive(false);
-            currentCam = newCamera;
-            currentCam.SetActive(true);
+            SwitchCamera(mainScreenCam, MainScreen_FadeIn);
         }
 
-        public void OnOpenCredits()
+        public void OnOpenCredits() // Fade Out MainScreen -> Play with Auto Select
         {
-            EventSystem.current.SetSelectedGameObject(null);
-
             SwitchCamera(creditsCam);
 
-            animator.Play(Credits_FadeIn);
+            onFadeOutEnd = () => animator.Play(Credits_FadeIn);
         }
-        public void OnCloseCredits()
-        {
-            EventSystem.current.SetSelectedGameObject(null);
 
-            SwitchCamera(mainScreenCam);
+        public void OnCloseCredits() // Fade Out Credits -> Play with Auto Select
+        {
+            SwitchCamera(mainScreenCam, Credits_FadeOut);
+
+            onFadeOutEnd = () => animator.Play(MainScreen_FadeIn);
         }
-        public void OnOpenCharacterSelection()
-        {
-            EventSystem.current.SetSelectedGameObject(null);
 
+        public void OnOpenCharacterSelection() // Fade Out MainScreen -> Select a character
+        {
             SwitchCamera(characterSelectionCam);
 
-            animator.Play(CharacterInfo_FadeIn);
-
-            // After
-            characterSelection.SetActive();
+            onFadeOutEnd = () => characterSelection.SelectCharacter();
         }
 
-        public void OnPlay()
+        public void OnCloseCharacterSelection() // Fade In with Aut Select
         {
-            //GameManager.Instance.LoadNewScene(SceneIndexes.Gameplay);
-            //PlayerPrefs.SetInt(Constants.PlayerPrefs.Int.SELECTED_CHARACTER, 0);
+            SwitchCamera(mainScreenCam, MainScreen_FadeIn);
+        }
+
+        public void OnCloseCharacterInfo() // Fade Out CharacterInfo -> Select a character
+        {
+            SwitchCamera(characterSelectionCam, CharacterInfo_FadeOut);
+
+            onFadeOutEnd = () => characterSelection.SelectCharacter();
         }
         public void OnQuit()
         {
@@ -98,6 +95,24 @@ namespace AdventureGame.MainMenu
             #else
             Application.Quit();
             #endif
+        }
+        #endregion
+
+        public void OnFadeOutEnd() => onFadeOutEnd();
+
+        public void ShowCharacter(GameObject characterCam) // Fade In CharacterInfo with Auto Select
+        {
+            SwitchCamera(characterCam, CharacterInfo_FadeIn);
+        }
+
+        private void SwitchCamera(GameObject nextCamera, string animationState = MainScreen_FadeOut)
+        {
+            currentCam.SetActive(false);
+            currentCam = nextCamera;
+            currentCam.SetActive(true);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            animator.Play(animationState);
         }
     }
 }
