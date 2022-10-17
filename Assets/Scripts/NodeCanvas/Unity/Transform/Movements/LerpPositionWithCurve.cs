@@ -10,8 +10,8 @@ namespace AdventureGame.NodeCanvas.Unity.Movement
     [Description("Move a GameObject to the target position, through an animationCurve.")]
     public class LerpPositionWithCurve : ActionTask<Transform>
     {
-        [RequiredField] public BBParameter<Vector3> targetPosition;
-        [RequiredField] public BBParameter<float> time;
+        public BBParameter<Vector3> targetPosition;
+        public BBParameter<float> time;
         public BBParameter<AnimationCurve> animationCurve;
 
         private Vector2 initPosition;
@@ -32,7 +32,7 @@ namespace AdventureGame.NodeCanvas.Unity.Movement
             t += Time.deltaTime / time.value;
             agent.position = Vector2.Lerp(initPosition, finalPosition, animationCurve.value.Evaluate(t));
 
-            if (t > 1)
+            if (t >= 1)
                 EndAction(true);
         }
     }

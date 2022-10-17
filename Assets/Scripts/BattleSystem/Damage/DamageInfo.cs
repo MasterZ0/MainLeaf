@@ -5,11 +5,19 @@ namespace AdventureGame.BattleSystem
     public class DamageInfo
     {
         public Damage Damage { get; set; }
-        public Transform Receiver { get; set; }
-        public DamageInfo(Damage damage, Transform receiver)
+        public IDamageable Receiver { get; set; }
+        public int EffectiveDamage { get; set; }
+
+        /// <summary> Nullable </summary>
+        public IAttacker Sender => Damage.Sender;
+
+        public DamageInfo(Damage damage, IDamageable receiver, int effectiveDamage)
         {
             Damage = damage;
             Receiver = receiver;
+            EffectiveDamage = effectiveDamage;
+
+            Sender?.OnDamageDealt(this);
         }
     }
 }

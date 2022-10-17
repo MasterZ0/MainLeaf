@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 namespace AdventureGame.Shared.ExtensionMethods
 {
     
-    public static class VectorExtensions 
+    public static class VectorExtensions
     {
         public static int RandomRange(this Vector2Int range)
         {
@@ -56,7 +56,7 @@ namespace AdventureGame.Shared.ExtensionMethods
 
         public static bool InsideRange(this Vector2 range, float value)
         {
-            return value >= range.x && value <= range.y;
+            return !range.IsOutRange(value);
         }
 
         public static Vector3 ToVector3(this Vector2 vector) {

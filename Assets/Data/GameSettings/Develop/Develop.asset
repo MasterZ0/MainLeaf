@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Develop
   m_EditorClassIdentifier: 
   generalSettings: {fileID: 11400000, guid: 425407639dba99844bdfdcb0e1ddd67f, type: 2}
+  arenaSettings: {fileID: 11400000, guid: f292b85b3599354438000baabbd23bf4, type: 2}
   playersSettings: {fileID: 11400000, guid: 2e3a93c9d0b79e445a9687b34e1eb9a5, type: 2}
+  enemiesSettings: {fileID: 11400000, guid: 7a197160f16b1ee43b8b3c4af87c19b8, type: 2}
   uiSettings: {fileID: 11400000, guid: 580a91fe6236e074a9d066746fda7f90, type: 2}

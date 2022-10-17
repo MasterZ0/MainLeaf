@@ -5,18 +5,18 @@ using AdventureGame.Shared.NodeCanvas;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Rigidbody2D)]
-    [Description("Set the torque of a Rigidbody2D.")]
-    public class AddTorque : ActionTask<Rigidbody2D>
+    [Category(Categories.Rigidbody)]
+    [Description("Set the torque of a Rigidbody.")]
+    public class AddTorque : ActionTask<Rigidbody>
     {
-        public BBParameter<float> torque;
-        public BBParameter<ForceMode2D> forceMode2D;
+        public BBParameter<Vector3> torque;
+        public BBParameter<ForceMode> forceMode;
 
         protected override string info => $"Add Torque = {torque}";
 
         protected override void OnExecute()
         {
-            agent.AddTorque(torque.value, forceMode2D.value);
+            agent.AddTorque(torque.value, forceMode.value);
             EndAction(true);
         }        
     }

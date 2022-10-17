@@ -6,16 +6,22 @@ using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Rigidbody2D)]
-    [Description("Set Rigidbody2D velocity by angle")]
-    public class SetVelocityAngle : ActionTask<Rigidbody2D>
+    [Category(Categories.Rigidbody)]
+    [Description("Set Rigidbody velocity by angle")]
+    public class SetVelocityAngle : ActionTask<Rigidbody>
     {
+        public BBParameter<Axis> axis = Axis.Z;
         public BBParameter<float> velocity;
         public BBParameter<float> angle;
         protected override string info => $"Velocity Angle = {velocity}";
         protected override void OnExecute()
         {
-            agent.velocity = MathUtils.AngleToDirection(angle.value, velocity.value);
+            // TODO: Review, use axis?
+            Quaternion redAxisRotation = Quaternion.AngleAxis(angle.value, agent.transform.right);
+
+            float finalAngle = redAxisRotation.eulerAngles.x + agent.transform.eulerAngles.y;
+
+            agent.velocity = MathUtils.AngleToDirection(finalAngle, velocity.value);
             EndAction(true);
         }
     }

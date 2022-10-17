@@ -7,6 +7,7 @@ using AdventureGame.Shared.ExtensionMethods;
 using System.Reflection;
 using System;
 using AdventureGame.Shared;
+using Sirenix.OdinInspector;
 
 namespace AdventureGame.Editor
 {
@@ -64,12 +65,16 @@ namespace AdventureGame.Editor
             tree.Add(settingsPath, simulatorValues, GetEnvironmentIcon());
 
             // Environmments
+            tree.Add($"{settingsPath}/Arena", GameSettings.Arena, GetIcon(SdfIconType.Bank));
             tree.Add($"{settingsPath}/General", GameSettings.General, EditorIcons.SettingsCog);
             tree.Add($"{settingsPath}/UI", GameSettings.UI, EditorIcons.ImageCollection);
 
             tree.Add($"{settingsPath}/Players", GameSettings.Players, EditorIcons.SingleUser);
             tree.AddAllAssetsAtPath($"{settingsPath}/Players", $"{ProjectPath.GameSettingsPath}/{GameSettings.Environment}/Players", typeof(ScriptableObject), true);
 
+            tree.Add($"{settingsPath}/Enemies", GameSettings.Enemies, EditorIcons.PacmanGhost);
+            tree.AddAllAssetsAtPath($"{settingsPath}/Enemies", $"{ProjectPath.GameSettingsPath}/{GameSettings.Environment}/Enemies", typeof(ScriptableObject), true);
+            
             tree.EnumerateTree(x =>
             {
                 x.Name = x.Name.UnderscoreByReduction().GetNiceString();
@@ -78,6 +83,8 @@ namespace AdventureGame.Editor
             // Sort
             tree.EnumerateTree().SortMenuItemsByName();
         }
+
+        private Texture2D GetIcon(SdfIconType iconType) => SdfIcons.CreateTransparentIconTexture(SdfIconType.Bank, Color.white, 16 ,16, 0);
 
         private EditorIcon GetEnvironmentIcon() => GameSettings.Environment switch
         {

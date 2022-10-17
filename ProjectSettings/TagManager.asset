@@ -13,16 +13,16 @@ TagManager:
   - 
   - Water
   - UI
-  - Invincible
-  - Selection
-  - Obstacles
   - Scenary
-  - Player
+  - Obstacles
+  - OnlyTerrain
+  - PlayerInvincible
+  - PlayerDefault
   - Enemy
   - HitboxPlayer
   - HitboxEnemy
   - Interactable
-  - 
+  - Trap
   - 
   - 
   - 

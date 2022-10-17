@@ -1,6 +1,8 @@
-﻿using AdventureGame.Shared.NodeCanvas;
+﻿using AdventureGame.Shared.ExtensionMethods;
+using AdventureGame.Shared.NodeCanvas;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Header = ParadoxNotion.Design.HeaderAttribute;
@@ -16,7 +18,7 @@ namespace AdventureGame.NodeCanvas.Analyzers {
         [RequiredField] public BBParameter<Vector3> target;
 
         [Header("Config")]
-        public Axis axis;
+        public AxisFlags axis;
         public BBParameter<Vector2> averageDistance;
         public int[] shortRemovedIndex;
         public int[] avarageRemovedIndex;
@@ -25,37 +27,23 @@ namespace AdventureGame.NodeCanvas.Analyzers {
         [Header("Out")]
         public BBParameter<List<float>> resultObject;
 
-        protected override void OnExecute() {
-            float distance;
-
-            switch (axis) {     // Could be switch expression
-                case Axis.X:
-                    distance = Mathf.Abs(agent.position.x - target.value.x);
-                    break;
-                case Axis.Y:
-                    distance = Mathf.Abs(agent.position.y - target.value.y);
-                    break;
-                case Axis.Both:
-                    distance = Vector2.Distance(agent.position, target.value);
-                    break;
-                default:
-                    throw new System.NotImplementedException();
-            }
-
-            SetResult(distance);
-            EndAction(true);
-        }
-
-        private void SetResult(float distance) {
-            if (distance < averageDistance.value.x) {
+        protected override void OnExecute()
+        {
+            float distance = axis.Distance(agent.position, target.value);
+            if (distance < averageDistance.value.x)
+            {
                 resultObject.value = RemoveIndexs(shortRemovedIndex);
             }
-            else if (distance > averageDistance.value.y) {
+            else if (distance > averageDistance.value.y)
+            {
                 resultObject.value = RemoveIndexs(longRemovedIndex);
             }
-            else {
+            else
+            {
                 resultObject.value = RemoveIndexs(avarageRemovedIndex);
             }
+
+            EndAction(true);
         }
 
         private List<float> RemoveIndexs(int[] removedIndex) {

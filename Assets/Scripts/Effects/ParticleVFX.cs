@@ -1,5 +1,4 @@
 ﻿using AdventureGame.ObjectPooling;
-using System;
 using UnityEngine;
 
 namespace AdventureGame.Effects 
@@ -11,12 +10,12 @@ namespace AdventureGame.Effects
     {
         [SerializeField] protected ParticleSystem particles;
 
-        protected void Reset() => TryGetComponent(out particles);
+        protected virtual void Reset() => TryGetComponent(out particles);
 
-        public void SetColor(Gradient color)
+        public virtual void SetColor(Gradient color)
         {
-            ParticleSystem.MainModule hitParticleMain = particles.main;
-            hitParticleMain.startColor = new ParticleSystem.MinMaxGradient(color);
+            ParticleSystem.MainModule mainModule = particles.main;
+            mainModule.startColor = new ParticleSystem.MinMaxGradient(color);
         }
 
         public virtual void SetupParticles(float duration) 

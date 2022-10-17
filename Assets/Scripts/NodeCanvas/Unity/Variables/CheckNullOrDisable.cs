@@ -9,7 +9,6 @@ namespace AdventureGame.NodeCanvas.Unity
     [Description("Useful to check if the object went to the pool or was destroyed")]
     public class CheckNullOrDisable : ConditionTask
     {
-
         [BlackboardOnly]
         public BBParameter<GameObject> variable;
         
@@ -20,10 +19,7 @@ namespace AdventureGame.NodeCanvas.Unity
 
         protected override bool OnCheck()
         {
-            if (variable.isNull)
-                return true;
-
-            return !variable.value.activeSelf;
+            return variable.isNull || !variable.value.activeSelf;
         }
     }
 }

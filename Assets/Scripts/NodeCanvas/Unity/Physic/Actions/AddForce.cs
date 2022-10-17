@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Rigidbody2D)]
+    [Category(Categories.Rigidbody)]
     [Description("Add Force")]
-    public class AddForce : ActionTask<Rigidbody2D>
+    public class AddForce : ActionTask<Rigidbody>
     {
-        public BBParameter<Vector2> force;
-        public BBParameter<ForceMode2D> forceMode = ForceMode2D.Force;
+        public BBParameter<Vector3> force;
+        public BBParameter<ForceMode> forceMode = ForceMode.Force;
 
         protected override string info => $"Add Force = {force}, {forceMode}";
 

@@ -17,6 +17,8 @@ namespace AdventureGame.Shared.ExtensionMethods
             return $"<color=#{hex}>{text}</color>";
         }
 
+        public static string AddRichBold(this string text) => $"<b>{text}</b>";
+
         public static bool ContainsOtherString(this string thisString, string otherString)
         {
             return otherString.ToLower().Contains(thisString.ToLower());

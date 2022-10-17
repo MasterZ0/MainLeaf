@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ac67abdc37e334ab0de022e57ef59a, type: 3}
   m_Name: Release
   m_EditorClassIdentifier: 
+  arenaSettings: {fileID: 11400000, guid: b589026365a47ca40ad8164a2b333fbd, type: 2}
+  enemiesSettings: {fileID: 11400000, guid: 5eeb5deef5163ab4cb70d1b21041dea9, type: 2}
   generalSettings: {fileID: 11400000, guid: 4eb2875bc29810c48803d388caa50632, type: 2}
   playersSettings: {fileID: 11400000, guid: 1e83ae3c3a8c38b4082c2ba27237e762, type: 2}
   uiSettings: {fileID: 11400000, guid: 3c66b6fc86f4aa54fa30bb9d29f14fd6, type: 2}

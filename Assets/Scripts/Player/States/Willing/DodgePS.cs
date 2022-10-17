@@ -1,5 +1,4 @@
 using AdventureGame.Shared;
-using AdventureGame.Shared.Enums;
 using UnityEngine;
 
 namespace AdventureGame.Player.States {

@@ -8,20 +8,10 @@ namespace AdventureGame.Data
     public class GeneralSettings : ScriptableObject
     {
         [Title("General")]
-        [SerializeField] private float tripleGargoyleTriggerTime = 5f;
-
-        [Title("Achievements")]
-        [Min(1)]
-        [SerializeField] private int highLevel = 99;
-        [Min(1)]
-        [SerializeField] private int highGold = 50000;
-        [Min(1)]
-        [SerializeField] private int notesCount = 26;
-        [Min(1)]
-        [SerializeField] private int oldLadiesKilled = 50;
-
-        [Title("VFX")]
-        [SerializeField] private float hitMaterialSeconds;
+        [SerializeField] private float hitMaterialSeconds = 0.1f;
+        [SerializeField] private Material hitMaterial; // VFX
+        [SerializeField] private float heathBarLifetime = 1f;
+        [SerializeField] private float heathBarReductionDamageDealt = 1f;
 
         [Title("Physics")]
         [Range(0, 2f)]
@@ -31,22 +21,13 @@ namespace AdventureGame.Data
         [Range(0, 2f)]
         [SerializeField] private float weakKnockback = 0.05f;
 
-        [Title("Cave Ritual")] 
-        [Range(0f, 100f), SuffixLabel("%")]
-        [SerializeField] private float caveRitualDamagePercentage;
-
-        public float TripleGargoyleTriggerTime => tripleGargoyleTriggerTime;
-        public int HighLevel => highLevel;
-        public int HighGold => highGold;
-        public int NotesCount => notesCount;
-        public int OldLadiesKilled => oldLadiesKilled;
-
         public float HitMaterialSeconds => hitMaterialSeconds;
+        public Material HitMaterial => hitMaterial;
         
         public float StrongKnockback => strongKnockback;
         public float MediumKnockback => mediumKnockback;
         public float WeakKnockback => weakKnockback;
-
-        public float CaveRitualDamagePercentage => caveRitualDamagePercentage;
+        public float HeathBarLifetime => heathBarLifetime;
+        public float HeathBarReductionDamageDealt => heathBarReductionDamageDealt;
     }
 }

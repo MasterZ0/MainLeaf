@@ -9,7 +9,7 @@ namespace AdventureGame.Data
     /// <summary>
     /// Stores all player Basic Settings
     /// </summary>
-    [CreateAssetMenu(menuName = MenuPath.SettingsGlobal + "Player", fileName = "PlayerSettings")]
+    [CreateAssetMenu(menuName = MenuPath.SettingsPlayers + "Archer", fileName = "PlayerSettings")]
     public class PlayerSettings : ScriptableObject
     {
         [SerializeField] private LocalizedString characterName;

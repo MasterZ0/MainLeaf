@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using AdventureGame.Data;
 using AdventureGame.Inputs;
-using AdventureGame.Shared.Enums;
 using AdventureGame.Shared.ExtensionMethods;
 using AdventureGame.Shared.Utils;
 using Sirenix.OdinInspector;
@@ -36,12 +35,7 @@ namespace AdventureGame.Player
         public Vector3 Velocity => characterController.velocity;
 
         /// <summary> Map to local space </summary>
-        public Vector3 DeltaMove => new Vector3()
-        {
-            x = Vector3.Dot(Transform.right, Velocity),
-            y = Vector3.Dot(Transform.up, Velocity),
-            z = Vector3.Dot(Transform.forward, Velocity)
-        };
+       
         #endregion
 
         private float Weight => Settings.Mass * Physics.gravity.y;
@@ -49,7 +43,7 @@ namespace AdventureGame.Player
         private PlayerController controller;
         private PlayerInputs Inputs => controller.Inputs;
         private float gravityScale;
-        private Vector2 velocity;
+        private Vector3 velocity;
 
         #region Methods
         public void Init(PlayerController playerController)
@@ -75,17 +69,14 @@ namespace AdventureGame.Player
 
 
         #region Public methods
-        internal void Move(Vector2 direction, float speed) // TODO: acceleration = 6, deceleration = 3
+        internal void Move(Vector2 direction, float speed)
         {   
             direction = MathUtils.NormalizeCircle(direction); // D-pad or keyboard
 
             Vector3 motion = (Transform.right * direction.x) + (Transform.forward * direction.y);
-            characterController.Move(motion * speed * Time.fixedDeltaTime);
-        }
-
-        internal void Move(Vector3 motion)
-        {
-            characterController.Move(motion);
+            motion *= speed;
+            velocity.x = motion.x;
+            velocity.z = motion.z;
         }
 
         internal void Update()
@@ -108,6 +99,10 @@ namespace AdventureGame.Player
 
             velocity.y += Weight * gravityScale * Time.fixedDeltaTime;
             characterController.Move(velocity * Time.fixedDeltaTime);
+
+            // TODO: acceleration = 6, deceleration = 3
+            velocity.x = 0;
+            velocity.z = 0;
         }
 
         public void Jump(float jumpHeight)

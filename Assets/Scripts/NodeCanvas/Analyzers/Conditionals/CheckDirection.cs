@@ -9,24 +9,23 @@ namespace AdventureGame.NodeCanvas.Analyzers {
     [Description("Check if the red axis orientation is in the desired direction.")]
     public class CheckDirection : ConditionTask<Transform> {
 
-        public Direction direction;
+        public BBParameter<Direction> direction;
 
         protected override string info => $"Direction == {direction}";
 
         private const float Min = .5f;
-        protected override bool OnCheck() {
-            switch (direction) {
-                case Direction.Up:
-                    return agent.right.y >= Min;
-                case Direction.Down:
-                    return agent.right.y <= -Min;
-                case Direction.Left:
-                    return agent.right.x <= -Min;
-                case Direction.Right:
-                    return agent.right.x >= Min;
-                default:
-                    throw new System.NotImplementedException();
-            }
+        protected override bool OnCheck() 
+        {
+            return direction.value switch
+            {
+                Direction.Left => agent.right.x <= -Min,
+                Direction.Right => agent.right.x >= Min,
+                Direction.Up => agent.right.y >= Min,
+                Direction.Down => agent.right.y <= -Min,
+                Direction.Forward => agent.right.z >= Min,
+                Direction.Back => agent.right.z <= -Min,
+                _ => throw new System.NotImplementedException(),
+            };
         }
     }
 }

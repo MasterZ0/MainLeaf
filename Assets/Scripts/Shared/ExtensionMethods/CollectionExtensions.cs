@@ -4,8 +4,8 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace AdventureGame.Shared.ExtensionMethods {
-
+namespace AdventureGame.Shared.ExtensionMethods
+{
     public static class CollectionExtensions {
 
         public static T GetRandom<T>(this IList<T> list)

@@ -117,7 +117,6 @@ namespace AdventureGame.Player
         {
             if (PlayerSettings)
             {
-                playerAnimator.Update();
                 cameraController.Update();
                 Physics.Update();
                 playerStatus.Update();
@@ -188,6 +187,8 @@ namespace AdventureGame.Player
         public void TakeDamage(Damage damage) // TODO: Shield Script
         {
             // TODO: Shield VFX Block or Hand VFX Block
+            Debug.Log(damage.Value);
+            return;
 
             if (Status.Dead || Status.GodMode)
                 return;
@@ -216,7 +217,7 @@ namespace AdventureGame.Player
 
         private Vector2 GetDamageDirection(Damage damage)
         {
-            Vector2 contactDirection = damage.ContactPoint - (Vector2)transform.position;
+            Vector2 contactDirection = damage.ContactPoint - transform.position;
             contactDirection.y = 0;
             contactDirection.Normalize();
 

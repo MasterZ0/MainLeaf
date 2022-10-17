@@ -8,10 +8,9 @@ namespace AdventureGame.NodeCanvas.Projectiles {
 
     [Category(Categories.Projectiles)]
     [Description("Shoot the projectile")]
-    public class ShootProjectile : ActionTask {
-
+    public class ShootProjectile : ActionTask<IAttacker> 
+    {
         [Header("In")]
-        [RequiredField] public BBParameter<IAttacker> attacker;
         [RequiredField] public BBParameter<Projectile> projectile;
 
         [Header("Config")]
@@ -21,8 +20,9 @@ namespace AdventureGame.NodeCanvas.Projectiles {
         protected override string info => projectile.isDefined ?
             $"Shoot {projectile}" : name;
 
-        protected override void OnExecute() {
-            projectile.value.Shoot(new Damage(damage.value, attacker.value), velocity.value);
+        protected override void OnExecute() 
+        {
+            projectile.value.Shoot(new Damage(damage.value, agent), velocity.value);
             EndAction(true);
         }
     }

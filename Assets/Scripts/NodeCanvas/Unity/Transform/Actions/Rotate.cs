@@ -6,15 +6,15 @@ using UnityEngine;
 namespace AdventureGame.NodeCanvas.Unity {
 
     [Category(Categories.Transform)]
-    [Description("Rotate rotation")]
+    [Description("transform.Rotation(euler)")]
     public class Rotate : ActionTask<Transform> {
 
-        public BBParameter<Vector3> angle;
+        public BBParameter<Vector3> eulerAngles;
 
-        protected override string info => $"Rotate {angle}";
+        protected override string info => $"Rotate {eulerAngles}";
 
         protected override void OnExecute() {
-            agent.Rotate(angle.value);
+            agent.Rotate(eulerAngles.value);
             EndAction(true);
         }
     }

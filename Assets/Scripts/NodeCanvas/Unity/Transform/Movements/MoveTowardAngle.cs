@@ -10,6 +10,7 @@ namespace AdventureGame.NodeCanvas.Unity {
     [Description("Move a GameObject to the target position.")]
     public class MoveTowardAngle : ActionTask<Transform> {
 
+        public BBParameter<Axis> axis = Axis.Z;
         public BBParameter<float> speed;
         public BBParameter<float> angle;
         public BBParameter<float> distance;
@@ -27,9 +28,9 @@ namespace AdventureGame.NodeCanvas.Unity {
 
         protected override void OnUpdate() {
 
-            agent.position = Vector2.MoveTowards(agent.position, target, Time.fixedDeltaTime * speed.value);
+            agent.position = Vector3.MoveTowards(agent.position, target, Time.fixedDeltaTime * speed.value);
 
-            if (Vector2.Distance(agent.position, target) < ThresholdDistance) {
+            if (Vector3.Distance(agent.position, target) < ThresholdDistance) {
                 agent.position = target;
                 EndAction(true);
             }

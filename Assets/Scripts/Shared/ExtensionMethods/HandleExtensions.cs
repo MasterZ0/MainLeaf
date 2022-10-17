@@ -11,7 +11,7 @@ namespace AdventureGame.Shared
         public static void DrawArc(this Transform transform, float openingAngle, float distance, Color color)
         {
             Vector3 normal = GetArcDirection(transform, openingAngle);
-            DrawArc(transform.position, transform.forward, normal, openingAngle, distance, color);
+            DrawArc(transform.position, transform.up, normal, openingAngle, distance, color);
         }
 
         public static void DrawArc(this Transform transform, Vector3 direction, float openingAngle, float distance, Color color)
@@ -49,7 +49,7 @@ namespace AdventureGame.Shared
 
         private static Vector3 GetArcDirection(Transform transform, float openingAngle) 
         {
-            return GetArcDirection(transform.forward, transform.right, openingAngle);
+            return GetArcDirection(transform.up, transform.forward, openingAngle);
         }
         
         private static Vector3 GetArcDirection(Vector3 axis, Vector3 direction, float openingAngle)

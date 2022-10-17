@@ -9,6 +9,10 @@ namespace AdventureGame.Player.States
         public BBParameter<float> walkSpeed;
         public BBParameter<float> sprintSpeed;
 
+        public BBParameter<float> jumpGravity;
+        public BBParameter<float> groundedGravity;
+        public BBParameter<float> fallingGravity;
+
         protected sealed override void EnterState()
         {
             PlayerSettings settings = Init();
@@ -17,6 +21,10 @@ namespace AdventureGame.Player.States
             aimMoveSpeed.value = settings.Physics.AimMoveSpeed;
             walkSpeed.value = settings.Physics.WalkSpeed;
             sprintSpeed.value = settings.Physics.SprintSpeed;
+
+            jumpGravity.value = settings.Physics.JumpGravity;
+            groundedGravity.value = settings.Physics.GroundedGravity;
+            fallingGravity.value = settings.Physics.FallingGravity;
 
             EndAction(true);
         }

@@ -3,7 +3,7 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
-namespace AdventureGame.NodeCanvas 
+namespace AdventureGame.NodeCanvas
 {
     [Category(Categories.Components)]
     [Description("Sets a Sprite Renderer Sprite")]

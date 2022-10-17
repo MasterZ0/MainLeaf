@@ -6,29 +6,33 @@ namespace AdventureGame.AI
     /// <summary>
     /// Base class to examine the visibility of a target, by raycasting its bounds.
     /// </summary>
-    public abstract class ViewDetection : MonoBehaviour
+    public abstract class ViewDetection : TargetDetection
     {
-        [Title("Detection")]
+        [Title("View Detection")]
         [SerializeField] protected LayerMask obstaclesLayer;
 
-        public abstract bool FindTargetInsideRange(out Transform target);
-
-        protected bool CanSeeTarget(Collider2D targetCol)
+        protected bool CanSeeTarget(Collider targetCol)
         {
-            Vector2 BottomRightBound = new Vector2(targetCol.bounds.min.x, targetCol.bounds.max.y);
-            Vector2 TopLeftBound = new Vector2(targetCol.bounds.max.x, targetCol.bounds.min.y);
+            if (!targetCol.attachedRigidbody)
+                return false;
 
-            // Center is unnecessary, because the camera is too small
-            if (CanSeePosition(targetCol.bounds.min))
-                return true;
-            if (CanSeePosition(targetCol.bounds.max))
-                return true;
-            if (CanSeePosition(BottomRightBound))
-                return true;
-            if (CanSeePosition(TopLeftBound))
-                return true;
+            foreach (Vector3 edge in GetBoundsEdges(targetCol))
+            {
+                if (CanSeePosition(edge))
+                    return true;
+            }
 
             return false;
+        }
+
+        protected Vector3[] GetBoundsEdges(Collider targetCol) // TODO: Improve it
+        {
+            return new Vector3[3] 
+            { 
+                targetCol.bounds.center,
+                new Vector3(targetCol.bounds.center.x, targetCol.bounds.max.y, targetCol.bounds.center.z),
+                new Vector3(targetCol.bounds.center.x, targetCol.bounds.min.y, targetCol.bounds.center.z)
+            };
         }
 
         private bool CanSeePosition(Vector3 target)

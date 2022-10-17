@@ -90,11 +90,11 @@ namespace AdventureGame.Shared.Utils
         /// <summary>
         /// V0y = (Yp - Yi + g * TotalTime² / 2) / TotalTime
         /// </summary> 
-        public static Vector2 ObliqueThrowX(Vector2 targetDistance, float gravity, float xSpeed)
+        public static Vector3 ObliqueThrowX(Vector2 targetDistance, float mass, float xSpeed)
         {
             float timeTotal = Mathf.Abs(targetDistance.x) / xSpeed;
             //float speedY = (targetDistance.y + rigidbody2D.gravityScale * timeTotal * timeTotal * 5) / timeTotal;
-            float speedY = (targetDistance.y + gravity * -Physics2D.gravity.y * timeTotal * timeTotal / 2) / timeTotal;
+            float speedY = (targetDistance.y + mass * -Physics.gravity.y * timeTotal * timeTotal / 2) / timeTotal;
             float speedX = targetDistance.x > 0 ? xSpeed : -xSpeed;
             return new Vector2(speedX, speedY);
         }

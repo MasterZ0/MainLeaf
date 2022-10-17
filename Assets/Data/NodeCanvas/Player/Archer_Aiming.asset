@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Archer_Aiming
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"waitUntilFinish":{},"stateName":{"_value":"Walk"},"layer":{},"transition":{"_value":0.25},"overrideAgent":{"_type":"UnityEngine.Animator","_name":"Animator","_targetVariableID":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd"},"$type":"AdventureGame.NodeCanvas.Unity.PlayAnimation"},{"waitUntilFinish":{},"stateName":{"_value":"Idle"},"layer":{"_value":1},"transition":{"_value":0.25},"overrideAgent":{"_type":"UnityEngine.Animator","_name":"Animator","_targetVariableID":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd"},"$type":"AdventureGame.NodeCanvas.Unity.PlayAnimation"},{"waitUntilFinish":{"_value":true},"stateName":{"_value":"Aim"},"layer":{"_value":2},"transition":{"_value":0.25},"overrideAgent":{"_type":"UnityEngine.Animator","_name":"Animator","_targetVariableID":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd"},"$type":"AdventureGame.NodeCanvas.Unity.PlayAnimation"}]},"_position":{"x":913.0,"y":197.2},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"setTo":1,"overrideAgent":{"_type":"UnityEngine.Transform","_name":"Reticle","_targetVariableID":"1ded1ae4-abaa-4be7-b3fd-849a0cf8705b"},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"}]},"_position":{"x":786.0,"y":373.2},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"boolVariable":{"_name":"Shooting","_targetVariableID":"eb917386-26f7-4ab3-b837-193a5d9167e6"},"setTo":0,"$type":"NodeCanvas.Tasks.Actions.SetBoolean"}]},"_position":{"x":629.0,"y":540.2},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"boolVariable":{"_name":"Shooting","_targetVariableID":"eb917386-26f7-4ab3-b837-193a5d9167e6"},"$type":"NodeCanvas.Tasks.Actions.SetBoolean"},{"waitUntilFinish":{"_value":true},"stateName":{"_value":"Shoot"},"layer":{"_value":2},"transition":{"_value":0.25},"overrideAgent":{"_type":"UnityEngine.Animator","_name":"Animator","_targetVariableID":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd"},"$type":"AdventureGame.NodeCanvas.Unity.PlayAnimation"}]},"_position":{"x":966.0,"y":660.2},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"cameraType":{"_value":2},"$type":"AdventureGame.Player.States.SetCameraPS"},{"valueA":{"_name":"MaxVelocityScale","_targetVariableID":"efdcef6b-9ae4-4ef4-b66a-6dba86f1ca4a"},"valueB":{"_name":"AimMoveSpeed","_targetVariableID":"915e8972-a5f6-459c-b251-9038a6842799"},"$type":"NodeCanvas.Tasks.Actions.SetFloat"}]},"_position":{"x":329.7616,"y":372.1173},"$type":"NodeCanvas.StateMachines.OnFSMEnter"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"moveSpeed":{"_name":"AimMoveSpeed","_targetVariableID":"915e8972-a5f6-459c-b251-9038a6842799"},"$type":"AdventureGame.Player.States.WalkPS"}]},"_position":{"x":380.0,"y":550.2},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"cameraType":{},"$type":"AdventureGame.Player.States.SetCameraPS"},{"setTo":0,"overrideAgent":{"_type":"UnityEngine.Transform","_name":"Reticle","_targetVariableID":"1ded1ae4-abaa-4be7-b3fd-849a0cf8705b"},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"}]},"_position":{"x":361.0,"y":671.2},"$type":"NodeCanvas.StateMachines.OnFSMExit"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"inputButton":{"_value":2},"$type":"AdventureGame.Player.States.CheckInputEventPS"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: -251, y: -73}
+    _zoomFactor: 1
+  _haltSerialization: 0

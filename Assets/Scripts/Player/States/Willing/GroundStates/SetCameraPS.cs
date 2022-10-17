@@ -14,4 +14,4 @@ namespace AdventureGame.Player.States
             EndAction();
         }
     }
-}
+}   

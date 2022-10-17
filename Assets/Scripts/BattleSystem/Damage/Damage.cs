@@ -9,7 +9,7 @@ namespace AdventureGame.BattleSystem
     public class Damage
     {
         // Damage
-        public int Value { get; private set; }
+        public int Value => damageRange.RandomRange();
         public int StaminaDamage { get; } // Only blockable damages
         // public int Intensity { get; } // Injury?
         public bool CanBlock { get; }
@@ -19,12 +19,14 @@ namespace AdventureGame.BattleSystem
 
         // Hitbox
         public HitBox HitBoxSender { get; private set; }
-        public Vector2 ContactPoint { get; private set; }
+        public Vector3 ContactPoint { get; private set; }
+
+        private Vector2Int damageRange;
 
         public Damage(DamageData damageData, IAttacker sender)
         {
             StaminaDamage = damageData.Value.x;
-            Value = damageData.Value.RandomRange();
+            damageRange = damageData.Value;
 
             CanBlock = damageData.CanBlock;
             DamageType = damageData.DamageType;
@@ -34,10 +36,10 @@ namespace AdventureGame.BattleSystem
 
         public Damage(int value)
         {
-            Value = value;
+            damageRange = value.ToVectorInt();
         }
 
-        public void AddHitBoxInfo(HitBox hitBox, Vector2 contact)
+        public void AddHitBoxInfo(HitBox hitBox, Vector3 contact)
         {
             HitBoxSender = hitBox;
             ContactPoint = contact;

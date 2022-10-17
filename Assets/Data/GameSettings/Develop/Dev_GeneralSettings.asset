@@ -12,13 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efcb7a079b93114dbe88dbea96d7096, type: 3}
   m_Name: Dev_GeneralSettings
   m_EditorClassIdentifier: 
-  tripleGargoyleTriggerTime: 5
-  highLevel: 99
-  highGold: 50000
-  notesCount: 26
-  oldLadiesKilled: 50
-  hitMaterialSeconds: 0
+  hitMaterialSeconds: 0.1
+  hitMaterial: {fileID: 2100000, guid: a27970f8a2cf4d143ab1c0cc620c7a4c, type: 2}
   strongKnockback: 0.4
   mediumKnockback: 0.15
   weakKnockback: 0.05
-  caveRitualDamagePercentage: 0

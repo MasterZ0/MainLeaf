@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Archer_Air
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"moveSpeed":{"_name":"WalkSpeed","_targetVariableID":"73e782d7-7912-4a07-8b30-6676b4a8048d"},"maxVelocityScale":{},"$type":"AdventureGame.Player.States.MovePS"},{"cameraType":{},"$type":"AdventureGame.Player.States.SetCameraPS"}]},"_position":{"x":445.0,"y":581.2},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"moveSpeed":{"_name":"SprintSpeed","_targetVariableID":"7af17009-0ca4-417d-8f69-8796caba6f01"},"maxVelocityScale":{},"$type":"AdventureGame.Player.States.MovePS"},{"cameraType":{"_value":1},"$type":"AdventureGame.Player.States.SetCameraPS"}]},"_position":{"x":837.6667,"y":720.2},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_position":{"x":669.0,"y":406.2},"$type":"NodeCanvas.StateMachines.EmptyState","$id":"2"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"jumping":{"_name":"Jumping","_targetVariableID":"83cc36bc-cca4-40b6-a6c6-ea589516276e"},"jumpGravity":{"_name":"JumpGravity","_targetVariableID":"bacd6aa9-9a6a-4509-b487-47e5e4e0a045"},"fallingGravity":{"_name":"FallingGravity","_targetVariableID":"10a54a5d-341a-4dab-aaa5-e28e8c7d91fb"},"$type":"AdventureGame.Player.States.AirSPS"}]},"_position":{"x":278.0,"y":575.0},"_comment":"It
+    will disable jumping variable","$type":"NodeCanvas.StateMachines.OnFSMEnter"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"valueA":{"_name":"OverrideIdleState","_targetVariableID":"b1018bb8-0cd0-49af-b530-7d9630670510"},"valueB":{"_value":"Landing"},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[System.String,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}]},"_position":{"x":235.0,"y":792.2},"$type":"NodeCanvas.StateMachines.OnFSMExit"}],"connections":[{"_condition":{"inputButton":{"_value":2},"$type":"AdventureGame.Player.States.CheckInputPS"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"inputButton":{"_value":2},"_invert":true,"$type":"AdventureGame.Player.States.CheckInputPS"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"inputButton":{"_value":2},"_invert":true,"$type":"AdventureGame.Player.States.CheckInputPS"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"inputButton":{"_value":2},"$type":"AdventureGame.Player.States.CheckInputPS"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: 7, y: -240}
+    _zoomFactor: 1
+  _haltSerialization: 0

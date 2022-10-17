@@ -55,6 +55,17 @@ namespace AdventureGame.UI {
             animator.Play(FadeIn);
         }
 
+        private void DeleteSaveGame(object saveGame)
+        {
+            RequestQuestion(null, OnAnswer);
+
+
+            void OnAnswer(bool active)
+            {
+
+            }
+        }
+
         /// <summary>
         /// Basic Request
         /// </summary>

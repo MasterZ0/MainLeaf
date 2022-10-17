@@ -8,9 +8,9 @@ namespace AdventureGame.Player.States
     public class AirSPS : PlayerAction
     {
         public BBParameter<bool> jumping;
-        public BBParameter<string> overrideIdleState;
 
-        public string landing = "Landing";
+        public BBParameter<float> jumpGravity;
+        public BBParameter<float> fallingGravity;
         private bool JumpPressed => Inputs.JumpPressed; // Check by event?
         private bool falling;
 
@@ -21,7 +21,7 @@ namespace AdventureGame.Player.States
 
             if (falling)
             {
-                Physics.SetGravityScale(Settings.Physics.FallingGravity);
+                Physics.SetGravityScale(fallingGravity.value);
                 Animator.Falling();
             }
             else
@@ -31,7 +31,7 @@ namespace AdventureGame.Player.States
 
                 VFX.Jump();
                 SFX.Jump();
-                Physics.SetGravityScale(Settings.Physics.JumpGravity);
+                Physics.SetGravityScale(jumpGravity.value);
             }
 
             //Physics.NoFriction();
@@ -48,7 +48,7 @@ namespace AdventureGame.Player.States
             if (!falling && velocity.y < 0) // Wait until start fall
             {
                 falling = true;
-                Physics.SetGravityScale(Settings.Physics.FallingGravity);
+                Physics.SetGravityScale(fallingGravity.value);
                 Animator.Falling();
             }
 
@@ -61,7 +61,6 @@ namespace AdventureGame.Player.States
 
         protected override void ExitState()
         {
-            overrideIdleState.value = landing;
             VFX.Landing(); // TODO: Idle -> if (LastState<AirSPS>())
             //VFX.SetActiveTrail(false);
         }

@@ -3,6 +3,7 @@ using AdventureGame.Shared.NodeCanvas;
 using ParadoxNotion.Design;
 using UnityEngine;
 using ParadoxNotion;
+using AdventureGame.Shared.ExtensionMethods;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
@@ -13,28 +14,20 @@ namespace AdventureGame.NodeCanvas.Unity
         public BBParameter<Vector3> reference;
         public BBParameter<Vector3> target;
         public BBParameter<float> distance;
-        public BBParameter<Axis> axis;
+        public BBParameter<AxisFlags> axis;
         public CompareMethod checkType = CompareMethod.LessOrEqualTo;
 
         protected override string info
         {
             get
             {
-                string startText = axis.value == Axis.Both ? "Distance" : $"{axis} Distance";
-                return $"{startText} {reference} to {target}" + OperationTools.GetCompareString(checkType) + distance;
+                return $"{axis} Distance {reference} to {target}" + OperationTools.GetCompareString(checkType) + distance;
             }
         }
 
         protected override bool OnCheck()
         {
-            float axisDistance = axis.value switch
-            {
-                Axis.X => Mathf.Abs(reference.value.x - target.value.x),
-                Axis.Y => Mathf.Abs(reference.value.y - target.value.y),
-                Axis.Both => Vector2.Distance(reference.value, target.value),
-                _ => throw new System.NotImplementedException(),
-            };
-
+            float axisDistance = axis.value.Distance(reference.value, target.value);
             return OperationTools.Compare(axisDistance, distance.value, checkType, 0f);
         }
     }

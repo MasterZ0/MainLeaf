@@ -22,15 +22,16 @@ namespace AdventureGame.NodeCanvas.Unity
             target = new Vector3()
             {
                 x = agent.right.x * targetPosition.value.x + agent.position.x,
-                y = agent.up.y * targetPosition.value.y + agent.position.y
+                y = agent.up.y * targetPosition.value.y + agent.position.y,
+                z = agent.forward.z * targetPosition.value.z + agent.position.z
             };
         }
 
         protected override void OnUpdate() 
         {
-            agent.position = Vector2.MoveTowards(agent.position, target, Time.fixedDeltaTime * speed.value);
+            agent.position = Vector3.MoveTowards(agent.position, target, Time.fixedDeltaTime * speed.value);
 
-            if (Vector2.Distance(agent.position, target) < ThresholdDistance) 
+            if (Vector3.Distance(agent.position, target) < ThresholdDistance) 
             {
                 EndAction(true);
             }

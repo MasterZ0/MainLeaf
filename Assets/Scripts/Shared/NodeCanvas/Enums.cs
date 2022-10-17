@@ -2,7 +2,7 @@
 
 namespace AdventureGame.Shared.NodeCanvas
 {
-    public enum AxisDirection
+    public enum Direction
     {
         Left,
         Right,
@@ -15,22 +15,14 @@ namespace AdventureGame.Shared.NodeCanvas
     public enum Axis {
         X,
         Y,
-        Both
+        Z
     }
 
-    public enum Direction {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-    
     [Flags]
-    public enum DirectionFilter
+    public enum AxisFlags
     {
-        Up = 2,
-        Right = 4,
-        Down = 8,
-        Left = 16
+        X = 1,
+        Y = 2,
+        Z = 4
     }
 }

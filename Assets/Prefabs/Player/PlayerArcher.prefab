@@ -64,7 +64,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -226,6 +226,37 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &482161714266127587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2240702626526233131}
+  m_Layer: 0
+  m_Name: AimRaycastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2240702626526233131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482161714266127587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3366695425132049277}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &623664158309002278
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +307,9 @@ GameObject:
   - component: {fileID: 9200886647424329845}
   - component: {fileID: 626172991565971869}
   - component: {fileID: 1483034805653985473}
-  m_Layer: 0
+  - component: {fileID: 183349100472340280}
+  - component: {fileID: 8440570790253409050}
+  m_Layer: 10
   m_Name: ArcherController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +358,7 @@ MonoBehaviour:
     characterController: {fileID: 7323518428174444122}
     groundLayer:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 192
     playerInvincible:
       serializedVersion: 2
       m_Bits: 0
@@ -338,14 +371,8 @@ MonoBehaviour:
     groundRadius: 0.2
   playerAnimator:
     animator: {fileID: 8293862317308176095}
-    moveSpeed: MoveSpeed
-    velocityX: VelocityX
-    velocityZ: VelocityZ
     jumpMoving: Jump
     falling: Falling
-    animationBlendDamp: 0.3
-    smoothInputSpeed: 0.2
-    rotationLerp: 15
   playerUI:
     redScreen: {fileID: 0}
     hpBar: {fileID: 0}
@@ -449,7 +476,7 @@ MonoBehaviour:
   playerController: {fileID: 20175620930846772}
   arrowPoint: {fileID: 2509848927869263635}
   defaultArrowPoint: {fileID: 1833901595092668711}
-  aimCamera: {fileID: 3366695425132049277}
+  aimRaycastPoint: {fileID: 2240702626526233131}
   shootShake: {fileID: 11400000, guid: 2d153eebdd7bd2d49af0c374ab62b869, type: 2}
   arrowPrefab: {fileID: 2811126234496565500, guid: 7370a6f6482a26e41bfbe64c3e3b212f,
     type: 3}
@@ -457,7 +484,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   tempDamage:
-    Value: {x: 0, y: 0}
+    Value: {x: 5, y: 10}
     DamageType: 0
     CanBlock: 0
   tempVelocity: {x: 15, y: 20}
@@ -506,29 +533,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"- dependency":{"_value":{},"_name":"- dependency","_id":"9e438af4-8593-46be-aa41-d389c56675d0","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"State":{"_propertyPath":"AdventureGame.Player.PlayerController.CurrentState","_name":"State","_id":"abb3732c-e073-4c1b-8ce2-6ff5f96f3c08","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Animator":{"_value":1,"_name":"Animator","_id":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
+    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CharacterController":{"_value":1,"_name":"CharacterController","_id":"38e44e28-e6a0-4065-b5b2-8f13dbb675b1","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.CharacterController,
+    UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Animator":{"_value":2,"_name":"Animator","_id":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"-
     settings":{"_value":{},"_name":"- settings","_id":"3b931c81-b655-4ce1-9acf-ddfbdcdc28e5","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AimMoveSpeed":{"_name":"AimMoveSpeed","_id":"915e8972-a5f6-459c-b251-9038a6842799","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WalkSpeed":{"_name":"WalkSpeed","_id":"73e782d7-7912-4a07-8b30-6676b4a8048d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"SprintSpeed":{"_name":"SprintSpeed","_id":"7af17009-0ca4-417d-8f69-8796caba6f01","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"JumpGravity":{"_name":"JumpGravity","_id":"bacd6aa9-9a6a-4509-b487-47e5e4e0a045","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"GroundedGravity":{"_name":"GroundedGravity","_id":"4d74fb5a-d359-4fc3-bb07-0c07450f3fe5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"FallingGravity":{"_name":"FallingGravity","_id":"10a54a5d-341a-4dab-aaa5-e28e8c7d91fb","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"AnimationBlendDamp":{"_value":0.3,"_name":"AnimationBlendDamp","_id":"8af7c92b-221e-4a65-a059-1b7ce5bb5fb3","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"-
     variables":{"_value":{},"_name":"- variables","_id":"054252ba-3cdf-4f68-9ac2-2dbdbc8e2bd6","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Jumping":{"_name":"Jumping","_id":"83cc36bc-cca4-40b6-a6c6-ea589516276e","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Shooting":{"_name":"Shooting","_id":"eb917386-26f7-4ab3-b837-193a5d9167e6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"OverrideIdleState":{"_name":"OverrideIdleState","_id":"b1018bb8-0cd0-49af-b530-7d9630670510","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"MaxVelocityScale":{"_name":"MaxVelocityScale","_id":"efdcef6b-9ae4-4ef4-b66a-6dba86f1ca4a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Reticle":{"_value":3,"_name":"Reticle","_id":"1ded1ae4-abaa-4be7-b3fd-849a0cf8705b","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
+  - {fileID: 7323518428174444122}
   - {fileID: 8293862317308176095}
+  - {fileID: 2826785318860462766}
   _serializedVariables:
   - _json: '{"_value":{},"_name":"- dependency","_id":"9e438af4-8593-46be-aa41-d389c56675d0","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
       ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
-  - _json: '{"_propertyPath":"AdventureGame.Player.PlayerController.CurrentState","_name":"State","_id":"abb3732c-e073-4c1b-8ce2-6ff5f96f3c08","$type":"NodeCanvas.Framework.Variable`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
+  - _json: '{"_value":1,"_name":"CharacterController","_id":"38e44e28-e6a0-4065-b5b2-8f13dbb675b1","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.CharacterController,
+      UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 7323518428174444122}
   - _json: '{"_value":1,"_name":"Animator","_id":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
       UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
@@ -546,6 +583,18 @@ MonoBehaviour:
   - _json: '{"_name":"SprintSpeed","_id":"7af17009-0ca4-417d-8f69-8796caba6f01","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_name":"JumpGravity","_id":"bacd6aa9-9a6a-4509-b487-47e5e4e0a045","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"GroundedGravity","_id":"4d74fb5a-d359-4fc3-bb07-0c07450f3fe5","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"FallingGravity","_id":"10a54a5d-341a-4dab-aaa5-e28e8c7d91fb","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":0.3,"_name":"AnimationBlendDamp","_id":"8af7c92b-221e-4a65-a059-1b7ce5bb5fb3","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
   - _json: '{"_value":{},"_name":"- variables","_id":"054252ba-3cdf-4f68-9ac2-2dbdbc8e2bd6","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
       ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
@@ -558,6 +607,44 @@ MonoBehaviour:
   - _json: '{"_name":"OverrideIdleState","_id":"b1018bb8-0cd0-49af-b530-7d9630670510","$type":"NodeCanvas.Framework.Variable`1[[System.String,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_name":"MaxVelocityScale","_id":"efdcef6b-9ae4-4ef4-b66a-6dba86f1ca4a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":1,"_name":"Reticle","_id":"1ded1ae4-abaa-4be7-b3fd-849a0cf8705b","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 2826785318860462766}
+--- !u!54 &183349100472340280
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631824020916583531}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!136 &8440570790253409050
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631824020916583531}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!1 &704249651603886455
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,11 +963,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2347732210569852432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0600004, y: 0.89000005, z: -3}
+  m_LocalPosition: {x: 1.0600033, y: 0.89000005, z: -3.0000014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4018193548477481765}
+  - {fileID: 2240702626526233131}
   m_Father: {fileID: 125144821048423297}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -926,7 +1014,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -1048,7 +1136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2509848927181436444}
   - component: {fileID: 7323518428174444122}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: PlayerArcher
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1379,7 +1467,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -2536,7 +2624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5738911487815618686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 1.05, z: -3}
+  m_LocalPosition: {x: 0.24999785, y: 1.05, z: -2.9999986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2573,7 +2661,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16

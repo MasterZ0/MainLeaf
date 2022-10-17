@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Rigidbody2D)]
-    [Description("Set Rigidbody2D velocity")]
-    public class SetVelocity : ActionTask<Rigidbody2D> {
+    [Category(Categories.Rigidbody)]
+    [Description("Set Rigidbody velocity")]
+    public class SetVelocity : ActionTask<Rigidbody> {
 
-        public BBParameter<Vector2> velocity;
+        public BBParameter<Vector3> velocity;
         protected override string info => $"Velocity = {velocity}";
         protected override void OnExecute() {
             agent.velocity = velocity.value;

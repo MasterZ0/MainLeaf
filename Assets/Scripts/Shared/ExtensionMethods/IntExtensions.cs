@@ -10,7 +10,8 @@ namespace AdventureGame.Shared.ExtensionMethods
             return Mathf.RoundToInt(result);
         }
 
-        public static Vector2Int ToVector(this int value) => new Vector2Int(value, value);
+        public static Vector2 ToVector(this int value) => new Vector2(value, value);
+        public static Vector2Int ToVectorInt(this int value) => new Vector2Int(value, value);
 
         public static int Navigate(this int value, int length, bool goRight)
         {

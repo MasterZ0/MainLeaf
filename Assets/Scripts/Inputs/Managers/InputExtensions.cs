@@ -10,16 +10,12 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.InputSystem.Users;
 using System;
+using AdventureGame.Shared.ExtensionMethods;
 
 namespace AdventureGame.Inputs
 {
     public static class InputExtensions
     {
-        public static T ConvertToEnum<T>(this string value) where T : Enum
-        {
-            return (T)Enum.Parse(typeof(T), value);
-        }
-
         public static DeviceController ConvertToDeviceController(this InputAction action, int bindingIndex = -1)
         {
             return ConvertToDeviceController(action.bindings[bindingIndex]);

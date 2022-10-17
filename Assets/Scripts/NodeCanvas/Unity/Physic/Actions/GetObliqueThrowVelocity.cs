@@ -3,22 +3,25 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
+using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Rigidbody2D)]
+    [Category(Categories.Rigidbody)]
     [Description("Return a Vector2 with the velocity for the oblique throw of a projectile. yLimits controls the min/max range of the throw.")]
-    public class GetObliqueThrowVelocity : ActionTask<Rigidbody2D>
+    public class GetObliqueThrowVelocity : ActionTask<Rigidbody>
     {
-        [RequiredField] public BBParameter<Vector2> targetDistance;
-        [RequiredField] public BBParameter<float> speedX;
+        [Header("In")]
+        public BBParameter<Vector3> targetDistance;
+        public BBParameter<float> forwardSpeed;
         public BBParameter<Vector2> speedYLimits;
-        [RequiredField] public BBParameter<Vector2> returnedVelocity;
+
+        [Header("Out")]
+        public BBParameter<Vector3> returnedVelocity;
 
         protected override void OnExecute()
         {
-            returnedVelocity.value = MathUtils.ObliqueThrowX(targetDistance.value, agent.gravityScale, 
-                                                             speedX.value, speedYLimits.value);
+            returnedVelocity.value = MathUtils.ObliqueThrowX(targetDistance.value, agent.mass, forwardSpeed.value, speedYLimits.value);
             EndAction(true);
         }
     }

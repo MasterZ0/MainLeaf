@@ -8,7 +8,7 @@ using AdventureGame.Effects;
 using AdventureGame.Audio;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.UI;
+using AdventureGame.Gameplay.Components;
 
 namespace AdventureGame.AI
 {
@@ -19,8 +19,10 @@ namespace AdventureGame.AI
     {        
         [Title("Enemy")]
         [SerializeField] private Transform center;
-        [SerializeField] private Slider healthBar;
-        [SerializeField] private ParticleVFX hitParticle;
+        [SerializeField] private ParticleVFX hitFX;
+        [SerializeField] private ParticleVFX hitKillFX;
+        [SerializeField] private ParticleVFX deathFX;
+        [SerializeField] private Renderer[] bodyRenderers;
 
         [Title("Optional")]
         [ListDrawerSettings(Expanded = true)]
@@ -32,9 +34,10 @@ namespace AdventureGame.AI
 
         #region Public properties and events
         public event Action<DamageInfo> OnTakeDamage = delegate { };
+        public event Action OnFinishEnemyDeath = delegate { };
+
         public Transform Center => center;
         public Transform Pivot => transform;
-        public float HealthPercentage => (float)currentHealth / maxHealth;
         public int MaxHealth => maxHealth;
         public int CurrentHealth => currentHealth;
         public bool IsDead => currentHealth <= 0;
@@ -46,6 +49,13 @@ namespace AdventureGame.AI
 
         private int maxHealth = 1;
         private int currentHealth = 1;
+
+        private Material[] defaultSharedMaterial;
+
+        private void Awake()
+        {
+            defaultSharedMaterial = bodyRenderers.Select(r => r.sharedMaterial).ToArray();
+        }
 
         private void OnEnable() // Reset
         {
@@ -62,41 +72,48 @@ namespace AdventureGame.AI
             maxHealth = enemyData.MaxHealth;
             currentHealth = maxHealth;
 
-            //DamageData bodyDamage = enemyData.BodyDamage.Setup(transform);
-            //foreach (HitBox bodyHitBox in bodyHitBoxes)
-            //{
-            //    bodyHitBox.SetDamage(bodyDamage);
-            //    bodyHitBox.gameObject.SetActive(true);
-            //}
-
-            RefreshLife();
+            Damage bodyDamage = new Damage(enemyData.BodyDamage, this); 
+            foreach (HitBox bodyHitBox in bodyHitBoxes)
+            {
+                bodyHitBox.SetDamage(bodyDamage);
+                bodyHitBox.gameObject.SetActive(true);
+            }
         }
 
-        #region Damage
+        #region Combat
+        public void OnDamageDealt(DamageInfo damageInfo) { }
+
         public void TakeDamage(Damage damage)
         {
             if (IsDead)
                 return;
 
-            currentHealth -= damage.Value;
-            damageSoundReference.PlaySound(transform);
-            RefreshLife();
+            int effectiveDamage = damage.Value;
+            if (currentHealth - effectiveDamage < 0)
+            {
+                effectiveDamage = currentHealth;
+            }
 
+            currentHealth -= effectiveDamage;
 
-            // Paint Hit Particle
-            ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitParticle, center.position, damage.HitBoxSender.transform.rotation);
-            spawnedHitParticle.SetColor(enemyData.HitParticleGradient);
-
-            DamageInfo damageInfo = null;
-            damage.Sender.OnDamageDealt(damageInfo);
+            DamageInfo damageInfo = new DamageInfo(damage, this, effectiveDamage);
             OnTakeDamage(damageInfo);
 
-            if (IsDead)
+            if (!IsDead)
+            {
+                HitVFX.ApplyHitFX(this, bodyRenderers, defaultSharedMaterial);
+                damageSoundReference.PlaySound(transform);
+
+                // Paint Hit Particle
+                ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitFX, damage.ContactPoint, damage.HitBoxSender.transform.rotation);
+                spawnedHitParticle.SetColor(enemyData.HitParticleGradient);
+            }
+            else
             {
                 deathSoundReference.PlaySound(transform);
+                ObjectPool.SpawnPooledObject(hitKillFX, damage.ContactPoint, damage.HitBoxSender.transform.rotation);
 
                 // Disable components
-                healthBar.gameObject.SetActive(false);
                 foreach (HitBox bodyHitBox in bodyHitBoxes)
                 {
                     bodyHitBox.gameObject.SetActive(false);
@@ -109,8 +126,6 @@ namespace AdventureGame.AI
                 }
             }
         }
- 
-        public void OnDamageDealt(DamageInfo damageInfo) { }
 
         private void FixedUpdate()
         {
@@ -129,15 +144,13 @@ namespace AdventureGame.AI
             }
         }
 
-        private void RefreshLife()
+        public void FinishEnemyDeath()
         {
-            healthBar.value = HealthPercentage;
-        }
-
-        public void KillEnemy()
-        {
-            gameObject.SetActive(false);
+            ObjectPool.SpawnPooledObject(deathFX, transform.position, transform.rotation);
             //GameplayController.GameplayReferences.SpawnItems(enemyData.DropValueData, transform.position);
+
+            OnFinishEnemyDeath.Invoke();
+            gameObject.SetActive(false);
         }
         #endregion
     }

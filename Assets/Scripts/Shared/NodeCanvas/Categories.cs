@@ -22,8 +22,9 @@ namespace AdventureGame.Shared.NodeCanvas
         public const string UI = AdventureGame + "/UI";
 
         // AI
-        public const string AIInit = AI + "/Init";
         public const string AI = AdventureGame + "/AI";
+        public const string AIInit = AI + "/Init";
+        public const string AIPath = AI + "/AIPath";
 
         // Player
         private const string Player = AdventureGame + "/Player";
@@ -32,7 +33,7 @@ namespace AdventureGame.Shared.NodeCanvas
         // Unity
         private const string Unity = AdventureGame + "/Unity";
         public const string Animations = Unity + "/Animations";
-        public const string Rigidbody2D = Unity + "/Rigidbody2D";
+        public const string Rigidbody = Unity + "/Rigidbody";
         public const string Variables = Unity + "/Variables";
         public const string Collections = Unity + "/Collections";
         public const string Components = Unity + "/Components";

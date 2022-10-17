@@ -11,7 +11,7 @@ namespace AdventureGame.NodeCanvas.Unity.Physic
     public class GetTransformAxisDirection : ActionTask<Transform>
     {
         [Header("In")]
-        public BBParameter<AxisDirection> axisDirecition = AxisDirection.Right;
+        public BBParameter<Direction> axisDirecition = Direction.Right;
 
         [Header("Out")]
         public BBParameter<Vector3> returnedValue;
@@ -22,12 +22,12 @@ namespace AdventureGame.NodeCanvas.Unity.Physic
         {
             returnedValue.value = axisDirecition.value switch
             {
-                AxisDirection.Left => -agent.transform.right,
-                AxisDirection.Right => agent.transform.right,
-                AxisDirection.Up => agent.transform.up,
-                AxisDirection.Down => -agent.transform.up,
-                AxisDirection.Forward => agent.transform.forward,
-                AxisDirection.Back => -agent.transform.forward,
+                Direction.Left => -agent.transform.right,
+                Direction.Right => agent.transform.right,
+                Direction.Up => agent.transform.up,
+                Direction.Down => -agent.transform.up,
+                Direction.Forward => agent.transform.forward,
+                Direction.Back => -agent.transform.forward,
                 _ => throw new System.NotImplementedException(),
             };
 

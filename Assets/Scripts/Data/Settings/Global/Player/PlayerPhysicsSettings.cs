@@ -16,6 +16,8 @@ namespace AdventureGame.Data
         [FoldoutGroup(Rotation)]
         [SerializeField] public float rotationSpeed = 1f;
         [FoldoutGroup(Rotation)]
+        [SerializeField] public float rotationBodyLerp = 15f;
+        [FoldoutGroup(Rotation)]
         [MinMaxSlider(-90, 90, true)]
         [SerializeField] private Vector2 cameraRangeRotation = new Vector2(-30f, 30f);
 
@@ -83,6 +85,7 @@ namespace AdventureGame.Data
         public float WalkSpeed => walkSpeed;
         public float SprintSpeed => sprintSpeed;
         public float RotationSpeed => rotationSpeed;
+        public float RotationLerp => rotationBodyLerp;
         public Vector2 CameraRangeRotation => cameraRangeRotation;
 
         //Jump

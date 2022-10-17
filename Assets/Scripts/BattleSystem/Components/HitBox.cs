@@ -17,23 +17,21 @@ namespace AdventureGame.BattleSystem
 
         protected Damage Damage { get; private set; }
 
-        public void SetDamage(Damage damage)
-        {
-            Damage = damage;
-        }
+        public void SetDamage(DamageData damageData, IAttacker attacker) => Damage = new Damage(damageData, attacker);
+        public void SetDamage(Damage damage) => Damage = damage;
 
-        protected virtual void OnTriggerEnter2D(Collider2D collision)
+        protected virtual void OnTriggerEnter(Collider collision)
         {
             ApplyDamage(collision);
         }
 
         protected virtual void OnParticleCollision(GameObject other)
         {
-            Collider2D collision = other.GetComponent<Collider2D>();
+            Collider collision = other.GetComponent<Collider>();
             ApplyDamage(collision);
         }
 
-        protected void ApplyDamage(Collider2D collision)
+        protected void ApplyDamage(Collider collision)
         {
             if (collision.attachedRigidbody == null)
             {
@@ -43,9 +41,9 @@ namespace AdventureGame.BattleSystem
 
             if (collision.attachedRigidbody.TryGetComponent(out IHittable hittable))
             {
-                Vector2 contact = collision.ClosestPoint(transform.position);
+                Vector3 contact = collision.ClosestPoint(transform.position);
 
-                Damage.AddHitBoxInfo(this, contact);
+                Damage.AddHitBoxInfo(this, contact); // TODO: Clone or create a new instance, contact is changing
                 hittable.TakeDamage(Damage);
 
                 if (hittable is IDamageable damageable)
@@ -63,11 +61,5 @@ namespace AdventureGame.BattleSystem
         }
 
         protected virtual void AfterHit(TargetHitType targetHit) { }
-
-        public static HitBox operator +(HitBox hitBox, Damage damage)
-        {
-            hitBox.SetDamage(damage);
-            return hitBox;
-        }
     }
 }

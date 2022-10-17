@@ -1,0 +1,17 @@
+{
+    "name": "AdventureGame.Gameplay.Components",
+    "rootNamespace": "AdventureGame.Gameplay.Components",
+    "references": [
+        "GUID:35334e9fce2041042a58f9101a81d24c",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,18 +1,43 @@
 using AdventureGame.AI;
 using AdventureGame.Data;
+using AdventureGame.Shared.NodeCanvas;
 using NodeCanvas.Framework;
+using ParadoxNotion.Design;
 
-namespace AdventureGame.NodeCanvas.AI {
-
-    public abstract class InitEnemy : ActionTask<Enemy>
+namespace AdventureGame.NodeCanvas.AI
+{
+    [Category(Categories.AIInit)]
+    public abstract class InitEnemy<T> : ActionTask<Enemy> where T : EnemyData
     {
+        public abstract T EnemyData { get; }
+
         protected override void OnExecute()
         {
-            EnemyData data = Init();
-            agent.Setup(data);
+            SetParameters();
+            agent.Setup(EnemyData);
+
+            EnemyData.OnValueChanged += OnDataChanged;
+
             EndAction(true);
         }
 
-        protected abstract EnemyData Init();
+        protected override void OnStop()
+        {
+            EnemyData.OnValueChanged -= OnDataChanged;
+        }
+
+        private void OnDataChanged()
+        {
+            if (ownerSystemBlackboard != null)
+            {
+                SetParameters();
+            }
+            else
+            {
+                EnemyData.OnValueChanged -= OnDataChanged;
+            }
+        }
+
+        protected abstract void SetParameters();
     }
 }

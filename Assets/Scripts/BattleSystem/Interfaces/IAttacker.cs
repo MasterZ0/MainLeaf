@@ -1,8 +1,11 @@
-﻿namespace AdventureGame.BattleSystem
+﻿using UnityEngine;
+
+namespace AdventureGame.BattleSystem
 {
-    public interface IAttacker
+    public interface IAttacker : IBattleEntity
     {
-        // AttackerInfo: Name, position, atributes?, etc... 
+        // AttackerInfo: atributes?, etc... 
+        // OnAttack(melee/range) // Enemy dodge
         void OnDamageDealt(DamageInfo info);
     }
 }

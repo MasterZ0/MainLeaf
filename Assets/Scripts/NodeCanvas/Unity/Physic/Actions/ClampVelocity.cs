@@ -6,21 +6,21 @@ using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Rigidbody2D)]
+    [Category(Categories.Rigidbody)]
     [Description("Clamp Velocity to a set of values")]
-    public class ClampVelocity : ActionTask<Rigidbody2D>
+    public class ClampVelocity : ActionTask<Rigidbody>
     {
         [Header("Inputs")]
-        public BBParameter<Vector2> minVelocity;
-        public BBParameter<Vector2> maxVelocity;
-        protected override string info => $"Min Velocity = {minVelocity}, Max Velocity = {maxVelocity}";
+        public BBParameter<Vector2> range;
+        protected override string info => $"Clamp Velocity, Range: {range}";
         protected override void OnExecute()
         {
-            float velocityX = Mathf.Clamp(agent.velocity.x, minVelocity.value.x, maxVelocity.value.x);
-            float velocityY = Mathf.Clamp(agent.velocity.y, minVelocity.value.y, maxVelocity.value.y);
-
-            agent.velocity = new Vector2(velocityX, velocityY);
-
+            agent.velocity = new Vector3()
+            {
+                x = Mathf.Clamp(agent.velocity.x, range.value.x, range.value.y),
+                y = Mathf.Clamp(agent.velocity.y, range.value.x, range.value.y),
+                z = Mathf.Clamp(agent.velocity.z, range.value.x, range.value.y)
+            };
             EndAction(true);
         }
     }
