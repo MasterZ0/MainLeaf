@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 511887930271964158}
   - component: {fileID: 78685407493735923}
   m_Layer: 8
-  m_Name: shield
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8508989013531282996}
-  m_LocalRotation: {x: -0.29413345, y: -0.48886102, z: 0.72346675, w: 0.38871104}
-  m_LocalPosition: {x: -0.005841549, y: 0.0011948872, z: 0.013313802}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

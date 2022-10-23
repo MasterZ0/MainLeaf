@@ -19,13 +19,13 @@ TagManager:
   - PlayerInvincible
   - PlayerDefault
   - Enemy
+  - 
   - HitboxPlayer
+  - HitboxPlayerIgnore
   - HitboxEnemy
+  - HitboxEnemyIgnore
   - Interactable
   - Trap
-  - 
-  - 
-  - 
   - 
   - 
   - 

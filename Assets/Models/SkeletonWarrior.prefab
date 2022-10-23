@@ -1744,7 +1744,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5505881799950896758}
+  - component: {fileID: 2535886075294077447}
   - component: {fileID: 7657841994957143326}
+  - component: {fileID: 744948542584217390}
   m_Layer: 0
   m_Name: SkeletonWarrior
   m_TagString: Enemy
@@ -1772,6 +1774,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &2535886075294077447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952001051849072702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b36e9c810f6c4ca9dfb2b03942aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &7657841994957143326
 Animator:
   serializedVersion: 4
@@ -1783,7 +1797,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7277fe458c98528478a9a17164dedb9a, type: 3}
   m_Controller: {fileID: 9100000, guid: a232a997013c11443b978268f7c03c33, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1792,6 +1806,100 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &744948542584217390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952001051849072702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776adaaacdc5c4e8ab0395120a6e972b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixTransforms: 1
+  solver:
+    executedInEditor: 0
+    IKPosition: {x: -22.481318, y: 0.97191703, z: 4.030314}
+    IKPositionWeight: 0
+    root: {fileID: 5505881799950896758}
+    target: {fileID: 0}
+    spine:
+    - transform: {fileID: 5497196168571183592}
+      weight: 0
+      solverPosition: {x: 0, y: 0, z: 0}
+      solverRotation: {x: 0, y: 0, z: 0, w: 0}
+      defaultLocalPosition: {x: 0.052362796, y: 0.1978883, z: -0.04710966}
+      defaultLocalRotation: {x: -0.07503788, y: 0.22344585, z: 0.96027863, w: 0.14935297}
+      length: 0
+      sqrMag: 0
+      axis: {x: -0.07999228, y: 0.36180553, z: 0.9288155}
+      baseForwardOffsetEuler: {x: 0, y: 0, z: 0}
+    - transform: {fileID: 8001750658832731260}
+      weight: 0
+      solverPosition: {x: 0, y: 0, z: 0}
+      solverRotation: {x: 0, y: 0, z: 0, w: 0}
+      defaultLocalPosition: {x: 0.02664306, y: -0.23536253, z: 0.061658133}
+      defaultLocalRotation: {x: -0.32524565, y: 0.26118213, z: -0.17211577, w: 0.89239866}
+      length: 0
+      sqrMag: 0
+      axis: {x: -0.5659366, y: -0.36984238, z: 0.7368397}
+      baseForwardOffsetEuler: {x: 0, y: 0, z: 0}
+    head:
+      transform: {fileID: 0}
+      weight: 1
+      solverPosition: {x: 0, y: 0, z: 0}
+      solverRotation: {x: 0, y: 0, z: 0, w: 1}
+      defaultLocalPosition: {x: 0.15017782, y: 0.118835725, z: -0.07333436}
+      defaultLocalRotation: {x: 0.7755577, y: 0.32789797, z: 0.31444624, w: -0.43831128}
+      length: 0
+      sqrMag: 0
+      axis: {x: -0.34059232, y: 0.91543925, z: -0.21440192}
+      baseForwardOffsetEuler: {x: 0, y: 0, z: 0}
+    eyes:
+    - transform: {fileID: 3283785639097988789}
+      weight: 0
+      solverPosition: {x: 0, y: 0, z: 0}
+      solverRotation: {x: 0, y: 0, z: 0, w: 0}
+      defaultLocalPosition: {x: 0.010615917, y: -0.2285223, z: 0.06833333}
+      defaultLocalRotation: {x: -0.6179488, y: -0.02269498, z: 0.7573902, w: -0.20972455}
+      length: 0
+      sqrMag: 0
+      axis: {x: -0.16213068, y: -0.41599357, z: 0.8947982}
+      baseForwardOffsetEuler: {x: 0, y: 0, z: 0}
+    bodyWeight: 0.2
+    headWeight: 1
+    eyesWeight: 0.2
+    clampWeight: 0.9
+    clampWeightHead: 0.8
+    clampWeightEyes: 0.7
+    clampSmoothing: 1
+    spineWeightCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    spineTargetOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8024914403553292469
 GameObject:
   m_ObjectHideFlags: 0

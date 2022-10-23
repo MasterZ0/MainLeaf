@@ -1,8 +1,9 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
-using AdventureGame.Shared.NodeCanvas;
+using AdventureGame.Shared.ExtensionMethods;
 using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using UnityEngine;
+using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.AI
 {
@@ -11,8 +12,11 @@ namespace AdventureGame.NodeCanvas.AI
         [Header("Patrol")]
         public BBParameter<float> idleTime;
         public BBParameter<float> patrolRadius;
+        public BBParameter<float> delayToReturnToPatrol;
 
         [Header("Movement")]
+        public BBParameter<float> ikWeightTransition;
+        public BBParameter<float> rotationSpeed;
         public BBParameter<float> patrolMaxSpeed;
         public BBParameter<AIPathParameters> patrolParameters;
         public BBParameter<float> chaseMaxSpeed;
@@ -21,17 +25,13 @@ namespace AdventureGame.NodeCanvas.AI
         public BBParameter<AIPathParameters> fleeParameters;
 
         [Header("Battle")]
+        public BBParameter<Vector2> offensiveDistanceRange;
+        public BBParameter<float> escapeDistance;
         public BBParameter<float> chaseDistance;
-        public BBParameter<float> distanceToAttack;
-        public BBParameter<float> rotationSpeed;
         public BBParameter<float> angleDifferenceToAttack;
-        public BBParameter<float> centerAttackAngle;
+        public BBParameter<float> fireballVelocity;
         public BBParameter<DamageData> fireballDamage;
-
-        [Header("Delays")]
         public BBParameter<float> delayAfterAttack;
-        public BBParameter<float> delayToReturnToPatrol;
-        public BBParameter<float> delayToChase;
 
         public override MageSkeletonSettings EnemyData => GameSettings.Enemies.MageSkeletonSettings;
 
@@ -44,6 +44,8 @@ namespace AdventureGame.NodeCanvas.AI
             patrolRadius.value = settings.patrolRadius;
 
             // Movement
+            ikWeightTransition.value = settings.ikWeightTransition;
+            rotationSpeed.value = settings.rotationSpeed;
             patrolMaxSpeed.value = settings.patrolParameters.maxSpeed;
             patrolParameters.value = settings.patrolParameters;
             chaseMaxSpeed.value = settings.chaseParameters.maxSpeed;
@@ -53,18 +55,15 @@ namespace AdventureGame.NodeCanvas.AI
 
             // Battle
             chaseDistance.value = settings.chaseDistance;
-            distanceToAttack.value = settings.distanceToAttack;
-            rotationSpeed.value = settings.rotationSpeed;
+            offensiveDistanceRange.value = settings.offensiveDistanceRange;
+            escapeDistance.value = settings.escapeDistance;
             angleDifferenceToAttack.value = settings.angleDifferenceToAttack;
-            centerAttackAngle.value = settings.centerAttackAngle;
-
+            fireballVelocity.value = settings.fireballVelocity;
             fireballDamage.value = settings.fireballDamage;
 
             // Delays
             delayAfterAttack.value = settings.delayAfterAttack;
             delayToReturnToPatrol.value = settings.delayToReturnToPatrol;
-            delayToChase.value = settings.delayToChase;
-
         }
     }
 }

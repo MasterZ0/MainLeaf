@@ -6,8 +6,8 @@ namespace AdventureGame.NodeCanvas.Unity
 {
     [Category(Categories.Variables)]
     [Description("Best way to check if some object is null")]
-    public class CheckNull : ConditionTask {
-
+    public class CheckNull : ConditionTask 
+    {
         [BlackboardOnly]
         public BBParameter<object> variable;
 

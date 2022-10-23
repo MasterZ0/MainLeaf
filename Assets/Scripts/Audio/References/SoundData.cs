@@ -18,7 +18,7 @@ namespace AdventureGame.Audio {
             return AudioManager.PlaySound(eventReference, transform);
         }
 
-        public SoundInstance PlaySound(Vector2 position)
+        public SoundInstance PlaySound(Vector3 position)
         {
             return AudioManager.PlaySound(eventReference, position);
         }

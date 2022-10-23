@@ -2,10 +2,12 @@
 
 namespace AdventureGame.BattleSystem
 {
-    public interface IBattleEntity
+    public interface IBattleEntity // Center and Head could be a humanoid interface
     {
-        // Name?
-        public Transform Center { get; }
+        // Name? 
+        /// <summary> Used to get components </summary>
         public Transform Pivot { get; }
+        public Transform Head { get; }
+        public Transform Center { get; }
     }
 }

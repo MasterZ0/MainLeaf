@@ -18,25 +18,11 @@ MonoBehaviour:
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
-  maxHealth: 1
-  displayHealth: 0
-  boss: 0
-  defeatMessage:
-    mTerm: 
-    mRTL_IgnoreArabicFix: 0
-    mRTL_MaxLineLength: 0
-    mRTL_ConvertNumbers: 0
-    m_DontLocalizeParameters: 0
-  xp: 0
-  dropValueData:
-    bronzeCoinsRange: {x: 0, y: 0}
-    silverCoinsRange: {x: 0, y: 0}
-    goldCoinsRange: {x: 0, y: 0}
-  knockback: 0
+  maxHealth: 30
   hitParticleGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 0.56403524, g: 0.58254564, b: 0.7075472, a: 1}
+    key1: {r: 0.20024918, g: 0.22762607, b: 0.33962262, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -62,7 +48,41 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  dropValueData:
+    bronzeCoinsRange: {x: 0, y: 0}
+    silverCoinsRange: {x: 0, y: 0}
+    goldCoinsRange: {x: 0, y: 0}
   bodyDamage:
     Value: {x: 0, y: 0}
     DamageType: 0
     CanBlock: 0
+  idleTime: 2
+  patrolRadius: 5
+  ikWeightTransition: 0.8
+  rotationSpeed: 2
+  patrolParameters:
+    maxSpeed: 1.5
+    rotationSpeed: 360
+    slowdownDistance: 1
+    endReachedDistance: 0.3
+  fleeParameters:
+    maxSpeed: 2
+    rotationSpeed: 360
+    slowdownDistance: 1.2
+    endReachedDistance: 1.2
+  chaseParameters:
+    maxSpeed: 3
+    rotationSpeed: 360
+    slowdownDistance: 1.2
+    endReachedDistance: 1.2
+  chaseDistance: 15
+  escapeDistance: 10
+  offensiveDistanceRange: {x: 7, y: 12}
+  angleDifferenceToAttack: 10
+  fireballVelocity: 5
+  fireballDamage:
+    Value: {x: 0, y: 0}
+    DamageType: 0
+    CanBlock: 0
+  delayAfterAttack: 1
+  delayToReturnToPatrol: 2

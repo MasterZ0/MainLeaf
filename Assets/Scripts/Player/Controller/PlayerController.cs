@@ -18,6 +18,7 @@ namespace AdventureGame.Player
     {
         [Title("Player Controller")]
         [SerializeField] private Transform center;
+        [SerializeField] private Transform head;
         [SerializeField] private FSMOwner stateMachine;
         [SerializeField] private InventoryController playerInventory;
         [SerializeField] private CameraController cameraController;
@@ -44,8 +45,9 @@ namespace AdventureGame.Player
         public PlayerVFX VFX => playerVFX;
         public PlayerSFX SFX => playerSFX;
         public InventoryController Inventory => playerInventory;
+        public Transform Pivot => transform;
         public Transform Center => center;
-        public Transform Pivot => transform.parent;
+        public Transform Head => head;
 
         [ShowInInspector, ReadOnly, TextArea]
         private string CurrentState;
@@ -65,6 +67,7 @@ namespace AdventureGame.Player
 
         public PlayerSettings PlayerSettings { get; private set; }
         public FSMOwner FSM => stateMachine;
+
 
 
         #region Init

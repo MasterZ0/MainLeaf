@@ -5,7 +5,7 @@ namespace AdventureGame.ObjectPooling
     public static class ObjectPoolExtensions 
     {
 
-        public static T SpawnPooledObject<T>(this T pooledObject, Vector2 position = default, Quaternion rotation = default, Transform parent = null) where T : Component 
+        public static T SpawnPooledObject<T>(this T pooledObject, Vector3 position = default, Quaternion rotation = default, Transform parent = null) where T : Component 
         {
             return ObjectPool.SpawnPooledObject(pooledObject, position, rotation, parent);
         }

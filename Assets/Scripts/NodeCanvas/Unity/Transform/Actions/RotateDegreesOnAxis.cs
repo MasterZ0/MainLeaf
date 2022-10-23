@@ -12,7 +12,7 @@ namespace AdventureGame.NodeCanvas.Unity
     {
         public BBParameter<float> degrees;
         public BBParameter<float> speed;
-        public BBParameter<Axis> axis;
+        public BBParameter<Axis3> axis;
 
         protected override string info => $"Rotate {agentInfo} {axis} {degrees} degrees";
 
@@ -27,9 +27,9 @@ namespace AdventureGame.NodeCanvas.Unity
 
             updateRotation = () => axis.value switch
             {
-                Axis.X => Quaternion.Euler(currentDegrees + initialAngle.x, agent.eulerAngles.y, agent.eulerAngles.z),
-                Axis.Y => Quaternion.Euler(agent.eulerAngles.x, currentDegrees + initialAngle.y, agent.eulerAngles.z),
-                Axis.Z => Quaternion.Euler(agent.eulerAngles.x, agent.eulerAngles.y, currentDegrees + initialAngle.z),
+                Axis3.X => Quaternion.Euler(currentDegrees + initialAngle.x, agent.eulerAngles.y, agent.eulerAngles.z),
+                Axis3.Y => Quaternion.Euler(agent.eulerAngles.x, currentDegrees + initialAngle.y, agent.eulerAngles.z),
+                Axis3.Z => Quaternion.Euler(agent.eulerAngles.x, agent.eulerAngles.y, currentDegrees + initialAngle.z),
                 _ => throw new NotImplementedException(),
             };
         }

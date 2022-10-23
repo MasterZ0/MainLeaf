@@ -18,7 +18,7 @@ namespace AdventureGame.NodeCanvas.Analyzers {
         [RequiredField] public BBParameter<Vector3> target;
 
         [Header("Config")]
-        public AxisFlags axis;
+        public Axis3Flags axis;
         public BBParameter<Vector2> averageDistance;
         public int[] shortRemovedIndex;
         public int[] avarageRemovedIndex;

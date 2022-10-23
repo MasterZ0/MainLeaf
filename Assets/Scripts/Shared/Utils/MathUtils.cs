@@ -130,6 +130,5 @@ namespace AdventureGame.Shared.Utils
             return new Vector2(velocityX, velocityY);
         }
         #endregion
-
     }
 }

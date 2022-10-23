@@ -14,7 +14,7 @@ namespace AdventureGame.NodeCanvas.Unity
         public BBParameter<Vector3> reference;
         public BBParameter<Vector3> target;
         public BBParameter<float> distance;
-        public BBParameter<AxisFlags> axis;
+        public BBParameter<Axis3Flags> axis;
         public CompareMethod checkType = CompareMethod.LessOrEqualTo;
 
         protected override string info

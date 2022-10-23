@@ -82,8 +82,8 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 10.8
-  angle: 48
+  radius: 10
+  angle: 100
 --- !u!1 &4031819917420045411
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,15 +366,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 6132441373273503602}
+  head: {fileID: 0}
   hitFX: {fileID: 4980135909174561131, guid: c45960ba0f8a49f439e2f383d5456145, type: 3}
   hitKillFX: {fileID: 4952321304097521167, guid: e473029e4c70ad543a6879b82a732f4f,
     type: 3}
   deathFX: {fileID: 6564514515779238893, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
-  bodyRenderers:
-  - {fileID: 6172899148480742876}
-  - {fileID: 7740590990221141282}
-  - {fileID: 4191318743831400626}
-  bodyHitBoxes: []
   damageSoundReference:
     eventReference:
       Guid:
@@ -391,6 +387,11 @@ MonoBehaviour:
         Data3: 406199429
         Data4: 1199569112
       Path: event:/SFX/VoiceTest
+  bodyRenderers:
+  - {fileID: 6172899148480742876}
+  - {fileID: 7740590990221141282}
+  - {fileID: 4191318743831400626}
+  bodyHitBoxes: []
 --- !u!114 &3072468132884277765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,36 +440,41 @@ MonoBehaviour:
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Eyes":{"_value":2,"_name":"Eyes","_id":"f31b1bf6-2a83-49ce-99ac-26e8716c888a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Renderer,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetDetection":{"_value":3,"_name":"TargetDetection","_id":"ab839dfd-9cc4-4294-88f0-58fb62251628","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
     AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"WeaponHitBox":{"_value":4,"_name":"WeaponHitBox","_id":"5350e0d9-067e-4c44-b802-da04a687a3fb","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.BattleSystem.HitBox,
-    AdventureGame.BattleSystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"-
-    Settings":{"_value":{},"_name":"- Settings","_id":"344c4680-991b-4f67-b528-391986bbfc3a","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
+    AdventureGame.BattleSystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IKLookAt":{"_value":5,"_name":"IKLookAt","_id":"bd0255c8-01a1-446c-8c5c-1ad692c78008","$type":"NodeCanvas.Framework.Variable`1[[RootMotion.FinalIK.LookAtIK,
+    RootMotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"- Settings":{"_value":{},"_name":"-
+    Settings","_id":"344c4680-991b-4f67-b528-391986bbfc3a","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IdleTime":{"_name":"IdleTime","_id":"2b42b1ea-3d09-4c91-b066-1e1549286a47","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PatrolRadius":{"_name":"PatrolRadius","_id":"6d644dab-447e-46a1-8192-1932b392d6ae","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"DelayToReturnToPatrol":{"_name":"DelayToReturnToPatrol","_id":"626735bc-b1f1-4099-9ae2-dd191f553dc1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"movement":{"_value":{},"_name":"movement","_id":"7f7db49c-094a-4512-ab73-c7caf1b09ac1","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
+    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IKWeightTransition":{"_name":"IKWeightTransition","_id":"6e0192bc-7c69-42aa-b321-155bf1c1a3c6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"RotationSpeed":{"_name":"RotationSpeed","_id":"2437c027-2834-459f-b25a-23d20186ca0a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PatrolMaxSpeed":{"_name":"PatrolMaxSpeed","_id":"ea785dd0-0c1c-4e94-8a92-e58196f39c07","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PatrolParameters":{"_name":"PatrolParameters","_id":"0da42b9a-c341-4007-8cd6-3786a0098259","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
+    AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"BattleMaxSpeed":{"_name":"BattleMaxSpeed","_id":"9ad3f005-12dd-42fa-8f77-59359dc5c77f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"BattleParameters":{"_name":"BattleParameters","_id":"2fb6bf0a-88bb-4e23-847f-d53ebc5da011","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
     AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Battle":{"_value":{},"_name":"Battle","_id":"a2446137-4b29-47fe-8d50-ab2208076feb","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"ChaseDistance":{"_name":"ChaseDistance","_id":"c864d6b3-98e7-46f5-88de-6a1e07907d6d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"BattleMaxSpeed":{"_name":"BattleMaxSpeed","_id":"9ad3f005-12dd-42fa-8f77-59359dc5c77f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"BattleParameters":{"_name":"BattleParameters","_id":"2fb6bf0a-88bb-4e23-847f-d53ebc5da011","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
-    AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"DistanceToAttack":{"_name":"DistanceToAttack","_id":"e85b6949-f94e-43d5-a166-3cfbfbd8b78a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"RotationSpeed":{"_name":"RotationSpeed","_id":"2437c027-2834-459f-b25a-23d20186ca0a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"DistanceToAttack":{"_name":"DistanceToAttack","_id":"e85b6949-f94e-43d5-a166-3cfbfbd8b78a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"AngleDifferenceToAttack":{"_name":"AngleDifferenceToAttack","_id":"d995015a-096f-4df0-8965-0027a83f3f3d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"CenterAttackAngle":{"_name":"CenterAttackAngle","_id":"91b4afa9-2d51-4852-9829-ec914733fa3a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"delay":{"_value":{},"_name":"delay","_id":"7f7db49c-094a-4512-ab73-c7caf1b09ac1","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"DelayToChase":{"_name":"DelayToChase","_id":"e3576a94-2774-4394-a6b8-1a64a80d9c17","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"DelayAfterAttack":{"_name":"DelayAfterAttack","_id":"809d702c-c3aa-4783-9960-aa6430439831","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"DelayToReturnToPatrol":{"_name":"DelayToReturnToPatrol","_id":"626735bc-b1f1-4099-9ae2-dd191f553dc1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"-
     Variables":{"_value":{},"_name":"- Variables","_id":"41e7874c-cf45-4599-91c1-81a303fad946","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetPivot":{"_name":"TargetPivot","_id":"99477a89-00a5-4339-bb26-2082a2a28d1a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"StartPosition":{"_name":"StartPosition","_id":"47126762-5713-42ff-b438-85ff56c2fb34","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"StartPosition":{"_name":"StartPosition","_id":"47126762-5713-42ff-b438-85ff56c2fb34","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"MaxVelocityScale":{"_name":"MaxVelocityScale","_id":"84ef5a89-a7a8-4487-b286-dac36eb6b864","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Target":{"_value":{},"_name":"Target","_id":"24ca8354-573f-471b-8af1-c388ed35094f","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
+    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetPivot":{"_name":"TargetPivot","_id":"99477a89-00a5-4339-bb26-2082a2a28d1a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetCenter":{"_name":"TargetCenter","_id":"718b10d7-2e21-4868-afdb-6cff32bf7dc4","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetHead":{"_name":"TargetHead","_id":"1b235fd3-abca-4787-98c6-1c6210d11699","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 594864243055153747}
   - {fileID: 9122133044972876318}
   - {fileID: 3585812057788780148}
   - {fileID: 7120488134026822942}
+  - {fileID: 7517046094773235811}
   _serializedVariables:
   - _json: '{"_value":{},"_name":"- Dependencies","_id":"4c19d570-5a43-4e2f-b6e9-d3d6d7deafdc","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
       ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
@@ -493,6 +499,11 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 7120488134026822942}
+  - _json: '{"_value":1,"_name":"IKLookAt","_id":"bd0255c8-01a1-446c-8c5c-1ad692c78008","$type":"NodeCanvas.Framework.Variable`1[[RootMotion.FinalIK.LookAtIK,
+      RootMotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 7517046094773235811}
   - _json: '{"_value":{},"_name":"- Settings","_id":"344c4680-991b-4f67-b528-391986bbfc3a","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
       ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
@@ -502,10 +513,28 @@ MonoBehaviour:
   - _json: '{"_name":"PatrolRadius","_id":"6d644dab-447e-46a1-8192-1932b392d6ae","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_name":"DelayToReturnToPatrol","_id":"626735bc-b1f1-4099-9ae2-dd191f553dc1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":{},"_name":"movement","_id":"7f7db49c-094a-4512-ab73-c7caf1b09ac1","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
+      ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"IKWeightTransition","_id":"6e0192bc-7c69-42aa-b321-155bf1c1a3c6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"RotationSpeed","_id":"2437c027-2834-459f-b25a-23d20186ca0a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
   - _json: '{"_name":"PatrolMaxSpeed","_id":"ea785dd0-0c1c-4e94-8a92-e58196f39c07","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"PatrolParameters","_id":"0da42b9a-c341-4007-8cd6-3786a0098259","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
+      AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"BattleMaxSpeed","_id":"9ad3f005-12dd-42fa-8f77-59359dc5c77f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"BattleParameters","_id":"2fb6bf0a-88bb-4e23-847f-d53ebc5da011","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
       AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_value":{},"_name":"Battle","_id":"a2446137-4b29-47fe-8d50-ab2208076feb","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
@@ -514,16 +543,7 @@ MonoBehaviour:
   - _json: '{"_name":"ChaseDistance","_id":"c864d6b3-98e7-46f5-88de-6a1e07907d6d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_name":"BattleMaxSpeed","_id":"9ad3f005-12dd-42fa-8f77-59359dc5c77f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_name":"BattleParameters","_id":"2fb6bf0a-88bb-4e23-847f-d53ebc5da011","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
-      AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
   - _json: '{"_name":"DistanceToAttack","_id":"e85b6949-f94e-43d5-a166-3cfbfbd8b78a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_name":"RotationSpeed","_id":"2437c027-2834-459f-b25a-23d20186ca0a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"AngleDifferenceToAttack","_id":"d995015a-096f-4df0-8965-0027a83f3f3d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -532,29 +552,29 @@ MonoBehaviour:
   - _json: '{"_name":"CenterAttackAngle","_id":"91b4afa9-2d51-4852-9829-ec914733fa3a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":{},"_name":"delay","_id":"7f7db49c-094a-4512-ab73-c7caf1b09ac1","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
-      ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
-  - _json: '{"_name":"DelayToChase","_id":"e3576a94-2774-4394-a6b8-1a64a80d9c17","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
   - _json: '{"_name":"DelayAfterAttack","_id":"809d702c-c3aa-4783-9960-aa6430439831","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_name":"DelayToReturnToPatrol","_id":"626735bc-b1f1-4099-9ae2-dd191f553dc1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_value":{},"_name":"- Variables","_id":"41e7874c-cf45-4599-91c1-81a303fad946","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
       ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
-  - _json: '{"_name":"TargetPivot","_id":"99477a89-00a5-4339-bb26-2082a2a28d1a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_name":"StartPosition","_id":"47126762-5713-42ff-b438-85ff56c2fb34","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_name":"MaxVelocityScale","_id":"84ef5a89-a7a8-4487-b286-dac36eb6b864","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":{},"_name":"Target","_id":"24ca8354-573f-471b-8af1-c388ed35094f","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
+      ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"TargetPivot","_id":"99477a89-00a5-4339-bb26-2082a2a28d1a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"TargetCenter","_id":"718b10d7-2e21-4868-afdb-6cff32bf7dc4","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"TargetHead","_id":"1b235fd3-abca-4787-98c6-1c6210d11699","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
 --- !u!54 &3995657458854046786
 Rigidbody:
@@ -988,29 +1008,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7063754557420957517}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &890676483945680755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7952001051849072702, guid: f2147292894742e45b2e91e02ec3ca75,
-    type: 3}
-  m_PrefabInstance: {fileID: 7063754557420957517}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &88339259251747949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890676483945680755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb13d0bb6072b944bd18f9f585de80b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventReferences:
-  - eventName: FootStep
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!4 &3346083312707035451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5505881799950896758, guid: f2147292894742e45b2e91e02ec3ca75,
@@ -1039,6 +1036,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70a0dfa469ba9ef4bab337eefe3c49b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7517046094773235811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 744948542584217390, guid: f2147292894742e45b2e91e02ec3ca75,
+    type: 3}
+  m_PrefabInstance: {fileID: 7063754557420957517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776adaaacdc5c4e8ab0395120a6e972b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!137 &7740590990221141282 stripped

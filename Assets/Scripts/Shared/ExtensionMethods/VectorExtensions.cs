@@ -16,6 +16,11 @@ namespace AdventureGame.Shared.ExtensionMethods
             return Random.Range(range.x, range.y);
         }
 
+        public static float HalfTerm(this Vector2 range)
+        {
+            return range.x + (range.y - range.x) / 2f;
+        }
+
         public static Vector3 Multiply(this Vector3 a, Vector3 b)
         {
             return new Vector3()

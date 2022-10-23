@@ -13,6 +13,7 @@ namespace AdventureGame.NodeCanvas.AI
     {
         public BBParameter<Transform> senderPivot;
         public BBParameter<Transform> senderCenter;
+        public BBParameter<Transform> senderHead;
 
         protected override void OnExecute() 
         {
@@ -30,6 +31,7 @@ namespace AdventureGame.NodeCanvas.AI
             {
                 senderPivot.value = damageInfo.Sender.Pivot;
                 senderCenter.value = damageInfo.Sender.Center;
+                senderHead.value = damageInfo.Sender.Head;
             }
             EndAction(true);
         }

@@ -16,7 +16,7 @@ namespace AdventureGame.NodeCanvas
 
         protected override void OnExecute()
         {
-            agent.material.color = color.value;
+            agent.sharedMaterial.color = color.value;
             EndAction(true);
         }
 

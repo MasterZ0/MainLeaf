@@ -10,7 +10,7 @@ namespace AdventureGame.NodeCanvas.Unity
     [Description("Compare the Inverse Transform Point to target + offset.")]
     public class CheckInversePointAxis : ConditionTask<Transform>
     {
-        public BBParameter<Axis> axis;
+        public BBParameter<Axis3> axis;
         public BBParameter<Vector3> target;
         public BBParameter<float> offset;
         public BBParameter<float> value;
@@ -23,9 +23,9 @@ namespace AdventureGame.NodeCanvas.Unity
 
             float axisDistance = offset.value + axis.value switch
             {
-                Axis.X => inverse.x,
-                Axis.Y => inverse.y,
-                Axis.Z => inverse.z,
+                Axis3.X => inverse.x,
+                Axis3.Y => inverse.y,
+                Axis3.Z => inverse.z,
                 _ => throw new System.NotImplementedException(),
             };
 

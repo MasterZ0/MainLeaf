@@ -12,14 +12,28 @@ namespace AdventureGame.Shared.NodeCanvas
         Back
     }
 
-    public enum Axis {
+    public enum Axis2
+    {
+        X,
+        Y
+    }
+
+    [Flags]
+    public enum Axis2Flags
+    {
+        X = 1,
+        Y = 2
+    }
+
+    public enum Axis3 
+    {
         X,
         Y,
         Z
     }
 
     [Flags]
-    public enum AxisFlags
+    public enum Axis3Flags
     {
         X = 1,
         Y = 2,

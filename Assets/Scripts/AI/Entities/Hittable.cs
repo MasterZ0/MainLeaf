@@ -16,6 +16,7 @@ namespace AdventureGame.AI.Entities
         [Title("Hittable")]
         [SerializeField] private bool immortal;
         [SerializeField] private Transform center;
+        [SerializeField] private Transform head;
 
         [Title("Effects")] 
         [SerializeField] private ParticleVFX hitParticles;
@@ -24,10 +25,11 @@ namespace AdventureGame.AI.Entities
         [Title("Events")]
         [SerializeField] private UnityEvent unityEvent;
 
-        public event Action<DamageInfo> OnTakeDamage = delegate {  };
+        public event Action<DamageInfo> OnTakeDamage = delegate { };
 
-        public Transform Center => center;
         public Transform Pivot => transform;
+        public Transform Center => center ?? transform;
+        public Transform Head => head ?? transform;
 
         public void TakeDamage(Damage damage)
         {

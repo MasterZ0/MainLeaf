@@ -22,8 +22,8 @@ namespace AdventureGame.Player
         [SerializeField] private GameObject godMoveLabel;
 
         public bool GodMode { get; private set; }
-        public int MaxHP { get; internal set; }
-        public int CurrentHP { get; internal set; }
+        public int MaxHP { get; private set; } = 1;
+        public int CurrentHP { get; private set; } = 1;
         public bool Dead { get; internal set; }
 
         private DebugInputs Inputs;

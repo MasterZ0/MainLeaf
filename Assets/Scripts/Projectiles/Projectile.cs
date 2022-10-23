@@ -1,6 +1,7 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.ObjectPooling;
 using AdventureGame.Shared.ExtensionMethods;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace AdventureGame.Projectiles
@@ -10,7 +11,7 @@ namespace AdventureGame.Projectiles
     /// </summary>
     public class Projectile : HitBox {
 
-        [Header("Base Projectile")]
+        [Title("Projectile")]
         [SerializeField] protected Rigidbody rigidbod;
 
         [Header(" - Optional")]
@@ -35,7 +36,7 @@ namespace AdventureGame.Projectiles
             BeforeShoot();
 
             SetDamage(damage);
-            rigidbod.AddForce(velocity, ForceMode.Impulse);
+            rigidbod.velocity = velocity;
         }
 
         protected override void AfterHit(TargetHitType targetHit)
@@ -52,12 +53,16 @@ namespace AdventureGame.Projectiles
         /// </summary>
         public virtual void Impact()
         {
+            ImpactVFX();
+            this.ReturnToPool();
+        }
+
+        protected void ImpactVFX()
+        {
             if (impactEffect)
             {
                 impactEffect.SpawnPooledObject(transform.position, transform.rotation);
             }
-
-            this.ReturnToPool();
         }
     }
 }

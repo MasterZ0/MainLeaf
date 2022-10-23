@@ -11,8 +11,10 @@ namespace AdventureGame.Data
         [Title("Warrior Skeleton")]
         public float idleTime = 2f;
         public float patrolRadius = 5f;
+        public float delayToReturnToPatrol = 2f;
 
         [Header("Movementation")]
+        public float ikWeightTransition = .8f;
         public float rotationSpeed = 2f;
         public AIPathParameters battleParameters;
         public AIPathParameters patrolParameters;
@@ -23,11 +25,7 @@ namespace AdventureGame.Data
         public float angleDifferenceToAttack = 5f;
         public float centerAttackAngle = 30f;
         public float distanceToAttack = 1.4f;
-        public DamageData swordDamage;
-
-        [Header("Delays")]
         public float delayAfterAttack = 1f;
-        public float delayToReturnToPatrol = 2f;
-        public float delayToChase = 1f;
+        public DamageData swordDamage;
     }
 }

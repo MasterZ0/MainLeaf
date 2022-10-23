@@ -27,20 +27,18 @@ namespace AdventureGame.Audio
             return AudioManager.PlaySound(eventReference, transform);
         }
 
-        public SoundInstance PlaySound(Vector2 position)
+        public SoundInstance PlaySound(Vector3 position)
         {
             return AudioManager.PlaySound(eventReference, position);
         }
 
+        #region Operators
+        /// <summary> Null Check </summary>
         public static implicit operator bool(SoundReference thisReference)
         {
-            if (thisReference.eventReference.IsNull)
-                return false;
-            else
-                return true;
+            return thisReference is null || thisReference.eventReference.IsNull;
         }
 
-        #region Operators
         public static bool operator ==(SoundReference a, SoundReference b)
         {
             return a.Guid == b.Guid;
@@ -51,10 +49,7 @@ namespace AdventureGame.Audio
             if (instance && reference)
                 return instance.Guid == reference.Guid;
 
-            if (!instance && !reference) // Both is null
-                return true;
-
-            return false;
+            return !instance && !reference; // Both is null
         }
 
         public static bool operator !=(SoundReference a, SoundReference b) => !(a == b);

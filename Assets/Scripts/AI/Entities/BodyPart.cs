@@ -13,11 +13,13 @@ namespace AdventureGame.AI
         [Title("Body Part")]
         [SerializeField] private IHittable parent;
         [SerializeField] private Transform center;
+        [SerializeField] private Transform head;
 
         public event Action<DamageInfo> OnTakeDamage;
 
-        public Transform Center => center;
         public Transform Pivot => transform;
+        public Transform Center => head ?? transform;
+        public Transform Head => head ?? transform;
 
         public void TakeDamage(Damage damage)
         {

@@ -10,7 +10,7 @@ namespace AdventureGame.NodeCanvas.Unity {
     [Description("Move a GameObject to the target position.")]
     public class MoveTowardAngle : ActionTask<Transform> {
 
-        public BBParameter<Axis> axis = Axis.Z;
+        public BBParameter<Axis3> axis = Axis3.Z;
         public BBParameter<float> speed;
         public BBParameter<float> angle;
         public BBParameter<float> distance;

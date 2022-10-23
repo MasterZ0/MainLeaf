@@ -68,7 +68,7 @@ MonoBehaviour:
     maxSpeed: 1.5
     rotationSpeed: 360
     slowdownDistance: 1
-    endReachedDistance: 0.2
+    endReachedDistance: 0.3
   chaseDistance: 15
   angleDifferenceToAttack: 13
   centerAttackAngle: 10

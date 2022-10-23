@@ -21,11 +21,6 @@ namespace AdventureGame.NodeCanvas.AI
             EndAction(true);
         }
 
-        protected override void OnStop()
-        {
-            EnemyData.OnValueChanged -= OnDataChanged;
-        }
-
         private void OnDataChanged()
         {
             if (ownerSystemBlackboard != null)

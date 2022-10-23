@@ -20,11 +20,12 @@ namespace AdventureGame.Shared.NodeCanvas
         public const string Battle = AdventureGame + "/Battle";
         public const string Dialogue = AdventureGame + "/Dialogue";
         public const string UI = AdventureGame + "/UI";
+        public const string IK = AdventureGame + "/Inverse Kinematic";
 
         // AI
         public const string AI = AdventureGame + "/AI";
         public const string AIInit = AI + "/Init";
-        public const string AIPath = AI + "/AIPath";
+        public const string Pathfinding = AI + "/Pathfinding";
 
         // Player
         private const string Player = AdventureGame + "/Player";

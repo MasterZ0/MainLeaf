@@ -10,7 +10,7 @@ namespace AdventureGame.NodeCanvas.Unity
     [Description("Compare the agent passed the target + offset.")]
     public class CheckExceed : ConditionTask<Transform> 
     {
-        public BBParameter<Axis> axis;
+        public BBParameter<Axis3> axis;
         public BBParameter<Vector3> target;
         public BBParameter<float> offset;
 
@@ -24,9 +24,9 @@ namespace AdventureGame.NodeCanvas.Unity
             
             return offset.value > axis.value switch
             {
-                Axis.X => inverse.x,
-                Axis.Y => inverse.y,
-                Axis.Z => inverse.z,
+                Axis3.X => inverse.x,
+                Axis3.Y => inverse.y,
+                Axis3.Z => inverse.z,
                 _ => throw new System.NotImplementedException(),
             };
         }

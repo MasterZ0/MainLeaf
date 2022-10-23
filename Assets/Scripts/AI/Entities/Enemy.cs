@@ -19,18 +19,21 @@ namespace AdventureGame.AI
     {        
         [Title("Enemy")]
         [SerializeField] private Transform center;
+        [SerializeField] private Transform head;
+
+        [Header("Prefabs")]
         [SerializeField] private ParticleVFX hitFX;
         [SerializeField] private ParticleVFX hitKillFX;
         [SerializeField] private ParticleVFX deathFX;
-        [SerializeField] private Renderer[] bodyRenderers;
 
-        [Title("Optional")]
-        [ListDrawerSettings(Expanded = true)]
-        [SerializeField] private HitBox[] bodyHitBoxes;
-
-        [Title("SFX")]
+        [Header("SFX")]
         [SerializeField] private SoundReference damageSoundReference;
         [SerializeField] private SoundReference deathSoundReference;
+
+        [Header("Optional")]
+        [SerializeField] private Renderer[] bodyRenderers;
+        [ListDrawerSettings(Expanded = true)]
+        [SerializeField] private HitBox[] bodyHitBoxes;
 
         #region Public properties and events
         public event Action<DamageInfo> OnTakeDamage = delegate { };
@@ -38,6 +41,7 @@ namespace AdventureGame.AI
 
         public Transform Center => center;
         public Transform Pivot => transform;
+        public Transform Head => head;
         public int MaxHealth => maxHealth;
         public int CurrentHealth => currentHealth;
         public bool IsDead => currentHealth <= 0;

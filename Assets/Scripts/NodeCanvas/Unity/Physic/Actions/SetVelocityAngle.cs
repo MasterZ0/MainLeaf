@@ -10,7 +10,7 @@ namespace AdventureGame.NodeCanvas.Unity
     [Description("Set Rigidbody velocity by angle")]
     public class SetVelocityAngle : ActionTask<Rigidbody>
     {
-        public BBParameter<Axis> axis = Axis.Z;
+        public BBParameter<Axis3> axis = Axis3.Z;
         public BBParameter<float> velocity;
         public BBParameter<float> angle;
         protected override string info => $"Velocity Angle = {velocity}";
