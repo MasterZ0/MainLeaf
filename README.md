@@ -3,7 +3,7 @@
  
  https://trello.com/b/Hvx6HxHo/skull
 
- ## ScreenShots
+ ## Character Selection
  <div class="row">
   <div class="column"> 
    <img src="https://user-images.githubusercontent.com/64444068/115170173-65e55900-a096-11eb-96bf-696972929497.png" width="450" height="250">
@@ -15,9 +15,23 @@
 <img src="https://user-images.githubusercontent.com/64444068/115170302-b492f300-a096-11eb-8a3c-cd85e9417957.png" width="450" height="250">
   </div>
 </div>
- 
- ## Skeleton Warrior Behavior
-<img src="https://user-images.githubusercontent.com/64444068/115169826-83fe8980-a095-11eb-965d-75fade10b2c1.png" width="900" height="875">
 
- ## Skeleton Mage Behavior
-<img src="https://user-images.githubusercontent.com/64444068/115169825-8365f300-a095-11eb-9314-58a5b483df5c.png" width="900" height="906">
+## Assets
+
+### Final IK
+
+![IK](https://user-images.githubusercontent.com/64444068/197429377-36111334-5686-4bfc-9204-32e5af900720.gif)
+
+### Node Canvas
+
+- Behavior Tree
+
+![BT](https://user-images.githubusercontent.com/64444068/197429900-1116e220-0e51-42e0-93fd-8dc61332a897.gif)
+
+### Odin
+
+![image](https://user-images.githubusercontent.com/64444068/197430153-114c9a9b-1ff8-4aca-93af-8005ff37892a.png)
+
+### FMOD
+
+### Astar Pathfinding Project Pro
