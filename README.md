@@ -1,9 +1,8 @@
-
- # MainLeaf
+# Adventure Game Project
  
- https://trello.com/b/Hvx6HxHo/skull
+[Trello](https://trello.com/b/Hvx6HxHo/adventure-game)
 
- ## Character Selection
+## Character Selection
  <div class="row">
   <div class="column"> 
    <img src="https://user-images.githubusercontent.com/64444068/115170173-65e55900-a096-11eb-96bf-696972929497.png" width="450" height="250">
@@ -35,3 +34,5 @@
 ### FMOD
 
 ### Astar Pathfinding Project Pro
+
+### I2 Localization
