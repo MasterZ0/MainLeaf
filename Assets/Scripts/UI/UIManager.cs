@@ -1,7 +1,4 @@
-
-using AdventureGame.AppOptions;
 using AdventureGame.Shared;
-using AdventureGame.UI.Window;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -16,26 +13,15 @@ namespace AdventureGame.UI
         [SerializeField] private Popup popup;
         [SerializeField] private OptionsWindow options;
 
-        [Title("Game Events")]
-        [SerializeField] private GameEvent onOpenOptions;
-
         #region References
+        public static OptionsWindow Options => Instance.options;
         public static Popup Popup => Instance.popup;
         #endregion
-
-        public static void OpenOptions() => Instance.options.RequestOpenWindow();
 
         protected override void Awake()
         {
             base.Awake();
             options.Init();
-
-            onOpenOptions += OpenOptions;
-        }
-
-        private void OnDestroy()
-        {
-            onOpenOptions -= OpenOptions;
         }
     }
 }

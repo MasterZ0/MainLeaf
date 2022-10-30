@@ -3,17 +3,13 @@ using AdventureGame.Shared;
 using AdventureGame.UI;
 using AdventureGame.UI.Window;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace AdventureGame.MainMenu
 {
     public class MainMenu : MonoBehaviour
     {
-
         [Header("Main Menu")]
         [SerializeField] private Animator animator;
         [SerializeField] private CharacterSelection characterSelection;
@@ -55,7 +51,7 @@ namespace AdventureGame.MainMenu
         {
             SwitchCamera(optionsCam);
 
-            onFadeOutEnd = () => UIManager.OpenOptions();
+            onFadeOutEnd = () => UIManager.Options.OnOpenOptionsWindow();
             WindowManager.OnCloseLastWindow += OnCloseOption;
         }
 

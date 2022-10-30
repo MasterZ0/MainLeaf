@@ -270,8 +270,8 @@ MonoBehaviour:
   videoOptions: {fileID: 3607687045116186482}
   audioOptions: {fileID: 8502021356536098651}
   controlsOptions: {fileID: 8617586949898569331}
-  firstBtn: {fileID: 657451198409885685}
-  firstButton: {fileID: 4565291380300779000}
+  firstBtn: {fileID: 4565291380300779000}
+  onOpenOptions: {fileID: 11400000, guid: 5098ef08db904a34faaec9604a5e32e9, type: 2}
 --- !u!114 &9027891735075527988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4717,7 +4717,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCloseSettings
+      value: OnCloseOptionsWindow
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
@@ -4742,7 +4742,7 @@ PrefabInstance:
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AdventureGame.AppOptions.Options, AdventureGame.Options
+      value: AdventureGame.UI.OptionsWindow, AdventureGame.UI
       objectReference: {fileID: 0}
     - target: {fileID: 6890233032387222720, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
         type: 3}

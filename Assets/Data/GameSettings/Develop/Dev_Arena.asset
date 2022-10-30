@@ -20,7 +20,7 @@ MonoBehaviour:
   smokeDisappearsDuration: 2
   smokeDelayToDestroy: 3
   secondsToStart: 3
-  roundDuration: 15
+  roundDuration: 180
   enemies:
   - {fileID: 1210024330883157083, guid: 7a9188f58f258c042b7850e0e7669b61, type: 3}
   - {fileID: 7247538588382256278, guid: b8a8c465da76ca041a5f44c2dff87c07, type: 3}
