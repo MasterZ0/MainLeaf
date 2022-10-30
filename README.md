@@ -5,7 +5,7 @@
   Summary
   
   <div class="column">
-<img src="https://user-images.githubusercontent.com/64444068/198894962-3a09c6af-783c-46b2-ad9b-d004a463ccef.png" width="960" height="540">
+<img src="https://user-images.githubusercontent.com/64444068/198894962-3a09c6af-783c-46b2-ad9b-d004a463ccef.png" width="100%">
   </div>
 
 ## Links
@@ -18,10 +18,10 @@
  <h3> Character Selection </h3>
  <div class="row">
   <div class="column"> 
-   <img src="https://user-images.githubusercontent.com/64444068/115170173-65e55900-a096-11eb-96bf-696972929497.png" width="450" height="250">
+   <img src="https://user-images.githubusercontent.com/64444068/115170173-65e55900-a096-11eb-96bf-696972929497.png" width="40%">
   </div>
   <div class="column">
-<img src="https://user-images.githubusercontent.com/64444068/115170286-a5ac4080-a096-11eb-8211-a840614af0af.png" width="450" height="250">
+<img src="https://user-images.githubusercontent.com/64444068/115170286-a5ac4080-a096-11eb-8211-a840614af0af.png" width="40%">
   </div>
 </div>
 
