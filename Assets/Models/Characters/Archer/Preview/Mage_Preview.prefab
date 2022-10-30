@@ -123,6 +123,11 @@ PrefabInstance:
       propertyPath: renderers.Array.data[1]
       value: 
       objectReference: {fileID: 5318026837400327892}
+    - target: {fileID: 8017431425914577420, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321d88f7b95c7f94384849e497879f5d, type: 3}
 --- !u!4 &4658856629722775918 stripped
@@ -791,7 +796,7 @@ PrefabInstance:
     - target: {fileID: 1869139687976666386, guid: 13ca357e45411aa449512af538c61c22,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1869139687976666388, guid: 13ca357e45411aa449512af538c61c22,
         type: 3}
@@ -1976,7 +1981,7 @@ PrefabInstance:
     - target: {fileID: 1869139689320269268, guid: 13ca357e45411aa449512af538c61c22,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1869139689409929384, guid: 13ca357e45411aa449512af538c61c22,
         type: 3}

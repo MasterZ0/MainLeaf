@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace AdventureGame.Shared.ExtensionMethods
 {
-    /// <summary>
-    /// Note to developers: Please describe what this class does.
-    /// </summary>
     public static class AnimatorExtensions
     {
         public static void PlayOppositeAnimation(this Animator animator, string stateName, float transition)

@@ -1,3 +1,4 @@
+using AdventureGame.Shared.ExtensionMethods;
 using UnityEngine;
 
 namespace AdventureGame.Gameplay
@@ -11,8 +12,7 @@ namespace AdventureGame.Gameplay
 
         private void Update()
         {
-            Vector3 worldPosition = new Vector3(Target.x, transform.position.y, Target.z);
-            transform.LookAt(worldPosition);
+            transform.LookAtY(Target);
         }
     }
 }

@@ -115,6 +115,8 @@ namespace AdventureGame.ApplicationManager
             Scene loadedScene = SceneManager.GetSceneByName(currentScene.ToString());
             SceneManager.SetActiveScene(loadedScene);
 
+            yield return new WaitForEndOfFrame();
+
             onFinish();
             loading = false;
         }

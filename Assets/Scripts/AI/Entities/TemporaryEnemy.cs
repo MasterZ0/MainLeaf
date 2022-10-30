@@ -1,4 +1,5 @@
-﻿using AdventureGame.ObjectPooling;
+﻿using AdventureGame.BattleSystem;
+using AdventureGame.ObjectPooling;
 using System;
 using UnityEngine;
 
@@ -9,33 +10,46 @@ namespace AdventureGame.AI
     /// </summary>
     public class TemporaryEnemy : MonoBehaviour
     {
-        public event Action<TemporaryEnemy> OnKillEnemy;
-        public Enemy Self { get; private set; }
+        public event Action<Enemy> OnEnemyDie;
+        public event Action<TemporaryEnemy> OnRemoveEnemy;
+
+        public Enemy Enemy { get; private set; }
 
         private void Awake()
         {
-            Self = GetComponentInChildren<Enemy>(true);
+            Enemy = GetComponentInChildren<Enemy>(true);
 
-            if (!Self)
-                Debug.LogError($"Missing enemy component in Game Object: {gameObject}");
+            if (!Enemy)
+                throw new MissingComponentException($"Missing enemy component in Game Object: {gameObject}");
 
             name = $"[Temporary Enemy] {name}";
         }
 
         private void OnEnable()
         {
-            Self.OnFinishEnemyDeath += OnFinishEnemyDeath;
-            Self.gameObject.SetActive(true);
+            Enemy.OnFinishEnemyDeath += OnFinishEnemyDeath;
+            Enemy.OnTakeDamage += OnTakeDamage;
+
+            Enemy.gameObject.SetActive(true);
         }
 
         private void OnDisable()
         {
-            Self.OnFinishEnemyDeath -= OnFinishEnemyDeath;
+            Enemy.OnFinishEnemyDeath -= OnFinishEnemyDeath;
+            Enemy.OnTakeDamage -= OnTakeDamage;
+        }
+
+        private void OnTakeDamage(DamageInfo obj)
+        {
+            if (obj.IsDead)
+            {
+                OnEnemyDie.Invoke(Enemy);
+            }
         }
 
         private void OnFinishEnemyDeath()
         {
-            OnKillEnemy(this);
+            OnRemoveEnemy(this);
             transform.ReturnToPool();
         }
     }

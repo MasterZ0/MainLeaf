@@ -437,10 +437,10 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{"- Dependencies":{"_value":{},"_name":"-
     Dependencies","_id":"4c19d570-5a43-4e2f-b6e9-d3d6d7deafdc","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Animator":{"_value":1,"_name":"Animator","_id":"579e2b77-f0bb-47a4-9b2e-f5297907e6c0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Eyes":{"_value":2,"_name":"Eyes","_id":"f31b1bf6-2a83-49ce-99ac-26e8716c888a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Renderer,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetDetection":{"_value":3,"_name":"TargetDetection","_id":"ab839dfd-9cc4-4294-88f0-58fb62251628","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
-    AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"WeaponHitBox":{"_value":4,"_name":"WeaponHitBox","_id":"5350e0d9-067e-4c44-b802-da04a687a3fb","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.BattleSystem.HitBox,
-    AdventureGame.BattleSystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IKLookAt":{"_value":5,"_name":"IKLookAt","_id":"bd0255c8-01a1-446c-8c5c-1ad692c78008","$type":"NodeCanvas.Framework.Variable`1[[RootMotion.FinalIK.LookAtIK,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetDetection":{"_value":2,"_name":"TargetDetection","_id":"ab839dfd-9cc4-4294-88f0-58fb62251628","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
+    AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"WeaponHitBox":{"_value":3,"_name":"WeaponHitBox","_id":"5350e0d9-067e-4c44-b802-da04a687a3fb","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.BattleSystem.HitBox,
+    AdventureGame.BattleSystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Eyes":{"_value":4,"_name":"Eyes","_id":"e9636b68-a67d-46c4-8635-e6a2fc18544c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.SkinnedMeshRenderer,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IKLookAt":{"_value":5,"_name":"IKLookAt","_id":"bd0255c8-01a1-446c-8c5c-1ad692c78008","$type":"NodeCanvas.Framework.Variable`1[[RootMotion.FinalIK.LookAtIK,
     RootMotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"- Settings":{"_value":{},"_name":"-
     Settings","_id":"344c4680-991b-4f67-b528-391986bbfc3a","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IdleTime":{"_name":"IdleTime","_id":"2b42b1ea-3d09-4c91-b066-1e1549286a47","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -467,13 +467,14 @@ MonoBehaviour:
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetPivot":{"_name":"TargetPivot","_id":"99477a89-00a5-4339-bb26-2082a2a28d1a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetCenter":{"_name":"TargetCenter","_id":"718b10d7-2e21-4868-afdb-6cff32bf7dc4","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetHead":{"_name":"TargetHead","_id":"1b235fd3-abca-4787-98c6-1c6210d11699","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetDetection.":{"_value":2,"_name":"TargetDetection.","_id":"65baee1f-9787-4eb8-b8a1-73dadb0e00f3","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
+    AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 594864243055153747}
-  - {fileID: 9122133044972876318}
   - {fileID: 3585812057788780148}
   - {fileID: 7120488134026822942}
+  - {fileID: 9122133044972876318}
   - {fileID: 7517046094773235811}
   _serializedVariables:
   - _json: '{"_value":{},"_name":"- Dependencies","_id":"4c19d570-5a43-4e2f-b6e9-d3d6d7deafdc","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
@@ -484,11 +485,6 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 594864243055153747}
-  - _json: '{"_value":1,"_name":"Eyes","_id":"f31b1bf6-2a83-49ce-99ac-26e8716c888a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Renderer,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 9122133044972876318}
   - _json: '{"_value":1,"_name":"TargetDetection","_id":"ab839dfd-9cc4-4294-88f0-58fb62251628","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
       AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
@@ -499,6 +495,11 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 7120488134026822942}
+  - _json: '{"_value":1,"_name":"Eyes","_id":"e9636b68-a67d-46c4-8635-e6a2fc18544c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.SkinnedMeshRenderer,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 9122133044972876318}
   - _json: '{"_value":1,"_name":"IKLookAt","_id":"bd0255c8-01a1-446c-8c5c-1ad692c78008","$type":"NodeCanvas.Framework.Variable`1[[RootMotion.FinalIK.LookAtIK,
       RootMotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
@@ -576,6 +577,11 @@ MonoBehaviour:
   - _json: '{"_name":"TargetHead","_id":"1b235fd3-abca-4787-98c6-1c6210d11699","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
+  - _json: '{"_value":1,"_name":"TargetDetection.","_id":"65baee1f-9787-4eb8-b8a1-73dadb0e00f3","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
+      AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 3585812057788780148}
 --- !u!54 &3995657458854046786
 Rigidbody:
   m_ObjectHideFlags: 0

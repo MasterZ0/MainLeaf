@@ -12,7 +12,6 @@ namespace AdventureGame.MainMenu
 
         [Header("Components")]
         [SerializeField] private GameObject characterCam;
-        [SerializeField] private Animator nameAnimator;
         [SerializeField] private Outline outline;
 
         public GameObject CharacterCam => characterCam;
@@ -38,7 +37,7 @@ namespace AdventureGame.MainMenu
 
         public override void OnSelect(BaseEventData eventData)
         {
-            base.Select();
+            base.OnSelect(eventData);
             outline.SetColor(Settings.OutlineSelectedColor);
         }
 

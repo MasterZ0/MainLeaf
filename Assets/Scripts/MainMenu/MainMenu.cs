@@ -1,6 +1,7 @@
 ﻿using AdventureGame.ApplicationManager;
 using AdventureGame.Shared;
 using AdventureGame.UI;
+using AdventureGame.UI.Window;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,6 +42,12 @@ namespace AdventureGame.MainMenu
             //GameManager.MusicManager.ChangeMusic(Music.MainMenu);
             //GameManager.Instance.SetTransitionCallback(() => animator.SetTrigger(CHANGE_SCREEN));
         }
+
+        private void OnDestroy()
+        {
+            onSceneFadeOutEnd -= OnOpenMainScreen;
+        }
+
         private void OnOpenMainScreen() => animator.Play(MainScreen_FadeIn);
 
         #region Button Events
@@ -48,11 +55,13 @@ namespace AdventureGame.MainMenu
         {
             SwitchCamera(optionsCam);
 
-            onFadeOutEnd = () => UIManager.Options.OpenSettings(OnCloseCharacterSelection); 
+            onFadeOutEnd = () => UIManager.OpenOptions();
+            WindowManager.OnCloseLastWindow += OnCloseOption;
         }
 
         private void OnCloseOption() // Fade In with Aut Select
         {
+            WindowManager.OnCloseLastWindow -= OnCloseOption;
             SwitchCamera(mainScreenCam, MainScreen_FadeIn);
         }
 

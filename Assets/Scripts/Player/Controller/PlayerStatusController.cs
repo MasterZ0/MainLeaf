@@ -58,7 +58,7 @@ namespace AdventureGame.Player
             }
             else
             {
-                ApplyDamage(damage.ContactPoint);
+                ApplyDamage(damage.ContactPoint.Value);
             }
         }
 

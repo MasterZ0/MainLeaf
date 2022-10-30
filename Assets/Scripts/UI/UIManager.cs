@@ -1,13 +1,12 @@
 
 using AdventureGame.AppOptions;
 using AdventureGame.Shared;
+using AdventureGame.UI.Window;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace AdventureGame.UI
-{   
+{
     /// <summary>
     /// The new UI Manager
     /// </summary>
@@ -15,18 +14,28 @@ namespace AdventureGame.UI
     {
         [Title("UI Manager")]
         [SerializeField] private Popup popup;
-        [SerializeField] private Options options;
+        [SerializeField] private OptionsWindow options;
+
+        [Title("Game Events")]
+        [SerializeField] private GameEvent onOpenOptions;
 
         #region References
         public static Popup Popup => Instance.popup;
-        public static Options Options => Instance.options;
         #endregion
 
+        public static void OpenOptions() => Instance.options.RequestOpenWindow();
 
         protected override void Awake()
         {
             base.Awake();
             options.Init();
+
+            onOpenOptions += OpenOptions;
+        }
+
+        private void OnDestroy()
+        {
+            onOpenOptions -= OpenOptions;
         }
     }
 }

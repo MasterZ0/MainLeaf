@@ -58,7 +58,7 @@ namespace AdventureGame.Player
 
         public void Destroy()
         {
-            Object.Destroy(defaultCamera.transform.parent.gameObject);
+            //Object.Destroy(defaultCamera.transform.parent.gameObject);
         }
 
         public void Update()

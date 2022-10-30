@@ -42,17 +42,14 @@ namespace AdventureGame.AI
         public Transform Center => center;
         public Transform Pivot => transform;
         public Transform Head => head;
-        public int MaxHealth => maxHealth;
-        public int CurrentHealth => currentHealth;
-        public bool IsDead => currentHealth <= 0;
+        public int MaxHealth => enemyData.MaxHealth;
+        public int CurrentHealth { get; private set; } = 1;
+        private bool IsDead => this.IsDead();
         #endregion
 
         private readonly List<SkillEffect> modifiers = new List<SkillEffect>();
 
         private EnemyData enemyData;
-
-        private int maxHealth = 1;
-        private int currentHealth = 1;
 
         private Material[] defaultSharedMaterial;
 
@@ -73,8 +70,7 @@ namespace AdventureGame.AI
         public virtual void Setup(EnemyData data)
         {
             enemyData = data;
-            maxHealth = enemyData.MaxHealth;
-            currentHealth = maxHealth;
+            CurrentHealth = MaxHealth;
 
             Damage bodyDamage = new Damage(enemyData.BodyDamage, this); 
             foreach (HitBox bodyHitBox in bodyHitBoxes)
@@ -93,15 +89,18 @@ namespace AdventureGame.AI
                 return;
 
             int effectiveDamage = damage.Value;
-            if (currentHealth - effectiveDamage < 0)
+            if (CurrentHealth - effectiveDamage < 0)
             {
-                effectiveDamage = currentHealth;
+                effectiveDamage = CurrentHealth;
             }
 
-            currentHealth -= effectiveDamage;
+            CurrentHealth -= effectiveDamage;
 
             DamageInfo damageInfo = new DamageInfo(damage, this, effectiveDamage);
             OnTakeDamage(damageInfo);
+
+            Vector3 contactPoint = damage.ContactPoint.HasValue ? damage.ContactPoint.Value : transform.position;
+            Quaternion contactRotation = damage.ContactRotation.HasValue ? damage.ContactRotation.Value : transform.rotation;
 
             if (!IsDead)
             {
@@ -109,13 +108,13 @@ namespace AdventureGame.AI
                 damageSoundReference.PlaySound(transform);
 
                 // Paint Hit Particle
-                ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitFX, damage.ContactPoint, damage.HitBoxSender.transform.rotation);
+                ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitFX, contactPoint, contactRotation);
                 spawnedHitParticle.SetColor(enemyData.HitParticleGradient);
             }
             else
             {
                 deathSoundReference.PlaySound(transform);
-                ObjectPool.SpawnPooledObject(hitKillFX, damage.ContactPoint, damage.HitBoxSender.transform.rotation);
+                ObjectPool.SpawnPooledObject(hitKillFX,contactPoint, contactRotation);
 
                 // Disable components
                 foreach (HitBox bodyHitBox in bodyHitBoxes)

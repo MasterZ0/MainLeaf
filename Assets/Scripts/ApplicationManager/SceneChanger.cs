@@ -17,7 +17,7 @@ namespace AdventureGame.ApplicationManager
 
         public void OnReloadScene()
         {
-            GameManager.RequestLoadScene(null);
+            GameManager.RequestReloadScene();
         }
     }
 }

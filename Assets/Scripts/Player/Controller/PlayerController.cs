@@ -8,13 +8,14 @@ using System;
 using AdventureGame.Items;
 using System.Collections.Generic;
 using NodeCanvas.StateMachines;
+using AdventureGame.Gameplay;
 
 namespace AdventureGame.Player
 {
     /// <summary>
     /// Player Core
     /// </summary>
-    public class PlayerController : MonoBehaviour, IAttacker, IDamageable, IItemCollector
+    public class PlayerController : MonoBehaviour, IAttacker, IDamageable, IItemCollector, IPlayer
     {
         [Title("Player Controller")]
         [SerializeField] private Transform center;
@@ -220,7 +221,7 @@ namespace AdventureGame.Player
 
         private Vector2 GetDamageDirection(Damage damage)
         {
-            Vector2 contactDirection = damage.ContactPoint - transform.position;
+            Vector2 contactDirection = damage.ContactPoint.Value - transform.position;
             contactDirection.y = 0;
             contactDirection.Normalize();
 

@@ -1,5 +1,6 @@
 using AdventureGame.Data;
 using AdventureGame.Shared;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -24,24 +25,16 @@ namespace AdventureGame.ApplicationManager
 
         private const string FadeIn = "FadeIn";
         private const string FadeOut = "FadeOut";
+
+        public static event Action<bool> OnChanceFocus = delegate { };
+        public static bool FocusOnGame { get; private set; }
         #endregion
 
         #region Initialization
         protected override void Awake()
         {
-            
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = false;
-
-            #if !UNITY_EDITOR
-
-            bool successful = StartDRM();
-            if (!successful)
-            {
-                Application.Quit();
-                return;
-            }
-            #endif
 
             base.Awake();
             gameValues.Initialize();
@@ -49,9 +42,21 @@ namespace AdventureGame.ApplicationManager
         }
         #endregion
 
-        private bool StartDRM() => true; // TODO
+        #region Focus
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            #if UNITY_EDITOR
+            if (Application.isEditor)
+                return;
+            #endif
+
+            FocusOnGame = hasFocus;
+            OnChanceFocus(FocusOnGame);
+        }
+        #endregion
 
         #region Public Request
+        public static void RequestReloadScene() => RequestLoadScene(null);
         public static void RequestLoadScene(GameScene? scene)
         {
             Instance.LoadScene(scene);

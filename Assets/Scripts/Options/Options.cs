@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace AdventureGame.AppOptions
 {
@@ -11,11 +9,9 @@ namespace AdventureGame.AppOptions
         [SerializeField] private AudioOptions audioOptions;
         [SerializeField] private ControlsOptions controlsOptions;
         [Space]
-        [SerializeField] private Button firstBtn;
+        [SerializeField] protected GameObject firstBtn;
 
-        private Action closeCallback;
-
-        public void Init() // LoadOptions
+        public virtual void Init() // LoadOptions
         {
             return;
             videoOptions.LoadVideoSettings();
@@ -23,17 +19,8 @@ namespace AdventureGame.AppOptions
             controlsOptions.LoadInputSettings();
         }
 
-        public void OpenSettings(Action onClose)
-        {
-            closeCallback = onClose;
-            gameObject.SetActive(true);
-            firstBtn.Select();
-        }
+        public virtual void OnOpenSettings() { }
 
-        public void OnCloseSettings()
-        {
-            gameObject.SetActive(false);
-            closeCallback();
-        }
+        public virtual void OnCloseSettings() { }
     }
 }

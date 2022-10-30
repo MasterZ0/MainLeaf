@@ -1,29 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sirenix.Utilities;
 using UnityEngine;
 
 namespace AdventureGame.Shared.ExtensionMethods
 {
-    public static class TransformExtensions
-    {
-        public static Transform SearchChildren(this Transform parent, string desiredName)
+    public static class TransformExtensions 
+    { 
+        public static void LookAtY(this Transform transform, Vector3 target)
         {
-            for (int i = 0; i < parent.childCount; i++)
-            {
-                Transform child = parent.GetChild(i);
-                string treatedName = child.name.ToLower();
-                
-                if (treatedName.Contains(desiredName.ToLower()))
-                    return child;
-
-                Transform childrenResult = SearchChildren(child, desiredName);
-                
-                if (childrenResult != null)
-                    return childrenResult;
-            }
-
-            return null;
+            Vector3 worldPosition = new Vector3(target.x, transform.position.y, target.z);
+            transform.LookAt(worldPosition);
         }
         
         public static Vector2 GetRealSize(this RectTransform rectTransform)
@@ -75,30 +61,11 @@ namespace AdventureGame.Shared.ExtensionMethods
             target.position = finalPosition;
         }
 
-        public static List<string> GetChildrenName(this Transform transform)
-        {
-            List<string> children = new List<string>();
-
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Transform enemy = transform.GetChild(i);
-                children.Add(enemy.name);
-            }
-
-            return children;
-        }
-
-        public static Vector3[] GetWorldCorners(this Transform unconvertedTransform)
+        public static Vector3[] GetWorldCorners(this RectTransform rect)
         {
             Vector3[] corners = new Vector3[4];
-
-            if (unconvertedTransform is RectTransform rect)
-            {
-                rect.GetWorldCorners(corners);
-                return corners;
-            }
-
-            throw new NullReferenceException($"{unconvertedTransform} couldn't be converted to Rect Transform.");
+            rect.GetWorldCorners(corners);
+            return corners;
         }
     }
 }

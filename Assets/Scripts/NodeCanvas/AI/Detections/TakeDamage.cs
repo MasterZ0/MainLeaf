@@ -17,8 +17,7 @@ namespace AdventureGame.NodeCanvas.AI
         
         protected override void OnExecute()
         {
-            Damage damage = new Damage(damageValue.value);
-            agent.TakeDamage(damage);
+            agent.TakeDamage(damageValue.value);
             EndAction(true);
         }
     }

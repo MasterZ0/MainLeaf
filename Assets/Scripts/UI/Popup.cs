@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace AdventureGame.UI { 
-
+namespace AdventureGame.UI
+{
     public struct PopupRequest
     {
         public LocalizedString title;
@@ -53,17 +53,6 @@ namespace AdventureGame.UI {
             EventSystem.current.SetSelectedGameObject(null);
             gameObject.SetActive(true);
             animator.Play(FadeIn);
-        }
-
-        private void DeleteSaveGame(object saveGame)
-        {
-            RequestQuestion(null, OnAnswer);
-
-
-            void OnAnswer(bool active)
-            {
-
-            }
         }
 
         /// <summary>

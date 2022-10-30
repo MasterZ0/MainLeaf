@@ -45,10 +45,10 @@ namespace AdventureGame.MainMenu
 
             for (int i = 0; i < damage.Length; i++)
             {
-                damage[i].SetActive(i <= status.damage - 1);
-                agility[i].SetActive(i <= status.agility - 1);
-                support[i].SetActive(i <= status.support - 1);
-                resistence[i].SetActive(i <= status.resistence - 1);
+                damage[i].SetActive(i + 1 <= status.damage);
+                agility[i].SetActive(i + 1 <= status.agility);
+                support[i].SetActive(i + 1 <= status.support);
+                resistence[i].SetActive(i + 1 <= status.resistence);
             }
 
             EventSystem.current.SetSelectedGameObject(null);

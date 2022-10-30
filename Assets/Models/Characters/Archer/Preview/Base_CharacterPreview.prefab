@@ -110,7 +110,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   characterSettings: {fileID: 0}
   characterCam: {fileID: 2628249279463661731}
-  nameAnimator: {fileID: 1637506729813960681}
   outline: {fileID: 3050704502103704300}
 --- !u!114 &5687459419868331500
 MonoBehaviour:
@@ -245,8 +244,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Archer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47f70ba3621839e41a13b7c35a2919c2, type: 2}
-  m_sharedMaterial: {fileID: 4410598720407556159, guid: 47f70ba3621839e41a13b7c35a2919c2,
+  m_fontAsset: {fileID: 11400000, guid: 1bd95627db9616d4dbd9b92d06c9f460, type: 2}
+  m_sharedMaterial: {fileID: 4410598720407556159, guid: 1bd95627db9616d4dbd9b92d06c9f460,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -324,7 +323,7 @@ GameObject:
   - component: {fileID: 8017431425914577420}
   - component: {fileID: 4031061293214012422}
   m_Layer: 0
-  m_Name: CM Archer
+  m_Name: CM Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,7 +374,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16

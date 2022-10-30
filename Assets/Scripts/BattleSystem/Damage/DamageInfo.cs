@@ -8,6 +8,7 @@ namespace AdventureGame.BattleSystem
         public IDamageable Receiver { get; set; }
         public int EffectiveDamage { get; set; }
 
+        public bool IsDead => Receiver.IsDead();
         /// <summary> Nullable </summary>
         public IAttacker Sender => Damage.Sender;
 

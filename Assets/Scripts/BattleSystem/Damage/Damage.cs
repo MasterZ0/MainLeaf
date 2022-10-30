@@ -1,9 +1,8 @@
-﻿using AdventureGame.Shared;
-using AdventureGame.Shared.ExtensionMethods;
-using System;
+﻿using AdventureGame.Shared.ExtensionMethods;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 namespace AdventureGame.BattleSystem
 {
     public class Damage
@@ -19,7 +18,8 @@ namespace AdventureGame.BattleSystem
 
         // Hitbox
         public HitBox HitBoxSender { get; private set; }
-        public Vector3 ContactPoint { get; private set; }
+        public Vector3? ContactPoint { get; private set; }
+        public Quaternion? ContactRotation => HitBoxSender ? HitBoxSender.transform.rotation : null;
 
         private Vector2Int damageRange;
 

@@ -264,13 +264,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9027891735075527986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18c04f7aa8066f45b32f3be8326fe94, type: 3}
+  m_Script: {fileID: 11500000, guid: a1ee0679d41374d4587566669856acf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   videoOptions: {fileID: 3607687045116186482}
   audioOptions: {fileID: 8502021356536098651}
   controlsOptions: {fileID: 8617586949898569331}
   firstBtn: {fileID: 657451198409885685}
+  firstButton: {fileID: 4565291380300779000}
 --- !u!114 &9027891735075527988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,7 +5007,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 9027891735843568847}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4565291380300779000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -5015,6 +5016,12 @@ MonoBehaviour:
 --- !u!224 &768321047678113708 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8637935282360724323, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
+    type: 3}
+  m_PrefabInstance: {fileID: 9027891735843568847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4565291380300779000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4761061137982222647, guid: 2fe2c3cfb1227f94ab78d62b98a8aee7,
     type: 3}
   m_PrefabInstance: {fileID: 9027891735843568847}
   m_PrefabAsset: {fileID: 0}

@@ -17,10 +17,7 @@ namespace AdventureGame.NodeCanvas.AI
         
         protected override void OnExecute()
         {
-            int damageValue = Mathf.FloorToInt(agent.CurrentHealth * damagePercentage.value * 0.01f);
-            Damage damage = new Damage(damageValue);
-            
-            agent.TakeDamage(damage);
+            agent.TakeDamagePercentage(damagePercentage.value);
             EndAction(true);
         }
     }

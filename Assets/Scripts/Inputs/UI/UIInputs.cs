@@ -14,8 +14,6 @@ namespace AdventureGame.Inputs
         public event Action OnSubmitReleased = delegate { };
         public event Action OnCancel = delegate { };
         public event Action OnExtra = delegate { };
-        public event Action OnMap = delegate { };
-        public event Action OnSwitchWeapon = delegate { };
         public event Action<bool> OnSkipCutscene = delegate { };
         public event Action<Vector2> OnMove = delegate { };
         
@@ -45,8 +43,6 @@ namespace AdventureGame.Inputs
             controls.UI.Move.started += OnPressMove;
             controls.UI.SkipCutscene.started += OnPressSkip;
             controls.UI.SkipCutscene.canceled += OnReleaseSkip;
-            controls.UI.Map.started += OnPressMap;
-            controls.UI.SwitchWeapon.started += OnPressSwitchWeapon;
         }
 
         private void OnPressSkip(InputAction.CallbackContext obj)
@@ -88,16 +84,6 @@ namespace AdventureGame.Inputs
         private void OnPressExtraButton(InputAction.CallbackContext obj)
         {
             OnExtra();
-        }
-
-        private void OnPressMap(InputAction.CallbackContext obj)
-        {
-            OnMap();
-        }
-
-        private void OnPressSwitchWeapon(InputAction.CallbackContext obj)
-        {
-            OnSwitchWeapon();
         }
     }
 }
