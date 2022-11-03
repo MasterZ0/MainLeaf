@@ -66,7 +66,7 @@ namespace AdventureGame.Player.States
             ExitState();
         }
 
-        // Test last state
+        // There could exist a history with the class and exit time
         private bool GetPreviousState<T>() => (agent.FSM.GetPreviousState() as ActionState).actionList.actions.Any(s => s.GetType() == typeof(T));
 
         protected virtual void EnterState() { }

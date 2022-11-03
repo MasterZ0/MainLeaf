@@ -10,6 +10,7 @@ namespace AdventureGame.Player.States
         protected override void EnterState()
         {
             Physics.SetGravityScale(gravityScale.value);
+            EndAction();
         }
     }
 }

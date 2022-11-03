@@ -1,5 +1,4 @@
 using NodeCanvas.Framework;
-using UnityEngine;
 
 namespace AdventureGame.Player.States
 {
@@ -13,7 +12,7 @@ namespace AdventureGame.Player.States
             string stateName = string.IsNullOrEmpty(overrideIdleState.value) ? idleState.value : overrideIdleState.value;
             Animator.PlayAllLayers(stateName);
             overrideIdleState.value = string.Empty;
-            //Physics.FullFriction();
+            EndAction();
         }
     }
 }
