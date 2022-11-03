@@ -5,17 +5,18 @@ using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Physics)]
+    [Category(Categories.Transform)]
     [Description("Get Character Controller Velocity")]
-    public class GetCharacterControllerVelocity : ActionTask<CharacterController>
+    public class InverseTransformDirection : ActionTask
     {
-        public BBParameter<Vector3> velocity;
+        public BBParameter<Vector3> direction;
+        public BBParameter<Vector3> inverse;
 
         protected override string info => $"Get {agentInfo} Velocity";
 
         protected override void OnExecute()
         {
-            velocity.value = agent.velocity;
+            inverse.value = agent.transform.InverseTransformDirection(direction.value);
             EndAction();
         }
     }

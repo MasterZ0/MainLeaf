@@ -72,16 +72,6 @@ namespace AdventureGame.Shared.Utils
             return Mathf.Abs(secant);
         }
         
-        public static Vector3 NormalizeCircle(Vector3 direction) // Ex: (1, 0) = (1, 0) -> (1, 1) = (0. 707, 0.707)
-        {
-            direction = direction.normalized;
-            if (direction.magnitude <= 1)
-                return direction;
-
-            float angle = DirectionToAngle(direction);
-            return AngleToDirection(angle);
-        }
-
         public static float Hypotenuse(float sideALength, float sideBLength) {
             return Mathf.Sqrt(sideALength * sideALength + sideBLength * sideBLength);
         }

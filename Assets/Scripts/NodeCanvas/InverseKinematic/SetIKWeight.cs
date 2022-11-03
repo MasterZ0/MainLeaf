@@ -36,7 +36,7 @@ namespace AdventureGame.NodeCanvas.InverseKinematic
 
         protected override void OnUpdate()
         {
-            currentWeight = Mathf.MoveTowards(currentWeight, weight.value, (1f / duration.value) * Time.fixedDeltaTime);
+            currentWeight = Mathf.MoveTowards(currentWeight, weight.value, 1f / duration.value * Time.fixedDeltaTime);
             agent.GetIKSolver().SetIKPositionWeight(currentWeight);
 
             if (currentWeight == weight.value)

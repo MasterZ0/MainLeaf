@@ -8,11 +8,6 @@ namespace AdventureGame.Gameplay
     /// </summary>
     public class FacingCamera : MonoBehaviour 
     {
-        private Vector3 Target => MainCamera.Instance.transform.position;
-
-        private void Update()
-        {
-            transform.LookAtY(Target);
-        }
+        private void Update() => transform.LookAtY(MainCamera.Position);
     }
 }

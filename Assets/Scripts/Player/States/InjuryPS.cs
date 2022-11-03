@@ -20,7 +20,7 @@ namespace AdventureGame.Player.States {
             
             SFX.Injury();
             //Physics.SetVelocity(Vector3.zero);
-            Physics.FullFriction();
+            //Physics.FullFriction();
         }
 
         protected override void ExitState()

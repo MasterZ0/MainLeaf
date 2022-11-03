@@ -12,11 +12,26 @@ namespace AdventureGame.Data
         [SerializeField, Range(0f, 20f)] private float walkSpeed = 7f;
         [FoldoutGroup(Movement)]
         [SerializeField, Range(0f, 20f)] private float sprintSpeed = 12f;
+        [FoldoutGroup(Movement)]
+        [SerializeField, Range(0f, 50f)] private float acceleration = 6f;
+        [FoldoutGroup(Movement)]
+        [SerializeField, Range(0f, 50f)] private float deceleration = 3f;
+
+        [FoldoutGroup(Aim)]
+        [SerializeField] private float maxAimDistance = 15f;
+        [FoldoutGroup(Aim)]
+        [SerializeField] private float aimTransitionDuration = 1f;
+        [FoldoutGroup(Aim)]
+        [SerializeField] private float fullLockAngle = 15f;
 
         [FoldoutGroup(Rotation)]
-        [SerializeField] public float rotationSpeed = 1f;
+        [SerializeField] private float defaultSensibility = 1f;
         [FoldoutGroup(Rotation)]
-        [SerializeField] public float rotationBodyLerp = 15f;
+        [SerializeField] private float aimSensibility = 0.5f;
+        [FoldoutGroup(Rotation)]
+        [SerializeField] private float aimBodyCorrectionSpeed = 15f;
+        [FoldoutGroup(Rotation)]
+        [SerializeField] private float rotationSmoothTime = 0.12f;
         [FoldoutGroup(Rotation)]
         [MinMaxSlider(-90, 90, true)]
         [SerializeField] private Vector2 cameraRangeRotation = new Vector2(-30f, 30f);
@@ -38,7 +53,7 @@ namespace AdventureGame.Data
         [SerializeField, Range(0f, 20f)] private float jumpVelocity = 5.4f;
 
         [FoldoutGroup(GroundRules)]
-        [SerializeField, Range(0f, 1f)] private float groundCheckRadius = 0.02f;
+        [SerializeField, Range(0f, 1f)] private float groundCheckRadius = 0.2f;
 
         [FoldoutGroup(Dash)]
         [SerializeField, Range(0f, 20f)] private float airDashVelocity = 8f;
@@ -72,7 +87,8 @@ namespace AdventureGame.Data
         [SerializeField] private float dyingMinTime = 0.2f;
         [FoldoutGroup(Injury), VectorSlider(0f, 10f)]
         [SerializeField] private Vector2 deathVelocity = new Vector2(6f, 6f);
-
+        public float Acceleration => acceleration;
+        public float Deceleration => deceleration;
 
         public float InvincibilityTimeAfterInjury => invincibilityTimeAfterInjury;
         public float DyingMinTime => dyingMinTime;
@@ -84,8 +100,11 @@ namespace AdventureGame.Data
         public float AimMoveSpeed => aimMoveSpeed;
         public float WalkSpeed => walkSpeed;
         public float SprintSpeed => sprintSpeed;
-        public float RotationSpeed => rotationSpeed;
-        public float RotationLerp => rotationBodyLerp;
+        public float DefaultSensibility => defaultSensibility;
+        public float AimSensibility => aimSensibility;
+        public float RotationSmoothTime => rotationSmoothTime;
+        public float AimBodyCorrectionSpeed  => aimBodyCorrectionSpeed;
+        public float FullLockAngle => fullLockAngle;
         public Vector2 CameraRangeRotation => cameraRangeRotation;
 
         //Jump
@@ -108,7 +127,11 @@ namespace AdventureGame.Data
         public float GroundedGravity => groundedGravity;
         public float FallingGravity => fallingGravity;
         public float JumpGravity => jumpGravity;
+        public float AimTransitionDuration => aimTransitionDuration;
+        public float MaxAimDistance => maxAimDistance;
+        public float GroundCheckRadius => groundCheckRadius;
 
+        private const string Aim = "Aim";
         private const string Rotation = "Rotation";
         private const string Movement = "Movement";
         private const string GroundRules = "Ground Rules";

@@ -31,11 +31,18 @@ MonoBehaviour:
     defaultStaminaRegeneration: 0.25
     defaultManaRegeneration: 0.25
   physics:
-    aimMoveSpeed: 1.5
-    walkSpeed: 2.5
+    aimMoveSpeed: 1
+    walkSpeed: 2
     sprintSpeed: 6
-    rotationSpeed: 1
-    rotationBodyLerp: 15
+    acceleration: 20
+    deceleration: 15
+    maxAimDistance: 15
+    aimTransitionDuration: 1
+    fullLockAngle: 15
+    defaultSensibility: 1
+    aimSensibility: 0.25
+    aimBodyCorrectionSpeed: 15
+    rotationSmoothTime: 0.12
     cameraRangeRotation: {x: -30, y: 30}
     mass: 1
     maxFallingVelocity: 11
@@ -44,7 +51,7 @@ MonoBehaviour:
     jumpGravity: 1
     jumpRangeDuration: {x: 0.04, y: 0.25}
     jumpVelocity: 1
-    groundCheckRadius: 0.02
+    groundCheckRadius: 0.2
     airDashVelocity: 8
     airDashDuration: 0.3
     groundDashVelocity: 8

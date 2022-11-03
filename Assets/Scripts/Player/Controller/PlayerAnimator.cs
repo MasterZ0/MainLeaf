@@ -5,6 +5,8 @@ using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 using AdventureGame.Inputs;
+using RootMotion.FinalIK;
+using System.Collections;
 
 namespace AdventureGame.Player
 {
@@ -21,15 +23,16 @@ namespace AdventureGame.Player
     {
         [Header("Components")]
         [SerializeField] private Animator animator;
+        [SerializeField] private AimIK aimIk;
 
         [Header("States")]
         [SerializeField] private string jumpMoving = "Jump";
         [SerializeField] private string falling = "Falling";
 
+        private Coroutine aimCoroutine;
+
+        private PlayerPhysicsSettings Settings => Controller.PlayerSettings.Physics;
         private PlayerController Controller { get; set; }
-        private Transform AnimTransform => animator.transform;
-        private PlayerInputs Inputs => Controller.Inputs;
-        private float RotationBodyLerp => Controller.PlayerSettings.Physics.rotationBodyLerp;
 
         public void Init(PlayerController controller)
         {
@@ -49,27 +52,26 @@ namespace AdventureGame.Player
             }
         }
 
-        internal void UpdateWalk()
+        public void SetAimWeight(float weight)
         {
-            if (AnimTransform.localEulerAngles.y != 0)
+            if (aimCoroutine != null)
             {
-                Quaternion playerRotation = Quaternion.Lerp(AnimTransform.localRotation, Quaternion.identity, RotationBodyLerp * Time.fixedDeltaTime);
-                AnimTransform.localRotation = playerRotation;
+                Controller.StopCoroutine(aimCoroutine);
+            }
+
+            aimCoroutine = Controller.StartCoroutine(UpdateAimWeight(weight, Settings.AimTransitionDuration));
+        }
+
+        private IEnumerator UpdateAimWeight(float weight, float transitionDuration)
+        {
+            IKSolver solver = aimIk.GetIKSolver();
+
+            while (solver.IKPositionWeight != weight)
+            {
+                float newWeight = Mathf.MoveTowards(solver.IKPositionWeight, weight, 1f / transitionDuration * Time.fixedDeltaTime);
+                solver.SetIKPositionWeight(newWeight);
+                yield return new WaitForFixedUpdate();
             }
         }
-
-        internal void UpdateRunBody()
-        {
-            if (!Inputs.MovePressed)
-                return;
-
-            Vector3 direction = new Vector3(Inputs.Move.x, 0, Inputs.Move.y) - AnimTransform.eulerAngles;
-            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            Quaternion playerRotation = Quaternion.Euler(0, angle, 0);
-
-            playerRotation = Quaternion.Lerp(AnimTransform.localRotation, playerRotation, RotationBodyLerp * Time.fixedDeltaTime);
-            AnimTransform.localRotation = playerRotation;
-        }
-
     }
 }

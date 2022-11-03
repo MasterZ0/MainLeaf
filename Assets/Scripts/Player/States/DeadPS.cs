@@ -12,7 +12,7 @@ namespace AdventureGame.Player.States
         {
             //Physics.SetVelocity(Vector2.zero);
             //Animator.Dead();
-            Physics.FullFriction();
+            //Physics.FullFriction();
 
             deadTimer.Set(2);
             //deadTimer.Set(VisualSettings.TimeToShowGameOver); // TODO: Improve

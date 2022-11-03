@@ -119,17 +119,22 @@ namespace AdventureGame.Player
 
         private void FixedUpdate()
         {
+            stateMachine.graph.UpdateGraph();
+
             if (PlayerSettings)
             {
-                cameraController.Update();
                 Physics.Update();
                 playerStatus.Update();
                 FacilitatorBuffer.UpdateBuffers();
+                cameraController.LateUpdate();
             }
 
-            stateMachine.graph.UpdateGraph();
             // status?
             //UpdateInvincible();
+        }
+
+        private void LateUpdate()
+        {
         }
 
         private void UpdateInvincible()

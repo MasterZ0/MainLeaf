@@ -7,7 +7,7 @@ namespace AdventureGame.Shared.ExtensionMethods
     /// <summary>
     /// General Extensions
     /// </summary>
-    public static class AdventureGameExtensions
+    public static class UnityExtensions
     {
         /// <summary> Prevents Event system bugs </summary>
         public static void SelectWithDelay(this Selectable selectable) // Prevents Event system bugs
@@ -20,5 +20,7 @@ namespace AdventureGame.Shared.ExtensionMethods
             yield return new WaitForEndOfFrame();
             selectable.Select();
         }
+
+        public static int ToIntLayer(this LayerMask layer) => (int)Mathf.Log(layer.value, 2f);
     }
 }

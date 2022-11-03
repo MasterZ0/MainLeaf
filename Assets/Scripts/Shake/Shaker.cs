@@ -8,7 +8,7 @@ namespace AdventureGame.Shake
     /// </summary>
     public class Shaker : MonoBehaviour
     {
-        public static event Action<ShakeResult> OnUpdateShake;
+        public static event Action<ShakeResult> OnUpdateShake = delegate { };
 
         private static Shaker instance;
         public static Shaker Instance
