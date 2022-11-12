@@ -26,9 +26,14 @@ namespace AdventureGame.UI.Window
                 CurrentWindow.CloseWindow();
             }
 
+            EventSystem.current.SetSelectedGameObject(null);
             CurrentWindow = window;
             CurrentWindow.OpenWindow();
-            EventSystem.current.SetSelectedGameObject(CurrentWindow.FirstGameObject);
+
+            if (CurrentWindow.FirstGameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(CurrentWindow.FirstGameObject);
+            }
         }
 
         public static void CloseCurrentWindow()

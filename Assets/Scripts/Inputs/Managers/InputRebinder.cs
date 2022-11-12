@@ -63,10 +63,10 @@ namespace AdventureGame.Inputs
             StringBuilder stringBuilder = new StringBuilder();
 
             inputBinding = inputReference.action.bindings[bindIndex]; 
-            string text = InputControlPath.ToHumanReadableString(inputBinding.effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-            stringBuilder.AppendLine(text);
-            string text2 = inputBinding.ToDisplayString();
-            stringBuilder.AppendLine(text2);
+            string humanReadable = InputControlPath.ToHumanReadableString(inputBinding.effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+            stringBuilder.AppendLine(humanReadable);
+            string toDisplay = inputBinding.ToDisplayString();
+            stringBuilder.AppendLine(toDisplay);
             debugArea = stringBuilder.ToString();
         }
         #endregion
@@ -83,15 +83,12 @@ namespace AdventureGame.Inputs
 
         public void OnRebind()
         {
-            pressToSelect.SetActive(true);
-            inputIcon.gameObject.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
             manager.DoRebind(this);
         }
 
         public void Select()
         {
-            pressToSelect.SetActive(false);
-            inputIcon.gameObject.SetActive(true);
             EventSystem.current.SetSelectedGameObject(gameObject);
         }
 

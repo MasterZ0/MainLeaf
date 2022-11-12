@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="MixerGroup" id="{7e47fc15-bc94-460f-bb03-eee11b1bba71}">
 		<property name="name">
 			<value>Voice</value>
 		</property>
+		<relationship name="masters">
+			<destination>{285c7e0b-f7ad-4903-a972-cef33a27ea49}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{cb12f66d-bca1-43a6-8285-b93a9e37724b}</destination>
 		</relationship>

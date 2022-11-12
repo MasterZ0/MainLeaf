@@ -23,23 +23,305 @@ MonoBehaviour:
       Languages:
       - Are you sure?
       - Tem certeza?
-      Flags: 0000
+      - 
+      Flags: 000000
       Languages_Touch: []
-    - Term: UI/Popup/Yes
+    - Term: Options/Video/QualityLow
       TermType: 0
       Description: 
       Languages:
-      - Yes
-      - Sim
-      Flags: 0000
+      - Low
+      - Baixo
+      - 
+      Flags: 000000
       Languages_Touch: []
-    - Term: UI/Popup/No
+    - Term: Options/Video/QualityMedium
+      TermType: 0
+      Description: 
+      Languages:
+      - Medium
+      - "M\xE9dio"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Video/QualityHigh
+      TermType: 0
+      Description: 
+      Languages:
+      - High
+      - Alto
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/On
+      TermType: 0
+      Description: 
+      Languages:
+      - On
+      - Ligado
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/Off
+      TermType: 0
+      Description: 
+      Languages:
+      - Off
+      - Desligado
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Audio/Master
+      TermType: 0
+      Description: 
+      Languages:
+      - Master
+      - Geral
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Audio/Music
+      TermType: 0
+      Description: 
+      Languages:
+      - Music
+      - "M\xFAsica"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Audio/SFX
+      TermType: 0
+      Description: 
+      Languages:
+      - SFX
+      - SFX
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Audio/Voice
+      TermType: 0
+      Description: 
+      Languages:
+      - Voice
+      - Voz
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/PCDevice
+      TermType: 0
+      Description: 
+      Languages:
+      - PC
+      - PC
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/EraseAllQuestion
+      TermType: 0
+      Description: 
+      Languages:
+      - Erase all?
+      - Deletar tudo?
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/No
       TermType: 0
       Description: 
       Languages:
       - No
       - "N\xE3o"
-      Flags: 0000
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/Yes
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - Sim
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/Gamepad
+      TermType: 0
+      Description: 
+      Languages:
+      - Gamepad
+      - Gamepad
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Video/Resolution
+      TermType: 0
+      Description: 
+      Languages:
+      - Resolution
+      - "Resolu\xE7\xE3o"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Video/Graphics
+      TermType: 0
+      Description: 
+      Languages:
+      - Graphics
+      - "Gr\xE1ficos"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Video/FullScreen
+      TermType: 0
+      Description: 
+      Languages:
+      - Full Screen
+      - Tela Cheia
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Video
+      TermType: 0
+      Description: 
+      Languages:
+      - Video
+      - Video
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Audio
+      TermType: 0
+      Description: 
+      Languages:
+      - Audio
+      - "\xC1udio"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls
+      TermType: 0
+      Description: 
+      Languages:
+      - Controls
+      - Controles
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Language
+      TermType: 0
+      Description: 
+      Languages:
+      - Language
+      - Idioma
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Language/Portuguese
+      TermType: 0
+      Description: 
+      Languages:
+      - Portuguese
+      - "Portugu\xEAs"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Language/English
+      TermType: 0
+      Description: 
+      Languages:
+      - English
+      - "Ingl\xEAs"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Language/Spanish
+      TermType: 0
+      Description: 
+      Languages:
+      - Spanish
+      - Espanhol
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/Jump
+      TermType: 0
+      Description: 
+      Languages:
+      - Jump
+      - Pulo
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/Dash
+      TermType: 0
+      Description: 
+      Languages:
+      - Dash
+      - Dash
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/PrimarySkill
+      TermType: 0
+      Description: 
+      Languages:
+      - Primary Skill
+      - "Habilidade Prim\xE1ria"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/SecondarySkill
+      TermType: 0
+      Description: 
+      Languages:
+      - Secondary Skill
+      - "Habilidade Secund\xE1ria"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/Direction/Down
+      TermType: 0
+      Description: 
+      Languages:
+      - Down
+      - Baixo
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/Direction/Right
+      TermType: 0
+      Description: 
+      Languages:
+      - Right
+      - Direita
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/Direction/Up
+      TermType: 0
+      Description: 
+      Languages:
+      - Up
+      - Cima
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Generic/Direction/Left
+      TermType: 0
+      Description: 
+      Languages:
+      - Left
+      - Esquerda
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Options
+      TermType: 0
+      Description: 
+      Languages:
+      - Options
+      - "Op\xE7\xF5es"
+      - 
+      Flags: 000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
@@ -50,6 +332,9 @@ MonoBehaviour:
       Flags: 0
     - Name: Portuguese (Brazil)
       Code: pt-BR
+      Flags: 0
+    - Name: Spanish
+      Code: es
       Flags: 0
     IgnoreDeviceLanguage: 0
     _AllowUnloadingLanguages: 0

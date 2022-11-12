@@ -3,7 +3,6 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputActionRebindingExtensions;
 
@@ -15,6 +14,7 @@ namespace AdventureGame.Inputs
     public abstract class InputRebinderManager : MonoBehaviour
     {
         [Title("Input Rebinder Manager")]
+        [SerializeField] private GameObject rebindPanel;
         [SerializeField] private List<InputRebinder> inputRebinders;
         [Space]
         [Header("Inputs")]
@@ -77,7 +77,6 @@ namespace AdventureGame.Inputs
         public void DoRebind(InputRebinder inputRebinder)
         {
             currentInputRebinder = inputRebinder;
-            EventSystem.current.SetSelectedGameObject(null);
 
             int bindingIndex = inputRebinder.BindingIndex;
             InputAction action = Controls.FindAction(inputRebinder.InputReference.action.name);
@@ -89,6 +88,7 @@ namespace AdventureGame.Inputs
                 return;
             }
 
+            rebindPanel.SetActive(true);
             bool controlsEnabled = Controls.asset.enabled;
             Controls.Disable();
 
@@ -128,6 +128,7 @@ namespace AdventureGame.Inputs
         private IEnumerator DelayToSelect(bool controlsEnabled)
         {
             yield return new WaitForEndOfFrame();
+            rebindPanel.SetActive(false);
             currentInputRebinder.Select();
             currentInputRebinder = null;
 

@@ -1,4 +1,5 @@
 using AdventureGame.Data;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,11 +9,11 @@ namespace AdventureGame.MainMenu
 {
     public class CharacterSelection : MonoBehaviour
     {
-        [Header("Character Selection")]
+        [Title("Character Selection")]
         [SerializeField] private MainMenu mainMenu;
         [SerializeField] private SelectableCharacter[] characters;
 
-        [Header("Character Preview Panel")]
+        [Header(" - Character Preview Panel")]
         [SerializeField] private TextMeshProUGUI nameTMP;
         [SerializeField] private Slider style;
         [SerializeField] private GameObject[] damage;

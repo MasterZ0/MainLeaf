@@ -1,6 +1,8 @@
+using AdventureGame.Inputs;
 using AdventureGame.Shared;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace AdventureGame.UI
 {
@@ -14,14 +16,26 @@ namespace AdventureGame.UI
         [SerializeField] private OptionsWindow options;
 
         #region References
-        public static OptionsWindow Options => Instance.options;
         public static Popup Popup => Instance.popup;
         #endregion
+
+        private UIInputs uiInputs;
 
         protected override void Awake()
         {
             base.Awake();
             options.Init();
+            uiInputs = new UIInputs();
+            uiInputs.OnExtra += OnExtraButton;
+        }
+
+        private void OnExtraButton()
+        {
+            GameObject selectedGameObject = EventSystem.current.currentSelectedGameObject;
+            if (selectedGameObject != null && selectedGameObject.TryGetComponent(out IExtraButtonHandler handler))
+            {
+                handler.OnExtraButton();
+            }
         }
     }
 }

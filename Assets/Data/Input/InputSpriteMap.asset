@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ab15d20c86a9543a7f6c3f0d45e1b2, type: 3}
+  m_Name: InputSpriteMap
+  m_EditorClassIdentifier: 
+  pc:
+    undefined: {fileID: 21300000, guid: c619dc0103a5f994fa45963d7ef14e51, type: 3}
+    unregistered: {fileID: 21300000, guid: 7b43522dcdf877f44925d272a2309677, type: 3}
+    inputs:
+    - path: Left Button
+      image: {fileID: 9019622197424860224, guid: 915da38dd3d0df04897913e23734f978,
+        type: 3}
+    - path: Middle Button
+      image: {fileID: -6852845583478712164, guid: 915da38dd3d0df04897913e23734f978,
+        type: 3}
+    - path: Right Button
+      image: {fileID: 5897642618348865207, guid: 915da38dd3d0df04897913e23734f978,
+        type: 3}
+    - path: A
+      image: {fileID: 540621989, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: B
+      image: {fileID: -846048466, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: C
+      image: {fileID: -706324828, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: D
+      image: {fileID: -1110319777, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: E
+      image: {fileID: -1382793468, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: F
+      image: {fileID: 1054499392, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: G
+      image: {fileID: 643127957, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: H
+      image: {fileID: 502566965, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: I
+      image: {fileID: -197682854, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: J
+      image: {fileID: -1394777802, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: K
+      image: {fileID: -409359469, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: L
+      image: {fileID: -2098297642, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: M
+      image: {fileID: 361917535, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: N
+      image: {fileID: 723500964, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: O
+      image: {fileID: -1526402484, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: P
+      image: {fileID: 162899404, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Q
+      image: {fileID: -703422329, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: R
+      image: {fileID: 1487507117, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: S
+      image: {fileID: -1825706014, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: T
+      image: {fileID: 1874164738, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: U
+      image: {fileID: 1263799836, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: V
+      image: {fileID: 1576146814, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: W
+      image: {fileID: -1292735197, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: X
+      image: {fileID: -1741908879, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Y
+      image: {fileID: -1040440536, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Z
+      image: {fileID: 526317779, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 0
+      image: {fileID: -134512841, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 1
+      image: {fileID: 710302765, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 2
+      image: {fileID: 1725147979, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 3
+      image: {fileID: 756305637, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 4
+      image: {fileID: 928755834, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 5
+      image: {fileID: -1290748247, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 6
+      image: {fileID: -1787293515, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 7
+      image: {fileID: 443388366, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 8
+      image: {fileID: 1434488926, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: 9
+      image: {fileID: 1824076498, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Up Arrow
+      image: {fileID: -2013986656, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Left Arrow
+      image: {fileID: 1268497979, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Down Arrow
+      image: {fileID: -801542229, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Right Arrow
+      image: {fileID: 2099970362, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Ctrl
+      image: {fileID: -1664317091, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Left Shift
+      image: {fileID: 1744420461, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Right Shift
+      image: {fileID: 1744420461, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Shift
+      image: {fileID: 1744420461, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Tab
+      image: {fileID: -936146624, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Alt
+      image: {fileID: 1729467217, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Space
+      image: {fileID: -1095538391, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+  playstation:
+    undefined: {fileID: 21300000, guid: c619dc0103a5f994fa45963d7ef14e51, type: 3}
+    unregistered: {fileID: 21300000, guid: 7b43522dcdf877f44925d272a2309677, type: 3}
+    inputs:
+    - path: Button South
+      image: {fileID: 1282797512350732356, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Button West
+      image: {fileID: 1370491670014174091, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Button North
+      image: {fileID: -533113032437504084, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Button East
+      image: {fileID: 3654523729276060860, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Left Shoulder
+      image: {fileID: 8179825811416593113, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Left Trigger
+      image: {fileID: 1575752588241652731, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Left Stick Press
+      image: {fileID: 1021730382379987843, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Right Shoulder
+      image: {fileID: 5712069684059658920, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Right Trigger
+      image: {fileID: 4964432708673800917, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Right Stick Press
+      image: {fileID: 9131380795256667299, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Select
+      image: {fileID: -1709061435746974843, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Start
+      image: {fileID: 1666808132010516862, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: D-Pad/Up
+      image: {fileID: 1163404518025372721, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: D-Pad/Left
+      image: {fileID: -9136718433088642813, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: D-Pad/Down
+      image: {fileID: 4343591797068141207, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: D-Pad/Right
+      image: {fileID: -7666951760701244521, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+    - path: Right Stick/Down
+      image: {fileID: -7761338932881726931, guid: 1aa0e83eb1a1b5e46becbc8efd0a360a,
+        type: 3}
+  xbox:
+    undefined: {fileID: 21300000, guid: c619dc0103a5f994fa45963d7ef14e51, type: 3}
+    unregistered: {fileID: 21300000, guid: 7b43522dcdf877f44925d272a2309677, type: 3}
+    inputs:
+    - path: Button South
+      image: {fileID: -5430025719379132205, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Button West
+      image: {fileID: -7986839385010144945, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Button North
+      image: {fileID: -3634508389602149817, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Button East
+      image: {fileID: 3015391113359734112, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Left Shoulder
+      image: {fileID: -7918314874589184366, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Left Trigger
+      image: {fileID: -38196565437351839, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Left Stick Press
+      image: {fileID: 6043249598362869589, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Right Shoulder
+      image: {fileID: 4690680724697035345, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Right Trigger
+      image: {fileID: 1008336155500673656, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Right Stick Press
+      image: {fileID: 7016673938441267025, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Select
+      image: {fileID: -653856835993650461, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Start
+      image: {fileID: 9137421500923865354, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: D-Pad/Up
+      image: {fileID: 5539312237646073016, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: D-Pad/Left
+      image: {fileID: -8613636515299833753, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: D-Pad/Down
+      image: {fileID: -3816761813497943598, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: D-Pad/Right
+      image: {fileID: -5185197675144214177, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+    - path: Right Stick/Down
+      image: {fileID: -3057315460990687748, guid: 6ca50b49179532e4fbe426111f877de2,
+        type: 3}
+  nintendo:
+    undefined: {fileID: 21300000, guid: c619dc0103a5f994fa45963d7ef14e51, type: 3}
+    unregistered: {fileID: 21300000, guid: 7b43522dcdf877f44925d272a2309677, type: 3}
+    inputs:
+    - path: Button South
+      image: {fileID: 1746808147, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Button West
+      image: {fileID: -1705173238, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Button North
+      image: {fileID: -722197233, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Button East
+      image: {fileID: 1510523599, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Left Shoulder
+      image: {fileID: -1420907967, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Left Trigger
+      image: {fileID: 46775223, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Left Stick Press
+      image: {fileID: -1404964392, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Right Shoulder
+      image: {fileID: -271417683, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Right Trigger
+      image: {fileID: 1814512870, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Right Stick Press
+      image: {fileID: 1006987801, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Select
+      image: {fileID: 307152426, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Start
+      image: {fileID: 704415080, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: D-Pad/Up
+      image: {fileID: 1019605442, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: D-Pad/Left
+      image: {fileID: -45022323, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: D-Pad/Down
+      image: {fileID: 1390690148, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: D-Pad/Right
+      image: {fileID: -880797145, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}
+    - path: Right Stick/Down
+      image: {fileID: 1993680310, guid: 0ef0c977471706c46ae01964ea0885a5, type: 3}

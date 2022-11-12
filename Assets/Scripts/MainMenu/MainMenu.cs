@@ -1,7 +1,6 @@
-﻿using AdventureGame.ApplicationManager;
-using AdventureGame.Shared;
-using AdventureGame.UI;
+﻿using AdventureGame.Shared;
 using AdventureGame.UI.Window;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,16 +9,20 @@ namespace AdventureGame.MainMenu
 {
     public class MainMenu : MonoBehaviour
     {
-        [Header("Main Menu")]
+        [Title("Main Menu")]
+        [SerializeField] private GameObject firstBtn;
         [SerializeField] private Animator animator;
         [SerializeField] private CharacterSelection characterSelection;
 
         [Header(" - Cameras")]
-        [SerializeField] private GameEvent onSceneFadeOutEnd;
         [SerializeField] private GameObject mainScreenCam;
         [SerializeField] private GameObject optionsCam;
         [SerializeField] private GameObject creditsCam;
         [SerializeField] private GameObject characterSelectionCam;
+
+        [Header(" - Events")]
+        [SerializeField] private GameEvent onSceneFadeOutEnd;
+        [SerializeField] private GameEvent onOpenOptions;
 
         private const string MainScreen_FadeIn = "MainScreen_FadeIn";
         private const string MainScreen_FadeOut = "MainScreen_FadeOut";
@@ -30,28 +33,36 @@ namespace AdventureGame.MainMenu
 
         private GameObject currentCam;
         private Action onFadeOutEnd;
+        private GameObject nextBtn;
 
         private void Awake()
         {
+            nextBtn = firstBtn;
             currentCam = mainScreenCam;
-            onSceneFadeOutEnd += OnOpenMainScreen;
+            onSceneFadeOutEnd += OnSceneFadeOutEnd;
             //GameManager.MusicManager.ChangeMusic(Music.MainMenu);
             //GameManager.Instance.SetTransitionCallback(() => animator.SetTrigger(CHANGE_SCREEN));
         }
 
         private void OnDestroy()
         {
-            onSceneFadeOutEnd -= OnOpenMainScreen;
+            onSceneFadeOutEnd -= OnSceneFadeOutEnd;
         }
 
-        private void OnOpenMainScreen() => animator.Play(MainScreen_FadeIn);
+        public void OnSelectMainScreenButton()
+        {
+            EventSystem.current.SetSelectedGameObject(nextBtn);
+        }
+
+        private void OnSceneFadeOutEnd() => animator.Play(MainScreen_FadeIn);
 
         #region Button Events
         public void OnOpenOptions() // Fade Out MainScreen -> Auto Open Option
         {
+            nextBtn = EventSystem.current.currentSelectedGameObject;
             SwitchCamera(optionsCam);
 
-            onFadeOutEnd = () => UIManager.Options.OnOpenOptionsWindow();
+            onFadeOutEnd = onOpenOptions;
             WindowManager.OnCloseLastWindow += OnCloseOption;
         }
 
@@ -63,6 +74,7 @@ namespace AdventureGame.MainMenu
 
         public void OnOpenCredits() // Fade Out MainScreen -> Play with Auto Select
         {
+            nextBtn = EventSystem.current.currentSelectedGameObject;
             SwitchCamera(creditsCam);
 
             onFadeOutEnd = () => animator.Play(Credits_FadeIn);
@@ -77,6 +89,7 @@ namespace AdventureGame.MainMenu
 
         public void OnOpenCharacterSelection() // Fade Out MainScreen -> Select a character
         {
+            nextBtn = EventSystem.current.currentSelectedGameObject;
             SwitchCamera(characterSelectionCam);
 
             onFadeOutEnd = () => characterSelection.SelectCharacter();

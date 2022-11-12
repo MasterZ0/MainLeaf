@@ -109,17 +109,17 @@ namespace AdventureGame.Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1435ded0-2e31-4ddb-b262-f692e482a178"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""id"": ""62023418-7775-415e-be7a-b7b1b378753e"",
+                    ""path"": """",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""WASD [PC]"",
                     ""id"": ""7cf7482e-122c-4836-b46c-1c6ada2d9d79"",
                     ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
@@ -174,6 +174,171 @@ namespace AdventureGame.Inputs
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Arrows [PC]"",
+                    ""id"": ""4d1679ae-b4bc-453e-a984-cf761cfaa75a"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""13c47bc3-485a-4bd1-ade9-4fd86643b9bf"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c3eaded8-4dc8-425a-a662-a678da62e367"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a3b45c18-d29d-41f9-9897-7f6510c290a9"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""103822bf-6e86-4ea9-bc07-3264a5d7b049"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left Stick [Gamepad]"",
+                    ""id"": ""9dd7c061-c297-45e2-b70f-7722b37f160b"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f34d2d0e-3073-477d-9cb2-c5482084c769"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2bbadb44-b6c3-41e8-8a51-fad5dc58276f"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b24f0f3a-568a-4b29-8cf9-0e8f653118da"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f4ca474c-74c0-44c1-a0c0-d58ee7938011"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad [Gamepad]"",
+                    ""id"": ""8254ae97-3f66-43f2-bcf7-96fee430c6ab"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8077c736-1d4e-4de0-bc78-0506c358d9d9"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f611b8e8-f522-4855-9b4f-b204955af11a"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""140bb2c4-ac55-4958-b6d9-82d24bcf542d"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""cb3dd160-23b4-45ba-9a32-d303878621f2"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""3e25491d-40f5-4da0-acef-724892fbdf47"",
                     ""path"": ""<Gamepad>/buttonWest"",
@@ -186,8 +351,8 @@ namespace AdventureGame.Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c8b6de8b-5fc4-46b5-87ff-28dcd1dffcf6"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""id"": ""ae0a0d1e-1604-45aa-a08d-2e51fc497bbc"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -197,8 +362,8 @@ namespace AdventureGame.Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ae0a0d1e-1604-45aa-a08d-2e51fc497bbc"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""be038b75-d2c1-465c-b8f0-fff356ec74ed"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -219,8 +384,8 @@ namespace AdventureGame.Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6dd6a147-4b56-4439-8661-ed8ebf7f42ef"",
-                    ""path"": ""<Keyboard>/l"",
+                    ""id"": ""b705ca74-d379-4677-998e-00abf5915e4c"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -230,8 +395,8 @@ namespace AdventureGame.Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b705ca74-d379-4677-998e-00abf5915e4c"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""3a367679-764c-417b-8dd0-54b0c62d18a2"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -254,6 +419,17 @@ namespace AdventureGame.Inputs
                     ""name"": """",
                     ""id"": ""0d38aee1-b438-4de4-b54b-fab2ef0d7ecd"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c120e6d-5a4d-435d-8536-7a5354ddb034"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -374,6 +550,24 @@ namespace AdventureGame.Inputs
                     ""name"": ""SwitchWeapon"",
                     ""type"": ""Button"",
                     ""id"": ""50c8893a-d70d-4a74-be55-3df65b263ccf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""14557337-f2c6-44ce-a2ff-cef121ec8068"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef80c783-4a41-4757-bfc2-f7008f094de8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -809,6 +1003,28 @@ namespace AdventureGame.Inputs
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3b33006-0ea2-477d-9e2b-8c6603ae5e6c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""LeftTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30051b02-457d-4e92-b3b0-584815365e68"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""RightTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -942,6 +1158,8 @@ namespace AdventureGame.Inputs
             m_UI_Map = m_UI.FindAction("Map", throwIfNotFound: true);
             m_UI_SkipCutscene = m_UI.FindAction("SkipCutscene", throwIfNotFound: true);
             m_UI_SwitchWeapon = m_UI.FindAction("SwitchWeapon", throwIfNotFound: true);
+            m_UI_LeftTab = m_UI.FindAction("LeftTab", throwIfNotFound: true);
+            m_UI_RightTab = m_UI.FindAction("RightTab", throwIfNotFound: true);
             // Debug
             m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
             m_Debug_GodMode = m_Debug.FindAction("GodMode", throwIfNotFound: true);
@@ -1089,6 +1307,8 @@ namespace AdventureGame.Inputs
         private readonly InputAction m_UI_Map;
         private readonly InputAction m_UI_SkipCutscene;
         private readonly InputAction m_UI_SwitchWeapon;
+        private readonly InputAction m_UI_LeftTab;
+        private readonly InputAction m_UI_RightTab;
         public struct UIActions
         {
             private @Controls m_Wrapper;
@@ -1103,6 +1323,8 @@ namespace AdventureGame.Inputs
             public InputAction @Map => m_Wrapper.m_UI_Map;
             public InputAction @SkipCutscene => m_Wrapper.m_UI_SkipCutscene;
             public InputAction @SwitchWeapon => m_Wrapper.m_UI_SwitchWeapon;
+            public InputAction @LeftTab => m_Wrapper.m_UI_LeftTab;
+            public InputAction @RightTab => m_Wrapper.m_UI_RightTab;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1142,6 +1364,12 @@ namespace AdventureGame.Inputs
                     @SwitchWeapon.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchWeapon;
                     @SwitchWeapon.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchWeapon;
                     @SwitchWeapon.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchWeapon;
+                    @LeftTab.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
+                    @LeftTab.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
+                    @LeftTab.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
+                    @RightTab.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
+                    @RightTab.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
+                    @RightTab.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
                 }
                 m_Wrapper.m_UIActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1176,6 +1404,12 @@ namespace AdventureGame.Inputs
                     @SwitchWeapon.started += instance.OnSwitchWeapon;
                     @SwitchWeapon.performed += instance.OnSwitchWeapon;
                     @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+                    @LeftTab.started += instance.OnLeftTab;
+                    @LeftTab.performed += instance.OnLeftTab;
+                    @LeftTab.canceled += instance.OnLeftTab;
+                    @RightTab.started += instance.OnRightTab;
+                    @RightTab.performed += instance.OnRightTab;
+                    @RightTab.canceled += instance.OnRightTab;
                 }
             }
         }
@@ -1268,6 +1502,8 @@ namespace AdventureGame.Inputs
             void OnMap(InputAction.CallbackContext context);
             void OnSkipCutscene(InputAction.CallbackContext context);
             void OnSwitchWeapon(InputAction.CallbackContext context);
+            void OnLeftTab(InputAction.CallbackContext context);
+            void OnRightTab(InputAction.CallbackContext context);
         }
         public interface IDebugActions
         {

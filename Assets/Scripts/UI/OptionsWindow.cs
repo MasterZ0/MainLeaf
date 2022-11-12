@@ -1,5 +1,5 @@
-﻿using AdventureGame.AppOptions;
-using AdventureGame.Shared;
+﻿using AdventureGame.Shared;
+using AdventureGame.UI.AppOptions;
 using AdventureGame.UI.Window;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -9,11 +9,9 @@ namespace AdventureGame.UI
     public class OptionsWindow : Options, IWindow
     {
         [Title("Window")]
-        [SerializeField] private GameObject firstBtn;
-        [Space]
         [SerializeField] private GameEvent onOpenOptions;
 
-        public GameObject FirstGameObject => firstBtn;
+        public GameObject FirstGameObject => null; // TabGroup?
 
         public override void Init()
         {
@@ -27,8 +25,8 @@ namespace AdventureGame.UI
             onOpenOptions -= OnOpenOptionsWindow;
         }
 
-        public override void OnOpenOptionsWindow() => this.RequestOpenWindow();
-        public override void OnCloseOptionsWindow() => this.TryCloseWindow();
+        public void OnOpenOptionsWindow() => this.RequestOpenWindow();
+        public void OnCloseOptionsWindow() => this.TryCloseWindow();
 
         public void OpenWindow() => gameObject.SetActive(true);
         public void CloseWindow() => gameObject.SetActive(false);
