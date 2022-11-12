@@ -16,12 +16,13 @@
 
  <h2> Screenshots </h2>
  <h3> Character Selection </h3>
- <div class="row">
+ <div class="row" align="center">
   <div class="column"> 
-   <img src="https://user-images.githubusercontent.com/64444068/115170173-65e55900-a096-11eb-96bf-696972929497.png" width="40%">
+   <img src="https://user-images.githubusercontent.com/64444068/201451963-1522eb83-2eb0-4fff-b52f-61da91eea775.png" width="45%">
+   <img src="https://user-images.githubusercontent.com/64444068/201451961-d145dae3-82c1-4e33-a31e-afd1df4f4e00.png" width="45%">
   </div>
   <div class="column">
-<img src="https://user-images.githubusercontent.com/64444068/115170286-a5ac4080-a096-11eb-8211-a840614af0af.png" width="40%">
+  
   </div>
 </div>
 
