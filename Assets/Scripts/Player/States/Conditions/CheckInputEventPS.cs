@@ -66,6 +66,11 @@ namespace AdventureGame.Player.States
 
         private void OnCallAction() => actionCalled = true;
 
-        protected override bool OnCheck() => actionCalled;
+        protected override bool OnCheck()
+        {
+            bool value = actionCalled;
+            actionCalled = false;
+            return value;
+        }
     }
 }

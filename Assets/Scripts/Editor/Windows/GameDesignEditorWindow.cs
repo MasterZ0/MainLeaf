@@ -8,6 +8,7 @@ using System.Reflection;
 using System;
 using AdventureGame.Shared;
 using Sirenix.OdinInspector;
+using AdventureGame.Items.Data;
 
 namespace AdventureGame.Editor
 {
@@ -16,10 +17,12 @@ namespace AdventureGame.Editor
     /// </summary>
     public partial class GameDesignEditorWindow : OdinMenuEditorWindow
     {
+        private AssetCreator<ItemData> itemCreator;
+
         // Copy and past
         private ScriptableObject memoryObject;
-
         private ScriptableObject currentAsset;
+
         private string assetName;
 
         private const string Title = "Are you sure about that?";
@@ -69,23 +72,32 @@ namespace AdventureGame.Editor
             tree.Add($"{settingsPath}/General", GameSettings.General, EditorIcons.SettingsCog);
             tree.Add($"{settingsPath}/UI", GameSettings.UI, EditorIcons.ImageCollection);
 
-            tree.Add($"{settingsPath}/Players", GameSettings.Players, EditorIcons.SingleUser);
+            tree.Add($"{settingsPath}/Players", null, EditorIcons.SingleUser);
             tree.AddAllAssetsAtPath($"{settingsPath}/Players", $"{ProjectPath.GameSettingsPath}/{GameSettings.Environment}/Players", typeof(ScriptableObject), true);
 
-            tree.Add($"{settingsPath}/Enemies", GameSettings.Enemies, EditorIcons.PacmanGhost);
+            tree.Add($"{settingsPath}/Enemies", null, EditorIcons.PacmanGhost);
             tree.AddAllAssetsAtPath($"{settingsPath}/Enemies", $"{ProjectPath.GameSettingsPath}/{GameSettings.Environment}/Enemies", typeof(ScriptableObject), true);
-            
+
+            // Items
+            itemCreator = new AssetCreator<ItemData>($"{ProjectPath.ItemsPath}");
+            tree.Add("Items", itemCreator, EditorIcons.GridBlocks);
+            tree.AddAllAssetsAtPath("Items", ProjectPath.ItemsPath, typeof(ItemData), true);
+            tree.EnumerateTree().AddIcons<ItemData>(x => x.icon);
+
+            // Beauty display
             tree.EnumerateTree(x =>
             {
-                x.Name = x.Name.UnderscoreByReduction().GetNiceString();
+                x.Name = x.Name.StringReduction().GetNiceString();
             });
 
             // Sort
             tree.EnumerateTree().SortMenuItemsByName();
         }
 
-        private Texture2D GetIcon(SdfIconType iconType) => SdfIcons.CreateTransparentIconTexture(SdfIconType.Bank, Color.white, 16 ,16, 0);
+        private Texture2D GetIcon(SdfIconType iconType) => SdfIcons.CreateTransparentIconTexture(iconType, Color.white, 16 ,16, 0);
+        #endregion
 
+        #region Tree Customization
         private EditorIcon GetEnvironmentIcon() => GameSettings.Environment switch
         {
             EnvironmentState.Develop => EditorIcons.Char2,
@@ -93,7 +105,7 @@ namespace AdventureGame.Editor
             EnvironmentState.Release => EditorIcons.Char1,
             _ => throw new ArgumentOutOfRangeException(),
         };
-        
+
         private Color GetEnvironmentColor() => GameSettings.Environment switch
         {
             EnvironmentState.Develop => new Color(1f, 0.239f, 0.407f),
@@ -120,14 +132,6 @@ namespace AdventureGame.Editor
         #region Toolbar
         protected override void OnBeginDrawEditors()
         {
-            //EditorGUILayout.BeginHorizontal(BackgroundStyle.Get(GetEnvironmentColor()));
-            //{
-            //    GUIStyle style = SirenixGUIStyles.TitleCentered;
-            //    style.alignment = TextAnchor.MiddleCenter;
-            //    EditorGUILayout.LabelField(GameSettings.Environment.ToString(), SirenixGUIStyles.TitleCentered);
-            //}
-            //EditorGUILayout.EndHorizontal();
-
             ScriptableObject asset = MenuTree?.Selection.SelectedValue as ScriptableObject;
 
             if (asset == null)

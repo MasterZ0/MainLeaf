@@ -28,7 +28,7 @@ namespace AdventureGame.Shared.ExtensionMethods
         /// Ignore everything before the first '_'
         /// </summary>
         /// <returns>Before: Name_SubName -> After: SubName</returns>
-        public static string UnderscoreByReduction(this string value)
+        public static string StringReduction(this string value, char matchCharacter = '_')
         {
             string shortName = string.Empty;
             bool findedUnderscore = false;
@@ -39,7 +39,7 @@ namespace AdventureGame.Shared.ExtensionMethods
                 {
                     shortName += c;
                 }
-                else if (c == '_')
+                else if (c == matchCharacter)
                 {
                     findedUnderscore = true;
                 }
@@ -51,6 +51,25 @@ namespace AdventureGame.Shared.ExtensionMethods
             }
 
             return value;
+        }
+
+        /// <summary>
+        /// Ignore everything before the first '_'
+        /// </summary>
+        /// <returns>Before: Name_SubName -> After: SubName</returns>
+        public static string StringSimplified(this string value, char matchCharacter = '_')
+        {
+            string shortName = string.Empty;
+
+            foreach (char c in value)
+            {
+                if (c == matchCharacter)                
+                    break;
+
+                shortName += c;
+            }
+
+            return shortName;
         }
 
         public static string GetNiceString(this string value)

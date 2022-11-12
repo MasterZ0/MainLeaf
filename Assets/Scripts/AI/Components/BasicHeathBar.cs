@@ -1,6 +1,5 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -9,7 +8,7 @@ namespace AdventureGame.AI
 {
     public class BasicHeathBar : MonoBehaviour
     {
-        [SerializeField] private Enemy damageable; // IDamageable
+        [SerializeField] private Enemy statusOwner; // IStatusOwner
         [SerializeField] private GameObject bar;
         [SerializeField] private Slider healthBar;
         [SerializeField] private Slider damageDealtBar;
@@ -19,17 +18,19 @@ namespace AdventureGame.AI
         private Coroutine coroutine;
         private float previousHeathPercentage;
 
-        private float CurrentHeathPercentage => (float)damageable.CurrentHealth / damageable.MaxHealth;
+        private IAttributes Attributes => statusOwner.GetAttributes();
+
+        private float CurrentHeathPercentage => Attributes.HPPercentage();
 
         private void OnEnable()
         {
-            damageable.OnTakeDamage += OnTakeDamage;
+            statusOwner.Status.OnTakeDamage += OnTakeDamage;
             bar.SetActive(false);
         }
 
         private void OnDisable()
         {
-            damageable.OnTakeDamage -= OnTakeDamage;
+            statusOwner.Status.OnTakeDamage -= OnTakeDamage;
         }
 
         private void Update()
@@ -53,7 +54,7 @@ namespace AdventureGame.AI
                 StopCoroutine(coroutine);
             }
 
-            float damageDealtPercentage = (float)damageInfo.EffectiveDamage / damageable.MaxHealth;
+            float damageDealtPercentage = (float)damageInfo.EffectiveDamage / Attributes.MaxHP;
             previousHeathPercentage = CurrentHeathPercentage + damageDealtPercentage;
 
             damageDealtBar.value = previousHeathPercentage;

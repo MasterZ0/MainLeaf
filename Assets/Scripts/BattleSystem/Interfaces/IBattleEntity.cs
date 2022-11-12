@@ -6,8 +6,8 @@ namespace AdventureGame.BattleSystem
     {
         // Name? 
         /// <summary> Used to get components </summary>
-        public Transform Pivot { get; }
-        public Transform Head { get; }
-        public Transform Center { get; }
+        Transform Pivot { get; }
+        Transform Head { get; }
+        Transform Center { get; }
     }
 }

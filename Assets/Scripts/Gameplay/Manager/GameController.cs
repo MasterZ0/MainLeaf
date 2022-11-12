@@ -7,15 +7,19 @@ namespace AdventureGame.Gameplay
     {
         protected virtual void Awake()
         {
-            GameplayReferences.SetReferences(this);
+            GameplayReferences.SetController(this);
             GameplayReferences.SetActivePlayerInput(false, this);
+            GameplayReferences.OnPlayerDeath += OnPlayerDeath;
         }
+
+        protected abstract void OnPlayerDeath(IPlayer player);
 
         protected void EnableInputs() => GameplayReferences.SetActivePlayerInput(true, this);
         protected void DisableInputs() => GameplayReferences.SetActivePlayerInput(false, this);
 
         protected virtual void OnDestroy()
         {
+            GameplayReferences.OnPlayerDeath -= OnPlayerDeath;
             GameplayReferences.Reset();
             WindowManager.CloseAllWindows();
         }

@@ -1,13 +1,12 @@
-﻿using AdventureGame.ApplicationManager;
-using AdventureGame.Data;
+﻿using AdventureGame.Data;
 using AdventureGame.Shared;
 using AdventureGame.UI.Window;
 using I2.Loc;
 using Sirenix.OdinInspector;
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AdventureGame.Gameplay
 {
@@ -51,8 +50,6 @@ namespace AdventureGame.Gameplay
         {
             base.Awake();
 
-            GameplayReferences.OnPlayerDeath += OnPlayerDeath;
-
             enemyGenerator.OnEnemyDeath += OnEnemyDie;
             onSceneFadeOutEnd += StartCounter;
         }
@@ -60,8 +57,6 @@ namespace AdventureGame.Gameplay
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
-            GameplayReferences.OnPlayerDeath -= OnPlayerDeath;
 
             enemyGenerator.OnEnemyDeath -= OnEnemyDie;
             onSceneFadeOutEnd -= StartCounter;
@@ -131,13 +126,21 @@ namespace AdventureGame.Gameplay
         #endregion
 
         #region Defeat
-        private void OnPlayerDeath(IPlayer player)
+        protected override void OnPlayerDeath(IPlayer player)
         {
-            deathDefeatedEnemies.text = defeatedEnemies.ToString();
+            timerRunning = false;
+            StartCoroutine(GameOverDelay());
+        }
+        private IEnumerator GameOverDelay()
+        {
+            yield return new WaitForSeconds(Settings.GameOverDelay);
 
             arenaHUD.SetActive(false);
+
+            deathDefeatedEnemies.text = defeatedEnemies.ToString();
             deathWindow.RequestOpenWindow();
         }
+
         #endregion
 
         #region Victory

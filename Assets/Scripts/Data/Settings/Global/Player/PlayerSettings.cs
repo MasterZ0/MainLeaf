@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System.Collections.Generic;
 using UnityEngine;
 using AdventureGame.Shared;
 using I2.Loc;
@@ -23,6 +22,9 @@ namespace AdventureGame.Data
         [TabGroup("Player", "Visual"), HideLabel, InlineProperty]
         [SerializeField] private PlayerVisualSettings visual;
 
+        [TabGroup("Player", "Default Inventory"), HideLabel, InlineProperty]
+        [SerializeField] private DefaultInventory defaultInventory;
+
         //[TabGroup("Player", "Action Windows"), HideLabel, InlineProperty]
         //[SerializeField] private PlayerActionWindowSettings actionWindows;
 
@@ -30,5 +32,6 @@ namespace AdventureGame.Data
         public PlayerStatusSettings Status => status;
         public PlayerPhysicsSettings Physics => physics;
         public PlayerVisualSettings Visual => visual;
+        public DefaultInventory DefaultInventory => defaultInventory;
     }
 }

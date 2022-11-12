@@ -13,7 +13,7 @@ namespace AdventureGame.BattleSystem
         // public int Intensity { get; } // Injury?
         public bool CanBlock { get; }
         public DamageType DamageType { get; }
-        public IAttacker Sender { get; }
+        public IStatusOwner Sender { get; }
         public List<HitEffect> HitEffects { get; }
 
         // Hitbox
@@ -23,20 +23,21 @@ namespace AdventureGame.BattleSystem
 
         private Vector2Int damageRange;
 
-        public Damage(DamageData damageData, IAttacker sender)
+        public Damage(DamageData damageData, IStatusOwner sender)
         {
-            StaminaDamage = damageData.Value.x;
-            damageRange = damageData.Value;
+            StaminaDamage = damageData.value.x;
+            damageRange = damageData.value;
 
-            CanBlock = damageData.CanBlock;
-            DamageType = damageData.DamageType;
-            //HitEffects = damageData.HitEffects;
+            CanBlock = damageData.canBlock;
+            DamageType = damageData.damageType;
+            HitEffects = damageData.hitEffects;
             Sender = sender;
         }
 
         public Damage(int value)
         {
             damageRange = value.ToVectorInt();
+            HitEffects = new List<HitEffect>();
         }
 
         public void AddHitBoxInfo(HitBox hitBox, Vector3 contact)

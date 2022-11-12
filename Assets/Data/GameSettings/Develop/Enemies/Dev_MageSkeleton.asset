@@ -49,15 +49,24 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   dropValueData:
-    bronzeCoinsRange: {x: 0, y: 0}
-    silverCoinsRange: {x: 0, y: 0}
-    goldCoinsRange: {x: 0, y: 0}
+    goldRange: {x: 0, y: 0}
+    loot:
+    - drop:
+        item: {fileID: 11400000, guid: 3b42c226d7ead5a4bb4926cfe56bacf9, type: 2}
+        amountRange: {x: 5, y: 15}
+      chance: 30
+    - drop:
+        item: {fileID: 11400000, guid: 1a98e89bebefb32408309d389a6d9a83, type: 2}
+        amountRange: {x: 0, y: 0}
+      chance: 15
   bodyDamage:
-    Value: {x: 0, y: 0}
-    DamageType: 0
-    CanBlock: 0
+    value: {x: 0, y: 0}
+    damageType: 0
+    canBlock: 0
+    hitEffects: []
   idleTime: 2
   patrolRadius: 5
+  delayToReturnToPatrol: 2
   ikWeightTransition: 0.8
   rotationSpeed: 2
   patrolParameters:
@@ -75,14 +84,17 @@ MonoBehaviour:
     rotationSpeed: 360
     slowdownDistance: 1.2
     endReachedDistance: 1.2
-  chaseDistance: 15
+  chaseDistance: 30
   escapeDistance: 10
   offensiveDistanceRange: {x: 7, y: 12}
   angleDifferenceToAttack: 10
   fireballVelocity: 5
-  fireballDamage:
-    Value: {x: 0, y: 0}
-    DamageType: 0
-    CanBlock: 0
   delayAfterAttack: 1
-  delayToReturnToPatrol: 2
+  fireballDamage:
+    value: {x: 0, y: 0}
+    damageType: 0
+    canBlock: 0
+    hitEffects: []
+  references:
+    version: 2
+    RefIds: []

@@ -16,7 +16,7 @@ namespace AdventureGame.NodeCanvas.Audio
 
         protected override string info =>
             soundData.isNoneOrNull ? "♫ Play <b>NULL</b>" :
-            $"♫ Play <b>{soundData.value.name.UnderscoreByReduction()}</b>";
+            $"♫ Play <b>{soundData.value.name.StringReduction()}</b>";
 
         protected override void OnExecute()
         {

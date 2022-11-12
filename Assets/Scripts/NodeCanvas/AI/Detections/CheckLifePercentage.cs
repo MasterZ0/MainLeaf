@@ -8,7 +8,7 @@ namespace AdventureGame.NodeCanvas.AI
 {
     [Category(Categories.AI)]
     [Description("Compare the current health")]
-    public class CheckLifePercentage : ConditionTask<IDamageable> 
+    public class CheckLifePercentage : ConditionTask<IStatusOwner> 
     {
         [SliderField(0, 100)]
         public BBParameter<float> percentage;
@@ -18,7 +18,7 @@ namespace AdventureGame.NodeCanvas.AI
         
         protected override bool OnCheck() 
         {
-            float healthPercentage = (float)agent.CurrentHealth / agent.MaxHealth;
+            float healthPercentage = agent.GetAttributes().HPPercentage();
             return OperationTools.Compare(healthPercentage, percentage.value / 100f, checkType, 0f);
         }
     }

@@ -6,18 +6,21 @@ using System;
 using UnityEngine;
 using AdventureGame.Effects;
 using AdventureGame.Audio;
-using System.Collections.Generic;
 using System.Linq;
 using AdventureGame.Gameplay.Components;
+using Sirenix.Utilities;
+using AdventureGame.Gameplay;
 
 namespace AdventureGame.AI
 {
     /// <summary>
     /// Defines enemy basic damage behaviour
     /// </summary>
-    public class Enemy : MonoBehaviour, IAttacker, IDamageable
+    public class Enemy : MonoBehaviour, IStatusOwner
     {        
         [Title("Enemy")]
+        [CustomBox]
+        [SerializeField] private DataSettings<EnemyData> enemyData;
         [SerializeField] private Transform center;
         [SerializeField] private Transform head;
 
@@ -30,131 +33,96 @@ namespace AdventureGame.AI
         [SerializeField] private SoundReference damageSoundReference;
         [SerializeField] private SoundReference deathSoundReference;
 
+
         [Header("Optional")]
         [SerializeField] private Renderer[] bodyRenderers;
         [ListDrawerSettings(Expanded = true)]
         [SerializeField] private HitBox[] bodyHitBoxes;
 
         #region Public properties and events
-        public event Action<DamageInfo> OnTakeDamage = delegate { };
         public event Action OnFinishEnemyDeath = delegate { };
 
+        public EnemyData EnemyData => enemyData;
         public Transform Center => center;
         public Transform Pivot => transform;
         public Transform Head => head;
-        public int MaxHealth => enemyData.MaxHealth;
-        public int CurrentHealth { get; private set; } = 1;
-        private bool IsDead => this.IsDead();
+        IStatusController IStatusOwner.Status => Status;
         #endregion
 
-        private readonly List<SkillEffect> modifiers = new List<SkillEffect>();
-
-        private EnemyData enemyData;
+        public EnemyStatus Status { get; private set; }
 
         private Material[] defaultSharedMaterial;
 
+        #region Initialization
         private void Awake()
         {
             defaultSharedMaterial = bodyRenderers.Select(r => r.sharedMaterial).ToArray();
+
+            Status = new EnemyStatus(this);
         }
 
-        private void OnEnable() // Reset
+        private void OnEnable()
         {
+            // Reset Transform
             transform.localPosition = Vector2.zero;
             transform.localRotation = Quaternion.identity;
-        }
 
-        /// <summary>
-        /// Node Canvas Setup
-        /// </summary>
-        public virtual void Setup(EnemyData data)
-        {
-            enemyData = data;
-            CurrentHealth = MaxHealth;
+            // Attributes and Status
+            Status.Reset();
 
-            Damage bodyDamage = new Damage(enemyData.BodyDamage, this); 
+            // Body damage
+            Damage bodyDamage = new Damage(EnemyData.BodyDamage, this);
             foreach (HitBox bodyHitBox in bodyHitBoxes)
             {
                 bodyHitBox.SetDamage(bodyDamage);
                 bodyHitBox.gameObject.SetActive(true);
             }
         }
+        #endregion
 
-        #region Combat
-        public void OnDamageDealt(DamageInfo damageInfo) { }
+        #region Status
+        private void FixedUpdate() => Status.Update();
 
-        public void TakeDamage(Damage damage)
+        /// <summary> Damage VFX </summary>
+        public void OnDamage(DamageInfo damageInfo)
         {
-            if (IsDead)
-                return;
+            GetContacts(damageInfo, out Vector3 position, out Quaternion rotation);
 
-            int effectiveDamage = damage.Value;
-            if (CurrentHealth - effectiveDamage < 0)
-            {
-                effectiveDamage = CurrentHealth;
-            }
+            // Paint Hit Particle
+            ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitFX, position, rotation);
+            spawnedHitParticle.SetColor(EnemyData.HitParticleGradient);
 
-            CurrentHealth -= effectiveDamage;
-
-            DamageInfo damageInfo = new DamageInfo(damage, this, effectiveDamage);
-            OnTakeDamage(damageInfo);
-
-            Vector3 contactPoint = damage.ContactPoint.HasValue ? damage.ContactPoint.Value : transform.position;
-            Quaternion contactRotation = damage.ContactRotation.HasValue ? damage.ContactRotation.Value : transform.rotation;
-
-            if (!IsDead)
-            {
-                HitVFX.ApplyHitFX(this, bodyRenderers, defaultSharedMaterial);
-                damageSoundReference.PlaySound(transform);
-
-                // Paint Hit Particle
-                ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitFX, contactPoint, contactRotation);
-                spawnedHitParticle.SetColor(enemyData.HitParticleGradient);
-            }
-            else
-            {
-                deathSoundReference.PlaySound(transform);
-                ObjectPool.SpawnPooledObject(hitKillFX,contactPoint, contactRotation);
-
-                // Disable components
-                foreach (HitBox bodyHitBox in bodyHitBoxes)
-                {
-                    bodyHitBox.gameObject.SetActive(false);
-                }
-
-                // Reset item effects
-                foreach (HitEffect modifier in modifiers.ToList())
-                {
-                    modifiers.Remove(modifier);
-                }
-            }
+            HitVFX.ApplyHitFX(this, bodyRenderers, defaultSharedMaterial);
+            damageSoundReference?.PlaySound(transform);
         }
 
-        private void FixedUpdate()
+        /// <summary> Death VFX </summary>
+        public void OnDeath(DamageInfo damageInfo)
         {
-            if (!IsDead)
-            {
-                // Update Effects
-                foreach (HitEffect modifier in modifiers.ToList()) // Clone list
-                {
-                    bool finish = modifier.Update();
-                    if (finish)
-                    {
-                        modifier.Dispose();
-                        modifiers.Remove(modifier);
-                    }
-                }
-            }
+            GetContacts(damageInfo, out Vector3 position, out Quaternion rotation);
+
+            deathSoundReference?.PlaySound(transform);
+            ObjectPool.SpawnPooledObject(hitKillFX, position, rotation);
+
+            // Disable components
+            bodyHitBoxes.ForEach(bodyHitBox => bodyHitBox.gameObject.SetActive(false));
         }
 
+        private void GetContacts(DamageInfo damageInfo, out Vector3 contactPoint, out Quaternion contactRotation)
+        {
+            contactPoint = damageInfo.Damage.ContactPoint ?? transform.position;
+            contactRotation = damageInfo.Damage.ContactRotation ?? transform.rotation;
+        }
+        #endregion
+
+        /// <summary> Disable the enemy after finish the death animation  </summary>
         public void FinishEnemyDeath()
         {
             ObjectPool.SpawnPooledObject(deathFX, transform.position, transform.rotation);
-            //GameplayController.GameplayReferences.SpawnItems(enemyData.DropValueData, transform.position);
+            GameplayPrefabs.DropItems(EnemyData.DropValueData, transform);
 
             OnFinishEnemyDeath.Invoke();
             gameObject.SetActive(false);
         }
-        #endregion
-    }
+    }   
 }

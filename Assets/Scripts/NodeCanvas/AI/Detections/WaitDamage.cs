@@ -9,7 +9,7 @@ namespace AdventureGame.NodeCanvas.AI
 
     [Category(Categories.AI)]
     [Description("Event that is triggered when the enemy receive a damage.")]
-    public class WaitDamage : ActionTask<IHittable> 
+    public class WaitDamage : ActionTask<IStatusOwner> 
     {
         public BBParameter<Transform> senderPivot;
         public BBParameter<Transform> senderCenter;
@@ -17,12 +17,12 @@ namespace AdventureGame.NodeCanvas.AI
 
         protected override void OnExecute() 
         {
-            agent.OnTakeDamage += OnTakeDamage;
+            agent.Status.OnTakeDamage += OnTakeDamage;
         }
 
         protected override void OnStop()
         {
-            agent.OnTakeDamage -= OnTakeDamage;
+            agent.Status.OnTakeDamage -= OnTakeDamage;
         }
 
         public void OnTakeDamage(DamageInfo damageInfo)

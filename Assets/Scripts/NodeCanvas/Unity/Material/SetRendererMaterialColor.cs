@@ -10,7 +10,7 @@ namespace AdventureGame.NodeCanvas
     [Description("Set Renderer Material Color")]
     public class SetRendererMaterialColor : ActionTask<Renderer>
     {
-        public BBParameter<string> property = "_Color";
+        public BBParameter<string> property = "_Color"; // You can see properties in inspector by debug like "_UnlitColor"
         public BBParameter<Color> color;
 
         protected override string info => $"Set Color {agentInfo} = {GetColorInfo(color)}";

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using AdventureGame.Shared;
 
-namespace AdventureGame.Data {
-
+namespace AdventureGame.Data
+{
     public enum EnvironmentState {
         Develop,
         Staging,
@@ -28,9 +28,7 @@ namespace AdventureGame.Data {
         public static EnvironmentState Environment { get; private set; }
         private static Dictionary<EnvironmentState, EnvironmentSettings> Datas { get; set; }
         public static ArenaSettings Arena => Datas[Environment].ArenaSettings;
-        public static EnemiesSettings Enemies => Datas[Environment].EnemiesSettings;
         public static GeneralSettings General => Datas[Environment].GeneralSettings;
-        public static PlayersSettings Players => Datas[Environment].PlayersSettings;
         public static UISettings UI => Datas[Environment].UISettings;
         
         public void OnValidate() => Initialize();

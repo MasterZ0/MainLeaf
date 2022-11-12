@@ -21,7 +21,7 @@ namespace AdventureGame.Player
                 keysBuffer.Remove(key);
         }
 
-        public void UpdateBuffers()
+        public void Update()
         {
             if (keysBuffer.Count == 0)
                 return;

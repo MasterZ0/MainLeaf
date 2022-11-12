@@ -32,12 +32,17 @@ namespace AdventureGame.Editor {
             // Get all types
             allTypes = new Dictionary<string, Type>();
             List<Type> types = new List<Type>();
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            foreach (var assembly in assemblies)
+
+            string startWith = !Attribute.OnlyWithNamespace ? string.Empty 
+                : Attribute.UseFirstNamespace ? elementType.FullName.StringSimplified('.') 
+                : elementType.FullName;
+
+            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (assembly.FullName.StartsWith("AdventureGame"))
+                if (assembly.FullName.StartsWith(startWith))
                 {
-                    types.AddRange(assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && (t.IsSubclassOf(elementType) || t == elementType)));
+                    IEnumerable<Type> alowedTypes = assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && (t.IsSubclassOf(elementType) || t == elementType));
+                    types.AddRange(alowedTypes);
                 }
             }
 
@@ -51,7 +56,7 @@ namespace AdventureGame.Editor {
 
             if (types.Count == 0)
             {
-                error = "Vai se fuder";
+                error = "There are no non-abstract derivations";
                 return;
             }
 
@@ -95,7 +100,10 @@ namespace AdventureGame.Editor {
             if (!string.IsNullOrEmpty(error))
             {
                 SirenixEditorGUI.ErrorMessageBox(error);
-                CallNextDrawer(label);
+
+                if (Attribute.DisplayDefaultDrawerWhenError)
+                    CallNextDrawer(label);
+
                 return;
             }
 

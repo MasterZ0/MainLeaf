@@ -32,7 +32,7 @@ namespace AdventureGame.Projectiles
                 rigidbod.isKinematic = true;
                 StartCoroutine(DelayToDisapear());
             }
-            else if (targetHit == TargetHitType.Damageable)
+            else if (targetHit == TargetHitType.Alive)
             {
                 Impact();
             }

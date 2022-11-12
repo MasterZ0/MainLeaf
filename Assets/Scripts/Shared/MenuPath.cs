@@ -5,6 +5,7 @@
     {
         // Base
         public const string ScriptableObjects = "Scriptable Objects/";
+        public const string Items = ScriptableObjects + "Items/";
 
         // Cathegories
         public const string Inputs = ScriptableObjects + "Inputs/";

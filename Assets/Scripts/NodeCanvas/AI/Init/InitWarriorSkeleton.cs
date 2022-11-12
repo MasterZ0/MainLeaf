@@ -30,8 +30,6 @@ namespace AdventureGame.NodeCanvas.AI
         public BBParameter<float> centerAttackAngle;
         public BBParameter<float> delayAfterAttack;
 
-        public override WarriorSkeletonSettings EnemyData => GameSettings.Enemies.WarriorSkeleton;
-
         protected override void SetParameters()
         {
             WarriorSkeletonSettings settings = EnemyData;

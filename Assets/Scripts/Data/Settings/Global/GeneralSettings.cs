@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using AdventureGame.Shared;
+using static UnityEditor.Progress;
 
 namespace AdventureGame.Data
 {
@@ -12,6 +13,14 @@ namespace AdventureGame.Data
         [SerializeField] private Material hitMaterial; // VFX
         [SerializeField] private float heathBarLifetime = 1f;
         [SerializeField] private float heathBarReductionDamageDealt = 1f;
+
+        [Title("Items")]
+        [MinMaxSlider(0f, 30f, true)]
+        [SerializeField] private Vector2 dropItemYVelocityRange = new Vector2(0, 5);
+        [Range(0f, 30f)]
+        [SerializeField] private float dropItemZXMaxVelocity = 2;
+        [Space]
+        [SerializeField] private int dropRestoreHP = 10;
 
         [Title("Physics")]
         [Range(0, 2f)]
@@ -29,5 +38,10 @@ namespace AdventureGame.Data
         public float WeakKnockback => weakKnockback;
         public float HeathBarLifetime => heathBarLifetime;
         public float HeathBarReductionDamageDealt => heathBarReductionDamageDealt;
+
+        public Vector2 DropItemYVelocityRange => dropItemYVelocityRange;
+        public float DropItemZXMaxVelocity => dropItemZXMaxVelocity;
+
+        public int DropRestoreHP => dropRestoreHP;
     }
 }

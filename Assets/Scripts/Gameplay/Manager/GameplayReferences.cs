@@ -21,7 +21,7 @@ namespace AdventureGame.Gameplay
         #endregion
 
         #region Public Methods
-        public static void SetReferences(GameController controller) // Injection
+        public static void SetController(GameController controller) // Injection
         {
             Controller = controller;
         }
@@ -34,11 +34,16 @@ namespace AdventureGame.Gameplay
         public static void UnregisterPlayer(IPlayer player)
         {
             Players.Remove(player);
+        }
+
+        public static void PlayerChangeState(IPlayer player)
+        {
             OnPlayerDeath.Invoke(player);
         }
 
         public static void Reset()
         {
+            Controller = null;
             InputActive = true;
             InputBlocker.Clear();
             Players.Clear();

@@ -11,5 +11,6 @@
         public const string GameSettingsAsset = GameSettingsPath + "/GameSettings.asset";
         public const string GameSettingsPath = "Assets/Data/GameSettings";
         public const string LevelDataPath = "Assets/Data/Settings/LevelData.asset";
+        public const string ItemsPath = "Assets/Data/GameSettings/Items";
     }
 }

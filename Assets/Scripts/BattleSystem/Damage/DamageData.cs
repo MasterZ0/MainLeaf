@@ -9,11 +9,11 @@ namespace AdventureGame.BattleSystem
     public class DamageData
     {
         [MinMaxSlider(0, 300, true)]
-        public Vector2Int Value;
-        public DamageType DamageType;
-        public bool CanBlock;
+        public Vector2Int value;
+        public DamageType damageType;
+        public bool canBlock;
 
-        //[SerializeReference, TypeSelection]
-        //public List<HitEffect> HitEffects = new List<HitEffect>();
+        [SerializeReference, TypeSelection]
+        public List<HitEffect> hitEffects = new List<HitEffect>();
     }
 }

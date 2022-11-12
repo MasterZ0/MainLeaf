@@ -26,15 +26,14 @@ namespace AdventureGame.ObjectPooling
             poolContainer = transform;
         }   
 
-        public static T SpawnPooledObject<T>(GameObject prefab, Transform parent) where T : Component
+        public static GameObject SpawnPooledObject(GameObject prefab, Transform parent) 
         {
-            return SpawnPooledObject<T>(prefab, default, default, parent);
+            return SpawnPooledObject(prefab, default, default, parent);
         }
 
-        public static T SpawnPooledObject<T>(GameObject prefab, Vector3 position = default, Quaternion rotation = default, Transform parent = null) where T : Component
+        public static GameObject SpawnPooledObject(GameObject prefab, Vector3 position = default, Quaternion rotation = default, Transform parent = null)
         {
-            T component = prefab.GetComponent<T>(); //From pool
-            return SpawnPooledObject(component, position, rotation, parent);
+            return SpawnPooledObject(prefab.transform, position, rotation, parent).gameObject;
         }
 
         public static T SpawnPooledObject<T>(T prefab, Transform parent) where T : Component
@@ -88,6 +87,8 @@ namespace AdventureGame.ObjectPooling
                 return component;
             }
         }
+
+        public static void ReturnToPool(GameObject instance) => ReturnToPool(instance.transform);
 
         public static void ReturnToPool<T>(T instance) where T : Component
         {

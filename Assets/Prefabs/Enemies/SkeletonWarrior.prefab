@@ -82,7 +82,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 10
+  radius: 20
   angle: 100
 --- !u!1 &4031819917420045411
 GameObject:
@@ -365,6 +365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993bc6c96cc53894e95f6217acc947ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData:
+    develop: {fileID: 11400000, guid: e9581bc7fb38fdc4298bb0d5815e8b35, type: 2}
+    staging: {fileID: 0}
+    release: {fileID: 0}
   center: {fileID: 6132441373273503602}
   head: {fileID: 0}
   hitFX: {fileID: 4980135909174561131, guid: c45960ba0f8a49f439e2f383d5456145, type: 3}
@@ -903,6 +907,11 @@ PrefabInstance:
     - target: {fileID: 6041593905301499575, guid: 70f9e983ce6eee941a1a31340fa0cc7e,
         type: 3}
       propertyPath: damageable
+      value: 
+      objectReference: {fileID: 7592146514736681825}
+    - target: {fileID: 6041593905301499575, guid: 70f9e983ce6eee941a1a31340fa0cc7e,
+        type: 3}
+      propertyPath: statusOwner
       value: 
       objectReference: {fileID: 7592146514736681825}
     - target: {fileID: 6041593905301499575, guid: 70f9e983ce6eee941a1a31340fa0cc7e,

@@ -7,14 +7,15 @@ using UnityEngine;
 using AdventureGame.BattleSystem;
 using AdventureGame.Effects;
 using AdventureGame.Shake;
+using RootMotion.Demos;
 
 namespace AdventureGame.Player
 {
     [Serializable]
     [FoldoutGroup("Visual Effects"), HideLabel, InlineProperty]
-    public class PlayerVFX
+    public class PlayerVFX : PlayerClass
     {
-        [Title("Components")]
+        [Title("VFX")]
         //[SerializeField] private TrailGenerator trail;
         [SerializeField] private SkinnedMeshRenderer[] skinnedMeshes;
 
@@ -26,6 +27,7 @@ namespace AdventureGame.Player
         [SerializeField] private ParticleVFX hpHealing;
 
         [Title("Shakes")]
+        [SerializeField] private ShakeData shootShake;
         [SerializeField] private ShakeData damageShakeData;
 
         private Coroutine flashCoroutine;
@@ -36,23 +38,15 @@ namespace AdventureGame.Player
         private float InvisibleInjuredTime => Settings.InvisibleInjuredTime;
         private float InjuryRedColorDuration => Settings.InjuryRedColorDuration;
         private float AlphaInvincible => Settings.AlphaInvisible;
-        private PlayerVisualSettings Settings => controller.PlayerSettings.Visual;
+        private PlayerVisualSettings Settings => Controller.PlayerSettings.Visual;
 
-        private PlayerController controller;
-
-        private readonly int ColorID = Shader.PropertyToID("_Add_Color");
-        private readonly int Alpha = Shader.PropertyToID("_Alpha");
+        private readonly int ColorID = Shader.PropertyToID("_BaseColor");
+        private readonly int Alpha = Shader.PropertyToID("_BaseColor");
         #endregion
-        public void Init(PlayerController playerController)
-        {
-            controller = playerController;
-            //trail.Init(Settings.TrailFrequency, Settings.TrailDuration);
-        }
 
-        public void SetActiveTrail(bool active)
-        {
-            //trail.enabled = active;
-        }
+        #region VFX
+        public void ShootArrow() => Shaker.RequestShake(shootShake);
+        #endregion
 
         #region Injure
         public void Flashing(bool invincible)
@@ -60,7 +54,7 @@ namespace AdventureGame.Player
             StopCoroutine(flashCoroutine);
             if (invincible)
             {
-                flashCoroutine = controller.StartCoroutine(Flash());
+                flashCoroutine = Controller.StartCoroutine(Flash());
             }
             else
             {
@@ -68,42 +62,48 @@ namespace AdventureGame.Player
             }
         }
 
-        public void ReceiveDamage(Vector2 position, Quaternion rotation)
+        public void ReceiveDamage(DamageInfo damageInfo)
         {
+            GetContacts(damageInfo, out Vector3 position, out Quaternion rotation);
+
             ParticleVFX particleVFX = ObjectPool.SpawnPooledObject(blood, position, rotation);
             particleVFX.SetColor(Settings.BloodColor);
 
-            //Shaker.RequestShake(damageShakeData);
+            Shaker.RequestShake(damageShakeData);
 
             StopCoroutine(reddenCoroutine);
-            reddenCoroutine = controller.StartCoroutine(Redden());
+            reddenCoroutine = Controller.StartCoroutine(Redden());
         }
 
         private void StopCoroutine(Coroutine coroutine)
         {
             if (coroutine != null)
             {
-                controller.StopCoroutine(coroutine);
+                Controller.StopCoroutine(coroutine);
             }
+        }
+
+        private void GetContacts(DamageInfo damageInfo, out Vector3 contactPoint, out Quaternion contactRotation)
+        {
+            contactPoint = damageInfo.Damage.ContactPoint ?? Controller.Center.position;
+            contactRotation = damageInfo.Damage.ContactRotation ?? Controller.Center.rotation;
         }
 
         private IEnumerator Redden()
         {
-            float redIntensity = 1f;
-            Color color = Color.black;
+            float redIntensity = 0f;
+            Color color = Color.red;
 
-            while (redIntensity > 0)
+            while (redIntensity < 1)
             {
-                color.r = redIntensity;
-
+                color = Color.Lerp(Color.red, Color.white, redIntensity);
                 ApplyPropertiesToMaterial(ColorID, color);
 
-                redIntensity -= Time.fixedDeltaTime / InjuryRedColorDuration;
-
+                redIntensity += Time.fixedDeltaTime / InjuryRedColorDuration;
                 yield return new WaitForFixedUpdate();
             }
 
-            ApplyPropertiesToMaterial(ColorID, Color.black);
+            ApplyPropertiesToMaterial(ColorID, Color.white);
         }
 
         private IEnumerator Flash()
@@ -136,9 +136,9 @@ namespace AdventureGame.Player
         #endregion
 
         #region Prefabs
-        public void Dash() => SpawnFX(dashFX, controller.Pivot);
-        public void Jump() => SpawnFX(jumpDustFX, controller.Pivot);
-        public void Landing() => SpawnFX(landingDustFX, controller.Pivot);
+        public void Dash() => SpawnFX(dashFX, Controller.Pivot);
+        public void Jump() => SpawnFX(jumpDustFX, Controller.Pivot);
+        public void Landing() => SpawnFX(landingDustFX, Controller.Pivot);
         private void SpawnFX(Component effect, Transform orientation) => ObjectPool.SpawnPooledObject(effect, orientation.position, orientation.rotation);
         #endregion
     }

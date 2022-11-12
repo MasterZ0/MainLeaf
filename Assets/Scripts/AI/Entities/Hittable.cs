@@ -11,7 +11,7 @@ namespace AdventureGame.AI.Entities
     /// <summary>
     /// Implements basic behaviour for hittable objects
     /// </summary>
-    public class Hittable : MonoBehaviour, IHittable 
+    public class Hittable : MonoBehaviour, IStatusOwner, IStatusController
     {
         [Title("Hittable")]
         [SerializeField] private bool immortal;
@@ -28,8 +28,15 @@ namespace AdventureGame.AI.Entities
         public event Action<DamageInfo> OnTakeDamage = delegate { };
 
         public Transform Pivot => transform;
-        public Transform Center => center ?? transform;
-        public Transform Head => head ?? transform;
+        public Transform Head => head;
+        public Transform Center => center;
+
+        private readonly BasicAttributesController attributes = new BasicAttributesController();
+        public IAttributes Attributes => attributes;
+        public IStatusController Status => this;
+
+        public void DamageDealt(DamageInfo info) { }
+        public bool Restore(AttributePoint attribute, int amount) => false;
 
         public void TakeDamage(Damage damage)
         {

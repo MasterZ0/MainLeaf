@@ -42,7 +42,7 @@ namespace AdventureGame.Projectiles
         protected override void AfterHit(TargetHitType targetHit)
         {
             // If is Hittable or KilledDamageable continue without Impact
-            if (targetHit == TargetHitType.Damageable || targetHit == TargetHitType.Unknown)
+            if (targetHit == TargetHitType.Alive || targetHit == TargetHitType.Unknown)
             {
                 Impact();
             }

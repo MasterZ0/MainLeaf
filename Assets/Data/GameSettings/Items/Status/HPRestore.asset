@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4a378f3861b0143be8160a42a03030, type: 3}
+  m_Name: HPRestore
+  m_EditorClassIdentifier: 
+  itemName:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  itemDescription:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  icon: {fileID: 21300000, guid: 600010186e12b1443b979add6f2e1f04, type: 3}
+  image: {fileID: 0}
+  model: {fileID: 1702347382167896502, guid: 0a00cb4249459a9438b32c8177d7b839, type: 3}
+  attributePoint: 0
+  restoreValue: 20

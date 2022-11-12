@@ -13,8 +13,13 @@ namespace AdventureGame.Shared {
         public TextAlignment TextAlignment { get; }
         public bool HorizontalLine { get; }
         public bool BoldLabel { get; }
+        public bool DisplayDefaultDrawerWhenError { get; }
+        public bool RepetitionAllowed { get; }
+        public bool OnlyWithNamespace { get; } = true;
+        public bool UseFirstNamespace { get; } = true;
 
-        public TypeSelectionAttribute(TextAlignment textAlignment = TextAlignment.Left, bool horizontalLine = true, bool boldLabel = true) {
+        public TypeSelectionAttribute(TextAlignment textAlignment = TextAlignment.Left, bool horizontalLine = true, bool boldLabel = true) 
+        {
             TextAlignment = textAlignment;
             HorizontalLine = horizontalLine;
             BoldLabel = boldLabel;

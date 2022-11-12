@@ -9,25 +9,38 @@ using AdventureGame.Items;
 using System.Collections.Generic;
 using NodeCanvas.StateMachines;
 using AdventureGame.Gameplay;
+using AdventureGame.Items.Data;
 
 namespace AdventureGame.Player
 {
+    public enum PlayerEvent
+    {
+        Injury,
+        Death
+    }
+
     /// <summary>
     /// Player Core
     /// </summary>
-    public class PlayerController : MonoBehaviour, IAttacker, IDamageable, IItemCollector, IPlayer
+    public class PlayerController : MonoBehaviour, IStatusOwner, IInventoryOwner, IPlayer
     {
         [Title("Player Controller")]
+        [CustomBox]
+        [SerializeField] private DataSettings<PlayerSettings> settings;
+        [Space]
         [SerializeField] private Transform center;
         [SerializeField] private Transform head;
         [SerializeField] private FSMOwner stateMachine;
-        [SerializeField] private InventoryController playerInventory;
-        [SerializeField] private CameraController cameraController;
-        [SerializeField] private StatusController playerStatus;
+        [SerializeField] private PlayerEvents playerEvents;
+        [Space]
+        [SerializeField] private PlayerInventory playerInventory;
+        [SerializeField] private PlayerArsenal playerArsenal;
+        [SerializeField] private PlayerCamera playerCamera;
+        [SerializeField] private PlayerStatus playerStatus;
 
         [SerializeField] private PlayerPhysics playerPhysics;
         [SerializeField] private PlayerAnimator playerAnimator;
-        [SerializeField] private PlayerUI playerUI;
+        [SerializeField] private PlayerHUD playerHUD;
         [SerializeField] private PlayerVFX playerVFX;
         [SerializeField] private PlayerSFX playerSFX;
 
@@ -35,44 +48,39 @@ namespace AdventureGame.Player
         [SerializeField] private bool debugMode;
 
         #region Properties
-        public int MaxHealth => Status.MaxHP;
-        public int CurrentHealth => Status.CurrentHP;
-        
-        public StatusController Status => playerStatus;
+        public event Action<DamageInfo> OnTakeDamage = delegate { };
+        public event Action<PlayerEvent> OnPlayerEvent = delegate { };
+
+        public FSMOwner FSM => stateMachine; // Remove??
+        public PlayerStatus Status => playerStatus;
         public PlayerAnimator Animator => playerAnimator;
         public PlayerPhysics Physics => playerPhysics;
-        public CameraController Camera => cameraController;
-        public PlayerUI UI => playerUI;
+        public PlayerCamera Camera => playerCamera;
+        public PlayerHUD UI => playerHUD;
         public PlayerVFX VFX => playerVFX;
         public PlayerSFX SFX => playerSFX;
-        public InventoryController Inventory => playerInventory;
+        public PlayerInventory Inventory => playerInventory;
+        public PlayerArsenal Arsenal => playerArsenal;
+
+        // Interface
         public Transform Pivot => transform;
         public Transform Center => center;
         public Transform Head => head;
+
+        public PlayerSettings PlayerSettings { get; private set; }
+        public FacilitatorBuffer FacilitatorBuffer { get; private set; }
+        public PlayerInputs Inputs { get; private set; }
+
+        IStatusController IStatusOwner.Status => playerStatus;
+        IInventoryController IInventoryOwner.Inventory => playerInventory;
+        #endregion
 
         [ShowInInspector, ReadOnly, TextArea]
         private string CurrentState;
         private List<PlayerAction> CurrentActions = new List<PlayerAction>();
 
-        public PlayerAction CurrentPlayerState { get; private set; }
-
-
-        public FacilitatorBuffer FacilitatorBuffer { get; private set; }
-        public PlayerInputs Inputs { get; private set; }
-
-        #endregion
-
-        private float invincibleTime; // stats?
-
-        public event Action<DamageInfo> OnTakeDamage { add => throw new NotImplementedException(); remove => throw new NotImplementedException(); }
-
-        public PlayerSettings PlayerSettings { get; private set; }
-        public FSMOwner FSM => stateMachine;
-
-
-
         #region Init
-        public void Setup(PlayerSettings settings) //Awake
+        private void Awake()
         {
             PlayerSettings = settings;
             InitComponents();
@@ -86,72 +94,61 @@ namespace AdventureGame.Player
 
             // Core
             //GameSlotData save = PersistenceManager.Load(new GameSlotData());
-            //Inventory.SetInventory(save.playerInventory);
+            playerInventory.Init(this);
             playerStatus.Init(this);
 
-
             // Others
+            playerEvents.Init(this);
+            playerArsenal.Init(this);
             playerAnimator.Init(this);
-            cameraController.Init(this);
+            playerCamera.Init(this);
             playerPhysics.Init(this);
             playerSFX.Init(this);
-            playerUI.Init(this);
+            playerHUD.Init(this);
             playerVFX.Init(this);
 
             // Event
-            //GameplayController.OnPlayerInputSet += PlayerInputSet;
-
+            GameplayReferences.RegisterPlayer(this);
+            GameplayReferences.OnPlayerInputSet += PlayerInputSet;
         }
 
         private void OnDestroy()
         {
-            //GameplayController.OnPlayerInputSet -= PlayerInputSet;
+            GameplayReferences.UnregisterPlayer(this);
+            GameplayReferences.OnPlayerInputSet -= PlayerInputSet;
+
             Inputs.Dispose();
-            cameraController.Destroy();
-            //playerStatus.Destroy();
-            //weaponController.Destroy();
-            //playerUI.Destroy();
+            playerStatus.Destroy();
+            playerInventory.Destroy();
         }
         #endregion
 
         private void PlayerInputSet(bool active) => Inputs.SetActive(active);
 
-
         private void FixedUpdate()
         {
             stateMachine.graph.UpdateGraph();
 
-            if (PlayerSettings)
-            {
-                Physics.Update();
-                playerStatus.Update();
-                FacilitatorBuffer.UpdateBuffers();
-                cameraController.LateUpdate();
-            }
-
-            // status?
-            //UpdateInvincible();
+            Physics.Update();
+            playerStatus.Update();
+            FacilitatorBuffer.Update();
+            playerCamera.Update();
         }
 
-        private void LateUpdate()
-        {
-        }
-
-        private void UpdateInvincible()
-        {
-            if (invincibleTime > 0)
-            {
-                invincibleTime -= Time.fixedDeltaTime;
-                if (invincibleTime <= 0)
-                {
-                    Physics.PlayerDefaultLayer();
-                    //OnInvincibleTime = false;
-                    //VFX.Flashing(false);
-                }
-            }
-        }
+        #region Interfaces
+        public bool AddItem(ItemReference item) => Inventory.AddItem(item);
+        public void AddGold(int amount) => Inventory.AddGold(amount);
+        #endregion
 
         #region States
+        public void Injury() => OnPlayerEvent.Invoke(PlayerEvent.Injury);
+        public void Death()
+        {
+            GameplayReferences.PlayerChangeState(this);
+            OnPlayerEvent.Invoke(PlayerEvent.Death);
+        }
+
+        // Ideas
         public void EnterState(PlayerAction playerAction) // Lock after request?
         {
             CurrentActions.Add(playerAction);
@@ -159,7 +156,7 @@ namespace AdventureGame.Player
 
             if (debugMode)
             {
-                Debug.Log($"State: {CurrentState.GetType().Name}");
+                Debug.Log($"Enter State: {CurrentState.GetType().Name}");
             }
         }
         public void ExitState(PlayerAction playerAction) // Lock after request?
@@ -176,98 +173,26 @@ namespace AdventureGame.Player
                 CurrentState += action.GetType().Name + "\n";
             }
         }
-
         #endregion
-
-        #region Interfaces
-        //public bool AddItem(ItemData item, int amount)
-        //{
-        //    if (item is OrbItemData orbItemData)
-        //    {
-        //        PlayerReference.Attributes.AddOrb(orbItemData.OrbType);
-        //        return true;
-        //    }
-
-        //    return Inventory.AddItem(item, amount);
-        //}
-
-        public void AddGold(int amount) { }// => Inventory.AddGold(amount);
-
-        public void TakeDamage(Damage damage) // TODO: Shield Script
-        {
-            // TODO: Shield VFX Block or Hand VFX Block
-            Debug.Log(damage.Value);
-            return;
-
-            if (Status.Dead || Status.GodMode)
-                return;
-
-            //if (CanBlockAttack(damage))
-            //    return;
-
-            if (Physics.IsPlayerInvincible())
-                return;
-
-            playerStatus.TakeDamage(damage);
-
-        }
-
-        public void OnDamageDealt(DamageInfo info)
-        {
-            Status.OnDamageDealt(info);
-        }
-
-        //private bool CanBlockAttack(Damage damage)
-        //{
-        //    Vector2 damageDirection = GetDamageDirection(damage);
-        //    bool canBlockDirection = damageDirection == (Vector2)centerPoint.right;
-        //    return Status.IsShielded && Status.HasStamina && canBlockDirection && damage.CanBlock;
-        //}
-
-        private Vector2 GetDamageDirection(Damage damage)
-        {
-            Vector2 contactDirection = damage.ContactPoint.Value - transform.position;
-            contactDirection.y = 0;
-            contactDirection.Normalize();
-
-            return contactDirection;
-        }
-        #endregion
-
-        public void Die()
-        {
-            //SwitchState<DyingPS>();
-        }
-        
-
-        public void InjuryStunEnd()
-        {
-            //VFX.Flashing(true);
-            //invincibleTime = PlayerSettings.Physics.InvincibilityTimeAfterInjury;
-            //Blackboard.OnInvincibleTime = true;
-        }
 
         #region Dev Tools
         [Button]
         private void ResetPlayer()
         {
-            Status.RecoveryAllPoints();
-            //SwitchState<IdlePS>();
+            Status.Attributes.RecoveryAllPoints();
+            stateMachine.RestartBehaviour();
         }
 
         [Button]
-        private void KillPlayer()
-        {
-            Status.Kill();
-        }
+        private void KillPlayer() => this.Kill();
         #endregion
 
         #region Gizmos
         private void OnDrawGizmos()
         {
-            playerPhysics.DrawGizmos();
+            if (Application.isPlaying)
+                playerPhysics.DrawGizmos();
         }
-
         #endregion
     }
 }

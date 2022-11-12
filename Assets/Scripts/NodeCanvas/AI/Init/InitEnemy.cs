@@ -9,12 +9,11 @@ namespace AdventureGame.NodeCanvas.AI
     [Category(Categories.AIInit)]
     public abstract class InitEnemy<T> : ActionTask<Enemy> where T : EnemyData
     {
-        public abstract T EnemyData { get; }
+        protected T EnemyData => agent.EnemyData as T;
 
         protected override void OnExecute()
         {
             SetParameters();
-            agent.Setup(EnemyData);
 
             EnemyData.OnValueChanged += OnDataChanged;
 
@@ -23,13 +22,13 @@ namespace AdventureGame.NodeCanvas.AI
 
         private void OnDataChanged()
         {
-            if (ownerSystemBlackboard != null)
+            if (agent && agent.gameObject.activeSelf)//ownerSystemBlackboard
             {
                 SetParameters();
             }
             else
             {
-                EnemyData.OnValueChanged -= OnDataChanged;
+                EnemyData.OnValueChanged -= OnDataChanged;  
             }
         }
 

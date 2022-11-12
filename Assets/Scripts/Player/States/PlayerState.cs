@@ -12,22 +12,17 @@ namespace AdventureGame.Player.States
     public abstract class PlayerCondition : ConditionTask<PlayerController>
     {
         #region Player Components
-        protected PlayerSettings Settings => agent.PlayerSettings;
-        protected StatusController Status => agent.Status;
-        protected CameraController Camera => agent.Camera;
+        protected PlayerStatus Status => agent.Status;
+        protected PlayerArsenal Arsenal => agent.Arsenal;
         protected PlayerPhysics Physics => agent.Physics;
-        protected PlayerAnimator Animator => agent.Animator;
-        protected PlayerVFX VFX => agent.VFX;
-        protected PlayerSFX SFX => agent.SFX;
         protected PlayerInputs Inputs => agent.Inputs;
         protected FacilitatorBuffer FacilitatorBuffer => agent.FacilitatorBuffer;
         #endregion
 
         #region Settings
+        protected PlayerSettings Settings => agent.PlayerSettings;
         protected PlayerPhysicsSettings PhysicsSettings => Settings.Physics;
         #endregion
-
-        public virtual bool CombatState => false;
     }
 
 
@@ -39,9 +34,8 @@ namespace AdventureGame.Player.States
     public abstract class PlayerAction : ActionTask<PlayerController>
     {
         #region Player Components
-        protected PlayerSettings Settings => agent.PlayerSettings;
-        protected StatusController Status => agent.Status;
-        protected CameraController Camera => agent.Camera;
+        protected PlayerStatus Status => agent.Status;
+        protected PlayerCamera Camera => agent.Camera;
         protected PlayerPhysics Physics => agent.Physics;
         protected PlayerAnimator Animator => agent.Animator;
         protected PlayerVFX VFX => agent.VFX;
@@ -51,6 +45,7 @@ namespace AdventureGame.Player.States
         #endregion
 
         #region Settings
+        protected PlayerSettings Settings => agent.PlayerSettings;
         protected PlayerPhysicsSettings PhysicsSettings => Settings.Physics;
         #endregion
 

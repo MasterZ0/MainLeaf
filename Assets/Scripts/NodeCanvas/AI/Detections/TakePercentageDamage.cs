@@ -8,7 +8,7 @@ namespace AdventureGame.NodeCanvas.AI
 {
     [Category(Categories.AI)]
     [Description("Deals damage to an IDamageable based on a percentage")]
-    public class TakePercentageDamage : ActionTask<IDamageable>
+    public class TakePercentageDamage : ActionTask<IStatusOwner>
     {
         public BBParameter<Transform> sender;
         public BBParameter<float> damagePercentage;

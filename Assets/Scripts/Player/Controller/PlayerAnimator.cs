@@ -1,10 +1,7 @@
 using AdventureGame.Data;
-using AdventureGame.Persistence;
-using AdventureGame.Shared.ExtensionMethods;
 using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
-using AdventureGame.Inputs;
 using RootMotion.FinalIK;
 using System.Collections;
 
@@ -19,7 +16,7 @@ namespace AdventureGame.Player
 
     [Serializable]
     [FoldoutGroup("Animator"), HideLabel, InlineProperty]
-    public class PlayerAnimator
+    public class PlayerAnimator : PlayerClass
     {
         [Header("Components")]
         [SerializeField] private Animator animator;
@@ -32,12 +29,6 @@ namespace AdventureGame.Player
         private Coroutine aimCoroutine;
 
         private PlayerPhysicsSettings Settings => Controller.PlayerSettings.Physics;
-        private PlayerController Controller { get; set; }
-
-        public void Init(PlayerController controller)
-        {
-            Controller = controller;
-        }
 
         internal void Falling() => PlayAllLayers(falling);
         internal void Jump() => PlayAllLayers(jumpMoving);

@@ -10,14 +10,13 @@ namespace AdventureGame.BattleSystem
         protected enum TargetHitType
         {
             Unknown,
-            Hittable,
-            Damageable,
-            KilledDamageable
+            Alive,
+            Defeated
         }
 
         protected Damage Damage { get; private set; }
 
-        public void SetDamage(DamageData damageData, IAttacker attacker) => Damage = new Damage(damageData, attacker);
+        public void SetDamage(DamageData damageData, IStatusOwner attacker) => Damage = new Damage(damageData, attacker);
         public void SetDamage(Damage damage) => Damage = damage;
 
         protected virtual void OnTriggerEnter(Collider collision)
@@ -33,27 +32,16 @@ namespace AdventureGame.BattleSystem
 
         protected void ApplyDamage(Collider collision)
         {
-            if (collision.attachedRigidbody == null)
-            {
-                AfterHit(TargetHitType.Unknown);
-                return;
-            }
-
-            if (collision.attachedRigidbody.TryGetComponent(out IHittable hittable))
+            if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent(out IStatusOwner controller))
             {
                 Vector3 contact = collision.ClosestPoint(transform.position);
 
                 Damage.AddHitBoxInfo(this, contact); // TODO: Clone or create a new instance, contact is changing
-                hittable.TakeDamage(Damage);
+                controller.TakeDamage(Damage);
 
-                if (hittable is IDamageable damageable)
-                {
-                    TargetHitType targetHit = damageable.CurrentHealth <= 0 ? TargetHitType.KilledDamageable : TargetHitType.Damageable;
-                    AfterHit(targetHit);
-                    return;
-                }
+                TargetHitType targetHit = controller.IsDead() ? TargetHitType.Defeated : TargetHitType.Alive;
 
-                AfterHit(TargetHitType.Hittable);
+                AfterHit(targetHit);
                 return;
             }
 

@@ -28,7 +28,7 @@ namespace AdventureGame.AI
         private void OnEnable()
         {
             Enemy.OnFinishEnemyDeath += OnFinishEnemyDeath;
-            Enemy.OnTakeDamage += OnTakeDamage;
+            Enemy.Status.OnTakeDamage += OnTakeDamage;
 
             Enemy.gameObject.SetActive(true);
         }
@@ -36,7 +36,7 @@ namespace AdventureGame.AI
         private void OnDisable()
         {
             Enemy.OnFinishEnemyDeath -= OnFinishEnemyDeath;
-            Enemy.OnTakeDamage -= OnTakeDamage;
+            Enemy.Status.OnTakeDamage -= OnTakeDamage;
         }
 
         private void OnTakeDamage(DamageInfo obj)

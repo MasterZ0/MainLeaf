@@ -15,7 +15,7 @@ namespace AdventureGame.NodeCanvas.Audio
 
         protected override string info => soundReference.IsNull ?
             "♫ Set Music <b>NULL</b>" :
-            $"♫ Set Music <b>{soundReference.Path.UnderscoreByReduction()}</b>";
+            $"♫ Set Music <b>{soundReference.Path.StringReduction()}</b>";
 
         protected override void OnExecute()
         {

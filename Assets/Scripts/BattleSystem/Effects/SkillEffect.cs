@@ -8,7 +8,5 @@ namespace AdventureGame.BattleSystem
         public abstract void Start();
         public abstract bool Update();
         public abstract void Dispose();
-        public abstract bool IsExit();
-
     }
 }

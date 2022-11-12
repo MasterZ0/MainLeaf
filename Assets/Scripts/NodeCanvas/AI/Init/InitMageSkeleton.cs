@@ -1,6 +1,5 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
-using AdventureGame.Shared.ExtensionMethods;
 using NodeCanvas.Framework;
 using UnityEngine;
 using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
@@ -32,8 +31,6 @@ namespace AdventureGame.NodeCanvas.AI
         public BBParameter<float> fireballVelocity;
         public BBParameter<DamageData> fireballDamage;
         public BBParameter<float> delayAfterAttack;
-
-        public override MageSkeletonSettings EnemyData => GameSettings.Enemies.MageSkeletonSettings;
 
         protected override void SetParameters()
         {

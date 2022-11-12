@@ -8,7 +8,7 @@ namespace AdventureGame.NodeCanvas.AI
 {
     [Category(Categories.AI)]
     [Description("Deals damage to IHitable")]
-    public class TakeDamage : ActionTask<IHittable>
+    public class TakeDamage : ActionTask<IStatusOwner>
     {
         public BBParameter<Transform> sender;
         public BBParameter<int> damageValue;

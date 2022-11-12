@@ -14,9 +14,8 @@ namespace AdventureGame.NodeCanvas.Unity
         public BBParameter<float> transition = 0.25f;
 
         public BBParameter<bool> waitUntilFinish;
-        [ShowIf(nameof(waitLayer), 1)]
+        [ShowIf(nameof(waitUntilFinish), 1)]
         public BBParameter<int> waitLayer;
-
 
         protected override string info => $"► Play All: {stateName}";
 

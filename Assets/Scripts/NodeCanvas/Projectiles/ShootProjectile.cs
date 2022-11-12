@@ -8,7 +8,7 @@ namespace AdventureGame.NodeCanvas.Projectiles {
 
     [Category(Categories.Projectiles)]
     [Description("Shoot the projectile")]
-    public class ShootProjectile : ActionTask<IAttacker> 
+    public class ShootProjectile : ActionTask<IStatusOwner> 
     {
         [Header("In")]
         [RequiredField] public BBParameter<Projectile> projectile;
