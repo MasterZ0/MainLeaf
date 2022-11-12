@@ -1,0 +1,19 @@
+{
+    "name": "AdventureGame.Data.Items",
+    "rootNamespace": "AdventureGame.Data.Items",
+    "references": [
+        "GUID:1267bfca6e7ce15418881b876f7bf534",
+        "GUID:bf16cbab274a2f34993044311369ac9c",
+        "GUID:d43ea55eb0e35f4429a5e067829e5e87",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

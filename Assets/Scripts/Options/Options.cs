@@ -1,49 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
-using FMOD.Studio;
-using FMODUnity;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class Options : MonoBehaviour {
+namespace AdventureGame.AppOptions
+{
+    public class Options : MonoBehaviour
+    {
+        [Title("Options")]
+        [SerializeField] private VideoOptions videoOptions;
+        [SerializeField] private AudioOptions audioOptions;
+        [SerializeField] private ControlsOptions controlsOptions;
 
-    [Header("Options")]
-    [SerializeField] private GameObject externalPanel;
-    [SerializeField] private GameObject firstPanel;
-    [SerializeField] private Button firstTab;
-    [SerializeField] private UIAudio uiAudio;
+        public virtual void Init() // LoadOptions
+        {
+            return;
+            videoOptions.LoadVideoSettings();
+            audioOptions.LoadAudioSettings();
+            controlsOptions.LoadInputSettings();
+        }
 
-    private GameObject currentPanel;
-    private Action onCloseCallback;
-    private static Options Instance { get; set; }
-    private void Awake() {
-        Instance = this;
-        currentPanel = firstPanel;
+        public virtual void OnOpenOptionsWindow() { }
+
+        public virtual void OnCloseOptionsWindow() { }
     }
-    public static void OpenOption(Action closeCallback) => Instance.Open(closeCallback);    
-
-    private void Open(Action closeCallback) {
-        onCloseCallback = closeCallback;
-        externalPanel.SetActive(true);
-        firstTab.Select();
-    }
-
-    #region Buttons Event 
-    public void OnCloseOptions() {
-        currentPanel.SetActive(false);
-        externalPanel.SetActive(false);
-        onCloseCallback();
-        uiAudio.OnCancel();
-    }
-    public void OnSelectTab(GameObject panel) {
-        currentPanel.SetActive(false);
-        panel.SetActive(true);
-        currentPanel = panel;
-        uiAudio.OnSelect();
-    }
-
-    #endregion
 }

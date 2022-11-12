@@ -1,0 +1,19 @@
+{
+    "name": "AdventureGame.NodeCanvas.AI.Pathfinding",
+    "rootNamespace": "AdventureGame.NodeCanvas.AI.Pathfinding",
+    "references": [
+        "GUID:d055970d43ebe2d449fe0b1d2fd48b63",
+        "GUID:efa45043feb7e4147a305b73b5cea642",
+        "GUID:35334e9fce2041042a58f9101a81d24c",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

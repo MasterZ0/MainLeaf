@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2761561e-d250-4c5f-bffe-8f997341e66d}">
 		<property name="name">
 			<value>Gameplay</value>
@@ -60,8 +60,8 @@
 	<object class="MarkerTrack" id="{67d9ee29-6442-4c02-8332-57deee13af73}" />
 	<object class="GroupTrack" id="{16b9aec1-7da4-4092-a9b8-8be21953efaa}">
 		<relationship name="modules">
-			<destination>{8e00d91c-4e6d-48d1-a82d-cba9ad1b89e5}</destination>
 			<destination>{56510ee8-06af-4499-a3c2-1f26d85ad9b1}</destination>
+			<destination>{8e00d91c-4e6d-48d1-a82d-cba9ad1b89e5}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{e13afb80-014f-4965-a933-0913c2884c79}</destination>
@@ -69,8 +69,8 @@
 	</object>
 	<object class="Timeline" id="{3dcb51c8-6c00-472a-b341-aa20ddc23483}">
 		<relationship name="modules">
-			<destination>{8e00d91c-4e6d-48d1-a82d-cba9ad1b89e5}</destination>
 			<destination>{56510ee8-06af-4499-a3c2-1f26d85ad9b1}</destination>
+			<destination>{8e00d91c-4e6d-48d1-a82d-cba9ad1b89e5}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{6850fe2b-9c17-4460-bc30-eeb132e2b74c}</destination>
@@ -93,14 +93,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c3aa0f26-2409-4344-aa3e-7575c0699dfa}" />
-	<object class="SingleSound" id="{8e00d91c-4e6d-48d1-a82d-cba9ad1b89e5}">
-		<property name="length">
-			<value>8</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{d6f6a2b3-1532-4d93-86bb-0806f2655821}</destination>
-		</relationship>
-	</object>
 	<object class="SingleSound" id="{56510ee8-06af-4499-a3c2-1f26d85ad9b1}">
 		<property name="start">
 			<value>8</value>
@@ -109,6 +101,14 @@
 			<value>172.97632653061225</value>
 		</property>
 		<property name="timelockedOffset">
+			<value>8</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{d6f6a2b3-1532-4d93-86bb-0806f2655821}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{8e00d91c-4e6d-48d1-a82d-cba9ad1b89e5}">
+		<property name="length">
 			<value>8</value>
 		</property>
 		<relationship name="audioFile">

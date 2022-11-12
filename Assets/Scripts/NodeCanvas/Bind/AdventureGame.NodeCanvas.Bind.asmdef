@@ -1,0 +1,14 @@
+{
+    "name": "AdventureGame.NodeCanvas.Bind",
+    "rootNamespace": "AdventureGame.NodeCanvas.Bind",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,20 @@
+{
+    "name": "AdventureGame.NodeCanvas.AI.Init",
+    "rootNamespace": "AdventureGame.NodeCanvas.AI.Init",
+    "references": [
+        "GUID:d055970d43ebe2d449fe0b1d2fd48b63",
+        "GUID:fcbe015298788f64d8404a9bf040f4db",
+        "GUID:35334e9fce2041042a58f9101a81d24c",
+        "GUID:d43ea55eb0e35f4429a5e067829e5e87",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

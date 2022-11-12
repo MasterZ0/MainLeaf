@@ -1,0 +1,16 @@
+{
+    "name": "AdventureGame.Persistence",
+    "rootNamespace": "AdventureGame.Persistence",
+    "references": [
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

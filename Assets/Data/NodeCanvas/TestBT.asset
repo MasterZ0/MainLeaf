@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: TestBT
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":753.772,"y":3.736044},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"stateName":{"_value":"Aim"},"transition":{"_value":0.25},"waitUntilFinish":{"_value":true},"waitLayer":{"_value":2},"overrideAgent":{"_type":"UnityEngine.Animator","_name":"Animator","_targetVariableID":"7fd88da2-8044-4290-847f-f5a9ba051fd1"},"$type":"AdventureGame.NodeCanvas.Unity.PlayAnimationAllLayers"},"_position":{"x":634.6818,"y":148.9701},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"repeaterMode":2,"repeatTimes":{"_name":""},"_position":{"x":960.0,"y":106.2},"$type":"NodeCanvas.BehaviourTrees.Repeater","$id":"2"},{"_position":{"x":886.0,"y":199.2},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"3"},{"policy":1,"_position":{"x":829.9711,"y":362.7146},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"4"},{"_action":{"waitUntilFinish":{"_value":true},"stateName":{"_value":"Shoot"},"layer":{"_value":2},"transition":{"_value":0.25},"overrideAgent":{"_type":"UnityEngine.Animator","_name":"Animator","_targetVariableID":"7fd88da2-8044-4290-847f-f5a9ba051fd1"},"$type":"AdventureGame.NodeCanvas.Unity.PlayAnimation"},"_position":{"x":728.3579,"y":555.8607},"_comment":"","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_position":{"x":929.9895,"y":545.1469},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"6"},{"_action":{"actions":[{"eventName":{"_value":"ShootArrow"},"overrideAgent":{"_type":"AdventureGame.Shared.AnimationEventTrigger","_name":"AnimationEventTrigger","_targetVariableID":"b4a0a331-eb89-44bb-8444-193a836339b8"},"$type":"AdventureGame.NodeCanvas.Utils.WaitAnimationTrigger"},{"prefab":{"_name":"Projectile","_targetVariableID":"496e9ee2-a4ca-4b68-884c-721bd3660d50"},"position":{"_name":"FireballPoint","_targetVariableID":"6d9b2bd3-2e0f-460d-818f-98572430bb90"},"rotation":{"_name":"FireballPoint","_targetVariableID":"6d9b2bd3-2e0f-460d-818f-98572430bb90"},"parent":{},"returnedObject":{"_name":"Returned
+    Object","_targetVariableID":"68c96ae8-4e15-4772-ac7f-9a44644c4bc0"},"$type":"AdventureGame.NodeCanvas.Instantiate.SpawnPooledObject`1[[AdventureGame.Projectiles.Projectile,
+    AdventureGame.Projectiles, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"projectile":{"_name":"Returned
+    Object","_targetVariableID":"68c96ae8-4e15-4772-ac7f-9a44644c4bc0"},"damage":{"_value":{}},"velocity":{"_name":"FireballVelocity","_targetVariableID":"43cb6a5b-c52a-47d9-bf42-312032cdd565"},"overrideAgent":{"_name":"newEnemy","_targetVariableID":"e5afc89d-d61d-4583-aa30-5ef3bf3fcaee"},"$type":"AdventureGame.NodeCanvas.Projectiles.ShootProjectile"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":860.2087,"y":684.4171},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"waitTime":{"_name":"DelayAfterAttack","_targetVariableID":"a619ec39-8e23-469b-8d89-862995aac340"},"$type":"NodeCanvas.Tasks.Actions.Wait"},"_position":{"x":986.6707,"y":329.0049},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"Returned
+    Object":{"_name":"Returned Object","_id":"68c96ae8-4e15-4772-ac7f-9a44644c4bc0","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Projectiles.Projectile,
+    AdventureGame.Projectiles, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: -416, y: -358}
+    _zoomFactor: 1
+  _haltSerialization: 0

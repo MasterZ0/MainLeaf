@@ -1,112 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
+using AdventureGame.Data;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterSelection : MonoBehaviour {
-    [System.Serializable]
-    private struct Character {
-        [Header("Character")]
-        public string name;
-        [Range(0, 1)] public float style;
-        [Range(1, 5)] public int damage;
-        [Range(1, 5)] public int agility;
-        [Range(1, 5)] public int support;
-        [Range(1, 5)] public int resistence;
+namespace AdventureGame.MainMenu
+{
+    public class CharacterSelection : MonoBehaviour
+    {
+        [Header("Character Selection")]
+        [SerializeField] private MainMenu mainMenu;
+        [SerializeField] private SelectableCharacter[] characters;
 
-        [Header("- Config")]
-        public Animator nameAnimator;
-        public SelectionColor[] selection;
-    }
+        [Header("Character Preview Panel")]
+        [SerializeField] private TextMeshProUGUI nameTMP;
+        [SerializeField] private Slider style;
+        [SerializeField] private GameObject[] damage;
+        [SerializeField] private GameObject[] agility;
+        [SerializeField] private GameObject[] support;
+        [SerializeField] private GameObject[] resistence;
 
-    [Header("Character Selection")]
-    [SerializeField] private Character[] characters;
+        private SelectableCharacter currentCharacter;
 
-    [Header(" - Event")]
-    [SerializeField] private IntEvent onSubmit;
-    [SerializeField] private UnityEvent onSelect;
-    [SerializeField] private UnityEvent onCancel;
+        private void Awake()
+        {
+            currentCharacter = characters[0];
 
-    [Header(" - Panel")]
-    [SerializeField] private TextMeshProUGUI nameTMP;
-    [SerializeField] private Slider style;
-    [SerializeField] private GameObject[] damage;
-    [SerializeField] private GameObject[] agility;
-    [SerializeField] private GameObject[] support;
-    [SerializeField] private GameObject[] resistence;
-
-    private Controls controls;
-    private int characterIndex;
-
-    private void Awake() {
-        controls = new Controls();
-        controls.UI.Navigate.started += ctx => OnNavigate(ctx.ReadValue<Vector2>().x);
-        controls.UI.Submit.started += ctx => OnSubmit();
-        controls.UI.Cancel.started += ctx => OnCancel();
-    }
-    /// <summary>
-    /// Enable character selection controls
-    /// </summary>
-    public void SetActive() { 
-        controls.Enable();
-        onSelect.Invoke();  // Disable the first select
-        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, true);
-
-        foreach (SelectionColor sc in characters[characterIndex].selection) {
-            sc.SetColor(Color.green);
-        }
-    }
-
-    private void OnSubmit() {
-        controls.Disable();
-        onSubmit.Invoke(characterIndex);
-        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, false);
-        UpdatePanel();
-
-        foreach (SelectionColor sc in characters[characterIndex].selection) {
-            sc.SetColor(Color.black);
-        }
-    }
-    private void OnNavigate(float direction) {
-        if (direction == 0)
-            return;
-
-        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, false);
-        characterIndex = characterIndex.Navigate(characters.Length, direction > 0);
-
-        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, true);
-        onSelect.Invoke();
-
-        for (int i = 0; i < characters.Length; i++) {
-            Color color = i == characterIndex ? Color.green : Color.black;
-
-            foreach (SelectionColor sc in characters[i].selection) {
-                sc.SetColor(color);
+            foreach (SelectableCharacter character in characters)
+            {
+                character.Init(this);
             }
         }
-    }
-    private void OnCancel() {
-        controls.Disable();
-        onCancel.Invoke();
 
-        characters[characterIndex].nameAnimator.SetBool(ConstAnimations.Navigation.SELECTED, false);
-        foreach (SelectionColor sc in characters[characterIndex].selection) {
-            sc.SetColor(Color.black);
+        public void ShowInfo(SelectableCharacter preview)
+        {
+            mainMenu.ShowCharacter(preview.CharacterCam);
+
+            currentCharacter = preview;
+
+            nameTMP.text = preview.CharacterSettings.CharacterName;
+
+            PlayerStatusSettings status = preview.CharacterSettings.Status;
+            style.value = status.style;
+
+            for (int i = 0; i < damage.Length; i++)
+            {
+                damage[i].SetActive(i + 1 <= status.damage);
+                agility[i].SetActive(i + 1 <= status.agility);
+                support[i].SetActive(i + 1 <= status.support);
+                resistence[i].SetActive(i + 1 <= status.resistence);
+            }
+
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+        internal void Cancel()
+        {
+            mainMenu.OnCloseCharacterSelection();
+        }
+
+        /// <summary>
+        /// Enable character selection controls
+        /// </summary>
+        public void SelectCharacter()
+        {
+            currentCharacter.Select();
         }
     }
-    private void UpdatePanel() {
-        Character current = characters[characterIndex];
-        nameTMP.text = current.name;
-        style.value = current.style;
-
-        for (int i = 0; i < damage.Length; i++) {
-            damage[i].SetActive(i <= current.damage - 1);
-            agility[i].SetActive(i <= current.agility - 1);
-            support[i].SetActive(i <= current.support - 1);
-            resistence[i].SetActive(i <= current.resistence - 1);
-        }
-    }
-
 }

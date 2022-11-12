@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2ca67792-1985-407f-9a64-da529e6a0ec4}">
 		<property name="name">
 			<value>SFXTest</value>

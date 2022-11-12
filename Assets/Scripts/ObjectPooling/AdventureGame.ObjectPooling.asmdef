@@ -1,0 +1,14 @@
+{
+    "name": "AdventureGame.ObjectPooling",
+    "rootNamespace": "AdventureGame.ObjectPooling",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

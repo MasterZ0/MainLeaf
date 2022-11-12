@@ -1,0 +1,32 @@
+{
+    "name": "AdventureGame.Player",
+    "rootNamespace": "AdventureGame.Player",
+    "references": [
+        "GUID:6d4810c931e638d489b58e9b332f3fb9",
+        "GUID:d055970d43ebe2d449fe0b1d2fd48b63",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:35334e9fce2041042a58f9101a81d24c",
+        "GUID:83415ee30f908c049987f3019a11ef86",
+        "GUID:e2a479d8a733a5748b8931f3b1b4a7ab",
+        "GUID:eb32f1dfa047b0240abb3ddc803af29d",
+        "GUID:e50e36ff47b545d4e8e18e77202fa74c",
+        "GUID:df55f17f78f75a643aff19957150ab7f",
+        "GUID:bf294c4ea7f261a489d057e3c0857933",
+        "GUID:d43ea55eb0e35f4429a5e067829e5e87",
+        "GUID:98ef52db1633d60478306ac3bbba06f9",
+        "GUID:bf16cbab274a2f34993044311369ac9c",
+        "GUID:071a78640c2055e4fa01a41a28cd6d5f",
+        "GUID:22989f22f9e31fb4da4b5e9a39ce4a34",
+        "GUID:73a504fe34a2d494e8b1904c70c649a4",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

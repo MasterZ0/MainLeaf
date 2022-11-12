@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2850265e-4ee5-4ffd-95c7-e1a1a15ff9f8}">
 		<property name="name">
 			<value>MainMenu</value>

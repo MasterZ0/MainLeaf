@@ -1,0 +1,18 @@
+{
+    "name": "AdventureGame.NodeCanvas.InverseKinematic",
+    "rootNamespace": "AdventureGame.NodeCanvas.InverseKinematic",
+    "references": [
+        "GUID:6d4810c931e638d489b58e9b332f3fb9",
+        "GUID:d055970d43ebe2d449fe0b1d2fd48b63",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

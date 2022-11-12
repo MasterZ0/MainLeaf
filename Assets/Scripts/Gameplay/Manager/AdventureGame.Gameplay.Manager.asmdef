@@ -1,0 +1,28 @@
+{
+    "name": "AdventureGame.Gameplay.Manager",
+    "rootNamespace": "AdventureGame.Gameplay.Manager",
+    "references": [
+        "GUID:1267bfca6e7ce15418881b876f7bf534",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:da17902042074c949b9e122b285c7456",
+        "GUID:d43ea55eb0e35f4429a5e067829e5e87",
+        "GUID:fcbe015298788f64d8404a9bf040f4db",
+        "GUID:98ef52db1633d60478306ac3bbba06f9",
+        "GUID:35334e9fce2041042a58f9101a81d24c",
+        "GUID:df55f17f78f75a643aff19957150ab7f",
+        "GUID:bf294c4ea7f261a489d057e3c0857933",
+        "GUID:eb32f1dfa047b0240abb3ddc803af29d",
+        "GUID:69d5cf3160b079b4f9d966cf6cd1d385",
+        "GUID:5839b00855d5d3d49b6555e170509995",
+        "GUID:dd5c1ada27d80c842960f5c13e8b384c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
