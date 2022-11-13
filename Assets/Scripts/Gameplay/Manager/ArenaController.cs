@@ -146,6 +146,7 @@ namespace AdventureGame.Gameplay
         #region Victory
         private void Victory()
         {
+            DisableInputs();
             enemyGenerator.OnEnemyDeath -= OnEnemyDie;
 
             enemyGenerator.enabled = false;

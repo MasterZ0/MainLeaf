@@ -21,7 +21,7 @@ scopes = {
 	"last_search.DA949528" = ""
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
-	"last_search.2138236A" = "mage_ey"
+	"last_search.2138236A" = "wood"
 	"OpenInspectorPreview.2138236A" = "0"
 	"currentGroup.2138236A" = "asset"
 }
@@ -75,6 +75,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"wood"
 	"mage_ey"
 	"m"
 	"idle"
