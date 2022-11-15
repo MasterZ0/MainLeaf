@@ -6,67 +6,16 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 0655015156015b0a5a0a557747710944131541787a7a7e62747d4860bbb6666d
+      value: 5b0006520000510c5d08582414775c47414e1d7d2d7d2069747d186bb6e13069
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 5353505e010c08030e0c0d2114260c44454e4e7d2f717333797d486bb1b16c3d
+      value: 0655015156015b0a5a0a557747710944131541787a7a7e62747d4860bbb6666d
       flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 5403075056035e03540c0e7b467707411416492c7e292734752b456bb1b73161
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 0004500457035e5f5d0a597249740e44124f4a2c282c23327e284b60b4b56560
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 0705515054050a5d0f5b5e7a11750e44424f1e7f7a2b7f327f7e186ab2b5653a
-      flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 010951030000500a0c5f097a43775e44444f402b797a71352b714c61b0e3326f
-      flags: 0
-    RecentlyUsedSceneGuid-6:
       value: 5004035600540a0e0b5e592047735a444f154b7d742c70612e7e4965b0e2363b
       flags: 0
-    RecentlyUsedScenePath-0:
-      value: 22424703114646680e0b0227036c6f1504041139382d28241e2a183de7ae2136ebf32f
-      flags: 0
-    RecentlyUsedScenePath-1:
-      value: 22424703114646680e0b0227036c78111b12352f223d68252320092a
-      flags: 0
-    RecentlyUsedScenePath-2:
-      value: 22424703114646680e0b0227036c6c0417031129630f273d2804183df7ae2136ebf32f
-      flags: 0
-    RecentlyUsedScenePath-3:
-      value: 224247031146467908060d34192c4d5032120b232b2623226d041225e7ed3136f6a805eae2343a730a01ea3201701431fb1e10
-      flags: 0
-    RecentlyUsedScenePath-4:
-      value: 22424703114646680e0b0227036c6c04170311296307362424261320acf53a31f6fe
-      flags: 0
-    RecentlyUsedScenePath-5:
-      value: 2242470311464672001e033004024c0313030b650e2d2e313b201221a2c4312bebe038ecf57a12332f07e2390a2a4e0cf10f070eb938090e1f0bb31b1ff6040a
-      flags: 0
-    RecentlyUsedScenePath-6:
-      value: 22424703114646680e0b0227036c6c0417031129630f273d28041c3de3e7312aacf238e0f323
-      flags: 0
-    RecentlyUsedScenePath-7:
-      value: 22424703114646680e0b0227036c78111b12352b222921353f67083debf42d
-      flags: 0
-    RecentlyUsedScenePath-8:
-      value: 22424703114646680e0b0227036c72111f19352f223d68252320092a
-      flags: 0
-    RecentlyUsedScenePath-9:
-      value: 22424703114646680e0b0227036c78111b1208262d3168252320092a
-      flags: 0
-    UnityEditor.ShaderGraph.Blackboard:
-      value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd2e2d293c4ead313b08042de6030a0afa240c0d020be94c4bae415d41895ac825e0100ec20313c0d91cddccd3d0c7efcca9bd898e91f0beb6fdd1cbfceba0b9f0b3bed8e8f5ace1ff8c978883d3f59e98969989eacfcc
-      flags: 0
-    UnityEditor.ShaderGraph.FloatingWindowsLayout2:
-      value: 181344140043005e1a220d3b1f364b524c0c5a27130c293326201334cee5322ca0bd30e8eb293a707b0fd0180b3d0a36fc0d3d04e649500d1002ee0b5dbd1d2c27c00ad113cb1e10e41f1addc80993b9859884a69ae6d8f0d1cda9e8fbfefaf9f9dea3fdb9ade882f0ffb0e1e380cafbf2c3adc18e9cd285a2908b81ef849c8395949c9483d58d8a97ddbd90bf
-      flags: 0
-    UnityEditor.ShaderGraph.InspectorWindow:
-      value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd2e2d293c4ead313b08042de6030a0afa240c0d020be94c4bac445d41895ac825e0100ec20313c0d91cddccd3d0c7efcca9bd8c8c8feea2b8b2e3c7c6f8bffee8f2e782b2eda4e2ff9289948d88ae8696929997f482ccce
-      flags: 0
-    UnityEditor.ShaderGraph.ToggleSettings:
-      value: 18135d1527590858060c032302276919051e1a26296a7c243f3c187fa0e92708f0e220e0e22d09352a0bed30017c5b2be01f0c47b40219221f1ded0b12eb1f0127cc0bcc18c41a5e910d0edbc85193e0dadadbf8e8f9e8ced7dba5e0b6aaaca4dbfeabfef4eae1
+    RecentlyUsedSceneGuid-3:
+      value: 010951030000500a0c5f097a43775e44444f402b797a71352b714c61b0e3326f
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
@@ -84,5 +33,5 @@ EditorUserSettings:
   m_VCProjectOverlayIcons: 1
   m_VCHierarchyOverlayIcons: 1
   m_VCOtherOverlayIcons: 1
-  m_VCAllowAsyncUpdate: 0
+  m_VCAllowAsyncUpdate: 1
   m_ArtifactGarbageCollection: 1
