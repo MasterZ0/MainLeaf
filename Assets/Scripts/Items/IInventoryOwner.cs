@@ -1,8 +1,8 @@
-using AdventureGame.Items.Data;
+using AdventureGame.BattleSystem;
 
 namespace AdventureGame.Items
 {
-    public interface IInventoryOwner 
+    public interface IInventoryOwner : IBattleEntity
     {
         IInventoryController Inventory { get; }
     }

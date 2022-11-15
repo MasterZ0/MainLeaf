@@ -12,6 +12,7 @@ namespace AdventureGame.BattleSystem
         public Vector2Int value;
         public DamageType damageType;
         public bool canBlock;
+        public bool showHitParticle = true;
 
         [SerializeReference, TypeSelection]
         public List<HitEffect> hitEffects = new List<HitEffect>();

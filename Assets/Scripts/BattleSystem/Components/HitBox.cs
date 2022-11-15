@@ -32,22 +32,25 @@ namespace AdventureGame.BattleSystem
 
         protected void ApplyDamage(Collider collision)
         {
+            TargetHitType targetHit;
+            Vector3 contact = collision.ClosestPoint(transform.position);
+
             if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent(out IStatusOwner controller))
             {
-                Vector3 contact = collision.ClosestPoint(transform.position);
 
                 Damage.AddHitBoxInfo(this, contact); // TODO: Clone or create a new instance, contact is changing
                 controller.TakeDamage(Damage);
 
-                TargetHitType targetHit = controller.IsDead() ? TargetHitType.Defeated : TargetHitType.Alive;
-
-                AfterHit(targetHit);
-                return;
+                targetHit = controller.IsDead() ? TargetHitType.Defeated : TargetHitType.Alive;
+            }
+            else
+            {
+                targetHit = TargetHitType.Unknown;
             }
 
-            AfterHit(TargetHitType.Unknown);
+            AfterHit(targetHit, contact);
         }
 
-        protected virtual void AfterHit(TargetHitType targetHit) { }
+        protected virtual void AfterHit(TargetHitType targetHit, Vector3 contact) { }
     }
 }

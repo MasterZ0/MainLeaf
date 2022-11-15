@@ -53,6 +53,8 @@ namespace AdventureGame.AI
 
         private Material[] defaultSharedMaterial;
 
+        private bool dropItemEnabled;
+
         #region Initialization
         private void Awake()
         {
@@ -63,9 +65,10 @@ namespace AdventureGame.AI
 
         private void OnEnable()
         {
-            // Reset Transform
+            // Reset
             transform.localPosition = Vector2.zero;
             transform.localRotation = Quaternion.identity;
+            dropItemEnabled = true;
 
             // Attributes and Status
             Status.Reset();
@@ -86,14 +89,17 @@ namespace AdventureGame.AI
         /// <summary> Damage VFX </summary>
         public void OnDamage(DamageInfo damageInfo)
         {
+            HitVFX.ApplyHitFX(this, bodyRenderers, defaultSharedMaterial);
+            damageSoundReference?.PlaySound(transform);
+
+            if (!damageInfo.Damage.ShowHitParticle)
+                return;
+
             GetContacts(damageInfo, out Vector3 position, out Quaternion rotation);
 
             // Paint Hit Particle
             ParticleVFX spawnedHitParticle = ObjectPool.SpawnPooledObject(hitFX, position, rotation);
             spawnedHitParticle.SetColor(EnemyData.HitParticleGradient);
-
-            HitVFX.ApplyHitFX(this, bodyRenderers, defaultSharedMaterial);
-            damageSoundReference?.PlaySound(transform);
         }
 
         /// <summary> Death VFX </summary>
@@ -119,10 +125,20 @@ namespace AdventureGame.AI
         public void FinishEnemyDeath()
         {
             ObjectPool.SpawnPooledObject(deathFX, transform.position, transform.rotation);
-            GameplayPrefabs.DropItems(EnemyData.DropValueData, transform);
 
             OnFinishEnemyDeath.Invoke();
             gameObject.SetActive(false);
+
+            if (dropItemEnabled)
+            {
+                GameplayPrefabs.DropItems(EnemyData.DropValueData, transform);
+            }
+        }
+
+        public void ForceKill(bool disableDrop = false)
+        {
+            dropItemEnabled = !disableDrop;
+            this.Kill();
         }
     }   
 }

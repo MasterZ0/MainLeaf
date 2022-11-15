@@ -9,6 +9,8 @@ namespace AdventureGame.UI.AppOptions
         public int resolutionHeight;
         public int graphicsQuality;
         public bool fullScreen = true;
+        public bool shadows = true;
+        public int antiAliasing = 1;
     }
 
     [Serializable]
@@ -17,6 +19,7 @@ namespace AdventureGame.UI.AppOptions
         public float masterVolume = 10f;
         public float musicVolume = 10f;
         public float sfxVolume = 10f;
+        public float voiceVolume = 10f;
     }
 
     [Serializable]

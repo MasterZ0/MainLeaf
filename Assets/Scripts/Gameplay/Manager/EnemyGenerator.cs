@@ -104,7 +104,7 @@ namespace AdventureGame.Gameplay
 
         public void KillAll()
         {
-            enemies.ToList().ForEach(e => e.Kill());
+            enemies.ToList().ForEach(e => e.ForceKill(true));
         }
 
         private void OnDrawGizmos()

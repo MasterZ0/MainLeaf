@@ -58,8 +58,8 @@ namespace AdventureGame.Inputs
 
         public void CleanInput(InputRebinder inputRebinder)
         {
-            InputAction action = Controls.FindAction(inputRebinder.InputReference.action.name);
-            action.ApplyBindingOverride(inputRebinder.BindingIndex, string.Empty);
+            InputAction action = Controls.asset.FindAction(inputRebinder.InputReference.action.id);
+            action.RemoveBindingOverride(inputRebinder.BindingIndex);
             Save();
 
             RefreshRebinderIcon(inputRebinder, action);
@@ -79,7 +79,7 @@ namespace AdventureGame.Inputs
             currentInputRebinder = inputRebinder;
 
             int bindingIndex = inputRebinder.BindingIndex;
-            InputAction action = Controls.FindAction(inputRebinder.InputReference.action.name);
+            InputAction action = Controls.asset.FindAction(inputRebinder.InputReference.action.id);
 
             InputBinding binding = action.bindings[bindingIndex];
             if (!CheckDeviceIsAvailable(binding))

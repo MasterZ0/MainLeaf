@@ -50,7 +50,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 10
+  radius: 18
   angle: 100
 --- !u!1 &4711257451410660505
 GameObject:
@@ -446,7 +446,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"FleeParameters":{"_name":"FleeParameters","_id":"65de0a0e-185e-48c8-a5e8-9c3be86cd7f9","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Data.AIPathParameters,
     AdventureGame.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"battle":{"_value":{},"_name":"battle","_id":"f69d94dd-febe-402c-8769-2288a41875c4","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"OffensiveDistanceRange":{"_name":"OffensiveDistanceRange","_id":"0145ecf5-ab81-416c-931a-fe5b966fdd47","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"EscapeDistance":{"_value":2.0,"_name":"EscapeDistance","_id":"6d4dd503-de2c-4bac-a9d5-9c6466b6318d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"EscapeDistance":{"_name":"EscapeDistance","_id":"6d4dd503-de2c-4bac-a9d5-9c6466b6318d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseDistance":{"_name":"ChaseDistance","_id":"d487ed3d-c723-4e48-9efa-46cb795185eb","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"AngleDifferenceToAttack":{"_name":"AngleDifferenceToAttack","_id":"e68f67b9-8399-4886-ba0b-bf14aa1ffdc4","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"FireballVelocity":{"_name":"FireballVelocity","_id":"9ec6ca61-28a6-4486-8518-0ab6c7b1be39","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -563,7 +563,7 @@ MonoBehaviour:
   - _json: '{"_name":"OffensiveDistanceRange","_id":"0145ecf5-ab81-416c-931a-fe5b966fdd47","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
-  - _json: '{"_value":2.0,"_name":"EscapeDistance","_id":"6d4dd503-de2c-4bac-a9d5-9c6466b6318d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_name":"EscapeDistance","_id":"6d4dd503-de2c-4bac-a9d5-9c6466b6318d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"ChaseDistance","_id":"d487ed3d-c723-4e48-9efa-46cb795185eb","$type":"NodeCanvas.Framework.Variable`1[[System.Single,

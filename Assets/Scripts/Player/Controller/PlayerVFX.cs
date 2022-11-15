@@ -64,15 +64,18 @@ namespace AdventureGame.Player
 
         public void ReceiveDamage(DamageInfo damageInfo)
         {
-            GetContacts(damageInfo, out Vector3 position, out Quaternion rotation);
-
-            ParticleVFX particleVFX = ObjectPool.SpawnPooledObject(blood, position, rotation);
-            particleVFX.SetColor(Settings.BloodColor);
-
             Shaker.RequestShake(damageShakeData);
 
             StopCoroutine(reddenCoroutine);
             reddenCoroutine = Controller.StartCoroutine(Redden());
+
+            if (!damageInfo.Damage.ShowHitParticle)
+                return;
+
+            GetContacts(damageInfo, out Vector3 position, out Quaternion rotation);
+
+            ParticleVFX particleVFX = ObjectPool.SpawnPooledObject(blood, position, rotation);
+            particleVFX.SetColor(Settings.BloodColor);
         }
 
         private void StopCoroutine(Coroutine coroutine)

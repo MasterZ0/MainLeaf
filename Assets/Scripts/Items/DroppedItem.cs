@@ -5,8 +5,8 @@ using AdventureGame.Items.Data;
 using AdventureGame.ObjectPooling;
 using AdventureGame.Shared.ExtensionMethods;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 namespace AdventureGame.Items
@@ -64,16 +64,22 @@ namespace AdventureGame.Items
 
         private void OnTriggerEnter(Collider col)
         {
-            if (col.attachedRigidbody)
+            if (col.attachedRigidbody && col.attachedRigidbody.TryGetComponent(out IBattleEntity entity))
             {
                 bool successful = item.Instance switch
                 {
-                    StatusItemData statusItem => TryRestore(col.attachedRigidbody, statusItem),
-                    _ => TryCollect(col.attachedRigidbody)
+                    StatusItemData statusItem => TryRestore(entity, statusItem),
+                    _ => TryCollect(entity)
                 };
 
                 if (successful)
                 {
+                    Transform collectFX = item.Instance.collectFX;
+                    if (collectFX)
+                    {
+                        ObjectPool.SpawnPooledObject(collectFX, entity.Center.position, entity.Center.rotation, entity.Center);
+                    }
+
                     collectSFX.PlaySound(transform.position);
                     triggerCollider.gameObject.SetActive(false);
                     this.ReturnToPool();
@@ -81,20 +87,20 @@ namespace AdventureGame.Items
             }
         }
 
-        private bool TryRestore(Rigidbody attachedRigidbody, StatusItemData statusItem)
+        private bool TryRestore(IBattleEntity entity, StatusItemData statusItem)
         {
-            if (attachedRigidbody.TryGetComponent(out IStatusOwner statusOwner))
+            if (entity is IStatusOwner statusOwner)
             {
                 return statusOwner.Restore(statusItem.attributePoint, statusItem.restoreValue);
             }
             return false;
         }
 
-        private bool TryCollect(Rigidbody attachedRigidbody)
+        private bool TryCollect(IBattleEntity entity)
         {
-            if (attachedRigidbody.TryGetComponent(out IInventoryOwner collector))
+            if (entity is IInventoryOwner inventoryOwner)
             {
-                return collector.AddItem(item);
+                return inventoryOwner.AddItem(item);
             }
             return false;
         }

@@ -104,7 +104,7 @@ MonoBehaviour:
   fixTransforms: 1
   solver:
     executedInEditor: 0
-    IKPosition: {x: -29.334126, y: 8.864495, z: 18.375504}
+    IKPosition: {x: -26.624495, y: 4.6144953, z: 18.334122}
     IKPositionWeight: 0
     root: {fileID: 3783687632208569732}
     target: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
       sqrMag: 0
       axis: {x: 0, y: 0, z: 0}
     - transform: {fileID: 4481804864746130509}
-      weight: 0.32
+      weight: 0.5
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0, w: 0}
       defaultLocalPosition: {x: 0.0742555, y: -0.017128171, z: 0.13325462}
@@ -170,7 +170,7 @@ MonoBehaviour:
     transform: {fileID: 4883253984759692196}
     axis: {x: 0, y: 0, z: 1}
     poleAxis: {x: 0, y: 0, z: 0}
-    polePosition: {x: -28.50604, y: 6.038656, z: 17.80199}
+    polePosition: {x: -27.198008, y: 1.788656, z: 17.506039}
     poleWeight: 0
     poleTarget: {fileID: 0}
     clampWeight: 0.7

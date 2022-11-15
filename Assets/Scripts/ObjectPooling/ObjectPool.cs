@@ -43,7 +43,7 @@ namespace AdventureGame.ObjectPooling
 
         public static T SpawnPooledObject<T>(T prefab, Vector3 position = default, Quaternion rotation = default, Transform parent = null) where T : Component
         {
-            if (parent == null)
+            if (!parent)
             {
                 parent = spawnContainer;
             }

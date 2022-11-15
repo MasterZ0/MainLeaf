@@ -54,11 +54,11 @@ MonoBehaviour:
     - drop:
         item: {fileID: 11400000, guid: 3b42c226d7ead5a4bb4926cfe56bacf9, type: 2}
         amountRange: {x: 5, y: 15}
-      chance: 35
+      chance: 40
     - drop:
         item: {fileID: 11400000, guid: 1a98e89bebefb32408309d389a6d9a83, type: 2}
         amountRange: {x: 0, y: 0}
-      chance: 15
+      chance: 25
   bodyDamage:
     value: {x: 0, y: 0}
     damageType: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   distanceToAttack: 1.4
   delayAfterAttack: 0.5
   swordDamage:
-    value: {x: 0, y: 0}
+    value: {x: 5, y: 10}
     damageType: 0
     canBlock: 0
     hitEffects: []

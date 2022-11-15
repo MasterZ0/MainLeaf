@@ -44,5 +44,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6de3e643826e4987e07be407d2974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 7133474836305282441, guid: c7a9b6aeaf886f74ea26d678d71a3a27, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: particleVFX
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[AdventureGame.Gameplay.ParticleVFXType,
+        AdventureGame.Gameplay.Components],[AdventureGame.Effects.ParticleVFX, AdventureGame.Effects]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[AdventureGame.Gameplay.ParticleVFXType,
+        AdventureGame.Gameplay.Components]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   itemPrefab: {fileID: 1913564867855678614, guid: 2daf683ade538b24a84d5a3019cea0a0,
     type: 3}

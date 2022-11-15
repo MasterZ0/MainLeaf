@@ -12,7 +12,8 @@ namespace AdventureGame.Audio
     {
         Master,
         Music,
-        SFX
+        SFX,
+        Voice
     }
 
     public enum UISound

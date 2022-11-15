@@ -12,6 +12,7 @@ namespace AdventureGame.BattleSystem
         public int StaminaDamage { get; } // Only blockable damages
         // public int Intensity { get; } // Injury?
         public bool CanBlock { get; }
+        public bool ShowHitParticle { get; }
         public DamageType DamageType { get; }
         public IStatusOwner Sender { get; }
         public List<HitEffect> HitEffects { get; }
@@ -28,7 +29,9 @@ namespace AdventureGame.BattleSystem
             StaminaDamage = damageData.value.x;
             damageRange = damageData.value;
 
+            ShowHitParticle = damageData.showHitParticle;
             CanBlock = damageData.canBlock;
+
             DamageType = damageData.damageType;
             HitEffects = damageData.hitEffects;
             Sender = sender;

@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace AdventureGame.Shared
@@ -5,7 +6,7 @@ namespace AdventureGame.Shared
     /// <summary>
     /// Temporary
     /// </summary>
-    public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour 
+    public abstract class Singleton<T> : SerializedMonoBehaviour where T : MonoBehaviour 
     {
         public static T Instance { get; private set; }
 

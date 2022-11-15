@@ -39,7 +39,7 @@ namespace AdventureGame.Projectiles
             rigidbod.velocity = velocity;
         }
 
-        protected override void AfterHit(TargetHitType targetHit)
+        protected override void AfterHit(TargetHitType targetHit, Vector3 contact)
         {
             // If is Hittable or KilledDamageable continue without Impact
             if (targetHit == TargetHitType.Alive || targetHit == TargetHitType.Unknown)

@@ -1,4 +1,6 @@
-﻿using AdventureGame.Data;
+﻿using AdventureGame.BattleSystem;
+using AdventureGame.Data;
+using AdventureGame.Effects;
 using AdventureGame.Items;
 using AdventureGame.Items.Data;
 using AdventureGame.ObjectPooling;
@@ -10,9 +12,18 @@ using Random = UnityEngine.Random;
 
 namespace AdventureGame.Gameplay
 {
+    public enum ParticleVFXType
+    {
+        RestoreHealth,
+        RestoreMana,
+        RestoreStamina,
+    }
+
     public class GameplayPrefabs : Singleton<GameplayPrefabs>
     {
         [SerializeField] private DroppedItem itemPrefab;
+        [Space]
+        [SerializeField] private Dictionary<ParticleVFXType, ParticleVFX> particleVFX;
 
         private static DroppedItem ItemPrefab => Instance.itemPrefab;
 
@@ -83,5 +94,23 @@ namespace AdventureGame.Gameplay
 
         /// 0 can't be > 0, but 100 is > 99
         private static bool CalculateDropChance(float chance) => chance > Random.Range(0, 100);
+
+        public static void RestoreFX(AttributePoint attribute, Transform center)
+        {
+            ParticleVFXType vfxType = attribute switch
+            {
+                AttributePoint.HealthPoint => ParticleVFXType.RestoreHealth,
+                AttributePoint.ManaPoint => ParticleVFXType.RestoreMana,
+                AttributePoint.StaminaPoint => ParticleVFXType.RestoreStamina,
+                _ => throw new System.NotImplementedException(),
+            };
+
+            ParticleVFX(vfxType, center);
+        }
+
+        public static void ParticleVFX(ParticleVFXType vfxType, Transform center)
+        {
+            Instance.particleVFX[vfxType].SpawnPooledObject(center.position, center.rotation, center);
+        }
     }
 }

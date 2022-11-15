@@ -26,5 +26,7 @@ namespace AdventureGame.Items.Data
         [BoxGroup("Vertical/Horizontal/Model", centerLabel: true)]
         [PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
         public GameObject model;
+
+        public Transform collectFX;
     }
 }

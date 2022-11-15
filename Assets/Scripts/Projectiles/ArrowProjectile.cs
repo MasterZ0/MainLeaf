@@ -7,6 +7,8 @@ namespace AdventureGame.Projectiles
 {
     public class ArrowProjectile : Projectile
     {
+        [SerializeField] private Collider col;
+
         private float delayToDisapear;
 
         private void Awake()
@@ -25,10 +27,11 @@ namespace AdventureGame.Projectiles
             Shoot(damage, velocity);
         }
 
-        protected override void AfterHit(TargetHitType targetHit)
+        protected override void AfterHit(TargetHitType targetHit, Vector3 contact)
         {
             if (targetHit == TargetHitType.Unknown)
             {
+                transform.position = transform.forward * -col.bounds.size.z + contact;
                 rigidbod.isKinematic = true;
                 StartCoroutine(DelayToDisapear());
             }
@@ -38,11 +41,10 @@ namespace AdventureGame.Projectiles
             }
         }
 
-        IEnumerator DelayToDisapear()
+        private IEnumerator DelayToDisapear()
         {
             yield return new WaitForSeconds(delayToDisapear);
             this.ReturnToPool();
         }
-
     }
 }

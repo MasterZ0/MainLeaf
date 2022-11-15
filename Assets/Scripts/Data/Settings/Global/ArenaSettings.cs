@@ -22,7 +22,7 @@ namespace AdventureGame.Data
         [SerializeField, Min(0)] private int secondsToStart = 3;
         [InfoBox("$" + nameof(GetTimePreview))]
         [SerializeField, Min(0)] private float roundDuration = 3f;
-        [SerializeField, Range(0f, 10f)] private float gameOverDelay = 3f;
+        [SerializeField, Range(0f, 10f)] private float endGameDelay = 3f;
 
         [Title("Enemies")]
         [SerializeField] private Transform[] enemies;
@@ -41,7 +41,7 @@ namespace AdventureGame.Data
 
         public int SecondsToStart => secondsToStart;
         public float RoundDuration => roundDuration;
-        public float GameOverDelay => gameOverDelay;
+        public float EndGameDelay => endGameDelay;
 
         #region Dev Tools
         #if UNITY_EDITOR

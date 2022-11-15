@@ -42,8 +42,11 @@ namespace AdventureGame.Gameplay
 
         private void OnDestroy()
         {
+            GameplayReferences.SetActivePlayerInput(true, this);
             uiInputs.Dispose();
             GameManager.OnChanceFocus -= OnChanceFocus;
+
+            WindowManager.CloseAllWindows();
         }
 
         #region Pause
@@ -83,8 +86,7 @@ namespace AdventureGame.Gameplay
                 return;
 
             PauseGame(false);
-
-            WindowManager.CloseAllWindows();
+            mainScreen.CloseWindow();
         }
 
         private void PauseGame(bool pause)

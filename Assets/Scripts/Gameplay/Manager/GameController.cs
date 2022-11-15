@@ -7,8 +7,7 @@ namespace AdventureGame.Gameplay
     {
         protected virtual void Awake()
         {
-            GameplayReferences.SetController(this);
-            GameplayReferences.SetActivePlayerInput(false, this);
+            GameplayReferences.SetController(this); 
             GameplayReferences.OnPlayerDeath += OnPlayerDeath;
         }
 

@@ -49,6 +49,7 @@ namespace AdventureGame.Gameplay
         protected override void Awake()
         {
             base.Awake();
+            DisableInputs();
 
             enemyGenerator.OnEnemyDeath += OnEnemyDie;
             onSceneFadeOutEnd += StartCounter;
@@ -131,9 +132,10 @@ namespace AdventureGame.Gameplay
             timerRunning = false;
             StartCoroutine(GameOverDelay());
         }
+
         private IEnumerator GameOverDelay()
         {
-            yield return new WaitForSeconds(Settings.GameOverDelay);
+            yield return new WaitForSeconds(Settings.EndGameDelay);
 
             arenaHUD.SetActive(false);
 
@@ -153,6 +155,13 @@ namespace AdventureGame.Gameplay
             enemyGenerator.KillAll();
 
             resultDefeatedEnemies.text = defeatedEnemies.ToString();
+
+            StartCoroutine(VictoryDelay());
+        }
+
+        private IEnumerator VictoryDelay()
+        {
+            yield return new WaitForSeconds(Settings.EndGameDelay);
 
             arenaHUD.SetActive(false);
             resultWindow.RequestOpenWindow();

@@ -89,7 +89,7 @@ namespace AdventureGame.Player
         private void InitComponents()
         {
             // Instantiates
-            Inputs = new PlayerInputs();
+            Inputs = new PlayerInputs(GameplayReferences.InputActive);
             FacilitatorBuffer = new FacilitatorBuffer();
 
             // Core

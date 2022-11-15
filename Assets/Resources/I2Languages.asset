@@ -323,6 +323,33 @@ MonoBehaviour:
       - 
       Flags: 000000
       Languages_Touch: []
+    - Term: Options/Video/Shadows
+      TermType: 0
+      Description: 
+      Languages:
+      - Shadows
+      - Sombras
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Video/AntiAliasing
+      TermType: 0
+      Description: 
+      Languages:
+      - Anti-aliasing
+      - Anti-aliasing
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Controls/Device
+      TermType: 0
+      Description: 
+      Languages:
+      - Device
+      - Dispositivo
+      - 
+      Flags: 000000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
