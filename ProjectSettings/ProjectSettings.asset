@@ -153,6 +153,9 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -632,7 +635,7 @@ PlayerSettings:
     PS4: UNITY_POST_PROCESSING_STACK_V2;TextMeshPro
     PS5: TextMeshPro
     Stadia: TextMeshPro
-    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;TextMeshPro
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;TextMeshPro;MB_USING_HDRP
     WebGL: UNITY_POST_PROCESSING_STACK_V2;TextMeshPro
     Windows Store Apps: UNITY_POST_PROCESSING_STACK_V2;TextMeshPro
     XboxOne: UNITY_POST_PROCESSING_STACK_V2;TextMeshPro

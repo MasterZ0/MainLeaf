@@ -1,7 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using AdventureGame.Shared;
-using static UnityEditor.Progress;
 
 namespace AdventureGame.Data
 {

@@ -12,9 +12,6 @@ namespace AdventureGame.ApplicationManager
         [Title("Project Version")]
         [SerializeField] private TextMeshProUGUI version;
 
-        private void Awake()
-        {
-            version.text = "Version: " + Application.version;
-        }
+        private void Awake() => version.text = Application.version;
     }
 }

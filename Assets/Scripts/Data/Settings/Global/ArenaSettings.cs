@@ -44,7 +44,6 @@ namespace AdventureGame.Data
         public float EndGameDelay => endGameDelay;
 
         #region Dev Tools
-        #if UNITY_EDITOR
         private string GetTimePreview
         {
             get
@@ -53,7 +52,6 @@ namespace AdventureGame.Data
                 return $"Round Duration: {(int)time.TotalMinutes:D2}:{time:ss\\:fff}";
             }
         }
-        #endif
         #endregion
         // Ideas: MinimumSpawnDistanceFromPlayer, ChanceToSpawnClosePlayer
     }

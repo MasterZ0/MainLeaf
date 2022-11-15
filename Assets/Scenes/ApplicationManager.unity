@@ -1580,6 +1580,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceaf6b73896b8ea45b9435c5cdfcd6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   popup: {fileID: 1758839506}
   options: {fileID: 211711054}
 --- !u!114 &6789707350589343573
@@ -1594,6 +1603,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc800ff5c43e23b45814d55b7f044efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   submit:
     eventReference:
       Guid:
@@ -1630,6 +1648,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c8f113f4b4fff46a57159cc391ff1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   transitionAnimator: {fileID: 1494829047}
   sceneLoader: {fileID: 6789707350589343575}
   gameValues: {fileID: 11400000, guid: 0d2f2f7bc2dffb6479d2826b96d60cfb, type: 2}
