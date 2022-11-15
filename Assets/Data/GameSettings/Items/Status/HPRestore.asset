@@ -27,5 +27,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 600010186e12b1443b979add6f2e1f04, type: 3}
   image: {fileID: 0}
   model: {fileID: 1702347382167896502, guid: 0a00cb4249459a9438b32c8177d7b839, type: 3}
+  collectFX: {fileID: 400006, guid: c7a9b6aeaf886f74ea26d678d71a3a27, type: 3}
   attributePoint: 0
   restoreValue: 20

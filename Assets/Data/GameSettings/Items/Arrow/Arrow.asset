@@ -27,12 +27,14 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6c4257bf62045084da0c9d2f8b5fef72, type: 3}
   image: {fileID: 0}
   model: {fileID: 3890096284155156357, guid: 6f8dfe6fc5da4604397995ee24ea29c1, type: 3}
+  collectFX: {fileID: 400006, guid: b606b8dc8679d6147b137b2ed1a903bf, type: 3}
   arrowPrefab: {fileID: 2811126234496565500, guid: 7370a6f6482a26e41bfbe64c3e3b212f,
     type: 3}
   damage:
     value: {x: 5, y: 15}
     damageType: 0
     canBlock: 0
+    showHitParticle: 1
     hitEffects: []
   velocity: {x: 40, y: 50}
   delay: 3
