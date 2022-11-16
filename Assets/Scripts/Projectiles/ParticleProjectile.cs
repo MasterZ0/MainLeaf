@@ -1,6 +1,7 @@
 ﻿using AdventureGame.ObjectPooling;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AdventureGame.Projectiles
 {
@@ -8,13 +9,15 @@ namespace AdventureGame.Projectiles
     {
         [Title("Particle Projectile")]
         [SerializeField] private ParticleSystem particles;
+        [SerializeField] private UnityEvent onImpact;
 
         private bool returningToPool;
 
         private void OnEnable()
         {
             particles.Play();
-            rigidbod.detectCollisions = true;
+            rigidbody.detectCollisions = true;
+            rigidbody.isKinematic = false;
             returningToPool = false;
         }
 
@@ -23,8 +26,11 @@ namespace AdventureGame.Projectiles
             ImpactVFX();
 
             particles.Stop();
-            rigidbod.detectCollisions = false;
+            rigidbody.detectCollisions = false;
+            rigidbody.isKinematic = true;
             returningToPool = true;
+
+            onImpact.Invoke();
         }
 
         private void Update()

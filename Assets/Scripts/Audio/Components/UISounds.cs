@@ -11,6 +11,8 @@ namespace AdventureGame.Audio
 
         private static bool SkipSelect = true;
 
+        public static void IgnoreNext() => SkipSelect = true;
+
         public void OnSubmit(BaseEventData eventData)
         {
             if (ignoreSubmit)

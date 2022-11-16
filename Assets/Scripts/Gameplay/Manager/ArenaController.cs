@@ -1,4 +1,5 @@
-﻿using AdventureGame.Data;
+﻿using AdventureGame.Audio;
+using AdventureGame.Data;
 using AdventureGame.Shared;
 using AdventureGame.UI.Window;
 using I2.Loc;
@@ -34,6 +35,10 @@ namespace AdventureGame.Gameplay
         [SerializeField] private SimpleWindow deathWindow;
         [SerializeField] private TextMeshProUGUI deathDefeatedEnemies;
 
+        [Header(" - Sounds")]
+        [SerializeField] private SoundReference arenaStartCounter;
+        [SerializeField] private SoundReference arenaComplete;
+
         private ArenaSettings Settings => GameSettings.Arena;
 
         private float time;
@@ -53,7 +58,11 @@ namespace AdventureGame.Gameplay
 
             enemyGenerator.OnEnemyDeath += OnEnemyDie;
             onSceneFadeOutEnd += StartCounter;
+
+            PauseMenu.OnPause += OnPause;
         }
+
+        private void OnPause(bool paused) => arenaHUD.SetActive(!paused);
 
         protected override void OnDestroy()
         {
@@ -61,6 +70,8 @@ namespace AdventureGame.Gameplay
 
             enemyGenerator.OnEnemyDeath -= OnEnemyDie;
             onSceneFadeOutEnd -= StartCounter;
+
+            PauseMenu.OnPause -= OnPause;
         }
         #endregion
 
@@ -74,6 +85,7 @@ namespace AdventureGame.Gameplay
             starterCounter.text = secondsToStart.ToString();
 
             startCounterAnimator.Play(Count);
+            arenaStartCounter.PlaySound();
         }
 
         public void OnCounterTrigger()
@@ -153,6 +165,7 @@ namespace AdventureGame.Gameplay
 
             enemyGenerator.enabled = false;
             enemyGenerator.KillAll();
+            arenaComplete.PlaySound();
 
             resultDefeatedEnemies.text = defeatedEnemies.ToString();
 

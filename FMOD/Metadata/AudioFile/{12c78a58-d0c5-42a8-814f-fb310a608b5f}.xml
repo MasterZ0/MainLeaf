@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{12c78a58-d0c5-42a8-814f-fb310a608b5f}">
+		<property name="assetPath">
+			<value>PV414_00.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>42</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.40038095238095239</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dbb69c64-6823-43cc-85dc-e6a023864c46}</destination>
+		</relationship>
+	</object>
+</objects>

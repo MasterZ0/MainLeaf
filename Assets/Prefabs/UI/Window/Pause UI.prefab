@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2709260868853700420}
   - component: {fileID: 6965747126218964904}
   - component: {fileID: 134239798935782186}
-  - component: {fileID: 8117984514922756517}
+  - component: {fileID: 5240676768427667955}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -88,24 +88,24 @@ MonoBehaviour:
   openMenuSound:
     eventReference:
       Guid:
-        Data1: -2043491927
-        Data2: 1330793952
-        Data3: 1901333415
-        Data4: -1360571209
-      Path: event:/SFX/UI/Submit
+        Data1: -2143214968
+        Data2: 1268681548
+        Data3: 15688324
+        Data4: 1555294367
+      Path: event:/SFX/UI/Menu/Pause
   closeMenuSound:
     eventReference:
       Guid:
-        Data1: 1917205976
-        Data2: 1310135304
-        Data3: -137904975
-        Data4: 409974005
-      Path: event:/SFX/UI/Cancel
+        Data1: -2143214968
+        Data2: 1268681548
+        Data3: 15688324
+        Data4: 1555294367
+      Path: event:/SFX/UI/Menu/Pause
   mainMenuBtn: {fileID: 8281877758327767317}
   onMainMenu:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8117984514922756517}
+      - m_Target: {fileID: 5240676768427667955}
         m_TargetAssemblyTypeName: AdventureGame.ApplicationManager.SceneChanger,
           AdventureGame.ApplicationManager
         m_MethodName: OnChanceScene
@@ -118,7 +118,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8117984514922756517
+--- !u!114 &5240676768427667955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,6 +189,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -289,6 +290,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2709260868853700420}
     m_Modifications:
     - target: {fileID: 1113773156, guid: 97948f03c5c5cbd4eb0b53707ed6dad2, type: 3}
@@ -468,7 +470,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 134239798935782186}
     - target: {fileID: 8965628407106776188, guid: 97948f03c5c5cbd4eb0b53707ed6dad2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -494,7 +496,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1515161567254184406, guid: 97948f03c5c5cbd4eb0b53707ed6dad2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97948f03c5c5cbd4eb0b53707ed6dad2, type: 3}
 --- !u!224 &2299571278286268885 stripped
 RectTransform:

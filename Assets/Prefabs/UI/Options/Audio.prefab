@@ -72,6 +72,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4224122527125104234, guid: 56bf2a62bd9c7f244886cc8abc812516,
@@ -92,7 +93,7 @@ PrefabInstance:
     - target: {fileID: 4438267750306461433, guid: 56bf2a62bd9c7f244886cc8abc812516,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4438267750306461433, guid: 56bf2a62bd9c7f244886cc8abc812516,
         type: 3}
@@ -190,6 +191,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3009569543355900948}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4438267750306461433, guid: 56bf2a62bd9c7f244886cc8abc812516,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4972637078399437597}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4224122527125104234, guid: 56bf2a62bd9c7f244886cc8abc812516,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3251328656783348415}
   m_SourcePrefab: {fileID: 100100000, guid: 56bf2a62bd9c7f244886cc8abc812516, type: 3}
 --- !u!224 &2439481842749431762 stripped
 RectTransform:
@@ -226,11 +238,11 @@ MonoBehaviour:
   sfxTest:
     eventReference:
       Guid:
-        Data1: -133931097
-        Data2: 1324124715
-        Data3: 1020287647
-        Data4: -240283014
-      Path: event:/SFX/UI/Select
+        Data1: 551188880
+        Data2: 1184383301
+        Data3: 1274553216
+        Data4: 627924866
+      Path: event:/SFX/UI/System/Select
   voiceTest:
     eventReference:
       Guid:
@@ -238,7 +250,7 @@ MonoBehaviour:
         Data2: 1258197658
         Data3: 406199429
         Data4: 1199569112
-      Path: event:/SFX/VoiceTest
+      Path: event:/Voice/VoiceTest
 --- !u!114 &6759527225093290171 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4720767451389399440, guid: 56bf2a62bd9c7f244886cc8abc812516,
@@ -256,8 +268,14 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2515132046029710636, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: mTerm
@@ -272,6 +290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Voice
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661624044748468339, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5796759185674070288, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
@@ -514,6 +537,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 507861d20276ea5468a37bf4f57f8d23, type: 3}
 --- !u!224 &2155280979420902783 stripped
 RectTransform:
@@ -550,8 +576,14 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2515132046029710636, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: mTerm
@@ -566,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661624044748468339, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5796759185674070288, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
@@ -808,6 +845,9 @@ PrefabInstance:
       value: SFX Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 507861d20276ea5468a37bf4f57f8d23, type: 3}
 --- !u!224 &2155280980630530487 stripped
 RectTransform:
@@ -844,8 +884,14 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2515132046029710636, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: mTerm
@@ -860,6 +906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661624044748468339, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5796759185674070288, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
@@ -1097,6 +1148,9 @@ PrefabInstance:
       value: Master Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 507861d20276ea5468a37bf4f57f8d23, type: 3}
 --- !u!224 &2155280979880840935 stripped
 RectTransform:
@@ -1139,8 +1193,14 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2515132046029710636, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: mTerm
@@ -1155,6 +1215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661624044748468339, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5796759185674070288, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
@@ -1397,6 +1462,9 @@ PrefabInstance:
       value: Music Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 507861d20276ea5468a37bf4f57f8d23, type: 3}
 --- !u!114 &445294775563210093 stripped
 MonoBehaviour:

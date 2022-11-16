@@ -156,8 +156,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4113782796274811819}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 1.8
   m_Direction: 1
@@ -284,6 +293,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -378,19 +388,19 @@ MonoBehaviour:
   damageSoundReference:
     eventReference:
       Guid:
-        Data1: -1135484248
-        Data2: 1258197658
-        Data3: 406199429
-        Data4: 1199569112
-      Path: event:/SFX/VoiceTest
+        Data1: -1482835196
+        Data2: 1224081043
+        Data3: 1490041247
+        Data4: -1906036550
+      Path: event:/SFX/Enemies/Skeleton_Damage
   deathSoundReference:
     eventReference:
       Guid:
-        Data1: -1135484248
-        Data2: 1258197658
-        Data3: 406199429
-        Data4: 1199569112
-      Path: event:/SFX/VoiceTest
+        Data1: 276584806
+        Data2: 1262936200
+        Data3: 275798185
+        Data4: -259483654
+      Path: event:/SFX/Enemies/Skeleton_Death
   bodyRenderers:
   - {fileID: 6172899148480742876}
   - {fileID: 7740590990221141282}
@@ -593,10 +603,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7562222988056260219}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -751,8 +772,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8643109844729780660}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 1.8
   m_Direction: 1
@@ -762,6 +792,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 8939787864717561798}
     m_Modifications:
     - target: {fileID: 1057225811966149186, guid: 70f9e983ce6eee941a1a31340fa0cc7e,
@@ -941,6 +972,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7592146514736681825}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f9e983ce6eee941a1a31340fa0cc7e, type: 3}
 --- !u!224 &5368082012398219076 stripped
 RectTransform:
@@ -953,6 +987,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1754966207705383331}
     m_Modifications:
     - target: {fileID: 5505881799950896758, guid: f2147292894742e45b2e91e02ec3ca75,
@@ -1016,6 +1051,9 @@ PrefabInstance:
       value: SkeletonWarriorModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2147292894742e45b2e91e02ec3ca75, type: 3}
 --- !u!95 &594864243055153747 stripped
 Animator:

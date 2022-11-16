@@ -130,9 +130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba605af357f0d75488ba19bdc64b76f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbod: {fileID: 5432381325870997233}
+  rigidbody: {fileID: 5432381325870997233}
   impactEffect: {fileID: 0}
-  col: {fileID: 7650781604708236683}
+  collider: {fileID: 7650781604708236683}
+  hitKillSFX:
+    eventReference:
+      Guid:
+        Data1: 1795479538
+        Data2: 1289797462
+        Data3: 1602016643
+        Data4: 256812557
+      Path: event:/SFX/Items/Arrow/Arrow_HitKill
 --- !u!54 &5432381325870997233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,10 +148,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3499306243632338399}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 0.1
   m_Drag: 0.95
   m_AngularDrag: 1.95
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -157,8 +176,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3499306243632338399}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.03
   m_Height: 0.76
   m_Direction: 2

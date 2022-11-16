@@ -6,6 +6,21 @@ namespace AdventureGame.Shared.ExtensionMethods
 {
     public static class AnimatorExtensions
     {
+        public static bool IsState(this Animator animator, string stateName, int layer)
+        {
+            bool isName = animator.GetCurrentAnimatorStateInfo(layer).IsName(stateName);
+            if (isName)
+            {
+                return !animator.IsInTransition(layer);
+            }
+            return false;
+        }
+
+        public static bool IsInTransition(this Animator animator, int layer)
+        {
+            return animator.GetAnimatorTransitionInfo(layer).normalizedTime > 0;
+        }
+
         public static void PlayOppositeAnimation(this Animator animator, string stateName, float transition)
         {
             float currentProgress = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;

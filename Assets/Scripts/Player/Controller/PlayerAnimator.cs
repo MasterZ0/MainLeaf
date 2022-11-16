@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using RootMotion.FinalIK;
 using System.Collections;
+using AdventureGame.Shared.ExtensionMethods;
 
 namespace AdventureGame.Player
 {
@@ -64,5 +65,7 @@ namespace AdventureGame.Player
                 yield return new WaitForFixedUpdate();
             }
         }
+
+        public bool IsState(string stateName, int layer) => animator.IsState(stateName, layer);
     }
 }

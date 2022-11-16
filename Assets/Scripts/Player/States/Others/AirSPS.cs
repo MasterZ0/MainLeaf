@@ -13,7 +13,7 @@ namespace AdventureGame.Player.States
         private bool falling;
 
         private bool MinJumpApplied => elapsedTime > PhysicsSettings.JumpRangeDuration.x;
-        private bool MaxJumpApplied => elapsedTime >= PhysicsSettings.JumpRangeDuration.x;
+        private bool MaxJumpApplied => elapsedTime >= PhysicsSettings.JumpRangeDuration.y;
         private bool JumpPressed => Inputs.JumpPressed;
 
         #region Action
@@ -39,8 +39,15 @@ namespace AdventureGame.Player.States
 
         protected override void OnUpdate()
         {
-            // Update Air Velocity
-            ApplyJump();
+            if (jumping.value)
+            {
+                Physics.Jump(PhysicsSettings.JumpVelocity);
+                if (MinJumpApplied && (!JumpPressed || MaxJumpApplied))
+                {
+                    jumping.value = false;
+                }
+                return;
+            }
 
             if (!falling && MinJumpApplied && Physics.Velocity.y < 0) // Wait until start fall
             {
@@ -52,21 +59,10 @@ namespace AdventureGame.Player.States
 
         protected override void ExitState()
         {
+            SFX.LandingSoft();
             VFX.Landing(); // TODO: Idle -> if (LastState<AirSPS>())
             //VFX.SetActiveTrail(false);
         }
         #endregion
-
-        private void ApplyJump()
-        {
-            if (!jumping.value)
-                return;
-
-            Physics.Jump(PhysicsSettings.JumpVelocity);
-            if (MinJumpApplied && (!JumpPressed || MaxJumpApplied))
-            {
-                jumping.value = false;
-            }
-        }
     }
 }

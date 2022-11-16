@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using AdventureGame.Shared.ExtensionMethods;
+using UnityEngine;
 
 namespace AdventureGame.UIElements
 {
@@ -16,7 +16,7 @@ namespace AdventureGame.UIElements
         internal void Show()
         {
             gameObject.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(firstGameObject);
+            this.SelectWithDelay(firstGameObject);
         }
 
         internal void Hide() => gameObject.SetActive(false);

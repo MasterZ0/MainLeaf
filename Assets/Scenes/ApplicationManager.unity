@@ -1640,27 +1640,27 @@ MonoBehaviour:
   submit:
     eventReference:
       Guid:
-        Data1: -2043491927
-        Data2: 1330793952
-        Data3: 1901333415
-        Data4: -1360571209
-      Path: event:/SFX/UI/Submit
+        Data1: -1315064238
+        Data2: 1202616429
+        Data3: 628752818
+        Data4: 2142916184
+      Path: event:/SFX/UI/System/Submit
   cancel:
     eventReference:
       Guid:
-        Data1: 1917205976
-        Data2: 1310135304
-        Data3: -137904975
-        Data4: 409974005
-      Path: event:/SFX/UI/Cancel
+        Data1: -1396370509
+        Data2: 1304952547
+        Data3: 1454580357
+        Data4: 565765290
+      Path: event:/SFX/UI/System/Cancel
   select:
     eventReference:
       Guid:
-        Data1: -133931097
-        Data2: 1324124715
-        Data3: 1020287647
-        Data4: -240283014
-      Path: event:/SFX/UI/Select
+        Data1: 551188880
+        Data2: 1184383301
+        Data3: 1274553216
+        Data4: 627924866
+      Path: event:/SFX/UI/System/Select
 --- !u!114 &6789707350589343574
 MonoBehaviour:
   m_ObjectHideFlags: 0

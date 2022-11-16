@@ -12,12 +12,12 @@ namespace AdventureGame.Projectiles
     public class Projectile : HitBox {
 
         [Title("Projectile")]
-        [SerializeField] protected Rigidbody rigidbod;
+        [SerializeField] protected new Rigidbody rigidbody;
 
         [Header(" - Optional")]
         [SerializeField] protected Transform impactEffect;
 
-        protected virtual void Reset() => TryGetComponent(out rigidbod);
+        protected virtual void Reset() => TryGetComponent(out rigidbody);
 
         protected virtual void BeforeShoot() { }
 
@@ -36,7 +36,7 @@ namespace AdventureGame.Projectiles
             BeforeShoot();
 
             SetDamage(damage);
-            rigidbod.velocity = velocity;
+            rigidbody.velocity = velocity;
         }
 
         protected override void AfterHit(TargetHitType targetHit, Vector3 contact)

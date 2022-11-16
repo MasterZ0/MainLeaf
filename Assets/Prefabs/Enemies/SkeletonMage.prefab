@@ -126,8 +126,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5038337603802967652}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.4
   m_Height: 1.7
   m_Direction: 1
@@ -172,8 +181,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5300313741126297791}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.4
   m_Height: 1.7
   m_Direction: 1
@@ -235,6 +253,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -360,19 +379,19 @@ MonoBehaviour:
   damageSoundReference:
     eventReference:
       Guid:
-        Data1: 749107090
-        Data2: 1082071429
-        Data3: 1390044314
-        Data4: -1005688162
-      Path: event:/SFX/SFXTest
+        Data1: -1482835196
+        Data2: 1224081043
+        Data3: 1490041247
+        Data4: -1906036550
+      Path: event:/SFX/Enemies/Skeleton_Damage
   deathSoundReference:
     eventReference:
       Guid:
-        Data1: 749107090
-        Data2: 1082071429
-        Data3: 1390044314
-        Data4: -1005688162
-      Path: event:/SFX/SFXTest
+        Data1: 276584806
+        Data2: 1262936200
+        Data3: 275798185
+        Data4: -259483654
+      Path: event:/SFX/Enemies/Skeleton_Death
   bodyRenderers:
   - {fileID: 7247538588385201556}
   - {fileID: 7247538588385201558}
@@ -424,7 +443,7 @@ MonoBehaviour:
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Animator":{"_value":1,"_name":"Animator","_id":"91c976f3-bcff-49f1-a5fa-38f67d65ea61","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Eyes":{"_value":2,"_name":"Eyes","_id":"1bec1cb8-0ac4-4949-9de9-56e325b180ab","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Renderer,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"TargetDetection":{"_value":3,"_name":"TargetDetection","_id":"ea2f036e-a3c4-4e8c-a0a8-d7282f13a040","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.AI.TargetDetection,
-    AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AnimationEventTrigger":{"_value":4,"_name":"AnimationEventTrigger","_id":"8f8e9a08-d5eb-454f-971a-484dced3241e","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.AnimationEventTrigger,
+    AdventureGame.AI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AnimationEventTrigger":{"_value":4,"_name":"AnimationEventTrigger","_id":"25ca5a7a-301d-4ea4-8b31-b17e8a3b9140","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.StringEvent,
     AdventureGame.Shared, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"FireballPoint":{"_value":5,"_name":"FireballPoint","_id":"a89aa5c8-ad6f-413b-aab8-d8e22df758b1","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"prefabs":{"_value":{},"_name":"prefabs","_id":"6253362d-d658-4270-a37b-8a087d58c937","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Fireball":{"_value":6,"_name":"Fireball","_id":"f5d70ecc-255c-4629-b7eb-0b5f178663fa","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Projectiles.Projectile,
@@ -490,7 +509,7 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 9177657042307010381}
-  - _json: '{"_value":1,"_name":"AnimationEventTrigger","_id":"8f8e9a08-d5eb-454f-971a-484dced3241e","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.AnimationEventTrigger,
+  - _json: '{"_value":1,"_name":"AnimationEventTrigger","_id":"25ca5a7a-301d-4ea4-8b31-b17e8a3b9140","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.StringEvent,
       AdventureGame.Shared, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
@@ -609,10 +628,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8392476335735430028}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -732,6 +762,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2376969204552432528}
     m_Modifications:
     - target: {fileID: 1057225811966149186, guid: 70f9e983ce6eee941a1a31340fa0cc7e,
@@ -911,6 +942,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f9e983ce6eee941a1a31340fa0cc7e, type: 3}
 --- !u!224 &7421621662076462050 stripped
 RectTransform:
@@ -923,6 +957,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1465994607352274039}
     m_Modifications:
     - target: {fileID: 1732643145234798190, guid: a6c1cce039ecf6640b3d61a2195b7928,
@@ -986,6 +1021,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c1cce039ecf6640b3d61a2195b7928, type: 3}
 --- !u!114 &1411880101769876099 stripped
 MonoBehaviour:

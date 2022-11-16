@@ -5,6 +5,7 @@ using AdventureGame.UI;
 using AdventureGame.UI.Window;
 using I2.Loc;
 using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -27,6 +28,8 @@ namespace AdventureGame.Gameplay
         [Title("Main Menu")]
         [SerializeField] private Button mainMenuBtn;
         [SerializeField] private UnityEvent onMainMenu;
+
+        public static event Action<bool> OnPause = delegate { };
 
         private UIInputs uiInputs;
         private bool paused;
@@ -52,7 +55,7 @@ namespace AdventureGame.Gameplay
         #region Pause
         private void OnChanceFocus(bool focusOnGame)
         {
-            if (!focusOnGame && !paused)
+            if (!focusOnGame && !paused && CanPause)
             {
                 OnPressPause();
             }
@@ -75,9 +78,8 @@ namespace AdventureGame.Gameplay
 
             PauseGame(true);
 
+            UISounds.IgnoreNext();
             mainScreen.RequestOpenWindow();
-            //mainScreen.SetActive(true);
-            //resumeBtn.SelectWithDelay();
         }
 
         public void OnResume()
@@ -106,6 +108,7 @@ namespace AdventureGame.Gameplay
 
             Time.timeScale = pause ? 0f : 1f;
             GameplayReferences.SetActivePlayerInput(!pause, this);
+            OnPause(pause);
         }
         #endregion
 
