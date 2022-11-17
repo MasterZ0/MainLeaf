@@ -11,7 +11,7 @@
 ## Links
  
 - [Trello](https://trello.com/b/Hvx6HxHo/adventure-game)
-- Download Game
+- [Download Game](https://drive.google.com/file/d/1O3A0khE3F61JMUQ-vi2LKVv6isd8fvtx/view?usp=share_link)
 - GDD
 
  <h2> Screenshots </h2>
