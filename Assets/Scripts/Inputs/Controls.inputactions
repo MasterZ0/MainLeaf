@@ -1009,6 +1009,15 @@
             "id": "c5e83a50-e3c3-485f-a3ed-04452a474c42",
             "actions": [
                 {
+                    "name": "Statistics",
+                    "type": "Button",
+                    "id": "69a4abcf-e511-434f-8e3a-2b5af8e69607",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "GodMode",
                     "type": "Button",
                     "id": "532972db-2ba2-41d9-b359-faa4400cbdfb",
@@ -1018,18 +1027,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HideUI",
+                    "name": "ToggleUI",
                     "type": "Button",
                     "id": "4193d990-121b-43d6-9d90-e169772bfd9c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Statistics",
-                    "type": "Button",
-                    "id": "69a4abcf-e511-434f-8e3a-2b5af8e69607",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1040,21 +1040,10 @@
                 {
                     "name": "",
                     "id": "95df28df-fa81-4e85-b33c-8daa52b83c16",
-                    "path": "<Keyboard>/o",
+                    "path": "<Keyboard>/f2",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "GodMode",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "434109b2-2ea2-4ab5-a01d-a60fb95c387d",
-                    "path": "<Gamepad>/rightStickPress",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
                     "action": "GodMode",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1062,18 +1051,18 @@
                 {
                     "name": "",
                     "id": "3aa52d19-6fc3-4a1e-83c4-a86e9164bfe7",
-                    "path": "<Keyboard>/u",
+                    "path": "<Keyboard>/f3",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "HideUI",
+                    "action": "ToggleUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "3d393397-93b9-429a-9a6d-9e31e1441696",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/f1",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",

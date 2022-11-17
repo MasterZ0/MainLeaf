@@ -7,7 +7,12 @@ namespace AdventureGame.Data
     [CreateAssetMenu(menuName = MenuPath.SettingsGlobal + "General", fileName = "GeneralSettings")]
     public class GeneralSettings : ScriptableObject
     {
-        [Title("General")]
+        [Title("Platform and Tools")]
+        [SerializeField] private bool profiler = true;
+        [SerializeField] private bool hideUI;
+        [SerializeField] private bool godMode;
+
+        [Title("VFX")]
         [SerializeField] private float hitMaterialSeconds = 0.1f;
         [SerializeField] private Material hitMaterial; // VFX
         [SerializeField] private float heathBarLifetime = 1f;
@@ -42,5 +47,8 @@ namespace AdventureGame.Data
         public float DropItemZXMaxVelocity => dropItemZXMaxVelocity;
 
         public int DropRestoreHP => dropRestoreHP;
+        public bool Profiler => profiler;
+        public bool HideUI => hideUI;
+        public bool GodMode => godMode;
     }
 }

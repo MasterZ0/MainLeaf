@@ -1033,6 +1033,15 @@ namespace AdventureGame.Inputs
             ""id"": ""c5e83a50-e3c3-485f-a3ed-04452a474c42"",
             ""actions"": [
                 {
+                    ""name"": ""Statistics"",
+                    ""type"": ""Button"",
+                    ""id"": ""69a4abcf-e511-434f-8e3a-2b5af8e69607"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""GodMode"",
                     ""type"": ""Button"",
                     ""id"": ""532972db-2ba2-41d9-b359-faa4400cbdfb"",
@@ -1042,18 +1051,9 @@ namespace AdventureGame.Inputs
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HideUI"",
+                    ""name"": ""ToggleUI"",
                     ""type"": ""Button"",
                     ""id"": ""4193d990-121b-43d6-9d90-e169772bfd9c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Statistics"",
-                    ""type"": ""Button"",
-                    ""id"": ""69a4abcf-e511-434f-8e3a-2b5af8e69607"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1064,21 +1064,10 @@ namespace AdventureGame.Inputs
                 {
                     ""name"": """",
                     ""id"": ""95df28df-fa81-4e85-b33c-8daa52b83c16"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/f2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""GodMode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""434109b2-2ea2-4ab5-a01d-a60fb95c387d"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
                     ""action"": ""GodMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1086,18 +1075,18 @@ namespace AdventureGame.Inputs
                 {
                     ""name"": """",
                     ""id"": ""3aa52d19-6fc3-4a1e-83c4-a86e9164bfe7"",
-                    ""path"": ""<Keyboard>/u"",
+                    ""path"": ""<Keyboard>/f3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""HideUI"",
+                    ""action"": ""ToggleUI"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""3d393397-93b9-429a-9a6d-9e31e1441696"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/f1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -1162,9 +1151,9 @@ namespace AdventureGame.Inputs
             m_UI_RightTab = m_UI.FindAction("RightTab", throwIfNotFound: true);
             // Debug
             m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
-            m_Debug_GodMode = m_Debug.FindAction("GodMode", throwIfNotFound: true);
-            m_Debug_HideUI = m_Debug.FindAction("HideUI", throwIfNotFound: true);
             m_Debug_Statistics = m_Debug.FindAction("Statistics", throwIfNotFound: true);
+            m_Debug_GodMode = m_Debug.FindAction("GodMode", throwIfNotFound: true);
+            m_Debug_ToggleUI = m_Debug.FindAction("ToggleUI", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1418,16 +1407,16 @@ namespace AdventureGame.Inputs
         // Debug
         private readonly InputActionMap m_Debug;
         private IDebugActions m_DebugActionsCallbackInterface;
-        private readonly InputAction m_Debug_GodMode;
-        private readonly InputAction m_Debug_HideUI;
         private readonly InputAction m_Debug_Statistics;
+        private readonly InputAction m_Debug_GodMode;
+        private readonly InputAction m_Debug_ToggleUI;
         public struct DebugActions
         {
             private @Controls m_Wrapper;
             public DebugActions(@Controls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @GodMode => m_Wrapper.m_Debug_GodMode;
-            public InputAction @HideUI => m_Wrapper.m_Debug_HideUI;
             public InputAction @Statistics => m_Wrapper.m_Debug_Statistics;
+            public InputAction @GodMode => m_Wrapper.m_Debug_GodMode;
+            public InputAction @ToggleUI => m_Wrapper.m_Debug_ToggleUI;
             public InputActionMap Get() { return m_Wrapper.m_Debug; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1437,28 +1426,28 @@ namespace AdventureGame.Inputs
             {
                 if (m_Wrapper.m_DebugActionsCallbackInterface != null)
                 {
-                    @GodMode.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnGodMode;
-                    @GodMode.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnGodMode;
-                    @GodMode.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnGodMode;
-                    @HideUI.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnHideUI;
-                    @HideUI.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnHideUI;
-                    @HideUI.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnHideUI;
                     @Statistics.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnStatistics;
                     @Statistics.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnStatistics;
                     @Statistics.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnStatistics;
+                    @GodMode.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnGodMode;
+                    @GodMode.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnGodMode;
+                    @GodMode.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnGodMode;
+                    @ToggleUI.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleUI;
+                    @ToggleUI.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleUI;
+                    @ToggleUI.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleUI;
                 }
                 m_Wrapper.m_DebugActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @GodMode.started += instance.OnGodMode;
-                    @GodMode.performed += instance.OnGodMode;
-                    @GodMode.canceled += instance.OnGodMode;
-                    @HideUI.started += instance.OnHideUI;
-                    @HideUI.performed += instance.OnHideUI;
-                    @HideUI.canceled += instance.OnHideUI;
                     @Statistics.started += instance.OnStatistics;
                     @Statistics.performed += instance.OnStatistics;
                     @Statistics.canceled += instance.OnStatistics;
+                    @GodMode.started += instance.OnGodMode;
+                    @GodMode.performed += instance.OnGodMode;
+                    @GodMode.canceled += instance.OnGodMode;
+                    @ToggleUI.started += instance.OnToggleUI;
+                    @ToggleUI.performed += instance.OnToggleUI;
+                    @ToggleUI.canceled += instance.OnToggleUI;
                 }
             }
         }
@@ -1507,9 +1496,9 @@ namespace AdventureGame.Inputs
         }
         public interface IDebugActions
         {
-            void OnGodMode(InputAction.CallbackContext context);
-            void OnHideUI(InputAction.CallbackContext context);
             void OnStatistics(InputAction.CallbackContext context);
+            void OnGodMode(InputAction.CallbackContext context);
+            void OnToggleUI(InputAction.CallbackContext context);
         }
     }
 }

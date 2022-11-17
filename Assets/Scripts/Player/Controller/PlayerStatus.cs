@@ -1,7 +1,6 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
 using AdventureGame.Inputs;
-using AdventureGame.Shared;
 using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
@@ -111,6 +110,9 @@ namespace AdventureGame.Player
         #region Debug
         private void OnSwitchGodMode()
         {
+            if (!GameSettings.General.GodMode)
+                return;
+
             GodMode = !GodMode;
             godModeLabel.SetActive(GodMode);
         }
