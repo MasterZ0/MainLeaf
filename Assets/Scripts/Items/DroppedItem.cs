@@ -17,7 +17,6 @@ namespace AdventureGame.Items
         [SerializeField] private Rigidbody rigidbod;
         [SerializeField] private Collider triggerCollider;
         [SerializeField] private Transform modelTransform;
-        [SerializeField] private SoundReference collectSFX;
 
         protected ItemReference item;
         private GameObject model;
@@ -80,7 +79,6 @@ namespace AdventureGame.Items
                         ObjectPool.SpawnPooledObject(collectFX, entity.Center.position, entity.Center.rotation, entity.Center);
                     }
 
-                    collectSFX.PlaySound(transform.position);
                     triggerCollider.gameObject.SetActive(false);
                     this.ReturnToPool();
                 }

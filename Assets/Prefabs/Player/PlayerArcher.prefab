@@ -530,7 +530,7 @@ MonoBehaviour:
   playerCamera:
     hittableLayer:
       serializedVersion: 2
-      m_Bits: 2240
+      m_Bits: 2496
     cameraTarget: {fileID: 3003728551056085578}
     aimPoint: {fileID: 2860556808159327603}
     defaultCamera: {fileID: 5738911487815618686}
@@ -577,38 +577,38 @@ MonoBehaviour:
     shootShake: {fileID: 11400000, guid: 2d153eebdd7bd2d49af0c374ab62b869, type: 2}
     damageShakeData: {fileID: 11400000, guid: 3ef338175d2d513429d59225f86e5dc7, type: 2}
   playerSFX:
-    takeDamage:
+    damage:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
+          Data1: 1654352363
+          Data2: 1309202847
+          Data3: -775787600
+          Data4: 1686497040
+        Path: event:/SFX/Entites/Cut
     jump:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
-    footStep:
+          Data1: -1295953426
+          Data2: 1080014780
+          Data3: 144508345
+          Data4: 1610231410
+        Path: event:/SFX/VFX/Jump
+    landingSoft:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
-    landing:
+          Data1: -1058769385
+          Data2: 1334842679
+          Data3: 1014245812
+          Data4: -2107492745
+        Path: event:/SFX/VFX/Landing_Soft
+    landingHard:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
+          Data1: -1366606912
+          Data2: 1237375560
+          Data3: -373329238
+          Data4: 478171458
+        Path: event:/SFX/VFX/Landing_Hard
     dash:
       eventReference:
         Guid:
@@ -617,38 +617,110 @@ MonoBehaviour:
           Data3: 1390044314
           Data4: -1005688162
         Path: event:/SFX/SFXTest
-    shootArrow:
+    bowPrepare:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
-    attackVoice:
+          Data1: -199312007
+          Data2: 1333082532
+          Data3: -498023755
+          Data4: -51231044
+        Path: event:/SFX/Items/Bow/Bow_Prepare
+    bowShoot:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
-    injuryVoice:
+          Data1: -738323922
+          Data2: 1090062582
+          Data3: 1718201497
+          Data4: -1007728557
+        Path: event:/SFX/Items/Bow/Bow_Shoot
+    bowRelease:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
+          Data1: -1934379801
+          Data2: 1188256327
+          Data3: -563789950
+          Data4: -1786730931
+        Path: event:/SFX/Items/Bow/Bow_Release
+    restoreVoice:
+      eventReference:
+        Guid:
+          Data1: 1151625198
+          Data2: 1240656224
+          Data3: 1987286447
+          Data4: 780385794
+        Path: event:/Voice/Player A/Restore
+    bowPrepareVoice:
+      eventReference:
+        Guid:
+          Data1: -1678407230
+          Data2: 1161663161
+          Data3: -1806496078
+          Data4: 1484393315
+        Path: event:/Voice/Player A/Bow_Prepare
+    bowShootVoice:
+      eventReference:
+        Guid:
+          Data1: 12135952
+          Data2: 1091449008
+          Data3: 1903753095
+          Data4: 797829785
+        Path: event:/Voice/Player A/Sword_Attack
+    jumpVoice:
+      eventReference:
+        Guid:
+          Data1: -1182483848
+          Data2: 1293101288
+          Data3: 420677815
+          Data4: -744429186
+        Path: event:/Voice/Player A/Jump
+    landingSoftVoice:
+      eventReference:
+        Guid:
+          Data1: 259440365
+          Data2: 1312916904
+          Data3: -2128796503
+          Data4: 1682091201
+        Path: event:/Voice/Player A/Landing_Soft
+    landingHardVoice:
+      eventReference:
+        Guid:
+          Data1: -2104436725
+          Data2: 1118332554
+          Data3: -2015371873
+          Data4: -1195159505
+        Path: event:/Voice/Player A/Landind_Hard
+    injurySlightVoice:
+      eventReference:
+        Guid:
+          Data1: 1282633191
+          Data2: 1075442251
+          Data3: 960402865
+          Data4: -116696401
+        Path: event:/Voice/Player A/Injury_Slight
+    injuryMediumVoice:
+      eventReference:
+        Guid:
+          Data1: 1131443758
+          Data2: 1333623102
+          Data3: 1654527372
+          Data4: 1541520541
+        Path: event:/Voice/Player A/Injury_Medium
+    injuryCriticalVoice:
+      eventReference:
+        Guid:
+          Data1: 805976525
+          Data2: 1195760236
+          Data3: -1824994657
+          Data4: 749255338
+        Path: event:/Voice/Player A/Injury_Critical
     deathVoice:
       eventReference:
         Guid:
-          Data1: 749107090
-          Data2: 1082071429
-          Data3: 1390044314
-          Data4: -1005688162
-        Path: event:/SFX/SFXTest
+          Data1: -2054112731
+          Data2: 1087488790
+          Data3: 2002412723
+          Data4: 1307410686
+        Path: event:/Voice/Player A/Death
   debugMode: 0
 --- !u!114 &9200886647424329845
 MonoBehaviour:
@@ -707,7 +779,7 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{"- dependency":{"_value":{},"_name":"- dependency","_id":"9e438af4-8593-46be-aa41-d389c56675d0","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CharacterController":{"_value":1,"_name":"CharacterController","_id":"38e44e28-e6a0-4065-b5b2-8f13dbb675b1","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.CharacterController,
     UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Animator":{"_value":2,"_name":"Animator","_id":"304a7c72-1f17-4bc1-a5e3-d1aa9fa169cd","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AnimationEventTrigger":{"_value":3,"_name":"AnimationEventTrigger","_id":"052de9ff-2d82-4ab5-b476-9104bab75cda","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.AnimationEventTrigger,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"AnimationEventTrigger":{"_value":3,"_name":"AnimationEventTrigger","_id":"f9f0cace-32c0-4493-aaa9-791a6be61880","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.StringEvent,
     AdventureGame.Shared, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"cameras":{"_value":{},"_name":"cameras","_id":"1cd5f957-7e23-45d3-87da-aac7d433e6a5","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
     ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CMDefault":{"_value":4,"_name":"CMDefault","_id":"23953281-5a98-4b6a-81d7-6c513040928d","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CMSprint":{"_value":5,"_name":"CMSprint","_id":"ddb38881-ded9-4589-a953-8d5b316d34db","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
@@ -734,7 +806,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 7323518428174444122}
   - {fileID: 8293862317308176095}
-  - {fileID: 7375384772122622147}
+  - {fileID: 1078724883821862267}
   - {fileID: 5738911487815618686}
   - {fileID: 37725875408721632}
   - {fileID: 2347732210569852432}
@@ -754,11 +826,11 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 8293862317308176095}
-  - _json: '{"_value":1,"_name":"AnimationEventTrigger","_id":"052de9ff-2d82-4ab5-b476-9104bab75cda","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.AnimationEventTrigger,
+  - _json: '{"_value":1,"_name":"AnimationEventTrigger","_id":"f9f0cace-32c0-4493-aaa9-791a6be61880","$type":"NodeCanvas.Framework.Variable`1[[AdventureGame.Shared.StringEvent,
       AdventureGame.Shared, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
-    - {fileID: 7375384772122622147}
+    - {fileID: 1078724883821862267}
   - _json: '{"_value":{},"_name":"cameras","_id":"1cd5f957-7e23-45d3-87da-aac7d433e6a5","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
       ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
@@ -833,10 +905,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631824020916583531}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -850,8 +933,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631824020916583531}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.3
   m_Height: 1.4
   m_Direction: 1
@@ -990,6 +1082,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1214,6 +1307,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1702174123412952441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4183224450558733756}
+  - component: {fileID: 3641333589135858030}
+  m_Layer: 0
+  m_Name: Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4183224450558733756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702174123412952441}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3003728551056085578}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3641333589135858030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702174123412952441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &2005162821725195941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,9 +1687,17 @@ CharacterController:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2509848927181436449}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Height: 1.6
   m_Radius: 0.29
   m_SlopeLimit: 45
@@ -2345,12 +2491,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4460565678799284465}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6799555392844145787}
+  - {fileID: 4183224450558733756}
   m_Father: {fileID: 1665852755086442533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2914,7 +3061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5738911487815618686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000019073486, y: 1.25, z: -5.9999995}
+  m_LocalPosition: {x: 0, y: 1.25, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2964,7 +3111,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 1.7774193, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -3829,6 +3976,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5946457437803657683}
     m_Modifications:
     - target: {fileID: 3522983703231239259, guid: d205f890a91377f4ab41d47bd587a5d4,
@@ -3952,6 +4100,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d205f890a91377f4ab41d47bd587a5d4, type: 3}
 --- !u!114 &782831185884077090 stripped
 MonoBehaviour:
@@ -3976,6 +4127,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2509848927181436444}
     m_Modifications:
     - target: {fileID: 4414079477399652028, guid: 0a30f1e035120754f98447192e360de7,
@@ -4189,6 +4341,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5537164977549460556, guid: 0a30f1e035120754f98447192e360de7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1078724883821862267}
   m_SourcePrefab: {fileID: 100100000, guid: 0a30f1e035120754f98447192e360de7, type: 3}
 --- !u!137 &1346966090899111580 stripped
 SkinnedMeshRenderer:
@@ -4226,7 +4385,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 987390645273146296}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7375384772122622147
+--- !u!114 &1078724883821862267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4235,16 +4394,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4711922698674862068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb13d0bb6072b944bd18f9f585de80b, type: 3}
+  m_Script: {fileID: 11500000, guid: 85bb946b8d4a3c240859cb439670c080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8293862317308176095}
   eventReferences:
   - eventName: ShootArrow
+    state: 
+    layer: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 9200886647424329845}
-          m_TargetAssemblyTypeName: AdventureGame.Player.Archer, AdventureGame.Player
+          m_TargetAssemblyTypeName: AdventureGame.Player.PlayerEvents, AdventureGame.Player
           m_MethodName: OnShootArrow
           m_Mode: 1
           m_Arguments:
@@ -4255,29 +4417,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventName: LeftFoot
+  - eventName: PrepareArrowSFX
+    state: Aim
+    layer: 2
     unityEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 9200886647424329845}
-          m_TargetAssemblyTypeName: AdventureGame.Player.Archer, AdventureGame.Player
-          m_MethodName: OnFootStep
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventName: RightFoot
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9200886647424329845}
-          m_TargetAssemblyTypeName: AdventureGame.Player.Archer, AdventureGame.Player
-          m_MethodName: OnFootStep
+          m_TargetAssemblyTypeName: AdventureGame.Player.PlayerEvents, AdventureGame.Player
+          m_MethodName: OnPrepareArrow
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4288,6 +4436,20 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - eventName: PreparedToShoot
+    state: 
+    layer: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventName: LeftStep
+    state: 
+    layer: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventName: RightStep
+    state: 
+    layer: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -4320,6 +4482,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5946457437803657683}
     m_Modifications:
     - target: {fileID: 3522983703231239259, guid: d205f890a91377f4ab41d47bd587a5d4,
@@ -4458,6 +4621,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d205f890a91377f4ab41d47bd587a5d4, type: 3}
 --- !u!114 &1591654784359307529 stripped
 MonoBehaviour:
@@ -4482,6 +4648,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5946457437803657683}
     m_Modifications:
     - target: {fileID: 3522983703231239259, guid: d205f890a91377f4ab41d47bd587a5d4,
@@ -4620,6 +4787,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d205f890a91377f4ab41d47bd587a5d4, type: 3}
 --- !u!114 &4311749522891667608 stripped
 MonoBehaviour:

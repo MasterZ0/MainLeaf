@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,20 +20,28 @@ namespace AdventureGame.UI.Window
 
         public static void RequestOpenWindow(IWindow window)
         {
-            if (HasWindowOpen)
-            {
-                SaveWindow save = new SaveWindow(CurrentWindow);
-                WindowsHistory.Push(save);
-                CurrentWindow.CloseWindow();
-            }
+            UniTask.Create(OpenWIndow);
 
-            EventSystem.current.SetSelectedGameObject(null);
-            CurrentWindow = window;
-            CurrentWindow.OpenWindow();
-
-            if (CurrentWindow.FirstGameObject)
+            async UniTask OpenWIndow()
             {
-                EventSystem.current.SetSelectedGameObject(CurrentWindow.FirstGameObject);
+                if (HasWindowOpen)
+                {
+                    SaveWindow save = new SaveWindow(CurrentWindow);
+                    WindowsHistory.Push(save);
+                    CurrentWindow.CloseWindow();
+                }
+
+                EventSystem.current.SetSelectedGameObject(null);
+
+                CurrentWindow = window;
+                CurrentWindow.OpenWindow();
+
+                await UniTask.Delay((int)(Time.unscaledDeltaTime * 1000f), true); // Prevents Event system bugs
+
+                if (CurrentWindow.FirstGameObject)
+                {
+                    EventSystem.current.SetSelectedGameObject(CurrentWindow.FirstGameObject);
+                }
             }
         }
 

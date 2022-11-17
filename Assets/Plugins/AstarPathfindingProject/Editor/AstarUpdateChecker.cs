@@ -220,6 +220,7 @@ namespace Pathfinding {
 						   "&branch="+AstarPath.Branch;
 
 #if UNITY_2018_1_OR_NEWER
+			return;
 			updateCheckDownload = UnityWebRequest.Get(query);
 			updateCheckDownload.SendWebRequest();
 #else

@@ -133,6 +133,7 @@ namespace AdventureGame.Player
             playerStatus.Update();
             FacilitatorBuffer.Update();
             playerCamera.Update();
+            playerSFX.Update();
         }
 
         #region Interfaces

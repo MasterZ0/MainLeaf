@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace AdventureGame.Shared.ExtensionMethods
@@ -9,16 +11,27 @@ namespace AdventureGame.Shared.ExtensionMethods
     /// </summary>
     public static class UnityExtensions
     {
-        /// <summary> Prevents Event system bugs </summary>
-        public static void SelectWithDelay(this Selectable selectable) // Prevents Event system bugs
+        public static void DoActionNextFrame(this MonoBehaviour monoBehaviour, Action action) // Prevents Event system bugs
         {
-            selectable.StartCoroutine(DelaySelect(selectable));
+            monoBehaviour.StartCoroutine(CallNextFrame(action));
         }
 
-        private static IEnumerator DelaySelect(Selectable selectable)
+        /// <summary> Prevents Event system bugs </summary>
+        public static void SelectWithDelay(this Selectable selectable)
+        {
+            selectable.StartCoroutine(CallNextFrame(selectable.Select));
+        }
+
+        /// <summary> Prevents Event system bugs </summary>
+        public static void SelectWithDelay(this MonoBehaviour monoBehaviour, GameObject gameObject)
+        {
+            monoBehaviour.StartCoroutine(CallNextFrame(() => EventSystem.current.SetSelectedGameObject(gameObject)));
+        }
+
+        private static IEnumerator CallNextFrame(Action action)
         {
             yield return new WaitForEndOfFrame();
-            selectable.Select();
+            action();
         }
 
         public static int ToIntLayer(this LayerMask layer) => (int)Mathf.Log(layer.value, 2f);

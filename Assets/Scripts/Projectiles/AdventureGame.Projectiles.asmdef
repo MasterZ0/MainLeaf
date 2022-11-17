@@ -1,8 +1,9 @@
 {
     "name": "AdventureGame.Projectiles",
-    "rootNamespace": "",
+    "rootNamespace": "AdventureGame.Projectiles",
     "references": [
         "GUID:df55f17f78f75a643aff19957150ab7f",
+        "GUID:bf294c4ea7f261a489d057e3c0857933",
         "GUID:d43ea55eb0e35f4429a5e067829e5e87",
         "GUID:dd5c1ada27d80c842960f5c13e8b384c"
     ],

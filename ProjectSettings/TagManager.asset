@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - FxTemporaire
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,16 +14,16 @@ TagManager:
   - Water
   - UI
   - Scenary
-  - Obstacles
+  - Obstable
   - OnlyTerrain
   - PlayerInvincible
   - PlayerDefault
   - Enemy
   - 
-  - HitboxPlayer
-  - HitboxPlayerIgnore
-  - HitboxEnemy
-  - HitboxEnemyIgnore
+  - HitBoxPlayer
+  - HitBoxPlayerIgnore
+  - HitBoxEnemy
+  - HitBoxEnemyIgnore
   - Interactable
   - Trap
   - 

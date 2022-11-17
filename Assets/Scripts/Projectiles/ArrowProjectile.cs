@@ -1,24 +1,28 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.ObjectPooling;
+using AdventureGame.Audio;
 using System.Collections;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace AdventureGame.Projectiles
 {
     public class ArrowProjectile : Projectile
     {
-        [SerializeField] private Collider col;
+        [Title("Arrow")]
+        [SerializeField] private new Collider collider;
+        [SerializeField] private SoundReference hitKillSFX; // Maybe an event is sufficient
 
         private float delayToDisapear;
 
         private void Awake()
         {
-            rigidbod.centerOfMass = transform.position;
+            rigidbody.centerOfMass = transform.position;
         }
 
         private void OnEnable()
         {
-            rigidbod.isKinematic = false;
+            rigidbody.isKinematic = false;
         }
 
         public void Shoot(Damage damage, float velocity, float delayToDisapear)
@@ -31,13 +35,17 @@ namespace AdventureGame.Projectiles
         {
             if (targetHit == TargetHitType.Unknown)
             {
-                transform.position = transform.forward * -col.bounds.size.z + contact;
-                rigidbod.isKinematic = true;
+                transform.position = transform.forward * -collider.bounds.size.z + contact;
+                rigidbody.isKinematic = true;
                 StartCoroutine(DelayToDisapear());
             }
             else if (targetHit == TargetHitType.Alive)
             {
                 Impact();
+            }
+            else
+            {
+                hitKillSFX.PlaySound(transform);
             }
         }
 

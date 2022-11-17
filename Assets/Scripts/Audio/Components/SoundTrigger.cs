@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-namespace AdventureGame.Audio {
-
+namespace AdventureGame.Audio
+{
     /// <summary>
     /// SoundReference animation event, to trigger sound Scriptable Objects.
     /// </summary>

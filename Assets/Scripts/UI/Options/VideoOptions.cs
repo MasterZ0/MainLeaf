@@ -180,7 +180,7 @@ namespace AdventureGame.UI.AppOptions
             // HDRenderPipelineAsset
             VolumeProfile profile = null;
             bool active = value == 1 ? true : false;
-            profile.TryGet(out AmbientOcclusion ambientOcclusion);
+            profile.TryGet(out ScreenSpaceAmbientOcclusion ambientOcclusion);
             profile.TryGet(out DepthOfField deepOfField);
             profile.TryGet(out ChromaticAberration chromaticAberration);
             ambientOcclusion.active = active;

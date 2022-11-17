@@ -14,6 +14,8 @@ namespace AdventureGame.Player
             Controller = controller;
         }
 
+        public void OnPrepareArrow() => Controller.SFX.PrepareArrow();
+
         public void OnShootArrow()
         {
             Controller.VFX.ShootArrow();
@@ -26,11 +28,6 @@ namespace AdventureGame.Player
         {
             yield return new WaitForFixedUpdate();
             Arsenal.ShootArrow();
-        }
-
-        public void OnFootStep()
-        {
-            Controller.SFX.FoodStep();
         }
     }
 }

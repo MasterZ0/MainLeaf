@@ -36,7 +36,7 @@ namespace AdventureGame.Audio
         /// <summary> Null Check </summary>
         public static implicit operator bool(SoundReference thisReference)
         {
-            return thisReference is null || thisReference.eventReference.IsNull;
+            return thisReference is not null && !thisReference.eventReference.IsNull;
         }
 
         public static bool operator ==(SoundReference a, SoundReference b)
