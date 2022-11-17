@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using AdventureGame.Audio;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace AdventureGame.Player
 {
