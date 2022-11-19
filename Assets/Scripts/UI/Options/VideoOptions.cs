@@ -12,7 +12,7 @@ namespace AdventureGame.UI.AppOptions
 {
     public class VideoOptions : MonoBehaviour
     {
-        [Header("Texts")]
+        [Title("Video")]
         [SerializeField] private LocalizedString on;
         [SerializeField] private LocalizedString off;
         [Space]
@@ -59,7 +59,7 @@ namespace AdventureGame.UI.AppOptions
             graphicsQualityNavigator.UpdateTexts(GraphicQualityOptions);
         }
 
-        public void LoadVideoSettings()
+        public void LoadSettings()
         {
             videoData = PersistenceManager.LoadGlobalFile<VideoOptionsData>();
 

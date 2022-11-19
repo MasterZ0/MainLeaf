@@ -81,7 +81,7 @@ namespace AdventureGame.Player
             }
             else
             {
-                float yRotation = Controller.Inputs.Look.x * Settings.AimSensibility + Transform.eulerAngles.y;
+                float yRotation = Controller.Inputs.Look.x * Controller.Sensitivity + Transform.eulerAngles.y;
                 Transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
             }
         }

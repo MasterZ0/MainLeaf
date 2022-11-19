@@ -5,18 +5,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 355268682055434393, guid: 321d88f7b95c7f94384849e497879f5d,
-        type: 3}
-      propertyPath: m_text
-      value: Warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 355268682055434393, guid: 321d88f7b95c7f94384849e497879f5d,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 434986661904067511, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
       propertyPath: m_Name
@@ -25,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 866752520059829514, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 866752520059829514, guid: 321d88f7b95c7f94384849e497879f5d,
         type: 3}
@@ -179,6 +170,13 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 866752520059829514, guid: 321d88f7b95c7f94384849e497879f5d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5860458521876995082}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321d88f7b95c7f94384849e497879f5d, type: 3}
 --- !u!4 &4658856629722775918 stripped
 Transform:
@@ -191,6 +189,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4658856629722775918}
     m_Modifications:
     - target: {fileID: 2718746669882655395, guid: 2f9640301a83b8449a04f7e34488d0d7,
@@ -264,10 +263,19 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9640301a83b8449a04f7e34488d0d7, type: 3}
 --- !u!137 &5439620469667507781 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4581009334686445804, guid: 2f9640301a83b8449a04f7e34488d0d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8425788813913251497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5860458521876995082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2718746669882655395, guid: 2f9640301a83b8449a04f7e34488d0d7,
     type: 3}
   m_PrefabInstance: {fileID: 8425788813913251497}
   m_PrefabAsset: {fileID: 0}

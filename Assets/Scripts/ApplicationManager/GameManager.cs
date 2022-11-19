@@ -34,7 +34,6 @@ namespace AdventureGame.ApplicationManager
         protected override void Awake()
         {
             Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
 
             base.Awake();
             gameValues.Initialize();

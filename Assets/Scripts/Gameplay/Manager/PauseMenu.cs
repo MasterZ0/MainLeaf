@@ -77,9 +77,6 @@ namespace AdventureGame.Gameplay
                 return;
 
             PauseGame(true);
-
-            UISounds.IgnoreNext();
-            mainScreen.RequestOpenWindow();
         }
 
         public void OnResume()
@@ -88,7 +85,6 @@ namespace AdventureGame.Gameplay
                 return;
 
             PauseGame(false);
-            mainScreen.CloseWindow();
         }
 
         private void PauseGame(bool pause)
@@ -97,16 +93,20 @@ namespace AdventureGame.Gameplay
 
             if (pause)
             {
+                mainScreen.RequestOpenWindow();
                 openMenuSound.PlaySound();
                 AudioManager.PauseSounds();
+                UISounds.IgnoreNext();
             }
-            else
+            else // Resume
             {
+                mainScreen.CloseWindow();
                 closeMenuSound.PlaySound();
                 AudioManager.UnpauseSounds();
             }
 
             Time.timeScale = pause ? 0f : 1f;
+            UIManager.SetCursor(pause);
             GameplayReferences.SetActivePlayerInput(!pause, this);
             OnPause(pause);
         }

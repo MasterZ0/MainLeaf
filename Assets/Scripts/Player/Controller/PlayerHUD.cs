@@ -1,5 +1,6 @@
 using System;
 using AdventureGame.BattleSystem;
+using AdventureGame.Gameplay;
 using AdventureGame.Items;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -14,6 +15,7 @@ namespace AdventureGame.Player
     {
         [Title("Player HUD")]
         [SerializeField] private GameObject redScreen;
+        [SerializeField] private GameObject ui;
 
         [Title("Bars")]
         [SerializeField] private Slider hpBar;
@@ -38,6 +40,17 @@ namespace AdventureGame.Player
 
             OnUpdateStatus();
             OnUpdateInventory();
+            PauseMenu.OnPause += OnPause;
+        }
+
+        public void Destroy()
+        {
+            PauseMenu.OnPause -= OnPause;
+        }
+
+        private void OnPause(bool paused)
+        {
+            ui.SetActive(!paused);
         }
 
         private void OnUpdateStatus()

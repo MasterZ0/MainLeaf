@@ -1,6 +1,8 @@
 using AdventureGame.Inputs;
 using AdventureGame.Shared;
+using AdventureGame.UIElements;
 using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -26,16 +28,33 @@ namespace AdventureGame.UI
             base.Awake();
             options.Init();
             uiInputs = new UIInputs();
-            uiInputs.OnExtra += OnExtraButton;
+            uiInputs.OnExtraA += OnExtraA;
+            uiInputs.OnExtraB += OnExtraB;
         }
 
-        private void OnExtraButton()
+        public static void SetCursor(bool visible) => Cursor.visible = visible;
+
+        private void OnExtraA()
         {
-            GameObject selectedGameObject = EventSystem.current.currentSelectedGameObject;
-            if (selectedGameObject != null && selectedGameObject.TryGetComponent(out IExtraButtonHandler handler))
+            if (GetExtraUIHandle(out ICustomUIHandler handler))
             {
-                handler.OnExtraButton();
+                handler.OnExtraA();
             }
+        }
+
+        private void OnExtraB()
+        {
+            if (GetExtraUIHandle(out ICustomUIHandler handler))
+            {
+                handler.OnExtraB();
+            }
+        }
+
+        private bool GetExtraUIHandle(out ICustomUIHandler handler)
+        {
+            handler = null;
+            GameObject selectedGameObject = EventSystem.current.currentSelectedGameObject;
+            return selectedGameObject != null && selectedGameObject.TryGetComponent(out handler);
         }
     }
 }

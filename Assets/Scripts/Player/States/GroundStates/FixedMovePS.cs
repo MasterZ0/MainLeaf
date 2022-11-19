@@ -8,7 +8,7 @@ namespace AdventureGame.Player.States
 
         protected override void EnterState()
         {
-            Camera.SetSensitivity(Settings.Physics.AimSensibility);
+            agent.SetSensitivity(SensitivityType.Aim);
             Animator.SetAimWeight(1f);
         }
 
@@ -20,7 +20,7 @@ namespace AdventureGame.Player.States
         protected override void ExitState() 
         {
             Camera.LockY(false);
-            Camera.SetSensitivity(Settings.Physics.DefaultSensibility);
+            agent.SetSensitivity(SensitivityType.Default);
             Animator.SetAimWeight(0f);
         }
     }

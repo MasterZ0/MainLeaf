@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace AdventureGame.UIElements
 {
-    public class Navigator : Selectable, IEventSystemHandler
+    public class Navigator : Selectable
     {
         [Header("Navigator")]
         [SerializeField] private Animator leftArrow;
@@ -23,12 +23,10 @@ namespace AdventureGame.UIElements
         private bool LeftEnd => index == 0;
         private bool RightEnd => index == displayPackage.Length - 1;
 
-        private const string End = "End";
-
-        private const string Disabled = "Disabled";
-        private const string Normal = "Normal";
-        private const string Pressed = "Pressed";
-        private const string Selected = "Selected";
+        private string Disabled => animationTriggers.disabledTrigger;
+        private string Normal => animationTriggers.normalTrigger;
+        private string Pressed => animationTriggers.pressedTrigger;
+        private string Selected => animationTriggers.selectedTrigger;
 
         public void Init(string[] stringPackege, int currentIndex)
         {
@@ -58,8 +56,8 @@ namespace AdventureGame.UIElements
         {
             base.OnEnable();
 
-            leftArrow.SetBool(End, LeftEnd);
-            rightArrow.SetBool(End, RightEnd);
+            leftArrow.SetBool(Disabled, LeftEnd);
+            rightArrow.SetBool(Disabled, RightEnd);
         }
 
         public override void OnSelect(BaseEventData eventData)
@@ -119,8 +117,8 @@ namespace AdventureGame.UIElements
         {
             value.text = displayPackage[index];
 
-            leftArrow.SetBool(End, LeftEnd);
-            rightArrow.SetBool(End, RightEnd);
+            leftArrow.SetBool(Disabled, LeftEnd);
+            rightArrow.SetBool(Disabled, RightEnd);
 
             onValueChange.Invoke(index);
         }

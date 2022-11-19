@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System;
 using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,16 +13,15 @@ namespace AdventureGame.Inputs
     public class InputRebinder : MonoBehaviour
     {
         [Title("Input Rebinder")]
+        [SerializeField] private Image inputIcon;
+
+        [Title("Action")]
         [OnValueChanged(nameof(ValidateInputActionReference))]
         [SerializeField] private InputActionReference inputReference;
 
         [OnValueChanged(nameof(ValidateBindIndex))]
         [EnableIf(nameof(BindIndexEnabled)), PropertyRange(0, nameof(maxIndex))]
         [SerializeField] private int bindIndex;
-
-        [Title("Sprites")]
-        [SerializeField] private Image inputIcon;
-        [SerializeField] private GameObject pressToSelect;
 
         #region Dev Tools Variables
         [Title("Dev Tools")]
@@ -95,6 +93,11 @@ namespace AdventureGame.Inputs
         public void OnCleanInput()
         {
             manager.CleanInput(this);
+        }
+
+        public void OnRevertInput()
+        {
+            manager.RevertInput(this);
         }
     }
 }

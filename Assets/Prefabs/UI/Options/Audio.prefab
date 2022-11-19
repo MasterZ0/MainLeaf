@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 100
+  m_Spacing: 75
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -271,6 +271,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -579,6 +599,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -887,6 +927,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1196,6 +1256,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4972637078399437597}
     m_Modifications:
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 177780227219665773, guid: 507861d20276ea5468a37bf4f57f8d23,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1938783726508635650, guid: 507861d20276ea5468a37bf4f57f8d23,
         type: 3}
       propertyPath: m_fontColor32.rgba

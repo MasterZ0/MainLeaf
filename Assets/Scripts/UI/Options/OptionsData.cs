@@ -23,11 +23,13 @@ namespace AdventureGame.UI.AppOptions
     }
 
     [Serializable]
-    public class GameplayOptionsData
+    public class AccessibilityOptionsData
     {
-        public bool damagePopup = true;
-        public bool screenShake = true;
+        public bool blood = true;
+        public bool shakeScreen = true;
         public bool gamepadVibration = true;
+        public float defaultSensitivity = 5f;
+        public float aimSensitivity = 5f;
     }
 
     [Serializable]

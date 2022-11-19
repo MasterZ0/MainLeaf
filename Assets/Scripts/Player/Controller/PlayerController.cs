@@ -9,7 +9,7 @@ using AdventureGame.Items;
 using System.Collections.Generic;
 using NodeCanvas.StateMachines;
 using AdventureGame.Gameplay;
-using AdventureGame.Items.Data;
+using AdventureGame.UI.AppOptions;
 
 namespace AdventureGame.Player
 {
@@ -17,6 +17,12 @@ namespace AdventureGame.Player
     {
         Injury,
         Death
+    }
+
+    public enum SensitivityType
+    {
+        Default,
+        Aim,
     }
 
     /// <summary>
@@ -73,7 +79,19 @@ namespace AdventureGame.Player
 
         IStatusController IStatusOwner.Status => playerStatus;
         IInventoryController IInventoryOwner.Inventory => playerInventory;
+
+        public float Sensitivity
+        {
+            get => sensitivity switch
+            {
+                SensitivityType.Default => AccessibilityOptions.DefaultSensitivity * PlayerSettings.Physics.DefaultSensitivityMultiplier * .01f,
+                SensitivityType.Aim => AccessibilityOptions.AimSensitivity * PlayerSettings.Physics.AimSensitivityMultiplier * 0.01f,
+                _ => throw new NotImplementedException(),
+            };
+        }
         #endregion
+
+        private SensitivityType sensitivity = SensitivityType.Default;
 
         [ShowInInspector, ReadOnly, TextArea]
         private string CurrentState;
@@ -118,6 +136,7 @@ namespace AdventureGame.Player
             GameplayReferences.OnPlayerInputSet -= PlayerInputSet;
 
             Inputs.Dispose();
+            playerHUD.Destroy();
             playerStatus.Destroy();
             playerInventory.Destroy();
         }
@@ -125,6 +144,10 @@ namespace AdventureGame.Player
 
         private void PlayerInputSet(bool active) => Inputs.SetActive(active);
 
+        public void SetSensitivity(SensitivityType sensitivity)
+        {
+            this.sensitivity = sensitivity;
+        }
         private void FixedUpdate()
         {
             stateMachine.graph.UpdateGraph();

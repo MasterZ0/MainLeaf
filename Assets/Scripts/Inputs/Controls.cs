@@ -475,15 +475,6 @@ namespace AdventureGame.Inputs
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Point"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""210cb2fb-1d02-40c9-a581-c2e44b3eb91e"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""d19d1d67-9846-4525-839c-11891e4fdcb7"",
@@ -493,9 +484,36 @@ namespace AdventureGame.Inputs
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ExtraButton"",
+                    ""name"": ""ExtraA"",
                     ""type"": ""Button"",
                     ""id"": ""477ddd44-eb9e-494d-b781-eacb98fe897e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExtraB"",
+                    ""type"": ""Button"",
+                    ""id"": ""f9f62cd6-6f6c-4f38-bdd9-f539a4fb3002"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef80c783-4a41-4757-bfc2-f7008f094de8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""14557337-f2c6-44ce-a2ff-cef121ec8068"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -518,6 +536,42 @@ namespace AdventureGame.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""210cb2fb-1d02-40c9-a581-c2e44b3eb91e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8e49d516-0b0d-457c-b9bc-a15e0c8178ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MiddleClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e9d6bc00-d01f-4ec1-b396-01af81b2f5df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""19b28781-b298-4202-a751-df007c8be77c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Pause"",
@@ -544,33 +598,6 @@ namespace AdventureGame.Inputs
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SwitchWeapon"",
-                    ""type"": ""Button"",
-                    ""id"": ""50c8893a-d70d-4a74-be55-3df65b263ccf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""LeftTab"",
-                    ""type"": ""Button"",
-                    ""id"": ""14557337-f2c6-44ce-a2ff-cef121ec8068"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RightTab"",
-                    ""type"": ""Button"",
-                    ""id"": ""ef80c783-4a41-4757-bfc2-f7008f094de8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -616,28 +643,6 @@ namespace AdventureGame.Inputs
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Cancel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9db1e7c7-4e06-4499-93ac-3af689dc594e"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PC"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d940b212-a6a6-419b-b90c-dee30f85c291"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -697,61 +702,6 @@ namespace AdventureGame.Inputs
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""dbc6d874-5730-478d-8dc1-f03a838407e3"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PC"",
-                    ""action"": ""Map"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7e0d64a3-c4da-41bc-8eee-599eb6f63504"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PC"",
-                    ""action"": ""Map"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4b9b55f3-c816-4a2c-9d6d-4570a8143552"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Map"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""52359340-04e7-4e0d-a2d4-e3ca01c10078"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PC"",
-                    ""action"": ""SkipCutscene"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4b2f9c53-2f1a-4232-8126-56137e3ca092"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""SkipCutscene"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""WASD"",
                     ""id"": ""7b409fd7-fe79-475a-a33d-70efa080ed77"",
                     ""path"": ""2DVector(mode=1)"",
@@ -809,11 +759,11 @@ namespace AdventureGame.Inputs
                 {
                     ""name"": """",
                     ""id"": ""51e733d0-23e5-4ff2-b4e2-7b69d2952a01"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""ExtraButton"",
+                    ""action"": ""ExtraA"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -824,7 +774,7 @@ namespace AdventureGame.Inputs
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ExtraButton"",
+                    ""action"": ""ExtraA"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -973,23 +923,56 @@ namespace AdventureGame.Inputs
                 },
                 {
                     ""name"": """",
-                    ""id"": ""db802ca6-ab9e-4a51-9cec-13dce93245df"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""a24bb395-4592-40dc-b05d-37acf85ee9e5"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""SwitchWeapon"",
+                    ""action"": ""MiddleClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""233842e4-0f83-465e-8778-d49ee5cf95f5"",
+                    ""id"": ""2d7165ed-43b5-43a1-9f1f-bdc30314d9c2"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1563c81-180a-4c3e-b580-3254297409d4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86954b2b-fa6c-45e6-a5d2-d2b54f15166b"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""ExtraB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f71afbd9-39d7-40a2-8d23-43c0e5c401d7"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""SwitchWeapon"",
+                    ""action"": ""ExtraB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1001,6 +984,83 @@ namespace AdventureGame.Inputs
                     ""processors"": """",
                     ""groups"": ""PC"",
                     ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52359340-04e7-4e0d-a2d4-e3ca01c10078"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""SkipCutscene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b2f9c53-2f1a-4232-8126-56137e3ca092"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SkipCutscene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbc6d874-5730-478d-8dc1-f03a838407e3"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e0d64a3-c4da-41bc-8eee-599eb6f63504"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b9b55f3-c816-4a2c-9d6d-4570a8143552"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9db1e7c7-4e06-4499-93ac-3af689dc594e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d940b212-a6a6-419b-b90c-dee30f85c291"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1138,17 +1198,20 @@ namespace AdventureGame.Inputs
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
-            m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
             m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
-            m_UI_ExtraButton = m_UI.FindAction("ExtraButton", throwIfNotFound: true);
+            m_UI_ExtraA = m_UI.FindAction("ExtraA", throwIfNotFound: true);
+            m_UI_ExtraB = m_UI.FindAction("ExtraB", throwIfNotFound: true);
+            m_UI_RightTab = m_UI.FindAction("RightTab", throwIfNotFound: true);
+            m_UI_LeftTab = m_UI.FindAction("LeftTab", throwIfNotFound: true);
             m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
             m_UI_Scroll = m_UI.FindAction("Scroll", throwIfNotFound: true);
+            m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
+            m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
+            m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
+            m_UI_LeftClick = m_UI.FindAction("LeftClick", throwIfNotFound: true);
             m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
             m_UI_Map = m_UI.FindAction("Map", throwIfNotFound: true);
             m_UI_SkipCutscene = m_UI.FindAction("SkipCutscene", throwIfNotFound: true);
-            m_UI_SwitchWeapon = m_UI.FindAction("SwitchWeapon", throwIfNotFound: true);
-            m_UI_LeftTab = m_UI.FindAction("LeftTab", throwIfNotFound: true);
-            m_UI_RightTab = m_UI.FindAction("RightTab", throwIfNotFound: true);
             // Debug
             m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
             m_Debug_Statistics = m_Debug.FindAction("Statistics", throwIfNotFound: true);
@@ -1287,33 +1350,39 @@ namespace AdventureGame.Inputs
         private readonly InputActionMap m_UI;
         private IUIActions m_UIActionsCallbackInterface;
         private readonly InputAction m_UI_Submit;
-        private readonly InputAction m_UI_Point;
         private readonly InputAction m_UI_Cancel;
-        private readonly InputAction m_UI_ExtraButton;
+        private readonly InputAction m_UI_ExtraA;
+        private readonly InputAction m_UI_ExtraB;
+        private readonly InputAction m_UI_RightTab;
+        private readonly InputAction m_UI_LeftTab;
         private readonly InputAction m_UI_Move;
         private readonly InputAction m_UI_Scroll;
+        private readonly InputAction m_UI_Point;
+        private readonly InputAction m_UI_RightClick;
+        private readonly InputAction m_UI_MiddleClick;
+        private readonly InputAction m_UI_LeftClick;
         private readonly InputAction m_UI_Pause;
         private readonly InputAction m_UI_Map;
         private readonly InputAction m_UI_SkipCutscene;
-        private readonly InputAction m_UI_SwitchWeapon;
-        private readonly InputAction m_UI_LeftTab;
-        private readonly InputAction m_UI_RightTab;
         public struct UIActions
         {
             private @Controls m_Wrapper;
             public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Submit => m_Wrapper.m_UI_Submit;
-            public InputAction @Point => m_Wrapper.m_UI_Point;
             public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
-            public InputAction @ExtraButton => m_Wrapper.m_UI_ExtraButton;
+            public InputAction @ExtraA => m_Wrapper.m_UI_ExtraA;
+            public InputAction @ExtraB => m_Wrapper.m_UI_ExtraB;
+            public InputAction @RightTab => m_Wrapper.m_UI_RightTab;
+            public InputAction @LeftTab => m_Wrapper.m_UI_LeftTab;
             public InputAction @Move => m_Wrapper.m_UI_Move;
             public InputAction @Scroll => m_Wrapper.m_UI_Scroll;
+            public InputAction @Point => m_Wrapper.m_UI_Point;
+            public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
+            public InputAction @MiddleClick => m_Wrapper.m_UI_MiddleClick;
+            public InputAction @LeftClick => m_Wrapper.m_UI_LeftClick;
             public InputAction @Pause => m_Wrapper.m_UI_Pause;
             public InputAction @Map => m_Wrapper.m_UI_Map;
             public InputAction @SkipCutscene => m_Wrapper.m_UI_SkipCutscene;
-            public InputAction @SwitchWeapon => m_Wrapper.m_UI_SwitchWeapon;
-            public InputAction @LeftTab => m_Wrapper.m_UI_LeftTab;
-            public InputAction @RightTab => m_Wrapper.m_UI_RightTab;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1326,21 +1395,39 @@ namespace AdventureGame.Inputs
                     @Submit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                     @Submit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                     @Submit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
-                    @Point.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
-                    @Point.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
-                    @Point.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
                     @Cancel.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
                     @Cancel.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
                     @Cancel.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
-                    @ExtraButton.started -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraButton;
-                    @ExtraButton.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraButton;
-                    @ExtraButton.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraButton;
+                    @ExtraA.started -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraA;
+                    @ExtraA.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraA;
+                    @ExtraA.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraA;
+                    @ExtraB.started -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraB;
+                    @ExtraB.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraB;
+                    @ExtraB.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnExtraB;
+                    @RightTab.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
+                    @RightTab.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
+                    @RightTab.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
+                    @LeftTab.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
+                    @LeftTab.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
+                    @LeftTab.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
                     @Move.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
                     @Move.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
                     @Move.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMove;
                     @Scroll.started -= m_Wrapper.m_UIActionsCallbackInterface.OnScroll;
                     @Scroll.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnScroll;
                     @Scroll.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnScroll;
+                    @Point.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
+                    @Point.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
+                    @Point.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPoint;
+                    @RightClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRightClick;
+                    @RightClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRightClick;
+                    @RightClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRightClick;
+                    @MiddleClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMiddleClick;
+                    @MiddleClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMiddleClick;
+                    @MiddleClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMiddleClick;
+                    @LeftClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftClick;
+                    @LeftClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftClick;
+                    @LeftClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftClick;
                     @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                     @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                     @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
@@ -1350,15 +1437,6 @@ namespace AdventureGame.Inputs
                     @SkipCutscene.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipCutscene;
                     @SkipCutscene.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipCutscene;
                     @SkipCutscene.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSkipCutscene;
-                    @SwitchWeapon.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchWeapon;
-                    @SwitchWeapon.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchWeapon;
-                    @SwitchWeapon.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchWeapon;
-                    @LeftTab.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
-                    @LeftTab.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
-                    @LeftTab.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftTab;
-                    @RightTab.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
-                    @RightTab.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
-                    @RightTab.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRightTab;
                 }
                 m_Wrapper.m_UIActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1366,21 +1444,39 @@ namespace AdventureGame.Inputs
                     @Submit.started += instance.OnSubmit;
                     @Submit.performed += instance.OnSubmit;
                     @Submit.canceled += instance.OnSubmit;
-                    @Point.started += instance.OnPoint;
-                    @Point.performed += instance.OnPoint;
-                    @Point.canceled += instance.OnPoint;
                     @Cancel.started += instance.OnCancel;
                     @Cancel.performed += instance.OnCancel;
                     @Cancel.canceled += instance.OnCancel;
-                    @ExtraButton.started += instance.OnExtraButton;
-                    @ExtraButton.performed += instance.OnExtraButton;
-                    @ExtraButton.canceled += instance.OnExtraButton;
+                    @ExtraA.started += instance.OnExtraA;
+                    @ExtraA.performed += instance.OnExtraA;
+                    @ExtraA.canceled += instance.OnExtraA;
+                    @ExtraB.started += instance.OnExtraB;
+                    @ExtraB.performed += instance.OnExtraB;
+                    @ExtraB.canceled += instance.OnExtraB;
+                    @RightTab.started += instance.OnRightTab;
+                    @RightTab.performed += instance.OnRightTab;
+                    @RightTab.canceled += instance.OnRightTab;
+                    @LeftTab.started += instance.OnLeftTab;
+                    @LeftTab.performed += instance.OnLeftTab;
+                    @LeftTab.canceled += instance.OnLeftTab;
                     @Move.started += instance.OnMove;
                     @Move.performed += instance.OnMove;
                     @Move.canceled += instance.OnMove;
                     @Scroll.started += instance.OnScroll;
                     @Scroll.performed += instance.OnScroll;
                     @Scroll.canceled += instance.OnScroll;
+                    @Point.started += instance.OnPoint;
+                    @Point.performed += instance.OnPoint;
+                    @Point.canceled += instance.OnPoint;
+                    @RightClick.started += instance.OnRightClick;
+                    @RightClick.performed += instance.OnRightClick;
+                    @RightClick.canceled += instance.OnRightClick;
+                    @MiddleClick.started += instance.OnMiddleClick;
+                    @MiddleClick.performed += instance.OnMiddleClick;
+                    @MiddleClick.canceled += instance.OnMiddleClick;
+                    @LeftClick.started += instance.OnLeftClick;
+                    @LeftClick.performed += instance.OnLeftClick;
+                    @LeftClick.canceled += instance.OnLeftClick;
                     @Pause.started += instance.OnPause;
                     @Pause.performed += instance.OnPause;
                     @Pause.canceled += instance.OnPause;
@@ -1390,15 +1486,6 @@ namespace AdventureGame.Inputs
                     @SkipCutscene.started += instance.OnSkipCutscene;
                     @SkipCutscene.performed += instance.OnSkipCutscene;
                     @SkipCutscene.canceled += instance.OnSkipCutscene;
-                    @SwitchWeapon.started += instance.OnSwitchWeapon;
-                    @SwitchWeapon.performed += instance.OnSwitchWeapon;
-                    @SwitchWeapon.canceled += instance.OnSwitchWeapon;
-                    @LeftTab.started += instance.OnLeftTab;
-                    @LeftTab.performed += instance.OnLeftTab;
-                    @LeftTab.canceled += instance.OnLeftTab;
-                    @RightTab.started += instance.OnRightTab;
-                    @RightTab.performed += instance.OnRightTab;
-                    @RightTab.canceled += instance.OnRightTab;
                 }
             }
         }
@@ -1482,17 +1569,20 @@ namespace AdventureGame.Inputs
         public interface IUIActions
         {
             void OnSubmit(InputAction.CallbackContext context);
-            void OnPoint(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
-            void OnExtraButton(InputAction.CallbackContext context);
+            void OnExtraA(InputAction.CallbackContext context);
+            void OnExtraB(InputAction.CallbackContext context);
+            void OnRightTab(InputAction.CallbackContext context);
+            void OnLeftTab(InputAction.CallbackContext context);
             void OnMove(InputAction.CallbackContext context);
             void OnScroll(InputAction.CallbackContext context);
+            void OnPoint(InputAction.CallbackContext context);
+            void OnRightClick(InputAction.CallbackContext context);
+            void OnMiddleClick(InputAction.CallbackContext context);
+            void OnLeftClick(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnMap(InputAction.CallbackContext context);
             void OnSkipCutscene(InputAction.CallbackContext context);
-            void OnSwitchWeapon(InputAction.CallbackContext context);
-            void OnLeftTab(InputAction.CallbackContext context);
-            void OnRightTab(InputAction.CallbackContext context);
         }
         public interface IDebugActions
         {

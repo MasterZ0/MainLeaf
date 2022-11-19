@@ -11,7 +11,7 @@ namespace AdventureGame.UI.AppOptions
 {
     public class ControlsOptions : InputRebinderManager
     {
-        [Title("Controls Settings")]
+        [Title("Controls")]
         [SerializeField] private Navigator deviceNavigator;
         [SerializeField] private GameObject pcPanel;
         [SerializeField] private GameObject gamepadPanel;
@@ -40,7 +40,7 @@ namespace AdventureGame.UI.AppOptions
             deviceNavigator.UpdateTexts(Devices);
         }
 
-        public void LoadInputSettings()
+        public void LoadSettings()
         {
             inputData = PersistenceManager.LoadGlobalFile<InputOptionsData>();
 
@@ -72,7 +72,7 @@ namespace AdventureGame.UI.AppOptions
             pcPanel.SetActive(!gamepad);
         }
 
-        public void OnEraseAll()
+        public void OnRevertAll()
         {
             UIManager.Popup.RequestQuestion(eraseQuestion, OnAnswer, false);
 
@@ -80,7 +80,7 @@ namespace AdventureGame.UI.AppOptions
             {
                 if (result)
                 {
-                    ResetAllInputs();
+                    RevertAllInputs();
                 }
 
                 deviceNavigator.Select();

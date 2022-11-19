@@ -25,9 +25,9 @@ namespace AdventureGame.Data
         [SerializeField] private float fullLockAngle = 15f;
 
         [FoldoutGroup(Rotation)]
-        [SerializeField] private float defaultSensibility = 1f;
+        [SerializeField] private float defaultSensitivityMultiplier = 20f;
         [FoldoutGroup(Rotation)]
-        [SerializeField] private float aimSensibility = 0.5f;
+        [SerializeField] private float aimSensitivityMultiplier = 5f;
         [FoldoutGroup(Rotation)]
         [SerializeField] private float aimBodyCorrectionSpeed = 15f;
         [FoldoutGroup(Rotation)]
@@ -100,8 +100,8 @@ namespace AdventureGame.Data
         public float AimMoveSpeed => aimMoveSpeed;
         public float WalkSpeed => walkSpeed;
         public float SprintSpeed => sprintSpeed;
-        public float DefaultSensibility => defaultSensibility;
-        public float AimSensibility => aimSensibility;
+        public float DefaultSensitivityMultiplier => defaultSensitivityMultiplier;
+        public float AimSensitivityMultiplier => aimSensitivityMultiplier;
         public float RotationSmoothTime => rotationSmoothTime;
         public float AimBodyCorrectionSpeed  => aimBodyCorrectionSpeed;
         public float FullLockAngle => fullLockAngle;
