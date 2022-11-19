@@ -4,7 +4,7 @@ Skull Project is a cartoon fantasy game and its genre is Action RPG.
 
 Currently it is just a project that I use to study the best programming practices to implement in Action RPG games, I intend to create a highly scalable architecture and easy maintenance.
 
-My inspiration comes from games like: Diablo, Tibia, Dark Souls, Megaman Legends, LoL, Zelda and others.
+My inspiration comes from games like: Diablo, Tibia, Dark Souls, Megaman Legends, League of Legends, Zelda and others.
   
   <div class="column">
 <img src="https://user-images.githubusercontent.com/64444068/198894962-3a09c6af-783c-46b2-ad9b-d004a463ccef.png" width="100%">
@@ -13,7 +13,7 @@ My inspiration comes from games like: Diablo, Tibia, Dark Souls, Megaman Legends
 ## Links
  
 - [Trello](https://trello.com/b/Hvx6HxHo/adventure-game)
-- [Download Game](https://drive.google.com/file/d/1OQOqmZa-GVwLoCS9RjC_QjZ0e3bteq01/view?usp=share_link)
+- [Download Game](https://drive.google.com/file/d/1sKoqlxMrq0PeZkG1uHTmqdvjRN_hTkZB/view?usp=share_link)
 - [Gameplay Video](https://drive.google.com/file/d/1MGnXVAL6HgPoEn6otmuJTrfiwFdGfZIy/view?usp=share_link)
 - GDD
 
