@@ -18,7 +18,6 @@ My inspiration comes from games like: Diablo, Tibia, Dark Souls, Megaman Legends
 - GDD
 
  <h2> Screenshots </h2>
- <h3> Character Selection </h3>
  <div class="row" align="center">
   <div class="column"> 
    <img src="https://user-images.githubusercontent.com/64444068/201451963-1522eb83-2eb0-4fff-b52f-61da91eea775.png" width="45%">
