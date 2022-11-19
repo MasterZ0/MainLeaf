@@ -33,7 +33,7 @@ namespace AdventureGame.UI.Window
                 }
                 else
                 {
-                    OnOpenFirstWindow();
+                    OnOpenFirstWindow?.Invoke();
                 }
 
                 EventSystem.current.SetSelectedGameObject(null);
@@ -62,7 +62,7 @@ namespace AdventureGame.UI.Window
             }
             else
             {
-                OnCloseLastWindow();
+                OnCloseLastWindow?.Invoke();
                 CurrentWindow = null;
             }
         }
