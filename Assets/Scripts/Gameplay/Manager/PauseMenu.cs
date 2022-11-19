@@ -106,7 +106,6 @@ namespace AdventureGame.Gameplay
             }
 
             Time.timeScale = pause ? 0f : 1f;
-            UIManager.SetCursor(pause);
             GameplayReferences.SetActivePlayerInput(!pause, this);
             OnPause(pause);
         }

@@ -60,7 +60,6 @@ namespace AdventureGame.Gameplay
             enemyGenerator.OnEnemyDeath += OnEnemyDie;
             onSceneFadeOutEnd += StartCounter;
 
-            UIManager.SetCursor(false);
             PauseMenu.OnPause += OnPause;
         }
 
@@ -155,7 +154,6 @@ namespace AdventureGame.Gameplay
 
             deathDefeatedEnemies.text = defeatedEnemies.ToString();
             deathWindow.RequestOpenWindow(); 
-            UIManager.SetCursor(true);
         }
 
         #endregion
@@ -181,7 +179,6 @@ namespace AdventureGame.Gameplay
 
             arenaHUD.SetActive(false);
             resultWindow.RequestOpenWindow();
-            UIManager.SetCursor(true); // Move to WindowManager?
         }
         #endregion
     }

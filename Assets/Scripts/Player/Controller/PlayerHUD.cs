@@ -2,6 +2,8 @@ using System;
 using AdventureGame.BattleSystem;
 using AdventureGame.Gameplay;
 using AdventureGame.Items;
+using AdventureGame.UI;
+using AdventureGame.UI.Window;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -40,17 +42,28 @@ namespace AdventureGame.Player
 
             OnUpdateStatus();
             OnUpdateInventory();
-            PauseMenu.OnPause += OnPause;
+
+            UIManager.SetCursorVisible(false);
+            WindowManager.OnOpenFirstWindow += OnOpenFirstWindow;
+            WindowManager.OnCloseLastWindow += OnCloseLastWindow;
         }
 
         public void Destroy()
         {
-            PauseMenu.OnPause -= OnPause;
+            WindowManager.OnOpenFirstWindow -= OnOpenFirstWindow;
+            WindowManager.OnCloseLastWindow -= OnCloseLastWindow;
         }
 
-        private void OnPause(bool paused)
+        private void OnOpenFirstWindow()
         {
-            ui.SetActive(!paused);
+            ui.SetActive(false);
+            UIManager.SetCursorVisible(true);
+        }
+
+        private void OnCloseLastWindow()
+        {
+            ui.SetActive(true);
+            UIManager.SetCursorVisible(false);
         }
 
         private void OnUpdateStatus()

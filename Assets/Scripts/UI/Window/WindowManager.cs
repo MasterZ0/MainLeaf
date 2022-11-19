@@ -13,6 +13,7 @@ namespace AdventureGame.UI.Window
     {
         public static bool HasWindowOpen => CurrentWindow != null;
 
+        public static event Action OnOpenFirstWindow;
         public static event Action OnCloseLastWindow;
 
         private static IWindow CurrentWindow;
@@ -29,6 +30,10 @@ namespace AdventureGame.UI.Window
                     SaveWindow save = new SaveWindow(CurrentWindow);
                     WindowsHistory.Push(save);
                     CurrentWindow.CloseWindow();
+                }
+                else
+                {
+                    OnOpenFirstWindow();
                 }
 
                 EventSystem.current.SetSelectedGameObject(null);
@@ -51,6 +56,7 @@ namespace AdventureGame.UI.Window
 
             if (WindowsHistory.TryPop(out SaveWindow last))
             {
+                OnOpenFirstWindow();
                 last.ReturnToWindow();
                 CurrentWindow = last.Window;
             }

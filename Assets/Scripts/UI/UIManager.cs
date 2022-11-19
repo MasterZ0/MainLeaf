@@ -32,7 +32,7 @@ namespace AdventureGame.UI
             uiInputs.OnExtraB += OnExtraB;
         }
 
-        public static void SetCursor(bool visible) => Cursor.visible = visible;
+        public static void SetCursorVisible(bool visible) => Cursor.visible = visible;
 
         private void OnExtraA()
         {
