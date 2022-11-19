@@ -100,7 +100,7 @@ namespace AdventureGame.Gameplay
             }
             else // Resume
             {
-                mainScreen.CloseWindow();
+                mainScreen.TryCloseWindow();
                 closeMenuSound.PlaySound();
                 AudioManager.UnpauseSounds();
             }
