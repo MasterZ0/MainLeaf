@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dev_Archer
   m_EditorClassIdentifier: 
   characterName:
-    mTerm: 
+    mTerm: Player/Characters/Archer
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -22,11 +22,11 @@ MonoBehaviour:
     baseHP: 50
     baseMP: 50
     baseSP: 50
-    style: 0
-    damage: 1
-    agility: 1
-    support: 1
-    resistence: 1
+    style: 1
+    damage: 4
+    agility: 4
+    support: 2
+    resistence: 2
     lowStaminaRegeneration: 1
     defaultStaminaRegeneration: 0.25
     defaultManaRegeneration: 0.25
@@ -39,8 +39,8 @@ MonoBehaviour:
     maxAimDistance: 15
     aimTransitionDuration: 1
     fullLockAngle: 15
-    defaultSensibility: 1
-    aimSensibility: 0.25
+    defaultSensitivityMultiplier: 20
+    aimSensitivityMultiplier: 5
     aimBodyCorrectionSpeed: 15
     rotationSmoothTime: 0.12
     cameraRangeRotation: {x: -35, y: 75}
@@ -97,6 +97,7 @@ MonoBehaviour:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     injuryRedColorDuration: 0.7

@@ -119,6 +119,10 @@ MonoBehaviour:
       image: {fileID: 1729467217, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
     - path: Space
       image: {fileID: -1095538391, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Enter
+      image: {fileID: 365929579, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
+    - path: Escape
+      image: {fileID: 461438816, guid: 71d20d858a7a67141ab15f6f34a56680, type: 3}
   playstation:
     undefined: {fileID: 21300000, guid: c619dc0103a5f994fa45963d7ef14e51, type: 3}
     unregistered: {fileID: 21300000, guid: 7b43522dcdf877f44925d272a2309677, type: 3}

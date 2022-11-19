@@ -555,6 +555,7 @@ MonoBehaviour:
     falling: Falling
   playerHUD:
     redScreen: {fileID: 3816736016501178514}
+    ui: {fileID: 718551725623140567}
     hpBar: {fileID: 782831185884077090}
     mpBar: {fileID: 1591654784359307529}
     spBar: {fileID: 4311749522891667608}
@@ -1099,7 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 64
+  m_ReferencePixelsPerUnit: 384
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 3840, y: 2160}
   m_ScreenMatchMode: 1
@@ -3111,7 +3112,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774193, y: 1}
+    m_SensorSize: {x: 1.7774086, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16

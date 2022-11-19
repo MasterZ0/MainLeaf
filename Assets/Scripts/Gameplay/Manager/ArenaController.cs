@@ -1,6 +1,7 @@
 ﻿using AdventureGame.Audio;
 using AdventureGame.Data;
 using AdventureGame.Shared;
+using AdventureGame.UI;
 using AdventureGame.UI.Window;
 using I2.Loc;
 using Sirenix.OdinInspector;
@@ -152,7 +153,7 @@ namespace AdventureGame.Gameplay
             arenaHUD.SetActive(false);
 
             deathDefeatedEnemies.text = defeatedEnemies.ToString();
-            deathWindow.RequestOpenWindow();
+            deathWindow.RequestOpenWindow(); 
         }
 
         #endregion

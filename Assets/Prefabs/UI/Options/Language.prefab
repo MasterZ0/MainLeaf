@@ -71,6 +71,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5024837950540674799}
     m_Modifications:
     - target: {fileID: 5360011482160499961, guid: 13eaa42e7d3e6c245a1264c7d1282129,
@@ -97,6 +98,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpanishBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6809722743925855232, guid: 13eaa42e7d3e6c245a1264c7d1282129,
         type: 3}
@@ -234,6 +270,13 @@ PrefabInstance:
       value: Spanish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6336353043385393422, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1757828727594717491}
   m_SourcePrefab: {fileID: 100100000, guid: 13eaa42e7d3e6c245a1264c7d1282129, type: 3}
 --- !u!1 &4934439016778479936 stripped
 GameObject:
@@ -278,6 +321,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4224122527125104234, guid: 56bf2a62bd9c7f244886cc8abc812516,
@@ -298,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 4438267750306461433, guid: 56bf2a62bd9c7f244886cc8abc812516,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4438267750306461433, guid: 56bf2a62bd9c7f244886cc8abc812516,
         type: 3}
@@ -396,6 +440,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8546448392930340311}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4438267750306461433, guid: 56bf2a62bd9c7f244886cc8abc812516,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5024837950540674799}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bf2a62bd9c7f244886cc8abc812516, type: 3}
 --- !u!224 &2439481842749431762 stripped
 RectTransform:
@@ -420,6 +471,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5024837950540674799}
     m_Modifications:
     - target: {fileID: 5360011482160499961, guid: 13eaa42e7d3e6c245a1264c7d1282129,
@@ -446,6 +498,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnglishBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6809722743925855232, guid: 13eaa42e7d3e6c245a1264c7d1282129,
         type: 3}
@@ -583,6 +670,13 @@ PrefabInstance:
       value: English
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6336353043385393422, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5579403623957420646}
   m_SourcePrefab: {fileID: 100100000, guid: 13eaa42e7d3e6c245a1264c7d1282129, type: 3}
 --- !u!114 &4674601978574759898 stripped
 MonoBehaviour:
@@ -627,6 +721,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5024837950540674799}
     m_Modifications:
     - target: {fileID: 5360011482160499961, guid: 13eaa42e7d3e6c245a1264c7d1282129,
@@ -653,6 +748,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PortugueseBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6759527225093290171}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRequestClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AdventureGame.UIElements.TabContent, AdventureGame.UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444605552213605254, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6809722743925855232, guid: 13eaa42e7d3e6c245a1264c7d1282129,
         type: 3}
@@ -795,6 +925,13 @@ PrefabInstance:
       value: Portuguese
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6336353043385393422, guid: 13eaa42e7d3e6c245a1264c7d1282129,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4046077490552475711}
   m_SourcePrefab: {fileID: 100100000, guid: 13eaa42e7d3e6c245a1264c7d1282129, type: 3}
 --- !u!1 &1562998896349826182 stripped
 GameObject:

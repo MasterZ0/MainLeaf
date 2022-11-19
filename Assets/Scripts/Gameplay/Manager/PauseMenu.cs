@@ -77,9 +77,6 @@ namespace AdventureGame.Gameplay
                 return;
 
             PauseGame(true);
-
-            UISounds.IgnoreNext();
-            mainScreen.RequestOpenWindow();
         }
 
         public void OnResume()
@@ -88,7 +85,6 @@ namespace AdventureGame.Gameplay
                 return;
 
             PauseGame(false);
-            mainScreen.CloseWindow();
         }
 
         private void PauseGame(bool pause)
@@ -97,11 +93,14 @@ namespace AdventureGame.Gameplay
 
             if (pause)
             {
+                mainScreen.RequestOpenWindow();
                 openMenuSound.PlaySound();
                 AudioManager.PauseSounds();
+                UISounds.IgnoreNext();
             }
-            else
+            else // Resume
             {
+                mainScreen.TryCloseWindow();
                 closeMenuSound.PlaySound();
                 AudioManager.UnpauseSounds();
             }

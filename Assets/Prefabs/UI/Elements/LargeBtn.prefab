@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2840783507365977872}
   - component: {fileID: 7459915974753914688}
   - component: {fileID: 7037912042051267331}
+  - component: {fileID: 6444605552213605254}
   - component: {fileID: 5360011482160499961}
   m_Layer: 5
   m_Name: LargeBtn
@@ -36,7 +37,7 @@ RectTransform:
   m_Children:
   - {fileID: 8096029545206350337}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -172,6 +173,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6444605552213605254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336353043385393422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102ff9c190915e3459504f08c20750cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  onExtraA:
+    m_PersistentCalls:
+      m_Calls: []
+  onExtraB:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5360011482160499961
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace AdventureGame.Audio
 {
-    public class UISounds : MonoBehaviour, ISelectHandler, ISubmitHandler, ICancelHandler
+    public class UISounds : MonoBehaviour, ISelectHandler, ISubmitHandler, ICancelHandler, IPointerClickHandler
     {
         [SerializeField] private bool ignoreSubmit;
         [SerializeField] private bool ignoreCancel;
@@ -55,6 +55,14 @@ namespace AdventureGame.Audio
         public void OnPlaySelect()
         {
             AudioManager.PlayUISound(UISound.Select);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                OnSubmit(eventData);
+            }
         }
     }
 }

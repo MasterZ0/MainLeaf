@@ -359,6 +359,78 @@ MonoBehaviour:
       - 
       Flags: 000000
       Languages_Touch: []
+    - Term: Player/Characters/Warrior
+      TermType: 0
+      Description: 
+      Languages:
+      - Warrior
+      - Guerreiro
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Player/Characters/Archer
+      TermType: 0
+      Description: 
+      Languages:
+      - Archer
+      - Arqueiro
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Player/Characters/Mage
+      TermType: 0
+      Description: 
+      Languages:
+      - Mage
+      - Mago
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Accessibility
+      TermType: 0
+      Description: 
+      Languages:
+      - Accessibility
+      - Acessabilidade
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Accessibility/AimSensitivity
+      TermType: 0
+      Description: 
+      Languages:
+      - Aim Sensitivity
+      - Sensibilidade da Mira
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Accessibility/DefaultSensitivity
+      TermType: 0
+      Description: 
+      Languages:
+      - Default Sensitivity
+      - "Sensibilidade Padr\xE3o"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Accessibility/GamepadVibration
+      TermType: 0
+      Description: 
+      Languages:
+      - Gamepad Vibration
+      - "Vibra\xE7\xE3o dos Controles"
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: Options/Accessibility/ShakeScreen
+      TermType: 0
+      Description: 
+      Languages:
+      - Shake Screen
+      - Tremer Tela
+      - 
+      Flags: 000000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

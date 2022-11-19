@@ -31,8 +31,8 @@ namespace AdventureGame.UI
 
         [Header("References")]
         [SerializeField] private Animator animator;
-        [SerializeField] private Button confirmBtn;
-        [SerializeField] private Button denyBtn;
+        [SerializeField] private Selectable confirmBtn;
+        [SerializeField] private Selectable denyBtn;
 
         private PopupRequest request;
         private const string FadeIn = "FadeIn";

@@ -49,6 +49,8 @@ namespace AdventureGame.Inputs
             OnChangeDevice(device);
         }
 
+        public static void SetVibration(bool enabled) { } // TODO
+
         public static Sprite GetPlayerIcon(InputActionReference inputActionReference, DeviceController device)
         {
             string schemeGroup = device.ConvertToControlSchemeGroup().ToString();

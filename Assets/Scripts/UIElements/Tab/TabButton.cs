@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace AdventureGame.UIElements
 {
@@ -11,28 +12,50 @@ namespace AdventureGame.UIElements
     {
         [Title("Tab Button")]
         [SerializeField] private Animator animator;
+        [SerializeField] private AnimationTriggers animationTriggers;
 
         private TabPair tabPair;
-
-        private const string Selected = "Selected";
-        private const string Normal = "Normal";
+        private bool selected;
 
         internal void Init(TabPair controller) => tabPair = controller;
 
-        public void Select() => animator.Play(Selected);
+        public void Select()
+        {
+            selected = true;
+            animator.SetTrigger(animationTriggers.selectedTrigger);
+        }
 
-        public void Deselect() => animator.Play(Normal);
+        public void Deselect()
+        {
+            selected = false;
+            animator.SetTrigger(animationTriggers.normalTrigger);
+        }
 
-        public void OnPointerClick(PointerEventData eventData) => tabPair.RequestOpenTab();
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (selected)
+                return;
+
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                tabPair.RequestOpenTab();
+            }
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            // highlight on
+            if (selected)
+                return;
+
+            animator.SetTrigger(animationTriggers.highlightedTrigger);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            // highlight off
+            if (selected)
+                return;
+
+            animator.SetTrigger(animationTriggers.normalTrigger);
         }
     }
 }

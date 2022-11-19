@@ -9,7 +9,7 @@ namespace AdventureGame.UI.AppOptions
 {
     public class AudioOptions : MonoBehaviour
     {
-        [Title("Audio Settings")]
+        [Title("Audio")]
         [SerializeField] private Slider masterVolume;
         [SerializeField] private Slider musicVolume;
         [SerializeField] private Slider sfxVolume;
@@ -31,7 +31,7 @@ namespace AdventureGame.UI.AppOptions
             PersistenceManager.SaveGlobalFile(audioData);
         }
 
-        public void LoadAudioSettings()
+        public void LoadSettings()
         {
             audioData = PersistenceManager.LoadGlobalFile<AudioOptionsData>();
 

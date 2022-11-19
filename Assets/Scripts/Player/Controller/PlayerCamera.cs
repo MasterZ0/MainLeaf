@@ -2,7 +2,6 @@
 using AdventureGame.Gameplay;
 using Sirenix.OdinInspector;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AdventureGame.Player
@@ -22,7 +21,6 @@ namespace AdventureGame.Player
 
         private GameObject currentCamera;
 
-        private float sensitivity;
         private float xRotation;
         private float yRotation;
 
@@ -39,7 +37,6 @@ namespace AdventureGame.Player
             currentCamera = defaultCamera;
 
             yRotation = cameraTarget.eulerAngles.y;
-            SetSensitivity(Settings.DefaultSensibility);
         }
         #endregion
 
@@ -51,8 +48,6 @@ namespace AdventureGame.Player
         }
 
         public void LockY(bool locked) => YLocked = locked;
-
-        public void SetSensitivity(float newSensitivity) => sensitivity = newSensitivity;
 
         public void Update()
         {
@@ -85,13 +80,13 @@ namespace AdventureGame.Player
 
                 if (!XLocked)
                 {
-                    xRotation -= look.y * sensitivity;
+                    xRotation -= look.y * Controller.Sensitivity;
                     xRotation = Mathf.Clamp(xRotation, Settings.CameraRangeRotation.x, Settings.CameraRangeRotation.y);
                 }
 
                 if (!YLocked)
                 {
-                    yRotation += look.x * sensitivity;
+                    yRotation += look.x * Controller.Sensitivity;
                     yRotation = ClampAngle(yRotation);
                 }
                 else

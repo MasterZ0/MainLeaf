@@ -1,6 +1,9 @@
 using System;
 using AdventureGame.BattleSystem;
+using AdventureGame.Gameplay;
 using AdventureGame.Items;
+using AdventureGame.UI;
+using AdventureGame.UI.Window;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -14,6 +17,7 @@ namespace AdventureGame.Player
     {
         [Title("Player HUD")]
         [SerializeField] private GameObject redScreen;
+        [SerializeField] private GameObject ui;
 
         [Title("Bars")]
         [SerializeField] private Slider hpBar;
@@ -38,6 +42,28 @@ namespace AdventureGame.Player
 
             OnUpdateStatus();
             OnUpdateInventory();
+
+            UIManager.SetCursorVisible(false);
+            WindowManager.OnOpenFirstWindow += OnOpenFirstWindow;
+            WindowManager.OnCloseLastWindow += OnCloseLastWindow;
+        }
+
+        public void Destroy()
+        {
+            WindowManager.OnOpenFirstWindow -= OnOpenFirstWindow;
+            WindowManager.OnCloseLastWindow -= OnCloseLastWindow;
+        }
+
+        private void OnOpenFirstWindow()
+        {
+            ui.SetActive(false);
+            UIManager.SetCursorVisible(true);
+        }
+
+        private void OnCloseLastWindow()
+        {
+            ui.SetActive(true);
+            UIManager.SetCursorVisible(false);
         }
 
         private void OnUpdateStatus()

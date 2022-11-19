@@ -2,7 +2,7 @@
 
 namespace AdventureGame.MainMenu
 {
-    /// It is necessary to have the <see cref="OutlineCustomPass"/> component in the scene and correctly configure the objects layer
+    /// It is necessary to have the <see cref="Rendering.HighDefinition.CustomPassVolume"/> component in the scene and correctly configure the objects layer
     public class Outline : MonoBehaviour
     {
         [SerializeField] private Color defaultColor;
@@ -11,6 +11,11 @@ namespace AdventureGame.MainMenu
         private const string SelectionColor = "_SelectionColor";
 
         private void OnValidate()
+        {
+            SetColor(defaultColor);
+        }
+
+        private void Awake()
         {
             SetColor(defaultColor);
         }

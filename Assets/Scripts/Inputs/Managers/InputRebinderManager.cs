@@ -59,13 +59,22 @@ namespace AdventureGame.Inputs
         public void CleanInput(InputRebinder inputRebinder)
         {
             InputAction action = Controls.asset.FindAction(inputRebinder.InputReference.action.id);
-            action.RemoveBindingOverride(inputRebinder.BindingIndex);
-            Save();
+            action.ApplyBindingOverride(inputRebinder.BindingIndex, string.Empty);
 
+            Save();
             RefreshRebinderIcon(inputRebinder, action);
         }
 
-        protected void ResetAllInputs()
+        public void RevertInput(InputRebinder inputRebinder)
+        {
+            InputAction action = Controls.asset.FindAction(inputRebinder.InputReference.action.id);
+            action.RemoveBindingOverride(inputRebinder.BindingIndex);
+
+            Save();
+            RefreshRebinderIcon(inputRebinder, action);
+        }
+
+        protected void RevertAllInputs()
         {
             Controls.RemoveAllBindingOverrides();
             Save();

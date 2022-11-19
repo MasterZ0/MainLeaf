@@ -12,7 +12,8 @@ namespace AdventureGame.Inputs
         public event Action OnPause = delegate { };
         public event Action OnSubmit = delegate { };
         public event Action OnCancel = delegate { };
-        public event Action OnExtra = delegate { };
+        public event Action OnExtraA = delegate { };
+        public event Action OnExtraB = delegate { };
         public event Action OnLeftTab = delegate { };
         public event Action OnRightTab = delegate { };
         public event Action<bool> OnSkipCutscene = delegate { };
@@ -23,7 +24,8 @@ namespace AdventureGame.Inputs
             controls.UI.Pause.started += OnPressPause;
             controls.UI.Submit.started += OnPressSubmit;
             controls.UI.Cancel.started += OnPressCancel;
-            controls.UI.ExtraButton.started += OnPressExtraButton;
+            controls.UI.ExtraA.started += OnPressExtraA;
+            controls.UI.ExtraB.started += OnPressExtraB;
             controls.UI.Move.started += OnPressMove;
             controls.UI.LeftTab.started += OnPressLeftTab;
             controls.UI.RightTab.started += OnPressRightTab;
@@ -37,13 +39,14 @@ namespace AdventureGame.Inputs
             OnMove(direction);
         }
 
-        private void OnPressSubmit(InputAction.CallbackContext obj) => OnSubmit();
-        private void OnPressCancel(InputAction.CallbackContext obj) => OnCancel();
-        private void OnPressPause(InputAction.CallbackContext obj) => OnPause();
-        private void OnPressSkip(InputAction.CallbackContext obj) => OnSkipCutscene(true);
-        private void OnReleaseSkip(InputAction.CallbackContext obj) => OnSkipCutscene(false);
-        private void OnPressExtraButton(InputAction.CallbackContext obj) => OnExtra();
-        private void OnPressLeftTab(InputAction.CallbackContext obj) => OnLeftTab();
-        private void OnPressRightTab(InputAction.CallbackContext obj) => OnRightTab();
+        private void OnPressSubmit(InputAction.CallbackContext _) => OnSubmit();
+        private void OnPressCancel(InputAction.CallbackContext _) => OnCancel();
+        private void OnPressPause(InputAction.CallbackContext _) => OnPause();
+        private void OnPressSkip(InputAction.CallbackContext _) => OnSkipCutscene(true);
+        private void OnReleaseSkip(InputAction.CallbackContext _) => OnSkipCutscene(false);
+        private void OnPressExtraA(InputAction.CallbackContext _) => OnExtraA();
+        private void OnPressExtraB(InputAction.CallbackContext _) => OnExtraB();
+        private void OnPressLeftTab(InputAction.CallbackContext _) => OnLeftTab();
+        private void OnPressRightTab(InputAction.CallbackContext _) => OnRightTab();
     }
 }
