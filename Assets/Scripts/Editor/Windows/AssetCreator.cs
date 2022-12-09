@@ -5,6 +5,7 @@ using System;
 using AdventureGame.Shared;
 using Sirenix.OdinInspector;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace AdventureGame.Editor
 {
@@ -22,14 +23,16 @@ namespace AdventureGame.Editor
 
         private Type[] Types { get; }
         private string Path { get; }
+        private List<string> Labels { get; }
         private bool Addressable { get; }
 
         /// <param name="path"> Path inside the project. Ex: Assets/Data </param>
-        public AssetCreator(string path, bool addressable = false)
+        public AssetCreator(string path, List<string> labels = null, bool addressable = false)
         {
             // Preferences
             Path = path;
             Addressable = addressable;
+            Labels = labels;
 
             // Get all subtypes
             Type assetType = typeof(T);
@@ -58,7 +61,7 @@ namespace AdventureGame.Editor
             {
                 T createdItem = AssetDatabase.LoadAssetAtPath<T>(AssetPath);
                 string address = $"Items_{createdItem.name}";
-                AddressablesEditorUtils.SetupAsset(createdItem, address, "Items", "Item");
+                AddressablesEditorUtils.SetupAsset(createdItem, address, "Items", Labels);
                 AssetDatabase.SaveAssets();
             }
         }

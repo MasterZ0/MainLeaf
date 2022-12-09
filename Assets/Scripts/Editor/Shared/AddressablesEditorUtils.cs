@@ -2,6 +2,8 @@
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventureGame.Editor
 {
