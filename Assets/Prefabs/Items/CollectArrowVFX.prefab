@@ -4853,7 +4853,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400002}
-  - component: {fileID: 7985670627797706454}
   - component: {fileID: 19800002}
   - component: {fileID: 19900002}
   m_Layer: 0
@@ -4878,26 +4877,6 @@ Transform:
   m_Father: {fileID: 400006}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7985670627797706454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fbaffb220c1e9d47bb0f42acf8decb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundReference:
-    eventReference:
-      Guid:
-        Data1: -364479758
-        Data2: 1120862191
-        Data3: 395125394
-        Data4: -1918177251
-      Path: event:/SFX/Items/Collect/Arrow
 --- !u!198 &19800002
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9737,6 +9716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400006}
   - component: {fileID: 3194880634928855556}
+  - component: {fileID: 2582055251568668603}
   - component: {fileID: 19900006}
   - component: {fileID: 19800006}
   m_Layer: 0
@@ -9761,7 +9741,7 @@ Transform:
   - {fileID: 400002}
   - {fileID: 400000}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3194880634928855556
 MonoBehaviour:
@@ -9776,6 +9756,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 19800006}
+--- !u!114 &2582055251568668603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbaffb220c1e9d47bb0f42acf8decb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundReference:
+    eventReference:
+      Guid:
+        Data1: -364479758
+        Data2: 1120862191
+        Data3: 395125394
+        Data4: -1918177251
+      Path: event:/SFX/Items/Collect/Arrow
 --- !u!199 &19900006
 ParticleSystemRenderer:
   serializedVersion: 6

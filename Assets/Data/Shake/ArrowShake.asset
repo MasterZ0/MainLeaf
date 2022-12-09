@@ -17,4 +17,4 @@ MonoBehaviour:
     fadeIn: 0
     duration: 0
     fadeOut: 0.7
-    noiseSettings: {fileID: 11400000, guid: 4223a6cb50e51c147b47fe328144de08, type: 2}
+    noiseSettings: {fileID: 11400000, guid: d3ab05212de25a64ba142e7a9382042d, type: 2}
