@@ -1,33 +1,33 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using Header = ParadoxNotion.Design.HeaderAttribute;
+
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Transform)]
-    [Description("Get transform.axis")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Get transform.axis")]
     public class GetTransformAxisDirection : ActionTask<Transform>
     {
         [Header("In")]
-        public BBParameter<Direction> axisDirecition = Direction.Right;
+        public Parameter<Direction> axisDirecition = Direction.Right;
 
         [Header("Out")]
-        public BBParameter<Vector3> returnedValue;
+        public Parameter<Vector3> returnedValue;
 
-        protected override string info => $"Get Transform.{axisDirecition}";
+        public override string Info => $"Get Transform.{axisDirecition}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            returnedValue.value = axisDirecition.value switch
+            returnedValue.Value = axisDirecition.Value switch
             {
-                Direction.Left => -agent.transform.right,
-                Direction.Right => agent.transform.right,
-                Direction.Up => agent.transform.up,
-                Direction.Down => -agent.transform.up,
-                Direction.Forward => agent.transform.forward,
-                Direction.Back => -agent.transform.forward,
+                Direction.Left => -Agent.transform.right,
+                Direction.Right => Agent.transform.right,
+                Direction.Up => Agent.transform.up,
+                Direction.Down => -Agent.transform.up,
+                Direction.Forward => Agent.transform.forward,
+                Direction.Back => -Agent.transform.forward,
                 _ => throw new System.NotImplementedException(),
             };
 

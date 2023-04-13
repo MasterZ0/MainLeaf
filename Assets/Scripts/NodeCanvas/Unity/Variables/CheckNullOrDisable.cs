@@ -1,25 +1,25 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Useful to check if the object went to the pool or was destroyed")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Useful to check if the object went to the pool or was destroyed")]
     public class CheckNullOrDisable : ConditionTask
     {
-        [BlackboardOnly]
-        public BBParameter<GameObject> variable;
+        //[BlackboardOnly]
+        public Parameter<GameObject> variable;
         
-        protected override string info
+        public override string Info
         {
             get { return variable + "is Null or Disabled"; }
         }
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            return variable.isNull || !variable.value.activeSelf;
+            return variable.isNull || !variable.Value.activeSelf;
         }
     }
 }

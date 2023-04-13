@@ -1,22 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.Utils
 {
-    [Category(Categories.Events)]
-    [Description("Converts a graph reference to a list of graph owners")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Converts a graph reference to a list of graph owners")]
     public class GraphReferencesToList : ActionTask<GraphReferences>
     {
-        public BBParameter<List<GraphOwner>> outOwners;
+        public Parameter<List<GraphOwner>> outOwners;
 
-        protected override string info => $"Converting References to {outOwners}";
+        public override string Info => $"Converting References to {outOwners}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            outOwners.value = agent.Graphs.Select(r => r.graphOwner).ToList();
+            outOwners.Value = Agent.Graphs.Select(r => r.graphOwner).ToList();
             EndAction(true);
         }
     }

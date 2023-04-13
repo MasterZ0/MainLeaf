@@ -1,24 +1,24 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Audio;
 
 namespace AdventureGame.NodeCanvas.Audio
 {
-    [Category(Categories.Audio)]
-    [Description("Stop the selected sound instance.")]
+    [NodeCategory(Categories.Audio)]
+    [NodeDescription("Stop the selected sound instance.")]
     public class StopSound : ActionTask 
     {
-        [RequiredField] public BBParameter<SoundInstance> sound;
-        public BBParameter<bool> fadeOut;
+        /*[RequiredField]*/ public Parameter<SoundInstance> sound;
+        public Parameter<bool> fadeOut;
 
-        protected override string info => $"{name} {sound}";
+        public override string Info => $"{name} {sound}";
 
-        protected override void OnExecute() {
-            if (fadeOut.value)
-                sound.value.StopWithFade();
+        protected override void StartAction() {
+            if (fadeOut.Value)
+                sound.Value.StopWithFade();
             else
-                sound.value.StopImmediate();
+                sound.Value.StopImmediate();
             EndAction(true);
         }
     }

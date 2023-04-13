@@ -1,17 +1,17 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 using UnityEngine;
 
 namespace AdventureGame.Player.States
 {
     public class SetCameraPS : PlayerAction
     {
-        public BBParameter<GameObject> newCamera;
+        public Parameter<GameObject> newCamera;
 
-        protected override string info => $"{name}: {newCamera}";
+        public override string Info => $"{name}: {newCamera}";
 
         protected override void EnterState()
         {
-            Camera.SwitchCamera(newCamera.value);
+            Camera.SwitchCamera(newCamera.Value);
             EndAction();
         }
     }

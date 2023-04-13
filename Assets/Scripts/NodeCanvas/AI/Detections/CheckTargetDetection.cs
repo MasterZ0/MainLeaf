@@ -1,36 +1,36 @@
 using AdventureGame.AI;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.BattleSystem;
 
 namespace AdventureGame.NodeCanvas.AI.General { 
 
-    [Category(Categories.AI)]
-    [Description("Checks if target is inside view.")]
+    [NodeCategory(Categories.AI)]
+    [NodeDescription("Checks if target is inside view.")]
     public class CheckTargetDetection : ConditionTask<TargetDetection> 
     {
-        public BBParameter<Transform> targetPivot;
-        public BBParameter<Transform> targetCenter;
-        public BBParameter<Transform> targetHead;
+        public Parameter<Transform> targetPivot;
+        public Parameter<Transform> targetCenter;
+        public Parameter<Transform> targetHead;
         
-        protected override bool OnCheck() 
+        public override bool CheckCondition() 
         {
             //The test collisions are all done inside the View classes. The node just return its Transform component.
-            if (agent.FindTargetInsideRange(out Transform target))
+            if (Agent.FindTargetInsideRange(out Transform target))
             {
                 if (target.TryGetComponent(out IBattleEntity battleEntity))
                 {
-                    targetCenter.value = battleEntity.Center;
-                    targetPivot.value = battleEntity.Pivot;
-                    targetHead.value = battleEntity.Head;
+                    targetCenter.Value = battleEntity.Center;
+                    targetPivot.Value = battleEntity.Pivot;
+                    targetHead.Value = battleEntity.Head;
                 }
                 else
                 {
-                    targetCenter.value = target;
-                    targetPivot.value = target;
-                    targetHead.value = target;
+                    targetCenter.Value = target;
+                    targetPivot.Value = target;
+                    targetHead.Value = target;
                 }
                 return true;
             }

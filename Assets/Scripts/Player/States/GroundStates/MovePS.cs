@@ -1,14 +1,14 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 
 namespace AdventureGame.Player.States
 {
     public class MovePS : PlayerAction 
     {
-        public BBParameter<float> moveSpeed;
+        public Parameter<float> moveSpeed;
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            Physics.Move(moveSpeed.value);
+            Physics.Move(moveSpeed.Value);
         }
     }
 }

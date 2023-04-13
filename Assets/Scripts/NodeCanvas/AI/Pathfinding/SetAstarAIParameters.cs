@@ -1,26 +1,26 @@
 ﻿using AdventureGame.Data;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using Pathfinding;
 
 namespace AdventureGame.NodeCanvas.AI.Pathfinding
 {
-    [Name("Set AstarAI Parameters")]
-    [Category(Categories.Pathfinding)]
-    [Description("Set the parameters defined in IAstarAI")]
+    //[Name("Set AstarAI Parameters")]
+    [NodeCategory(Categories.Pathfinding)]
+    [NodeDescription("Set the parameters defined in IAstarAI")]
     public class SetAstarAIParameters : ActionTask<AIPath>
     {
-        public BBParameter<AIPathParameters> aiPathParameters;
+        public Parameter<AIPathParameters> aiPathParameters;
 
-        protected override string info => $"AstarAI Parameters = {aiPathParameters}";
+        public override string Info => $"AstarAI Parameters = {aiPathParameters}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.maxSpeed = aiPathParameters.value.maxSpeed;
-            agent.rotationSpeed = aiPathParameters.value.rotationSpeed;
-            agent.slowdownDistance = aiPathParameters.value.slowdownDistance;
-            agent.endReachedDistance = aiPathParameters.value.endReachedDistance;
+            Agent.maxSpeed = aiPathParameters.Value.maxSpeed;
+            Agent.rotationSpeed = aiPathParameters.Value.rotationSpeed;
+            Agent.slowdownDistance = aiPathParameters.Value.slowdownDistance;
+            Agent.endReachedDistance = aiPathParameters.Value.endReachedDistance;
 
             EndAction();
         }

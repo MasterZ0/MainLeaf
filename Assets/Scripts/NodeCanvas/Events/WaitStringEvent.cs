@@ -1,31 +1,31 @@
 ﻿using AdventureGame.Shared;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.Utils
 {
-    [Category(Categories.Events)]
-    [Description("Waits for a graph event")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Waits for a graph event")]
     public class WaitStringEvent : ActionTask<StringEvent>
     {
-        [RequiredField] public BBParameter<string> eventName;
+        /*[RequiredField]*/ public Parameter<string> eventName;
 
-        protected override string info => $"Wait Animation Event [{eventName}]";
+        public override string Info => $"Wait Animation Event [{eventName}]";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.OnEventTrigger += OnEventTrigger;
+            Agent.OnEventTrigger += OnEventTrigger;
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            agent.OnEventTrigger -= OnEventTrigger;
+            Agent.OnEventTrigger -= OnEventTrigger;
         }
 
         private void OnEventTrigger(string sentEventName)
         {
-            if (sentEventName.Equals(eventName.value, System.StringComparison.OrdinalIgnoreCase))
+            if (sentEventName.Equals(eventName.Value, System.StringComparison.OrdinalIgnoreCase))
                 EndAction(true);
         }
     }

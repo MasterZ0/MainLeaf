@@ -1,38 +1,37 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
-using ParadoxNotion;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Rigidbody)]
-    [Description("Wait until anything is inside the Trigger area and return the Transform.")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Wait until anything is inside the Trigger area and return the Transform.")]
     public class WaitUntilTrigger : ActionTask<Collider>
     {
-        public BBParameter<bool> triggerExit;
-        public BBParameter<Collider> returnedCollider;
+        public Parameter<bool> triggerExit;
+        public Parameter<Collider> returnedCollider;
 
-        protected override string info => $"Wait Until Trigger {(triggerExit.value ? "Exit" : "Enter")} {agentInfo}";
+        public override string Info => $"Wait Until Trigger {(triggerExit.Value ? "Exit" : "Enter")} 'AgentInfo'";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            if (!triggerExit.value)
-                router.onTriggerEnter += OnTrigger;
-            else
-                router.onTriggerExit += OnTrigger;
+            //if (!triggerExit.Value)
+            //    router.onTriggerEnter += OnTrigger;
+            //else
+            //    router.onTriggerExit += OnTrigger;
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            router.onTriggerExit -= OnTrigger;
-            router.onTriggerEnter -= OnTrigger;
+            //router.onTriggerExit -= OnTrigger;
+            //router.onTriggerEnter -= OnTrigger;
         }
 
-        private void OnTrigger(EventData<Collider> data)
-        {
-            returnedCollider.value = data.value;
-            EndAction();
-        }
+        //private void OnTrigger(EventData<Collider> data)
+        //{
+        //    returnedCollider.Value = data.Value;
+        //    EndAction();
+        //}
     }
 }

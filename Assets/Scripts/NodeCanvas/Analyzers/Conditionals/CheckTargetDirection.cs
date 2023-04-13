@@ -1,29 +1,29 @@
-﻿using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+﻿using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Analyzers {
 
-    [Category(Categories.Analyzers)]
-    [Description("Compare the agent position with the target position")]
+    [NodeCategory(Categories.Analyzers)]
+    [NodeDescription("Compare the agent position with the target position")]
     public class CheckTargetDirection : ConditionTask<Transform> {
 
-        public BBParameter<Vector3> target;
-        public BBParameter<Direction> direction;
+        public Parameter<Vector3> target;
+        public Parameter<Direction> direction;
 
-        protected override string info => $"Targer Direction == {direction}";
+        public override string Info => $"Targer Direction == {direction}";
 
-        protected override bool OnCheck() 
+        public override bool CheckCondition() 
         {
-            return direction.value switch
+            return direction.Value switch
             {
-                Direction.Left => target.value.x < agent.position.x,
-                Direction.Right => target.value.x > agent.position.x,
-                Direction.Up => target.value.y > agent.position.y,
-                Direction.Down => target.value.y < agent.position.y,
-                Direction.Forward => target.value.z < agent.position.z,
-                Direction.Back => target.value.z > agent.position.z,
+                Direction.Left => target.Value.x < Agent.position.x,
+                Direction.Right => target.Value.x > Agent.position.x,
+                Direction.Up => target.Value.y > Agent.position.y,
+                Direction.Down => target.Value.y < Agent.position.y,
+                Direction.Forward => target.Value.z < Agent.position.z,
+                Direction.Back => target.Value.z > Agent.position.z,
                 _ => throw new System.NotImplementedException(),
             };
         }

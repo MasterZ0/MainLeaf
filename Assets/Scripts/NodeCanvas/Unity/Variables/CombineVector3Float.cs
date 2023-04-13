@@ -1,31 +1,30 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Name("Combine Vector3 Float")]
-    [Category(Categories.Variables)]
-    [Description("Easy way to combine vector and floats")]
+    //[Name("Combine Vector3 Float")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Easy way to combine vector and floats")]
     public class CombineVector3Float : ActionTask 
     {
         [Header("In")]
-        public BBParameter<Vector3> initialVector;
-        public BBParameter<float> xPosition;
-        public BBParameter<float> yPosition;
-        public BBParameter<float> zPosition;
+        public Parameter<Vector3> initialVector;
+        public Parameter<float> xPosition;
+        public Parameter<float> yPosition;
+        public Parameter<float> zPosition;
 
         [Header("Config")]
-        public BBParameter<bool> useFloatX;
-        public BBParameter<bool> useFloatY;
-        public BBParameter<bool> useFloatZ;
+        public Parameter<bool> useFloatX;
+        public Parameter<bool> useFloatY;
+        public Parameter<bool> useFloatZ;
 
         [Header("Out")]
-        public BBParameter<Vector3> returnedVector;
+        public Parameter<Vector3> returnedVector;
 
-        protected override string info 
+        public override string Info 
         { 
             get
             {
@@ -41,36 +40,36 @@ namespace AdventureGame.NodeCanvas.Unity
                 }
                 else
                 {
-                    initialX = $"<b>{initialVector.value.x}</b>";
-                    initialY = $"<b>{initialVector.value.y}</b>";
-                    initialZ = $"<b>{initialVector.value.z}</b>";
+                    initialX = $"<b>{initialVector.Value.x}</b>";
+                    initialY = $"<b>{initialVector.Value.y}</b>";
+                    initialZ = $"<b>{initialVector.Value.z}</b>";
                 }
 
-                string x = useFloatX.value ? xPosition.ToString() : initialX;
-                string y = useFloatY.value ? yPosition.ToString() : initialY;
-                string z = useFloatZ.value ? zPosition.ToString() : initialZ;
+                string x = useFloatX.Value ? xPosition.ToString() : initialX;
+                string y = useFloatY.Value ? yPosition.ToString() : initialY;
+                string z = useFloatZ.Value ? zPosition.ToString() : initialZ;
 
                 return $"{returnedVector} = ({x}, {y}, {z})";
             } 
         }
 
-        protected override void OnExecute() {
-            Vector3 newVector = initialVector.value;
+        protected override void StartAction() {
+            Vector3 newVector = initialVector.Value;
 
-            if (useFloatX.value)
+            if (useFloatX.Value)
             {
-                newVector.x = xPosition.value;
+                newVector.x = xPosition.Value;
             }
-            if (useFloatY.value)
+            if (useFloatY.Value)
             {
-                newVector.y = yPosition.value;
+                newVector.y = yPosition.Value;
             }
-            if (useFloatZ.value)
+            if (useFloatZ.Value)
             {
-                newVector.z = zPosition.value;
+                newVector.z = zPosition.Value;
             }
 
-            returnedVector.value = newVector;
+            returnedVector.Value = newVector;
             EndAction(true);
         }
     }

@@ -1,39 +1,38 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Animations)]
-    [Description("Play animation by state name")]
+    [NodeCategory(Categories.Animations)]
+    [NodeDescription("Play animation by state name")]
     public class UpdateAnimationMotionParameter : ActionTask<Animator>
     {
         [Header("Variables")]
-        public BBParameter<Vector3> currentVelocity;
-        public BBParameter<float> maxVelocityScale;
-        public BBParameter<float> animationBlendDamp;
+        public Parameter<Vector3> currentVelocity;
+        public Parameter<float> maxVelocityScale;
+        public Parameter<float> animationBlendDamp;
 
         [Header("Parameters")]
-        public BBParameter<string> velocityMagnitude = "MoveSpeed";
-        public BBParameter<string> velocityX = "VelocityX";
-        public BBParameter<string> velocityY = "VelocityY";
-        public BBParameter<string> velocityZ = "VelocityZ";
+        public Parameter<string> velocityMagnitude = "MoveSpeed";
+        public Parameter<string> velocityX = "VelocityX";
+        public Parameter<string> velocityY = "VelocityY";
+        public Parameter<string> velocityZ = "VelocityZ";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            float maxScale = maxVelocityScale.value == 0 ? 1 : maxVelocityScale.value; // Avoid division by 0
-            Vector3 velocityScale = currentVelocity.value / maxScale;
+            float maxScale = maxVelocityScale.Value == 0 ? 1 : maxVelocityScale.Value; // Avoid division by 0
+            Vector3 velocityScale = currentVelocity.Value / maxScale;
 
-            SetFloat(velocityMagnitude.value, velocityScale.magnitude);
-            SetFloat(velocityX.value, velocityScale.x);
-            SetFloat(velocityY.value, velocityScale.y);
-            SetFloat(velocityZ.value, velocityScale.z);
+            SetFloat(velocityMagnitude.Value, velocityScale.magnitude);
+            SetFloat(velocityX.Value, velocityScale.x);
+            SetFloat(velocityY.Value, velocityScale.y);
+            SetFloat(velocityZ.Value, velocityScale.z);
 
             EndAction();
         }
 
-        private void SetFloat(string parameter, float value) => agent.SetFloat(parameter, value, animationBlendDamp.value, Time.fixedDeltaTime);
+        private void SetFloat(string parameter, float value) => Agent.SetFloat(parameter, value, animationBlendDamp.Value, Time.fixedDeltaTime);
     }
 }

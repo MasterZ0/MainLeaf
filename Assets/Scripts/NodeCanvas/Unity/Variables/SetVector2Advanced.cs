@@ -1,41 +1,40 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
+using System;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Name("Set Vector2 Advanced")]
-    [Category(Categories.Variables)]
-    [Description("Easy way to set a specific axis")]
+    //[Name("Set Vector2 Advanced")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Easy way to set a specific axis")]
     public class SetVector2Advanced : ActionTask
     {
         [Header("In")]
-        public BBParameter<Vector2> initialVector;
-        public BBParameter<Vector2> otherVector;
+        public Parameter<Vector2> initialVector;
+        public Parameter<Vector2> otherVector;
 
         [Header("Config")]
         public OperationMethod operation = OperationMethod.Set;
-        public BBParameter<bool> setX;
-        public BBParameter<bool> setY;
+        public Parameter<bool> setX;
+        public Parameter<bool> setY;
 
         [Header("Out")]
-        public BBParameter<Vector2> returnedVector;
+        public Parameter<Vector2> returnedVector;
 
-        protected override string info
+        public override string Info
         {
             get
             {
                 string info = string.Empty;
 
-                if (setX.value)
+                if (setX.Value)
                 {
                     info = AddText(info, "X");
                 }
 
-                if (setY.value)
+                if (setY.Value)
                 {
                     info = AddText(info, "Y");
                 }
@@ -60,20 +59,20 @@ namespace AdventureGame.NodeCanvas.Unity
             return info + $", {axis}";
         }
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            Vector3 finalVector = initialVector.value;
+            Vector3 finalVector = initialVector.Value;
 
-            if (setX.value)
+            if (setX.Value)
             {
-                finalVector.x = OperationTools.Operate(finalVector.x, otherVector.value.x, operation);
+                finalVector.x = OperationTools.Operate(finalVector.x, otherVector.Value.x, operation);
             }
-            if (setY.value)
+            if (setY.Value)
             {
-                finalVector.y = OperationTools.Operate(finalVector.y, otherVector.value.y, operation);
+                finalVector.y = OperationTools.Operate(finalVector.y, otherVector.Value.y, operation);
             }
 
-            returnedVector.value = finalVector;
+            returnedVector.Value = finalVector;
             EndAction(true);
         }
     }

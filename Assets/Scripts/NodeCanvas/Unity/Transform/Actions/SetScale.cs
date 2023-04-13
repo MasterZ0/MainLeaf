@@ -1,18 +1,18 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity { 
 
-    [Category(Categories.Transform)]
-    [Description("Set transform.localScale")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Set transform.localScale")]
     public class SetScale : ActionTask<Transform> {
 
-        public BBParameter<Vector3> scale;
+        public Parameter<Vector3> scale;
 
-        protected override void OnExecute() {
-            agent.localScale = scale.value;
+        protected override void StartAction() {
+            Agent.localScale = scale.Value;
             EndAction(true);
         }
     }

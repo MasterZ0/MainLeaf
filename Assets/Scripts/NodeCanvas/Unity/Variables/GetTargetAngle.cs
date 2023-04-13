@@ -1,27 +1,26 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Shared.Utils;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity 
 {
-    [Category(Categories.Variables)]
-    [Description("Get angle based from center to target")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Get angle based from center to target")]
     public class GetTargetAngle : ActionTask {
 
         [Header("In")]
-        public BBParameter<Vector3> center;
-        public BBParameter<Vector3> target;
+        public Parameter<Vector3> center;
+        public Parameter<Vector3> target;
 
         [Header("Out")]
-        public BBParameter<float> angle;
+        public Parameter<float> angle;
 
-        protected override string info => $"{angle} = Between {center} to {target}";
+        public override string Info => $"{angle} = Between {center} to {target}";
 
-        protected override void OnExecute() {
-            angle.value = MathUtils.TargetAngle(center.value, target.value);
+        protected override void StartAction() {
+            angle.Value = MathUtils.TargetAngle(center.Value, target.Value);
             EndAction(true);
         }
     }

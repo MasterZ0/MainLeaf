@@ -1,35 +1,35 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Animations)]
-    [Description("Play animation by random state name")]
+    [NodeCategory(Categories.Animations)]
+    [NodeDescription("Play animation by random state name")]
     public class PlayRandomAnimation : ActionTask<Animator>
     {
-        public BBParameter<bool> waitUntilFinish;
-        public BBParameter<List<string>> stateNames = new List<string>() { 
+        public Parameter<bool> waitUntilFinish;
+        public Parameter<List<string>> stateNames = new List<string>() { 
             "Action A",
             "Action B"
         };
-        protected override string info
+        public override string Info
         {
             get
             {
                 if (stateNames.isNoneOrNull)
                     return name;
 
-                string info = waitUntilFinish.value ? 
+                string info = waitUntilFinish.Value ? 
                     $"► Playing Random " :
                     $"► Play Random ";
 
                 if (stateNames.isDefined)                
                     info += stateNames;                
                 else                
-                    info += $"<b>Count = {stateNames.value.Count}</b>";
+                    info += $"<b>Count = {stateNames.Value.Count}</b>";
                 
                 return info;
             }
@@ -38,30 +38,30 @@ namespace AdventureGame.NodeCanvas.Unity
         private AnimatorStateInfo stateInfo;
         private bool played;
         private string selectedStateName;
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             played = false; 
             
-            int index = Random.Range(0, stateNames.value.Count);
-            selectedStateName = stateNames.value[index];
-            agent.Play(selectedStateName);
+            int index = Random.Range(0, stateNames.Value.Count);
+            selectedStateName = stateNames.Value[index];
+            Agent.Play(selectedStateName);
 
-            if (!waitUntilFinish.value)
+            if (!waitUntilFinish.Value)
             {
                 EndAction(true);
             }
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
 
-            stateInfo = agent.GetCurrentAnimatorStateInfo(0);
+            stateInfo = Agent.GetCurrentAnimatorStateInfo(0);
 
             if (stateInfo.IsName(selectedStateName))
             {
 
                 played = true;
-                if (elapsedTime >= (stateInfo.length / agent.speed))
+                if (NodeRunningTime >= (stateInfo.length / Agent.speed))
                 {
                     EndAction(true);
                 }

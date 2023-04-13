@@ -1,61 +1,60 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.Utils
 {
-    [Category(Categories.Events)]
-    [Description("Waits for a graph event")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Waits for a graph event")]
     public class WaitUntilEvent : ActionTask<GraphOwner>
     {
-        [RequiredField] public BBParameter<string> eventName;
+        /*[RequiredField]*/ public Parameter<string> eventName;
 
-        protected override string info => $"Wait until [{eventName}]";
+        public override string Info => $"Wait until [{eventName}]";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            router.onCustomEvent += OnCustomEvent;
+            //router.onCustomEvent += OnCustomEvent;
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            router.onCustomEvent -= OnCustomEvent;
+            //router.onCustomEvent -= OnCustomEvent;
         }
 
         private void OnCustomEvent(string sentEventName, IEventData data)
         {
-            if (sentEventName.Equals(eventName.value, System.StringComparison.OrdinalIgnoreCase))
+            if (sentEventName.Equals(eventName.Value, System.StringComparison.OrdinalIgnoreCase))
                 EndAction(true);
         }
     }
 
-    [Category(Categories.Events)]
-    [Description("Waits for a graph event")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Waits for a graph event")]
     public class WaitUntilEvent<T> : ActionTask<GraphOwner>
     {
-        [RequiredField] public BBParameter<string> eventName;
-        public BBParameter<T> outValue;
+        /*[RequiredField]*/ public Parameter<string> eventName;
+        public Parameter<T> outValue;
 
-        protected override string info => $"Wait until <<b>{outValue.varType.Name}</b>> [{eventName}]";
+        //public override string Info => $"Wait until <<b>{outValue.varType.Name}</b>> [{eventName}]";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            router.onCustomEvent += OnCustomEvent;
+            //router.onCustomEvent += OnCustomEvent;
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            router.onCustomEvent -= OnCustomEvent;
+            //router.onCustomEvent -= OnCustomEvent;
         }
 
-        private void OnCustomEvent(string sentEventName, IEventData data)
-        {
-            if (sentEventName.Equals(eventName.value, System.StringComparison.OrdinalIgnoreCase) && data is EventData<T> eventData)
-            {
-                outValue.value = eventData.value;
-                EndAction(true);
-            }
-        }
+        //private void OnCustomEvent(string sentEventName, IEventData data)
+        //{
+        //    if (sentEventName.Equals(eventName.Value, System.StringComparison.OrdinalIgnoreCase) && data is EventData<T> eventData)
+        //    {
+        //        outValue.Value = eventData.Value;
+        //        EndAction(true);
+        //    }
+        //}
     }
 }

@@ -1,20 +1,20 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Transform)]
-    [Description("Set Transform.position")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Set Transform.position")]
     public class SetPosition : ActionTask<Transform> {
 
-        public BBParameter<Vector3> position;
+        public Parameter<Vector3> position;
 
-        protected override string info => $"Position = {position}";
+        public override string Info => $"Position = {position}";
 
-        protected override void OnExecute() {
-            agent.position = position.value;
+        protected override void StartAction() {
+            Agent.position = position.Value;
             EndAction(true);
         }
     }

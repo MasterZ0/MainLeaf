@@ -1,10 +1,10 @@
-﻿using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+﻿using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System;
 
 namespace AdventureGame.Player.States
 {
-    [Description("Check the current state of the input")]
+    [NodeDescription("Check the current state of the input")]
     public class CheckInputPS : PlayerCondition
     {
         public enum InputButton
@@ -16,15 +16,15 @@ namespace AdventureGame.Player.States
             SecondarySkill
         }
 
-        public BBParameter<InputButton> inputButton;
+        public Parameter<InputButton> inputButton;
 
         private Func<bool> inputValue;
 
-        protected override string info => $"{name}: {inputButton}";
+        public override string Info => $"{name}: {inputButton}";
 
-        protected override void OnEnable()
+        public override void StartCondition()
         {
-            inputValue = () => inputButton.value switch
+            inputValue = () => inputButton.Value switch
             {
                 InputButton.Move => Inputs.MovePressed,
                 InputButton.Jump => Inputs.JumpPressed,
@@ -35,6 +35,6 @@ namespace AdventureGame.Player.States
             };
         }
 
-        protected override bool OnCheck() => inputValue();
+        public override bool CheckCondition() => inputValue();
     }
 }

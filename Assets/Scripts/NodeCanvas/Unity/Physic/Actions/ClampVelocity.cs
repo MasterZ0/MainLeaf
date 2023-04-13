@@ -1,25 +1,24 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Rigidbody)]
-    [Description("Clamp Velocity to a set of values")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Clamp Velocity to a set of values")]
     public class ClampVelocity : ActionTask<Rigidbody>
     {
         [Header("Inputs")]
-        public BBParameter<Vector2> range;
-        protected override string info => $"Clamp Velocity, Range: {range}";
-        protected override void OnExecute()
+        public Parameter<Vector2> range;
+        public override string Info => $"Clamp Velocity, Range: {range}";
+        protected override void StartAction()
         {
-            agent.velocity = new Vector3()
+            Agent.velocity = new Vector3()
             {
-                x = Mathf.Clamp(agent.velocity.x, range.value.x, range.value.y),
-                y = Mathf.Clamp(agent.velocity.y, range.value.x, range.value.y),
-                z = Mathf.Clamp(agent.velocity.z, range.value.x, range.value.y)
+                x = Mathf.Clamp(Agent.velocity.x, range.Value.x, range.Value.y),
+                y = Mathf.Clamp(Agent.velocity.y, range.Value.x, range.Value.y),
+                z = Mathf.Clamp(Agent.velocity.z, range.Value.x, range.Value.y)
             };
             EndAction(true);
         }

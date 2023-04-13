@@ -1,22 +1,22 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Gets the sign of a number (-1 if negative and 1 if positive)")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Gets the sign of a number (-1 if negative and 1 if positive)")]
     public class GetSign : ActionTask
     {
-        public BBParameter<float> inNumber;
-        public BBParameter<float> outSign;
+        public Parameter<float> inNumber;
+        public Parameter<float> outSign;
 
-        protected override string info => $"{outSign.name} = Sign of {inNumber.name}";
+        public override string Info => $"{outSign} = Sign of {inNumber}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            outSign.value = Mathf.Sign(inNumber.value);
+            outSign.Value = Mathf.Sign(inNumber.Value);
             EndAction(true);
         }
     }

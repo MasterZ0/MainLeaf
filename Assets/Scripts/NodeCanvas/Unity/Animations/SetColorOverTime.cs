@@ -1,37 +1,37 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using Header = ParadoxNotion.Design.HeaderAttribute;
+
 using AdventureGame.Shared.NodeCanvas;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Animations)]
-    [Description("Change Sprite Renderer Color Over Time")]
+    [NodeCategory(Categories.Animations)]
+    [NodeDescription("Change Sprite Renderer Color Over Time")]
     public class SetColorOverTime : ActionTask<SpriteRenderer>
     {
         [Header("Input")]
-        public BBParameter<float> duration;
+        public Parameter<float> duration;
 
         [Header("Output")]
-        public BBParameter<Color> endColor;
+        public Parameter<Color> endColor;
 
         private Color startColor;
         private float timeStep;
-        protected override string info => $"Change Color In Seconds: {duration}";
+        public override string Info => $"Change Color In Seconds: {duration}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            startColor = agent.color;
+            startColor = Agent.color;
             timeStep = 0f;
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            if (agent.color != endColor.value && duration.value != 0f)
+            if (Agent.color != endColor.Value && duration.Value != 0f)
             {
-                timeStep += Time.fixedDeltaTime / duration.value;
-                agent.color = Color.Lerp(startColor, endColor.value, timeStep);
+                timeStep += Time.fixedDeltaTime / duration.Value;
+                Agent.color = Color.Lerp(startColor, endColor.Value, timeStep);
             }
             else
             {

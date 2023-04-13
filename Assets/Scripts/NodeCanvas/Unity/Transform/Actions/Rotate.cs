@@ -1,20 +1,20 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Transform)]
-    [Description("transform.Rotation(euler)")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("transform.Rotation(euler)")]
     public class Rotate : ActionTask<Transform> {
 
-        public BBParameter<Vector3> eulerAngles;
+        public Parameter<Vector3> eulerAngles;
 
-        protected override string info => $"Rotate {eulerAngles}";
+        public override string Info => $"Rotate {eulerAngles}";
 
-        protected override void OnExecute() {
-            agent.Rotate(eulerAngles.value);
+        protected override void StartAction() {
+            Agent.Rotate(eulerAngles.Value);
             EndAction(true);
         }
     }

@@ -1,28 +1,28 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI
 {
 
-    [Category(Categories.Components)]
-    [Description("Draws a straight line between two local positions, it requires a LineRenderer.")]
+    [NodeCategory(Categories.Components)]
+    [NodeDescription("Draws a straight line between two local positions, it requires a LineRenderer.")]
     public class DrawLine : ActionTask
     {
-        [RequiredField] public BBParameter<Vector3> startPosition;
-        [RequiredField] public BBParameter<Vector3> endPosition;
-        [RequiredField] public BBParameter<LineRenderer> line;
+        /*[RequiredField]*/ public Parameter<Vector3> startPosition;
+        /*[RequiredField]*/ public Parameter<Vector3> endPosition;
+        /*[RequiredField]*/ public Parameter<LineRenderer> line;
 
-        protected override void OnExecute() {
+        protected override void StartAction() {
             Draw();
             EndAction(true);
         }
 
         private void Draw()
         {
-            line.value.SetPosition(0, startPosition.value);
-            line.value.SetPosition(1, endPosition.value);
+            line.Value.SetPosition(0, startPosition.Value);
+            line.Value.SetPosition(1, endPosition.Value);
         }
     }
 }

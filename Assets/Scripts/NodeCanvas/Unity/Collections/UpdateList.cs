@@ -1,6 +1,6 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,26 +14,26 @@ namespace AdventureGame.NodeCanvas.Unity
         Enabled = 4
     }
 
-    [Category(Categories.Collections)]
-    [Description("Remove GameObjects disabled, null or enabled. Useful to remove object references that have returned to the object pool for example.")]
+    [NodeCategory(Categories.Collections)]
+    [NodeDescription("Remove GameObjects disabled, null or enabled. Useful to remove object references that have returned to the object pool for example.")]
     public class UpdateList<T> : ActionTask where T : Component
     {
-        [RequiredField] public BBParameter<List<T>> list;
-        public BBParameter<ItemListState> itemState = ItemListState.Disabled | ItemListState.Null;
+        /*[RequiredField]*/ public Parameter<List<T>> list;
+        public Parameter<ItemListState> itemState = ItemListState.Disabled | ItemListState.Null;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            if (itemState.value == ItemListState.Disabled)
+            if (itemState.Value == ItemListState.Disabled)
             {
-                list.value.RemoveAll(i => !i.gameObject.activeSelf);
+                list.Value.RemoveAll(i => !i.gameObject.activeSelf);
             }
-            if (itemState.value == ItemListState.Enabled)
+            if (itemState.Value == ItemListState.Enabled)
             {
-                list.value.RemoveAll(i => i.gameObject.activeSelf);
+                list.Value.RemoveAll(i => i.gameObject.activeSelf);
             }
-            if (itemState.value == ItemListState.Null)
+            if (itemState.Value == ItemListState.Null)
             {
-                list.value.RemoveAll(i => i == null);
+                list.Value.RemoveAll(i => i == null);
             }
 
             EndAction(true);

@@ -2,6 +2,6 @@
 {
     public class CheckGroundPS : PlayerCondition
     {
-        protected override bool OnCheck() => Physics.CheckGround();
+        public override bool CheckCondition() => Physics.CheckGround();
     }
 }

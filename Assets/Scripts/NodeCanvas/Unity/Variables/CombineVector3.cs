@@ -1,28 +1,27 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Easy way to combine vectors")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Easy way to combine vectors")]
     public class CombineVector3 : ActionTask
     {
         [Header("In")]
-        public BBParameter<Vector3> initialVector;
-        public BBParameter<Vector3> otherVector;
+        public Parameter<Vector3> initialVector;
+        public Parameter<Vector3> otherVector;
 
         [Header("Config")]
-        public BBParameter<bool> useOtherX;
-        public BBParameter<bool> useOtherY;
-        public BBParameter<bool> useOtherZ;
+        public Parameter<bool> useOtherX;
+        public Parameter<bool> useOtherY;
+        public Parameter<bool> useOtherZ;
 
         [Header("Out")]
-        public BBParameter<Vector3> returnedVector;
+        public Parameter<Vector3> returnedVector;
 
-        protected override string info
+        public override string Info
         {
             get
             {
@@ -38,9 +37,9 @@ namespace AdventureGame.NodeCanvas.Unity
                 }
                 else
                 {
-                    initialX = $"<b>{initialVector.value.x}</b>";
-                    initialY = $"<b>{initialVector.value.y}</b>";
-                    initialZ = $"<b>{initialVector.value.z}</b>";
+                    initialX = $"<b>{initialVector.Value.x}</b>";
+                    initialY = $"<b>{initialVector.Value.y}</b>";
+                    initialZ = $"<b>{initialVector.Value.z}</b>";
                 }
 
                 string otherX;
@@ -55,28 +54,28 @@ namespace AdventureGame.NodeCanvas.Unity
                 }
                 else
                 {
-                    otherX = $"<b>{otherVector.value.x}</b>";
-                    otherY = $"<b>{otherVector.value.y}</b>";
-                    otherZ = $"<b>{otherVector.value.z}</b>";
+                    otherX = $"<b>{otherVector.Value.x}</b>";
+                    otherY = $"<b>{otherVector.Value.y}</b>";
+                    otherZ = $"<b>{otherVector.Value.z}</b>";
                 }
 
-                string x = useOtherX.value ? otherX : initialX;
-                string y = useOtherY.value ? otherY : initialY;
-                string z = useOtherZ.value ? otherZ : initialZ;
+                string x = useOtherX.Value ? otherX : initialX;
+                string y = useOtherY.Value ? otherY : initialY;
+                string z = useOtherZ.Value ? otherZ : initialZ;
 
                 return $"{returnedVector} = ({x}, {y}, {z})";
             }
         }
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             Vector3 finalVector;
 
-            finalVector.x = useOtherX.value ? otherVector.value.x : initialVector.value.x;
-            finalVector.y = useOtherY.value ? otherVector.value.y : initialVector.value.y;
-            finalVector.z = useOtherZ.value ? otherVector.value.z : initialVector.value.z;
+            finalVector.x = useOtherX.Value ? otherVector.Value.x : initialVector.Value.x;
+            finalVector.y = useOtherY.Value ? otherVector.Value.y : initialVector.Value.y;
+            finalVector.z = useOtherZ.Value ? otherVector.Value.z : initialVector.Value.z;
 
-            returnedVector.value = finalVector;
+            returnedVector.Value = finalVector;
 
             EndAction(true);
         }

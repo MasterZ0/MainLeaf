@@ -1,22 +1,22 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Rigidbody)]
-    [Description("Set the torque of a Rigidbody.")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Set the torque of a Rigidbody.")]
     public class AddTorque : ActionTask<Rigidbody>
     {
-        public BBParameter<Vector3> torque;
-        public BBParameter<ForceMode> forceMode;
+        public Parameter<Vector3> torque;
+        public Parameter<ForceMode> forceMode;
 
-        protected override string info => $"Add Torque = {torque}";
+        public override string Info => $"Add Torque = {torque}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.AddTorque(torque.value, forceMode.value);
+            Agent.AddTorque(torque.Value, forceMode.Value);
             EndAction(true);
         }        
     }

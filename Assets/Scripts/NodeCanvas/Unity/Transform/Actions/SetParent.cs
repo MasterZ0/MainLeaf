@@ -1,19 +1,19 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Set the Transform Parent")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Set the Transform Parent")]
     public class SetParent : ActionTask<Component>
     {
-        public BBParameter<Transform> parent;
-        protected override string info => $"Parent = {parent}";
-        protected override void OnExecute()
+        public Parameter<Transform> parent;
+        public override string Info => $"Parent = {parent}";
+        protected override void StartAction()
         {
-            agent.transform.SetParent(parent.value);
+            Agent.transform.SetParent(parent.Value);
             EndAction(true);
         }
     }

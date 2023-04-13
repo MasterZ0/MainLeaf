@@ -1,49 +1,47 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Name("Set Vector3 Advanced Float")]
-    [Category(Categories.Variables)]
-    [Description("Easy way to set a specific axis")]
+    //[Name("Set Vector3 Advanced Float")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Easy way to set a specific axis")]
     public class SetVector3AdvancedFloat : ActionTask
     {
         [Header("In")]
-        public BBParameter<Vector3> initialVector;
-        public BBParameter<float> valueX;
-        public BBParameter<float> valueY;
-        public BBParameter<float> valueZ;
+        public Parameter<Vector3> initialVector;
+        public Parameter<float> valueX;
+        public Parameter<float> valueY;
+        public Parameter<float> valueZ;
 
         [Header("Config")]
         public OperationMethod operation = OperationMethod.Set;
-        public BBParameter<bool> setX;
-        public BBParameter<bool> setY;
-        public BBParameter<bool> setZ;
+        public Parameter<bool> setX;
+        public Parameter<bool> setY;
+        public Parameter<bool> setZ;
 
         [Header("Out")]
-        public BBParameter<Vector3> returnedVector;
+        public Parameter<Vector3> returnedVector;
 
-        protected override string info
+        public override string Info
         {
             get
             {
                 string info = string.Empty;
 
-                if (setX.value)
+                if (setX.Value)
                 {
                     info = AddText(info, "X");
                 }
 
-                if (setY.value)
+                if (setY.Value)
                 {
                     info = AddText(info, "Y");
                 }
 
-                if (setZ.value)
+                if (setZ.Value)
                 {
                     info = AddText(info, "Z");
                 }
@@ -68,24 +66,24 @@ namespace AdventureGame.NodeCanvas.Unity
             return info + $", {axis}";
         }
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            Vector3 finalVector = initialVector.value;
+            Vector3 finalVector = initialVector.Value;
 
-            if (setX.value)
+            if (setX.Value)
             {
-                finalVector.x = OperationTools.Operate(finalVector.x, valueX.value, operation);
+                finalVector.x = OperationTools.Operate(finalVector.x, valueX.Value, operation);
             }
-            if (setY.value)
+            if (setY.Value)
             {
-                finalVector.y = OperationTools.Operate(finalVector.y, valueY.value, operation);
+                finalVector.y = OperationTools.Operate(finalVector.y, valueY.Value, operation);
             }
-            if (setZ.value)
+            if (setZ.Value)
             {
-                finalVector.z = OperationTools.Operate(finalVector.z, valueZ.value, operation);
+                finalVector.z = OperationTools.Operate(finalVector.z, valueZ.Value, operation);
             }
 
-            returnedVector.value = finalVector;
+            returnedVector.Value = finalVector;
             EndAction(true);
         }
     }

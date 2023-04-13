@@ -27,7 +27,7 @@ namespace AdventureGame.Player.States {
             SFX.Dodge();
         }
 
-        protected override void OnUpdate() 
+        protected override void UpdateAction() 
         {
             dodgeXVelocity -= PhysicsSettings.DodgeDamp * Time.fixedDeltaTime;
             dodgeXVelocity = Mathf.Clamp(dodgeXVelocity, PhysicsSettings.MinimumDodgeXVelocity, float.MaxValue);

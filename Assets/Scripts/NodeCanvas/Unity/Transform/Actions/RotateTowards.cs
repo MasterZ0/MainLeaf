@@ -1,26 +1,26 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Rotate the agent towards the target per frame")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Rotate the agent towards the target per frame")]
     public class RotateTowards : ActionTask<Transform>
     {
-        public BBParameter<Vector3> target;
-        public BBParameter<float> speed = 2;
-        [SliderField(0, 180)]
-        public BBParameter<float> angleDifference = 5;
+        public Parameter<Vector3> target;
+        public Parameter<float> speed = 2;
+        [Range(0, 180)]
+        public Parameter<float> angleDifference = 5;
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            Vector3 lookPos = target.value - agent.position;
+            Vector3 lookPos = target.Value - Agent.position;
             Quaternion rotation = Quaternion.LookRotation(lookPos);
-            agent.rotation = Quaternion.Slerp(agent.rotation, rotation, Time.fixedDeltaTime * speed.value);
+            Agent.rotation = Quaternion.Slerp(Agent.rotation, rotation, Time.fixedDeltaTime * speed.Value);
 
-            if (Vector3.Angle(lookPos, agent.forward) <= angleDifference.value)
+            if (Vector3.Angle(lookPos, Agent.forward) <= angleDifference.Value)
             {
                 EndAction();
             }

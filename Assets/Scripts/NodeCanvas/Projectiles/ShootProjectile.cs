@@ -1,28 +1,29 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.BattleSystem;
 using AdventureGame.Projectiles;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
+using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Projectiles {
 
-    [Category(Categories.Projectiles)]
-    [Description("Shoot the projectile")]
+    [NodeCategory(Categories.Projectiles)]
+    [NodeDescription("Shoot the projectile")]
     public class ShootProjectile : ActionTask<IStatusOwner> 
     {
         [Header("In")]
-        [RequiredField] public BBParameter<Projectile> projectile;
+        /*[RequiredField]*/ public Parameter<Projectile> projectile;
 
         [Header("Config")]
-        [RequiredField] public BBParameter<DamageData> damage;
-        public BBParameter<float> velocity;
+        /*[RequiredField]*/ public Parameter<DamageData> damage;
+        public Parameter<float> velocity;
 
-        protected override string info => projectile.isDefined ?
-            $"Shoot {projectile}" : name;
+        //public override string Info => projectile.isDefined ?
+        //    $"Shoot {projectile}" : name;
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            projectile.value.Shoot(new Damage(damage.value, agent), velocity.value);
+            projectile.Value.Shoot(new Damage(damage.Value, Agent), velocity.Value);
             EndAction(true);
         }
     }

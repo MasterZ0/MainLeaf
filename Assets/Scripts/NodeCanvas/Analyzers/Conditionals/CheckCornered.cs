@@ -1,34 +1,34 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Analyzers 
 {
-    [Category(Categories.Analyzers)]
-    [Description("Check for short space between limits and target.")]
+    [NodeCategory(Categories.Analyzers)]
+    [NodeDescription("Check for short space between limits and target.")]
     public class CheckCornered : ConditionTask<Transform> 
     {
-        public BBParameter<Vector3> target;
-        public BBParameter<Vector3> leftLimit;
-        public BBParameter<Vector3> rightLimit;
-        public BBParameter<float> minimumDistance;
+        public Parameter<Vector3> target;
+        public Parameter<Vector3> leftLimit;
+        public Parameter<Vector3> rightLimit;
+        public Parameter<float> minimumDistance;
 
-        protected override bool OnCheck() 
+        public override bool CheckCondition() 
         {
-            if (Mathf.Abs(agent.position.x - target.value.x) < minimumDistance.value)
+            if (Mathf.Abs(Agent.position.x - target.Value.x) < minimumDistance.Value)
             {
-                bool targetRight = agent.position.x < target.value.x;
+                bool targetRight = Agent.position.x < target.Value.x;
 
                 if (targetRight)    
                 {
                     // Cornered on the left
-                    return (Mathf.Abs(agent.position.x - leftLimit.value.x) < minimumDistance.value);
+                    return (Mathf.Abs(Agent.position.x - leftLimit.Value.x) < minimumDistance.Value);
                 }
                 else
                 {
                     // Cornered on the right
-                    return (Mathf.Abs(agent.position.x - rightLimit.value.x) < minimumDistance.value);
+                    return (Mathf.Abs(Agent.position.x - rightLimit.Value.x) < minimumDistance.Value);
                 }
             }
 

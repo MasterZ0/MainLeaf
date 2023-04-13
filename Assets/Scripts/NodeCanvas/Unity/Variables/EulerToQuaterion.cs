@@ -1,22 +1,22 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Convert Euler Angles in a Quaterion")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Convert Euler Angles in a Quaterion")]
     public class EulerToQuaterion : ActionTask
     {
-        public BBParameter<Vector3> euler;
-        public BBParameter<Quaternion> quaterion;
+        public Parameter<Vector3> euler;
+        public Parameter<Quaternion> quaterion;
 
-        protected override string info => $"{quaterion} = Quaternion.Euler({euler})";
+        public override string Info => $"{quaterion} = Quaternion.Euler({euler})";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            quaterion.value = Quaternion.Euler(euler.value);
+            quaterion.Value = Quaternion.Euler(euler.Value);
             EndAction(true);
         }
     }

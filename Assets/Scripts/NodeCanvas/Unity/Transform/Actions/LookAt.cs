@@ -1,41 +1,41 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Rotate axis of a GameObject")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Rotate axis of a GameObject")]
     public class LookAt : ActionTask<Transform> 
     {
         public bool useSpeed = true;
-        public BBParameter<Axis3Flags> modifiedAxis = Axis3Flags.Y;
-        public BBParameter<Vector3> target;
+        public Parameter<Axis3Flags> modifiedAxis = Axis3Flags.Y;
+        public Parameter<Vector3> target;
 
-        [ShowIf(nameof(useSpeed), 1)]
-        public BBParameter<float> speed;
-        [ShowIf(nameof(useSpeed), 1)]
-        [SliderField(0, 180)]
-        public BBParameter<float> angleDifference = 10f;
+        //[ShowIf(nameof(useSpeed), 1)]
+        public Parameter<float> speed;
+        //[ShowIf(nameof(useSpeed), 1)]
+        [Range(0, 180)]
+        public Parameter<float> angleDifference = 10f;
 
-        protected override string info => $"Look At {modifiedAxis}" + (useSpeed ? $" Speed {speed}" : string.Empty);
+        public override string Info => $"Look At {modifiedAxis}" + (useSpeed ? $" Speed {speed}" : string.Empty);
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             if (!useSpeed)
             {
-                agent.rotation = GetRotation();
+                Agent.rotation = GetRotation();
                 EndAction();
             }
         }
 
-        protected override void OnUpdate() 
+        protected override void UpdateAction() 
         {
             Quaternion eulerRotation = GetRotation();
-            agent.rotation = Quaternion.Slerp(agent.rotation, eulerRotation, speed.value * Time.fixedDeltaTime);
+            Agent.rotation = Quaternion.Slerp(Agent.rotation, eulerRotation, speed.Value * Time.fixedDeltaTime);
 
-            if (Vector3.Angle(eulerRotation * Vector3.forward, agent.forward) <= angleDifference.value)
+            if (Vector3.Angle(eulerRotation * Vector3.forward, Agent.forward) <= angleDifference.Value)
             {
                 EndAction();
             }
@@ -43,20 +43,20 @@ namespace AdventureGame.NodeCanvas.Unity
 
         private Quaternion GetRotation()
         {
-            Vector3 targetDirection = target.value - agent.position;
+            Vector3 targetDirection = target.Value - Agent.position;
             Vector3 eules = Quaternion.LookRotation(targetDirection).eulerAngles;
 
-            if (!modifiedAxis.value.HasFlag(Axis3Flags.X))
+            if (!modifiedAxis.Value.HasFlag(Axis3Flags.X))
             {
-                eules.x = agent.eulerAngles.x;
+                eules.x = Agent.eulerAngles.x;
             }
-            if (!modifiedAxis.value.HasFlag(Axis3Flags.Y))
+            if (!modifiedAxis.Value.HasFlag(Axis3Flags.Y))
             {
-                eules.y = agent.eulerAngles.y;
+                eules.y = Agent.eulerAngles.y;
             }
-            if (!modifiedAxis.value.HasFlag(Axis3Flags.Z))
+            if (!modifiedAxis.Value.HasFlag(Axis3Flags.Z))
             {
-                eules.z = agent.eulerAngles.z;
+                eules.z = Agent.eulerAngles.z;
             }
 
            return Quaternion.Euler(eules);

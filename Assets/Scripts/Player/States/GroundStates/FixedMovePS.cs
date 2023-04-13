@@ -1,26 +1,26 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 
 namespace AdventureGame.Player.States
 {
     public class FixedMovePS : PlayerAction
     {
-        public BBParameter<float> moveSpeed;
+        public Parameter<float> moveSpeed;
 
         protected override void EnterState()
         {
-            agent.SetSensitivity(SensitivityType.Aim);
+            Agent.SetSensitivity(SensitivityType.Aim);
             Animator.SetAimWeight(1f);
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            Physics.FixedMove(moveSpeed.value);
+            Physics.FixedMove(moveSpeed.Value);
         }
 
         protected override void ExitState() 
         {
             Camera.LockY(false);
-            agent.SetSensitivity(SensitivityType.Default);
+            Agent.SetSensitivity(SensitivityType.Default);
             Animator.SetAimWeight(0f);
         }
     }

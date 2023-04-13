@@ -1,21 +1,21 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Set Transform.localRotation using Euler")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Set Transform.localRotation using Euler")]
     public class SetLocalEulerRotation : ActionTask<Transform>
     {
-        public BBParameter<Vector3> rotation;
+        public Parameter<Vector3> rotation;
 
-        protected override string info => $"Euler Local Rotation = {rotation}";
+        public override string Info => $"Euler Local Rotation = {rotation}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.localRotation = Quaternion.Euler(rotation.value);
+            Agent.localRotation = Quaternion.Euler(rotation.Value);
             EndAction(true);
         }
     }

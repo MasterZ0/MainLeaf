@@ -1,24 +1,24 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.ObjectPooling;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using Header = ParadoxNotion.Design.HeaderAttribute;
+
 
 namespace AdventureGame.NodeCanvas.Instantiate {
 
-    [Category(Categories.Instantiate)]
-    [Description("Return object to ObjectPool")]
+    [NodeCategory(Categories.Instantiate)]
+    [NodeDescription("Return object to ObjectPool")]
     public class ReturnToPool<T> : ActionTask where T : Component {
 
         [Header("Return To Pool")]
-        [RequiredField] public BBParameter<T> prefab;
+        /*[RequiredField]*/ public Parameter<T> prefab;
 
-        protected override string info => prefab.isDefined ?
+        public override string Info => prefab.isDefined ?
             $"Return {prefab}" : name;
 
-        protected override void OnExecute() {
-            prefab.value.ReturnToPool();
+        protected override void StartAction() {
+            prefab.Value.ReturnToPool();
             EndAction(true);
         }
     }

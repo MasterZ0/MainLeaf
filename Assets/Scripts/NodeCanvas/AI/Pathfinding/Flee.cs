@@ -1,39 +1,39 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using Pathfinding;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI.Pathfinding
 {
-    [Category(Categories.Pathfinding)]
-    [Description("TODO")]
+    [NodeCategory(Categories.Pathfinding)]
+    [NodeDescription("TODO")]
     public class Flee : ActionTask<AIPath>
     {
-        public BBParameter<Vector3> target;
-        public BBParameter<float> escapeDistance;
+        public Parameter<Vector3> target;
+        public Parameter<float> escapeDistance;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.canMove = true;
-            agent.canSearch = true;
+            Agent.canMove = true;
+            Agent.canSearch = true;
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            Vector3 oppositeDirection = (agent.transform.position - target.value).normalized * escapeDistance.value;
-            agent.destination = agent.transform.position + oppositeDirection;
+            Vector3 oppositeDirection = (Agent.transform.position - target.Value).normalized * escapeDistance.Value;
+            Agent.destination = Agent.transform.position + oppositeDirection;
 
-            if (Vector3.Distance(agent.transform.position, target.value) >= escapeDistance.value)
+            if (Vector3.Distance(Agent.transform.position, target.Value) >= escapeDistance.Value)
             {
                 EndAction();
             }
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            agent.canMove = false;
-            agent.canSearch = false;
+            Agent.canMove = false;
+            Agent.canSearch = false;
         }
     }
 }

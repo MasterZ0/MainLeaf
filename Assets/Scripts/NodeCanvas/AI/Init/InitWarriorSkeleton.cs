@@ -1,61 +1,61 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using UnityEngine;
+using Z3.NodeGraph.Core;
 
 namespace AdventureGame.NodeCanvas.AI
 {
     public class InitWarriorSkeleton : InitEnemy<WarriorSkeletonSettings>
     {
         [Header("Components")]
-        public BBParameter<HitBox> weaponHitBox;
+        public Parameter<HitBox> weaponHitBox;
 
         [Header("Patrol")]
-        public BBParameter<float> idleTime;
-        public BBParameter<float> patrolRadius;
-        public BBParameter<float> delayToReturnToPatrol;
+        public Parameter<float> idleTime;
+        public Parameter<float> patrolRadius;
+        public Parameter<float> delayToReturnToPatrol;
 
         [Header("Movement")]
-        public BBParameter<float> ikWeightTransition;
-        public BBParameter<float> rotationSpeed;
-        public BBParameter<float> patrolMaxSpeed;
-        public BBParameter<AIPathParameters> patrolParameters;
-        public BBParameter<float> battleMaxSpeed;
-        public BBParameter<AIPathParameters> battleParameters;
+        public Parameter<float> ikWeightTransition;
+        public Parameter<float> rotationSpeed;
+        public Parameter<float> patrolMaxSpeed;
+        public Parameter<AIPathParameters> patrolParameters;
+        public Parameter<float> battleMaxSpeed;
+        public Parameter<AIPathParameters> battleParameters;
 
         [Header("Battle")]
-        public BBParameter<float> chaseDistance;
-        public BBParameter<float> distanceToAttack;
-        public BBParameter<float> angleDifferenceToAttack;
-        public BBParameter<float> centerAttackAngle;
-        public BBParameter<float> delayAfterAttack;
+        public Parameter<float> chaseDistance;
+        public Parameter<float> distanceToAttack;
+        public Parameter<float> angleDifferenceToAttack;
+        public Parameter<float> centerAttackAngle;
+        public Parameter<float> delayAfterAttack;
 
         protected override void SetParameters()
         {
             WarriorSkeletonSettings settings = EnemyData;
 
             // Components
-            weaponHitBox.value.SetDamage(settings.swordDamage, agent);
+            weaponHitBox.Value.SetDamage(settings.swordDamage, Agent);
             
             // Patrol
-            idleTime.value = settings.idleTime;
-            patrolRadius.value = settings.patrolRadius;
-            delayToReturnToPatrol.value = settings.delayToReturnToPatrol;
+            idleTime.Value = settings.idleTime;
+            patrolRadius.Value = settings.patrolRadius;
+            delayToReturnToPatrol.Value = settings.delayToReturnToPatrol;
 
             // Movement
-            ikWeightTransition.value = settings.ikWeightTransition;
-            patrolMaxSpeed.value = settings.patrolParameters.maxSpeed;
-            patrolParameters.value = settings.patrolParameters;
-            battleMaxSpeed.value = settings.battleParameters.maxSpeed;
-            battleParameters.value = settings.battleParameters;
+            ikWeightTransition.Value = settings.ikWeightTransition;
+            patrolMaxSpeed.Value = settings.patrolParameters.maxSpeed;
+            patrolParameters.Value = settings.patrolParameters;
+            battleMaxSpeed.Value = settings.battleParameters.maxSpeed;
+            battleParameters.Value = settings.battleParameters;
 
             // Battle
-            chaseDistance.value = settings.chaseDistance;
-            distanceToAttack.value = settings.distanceToAttack;
-            rotationSpeed.value = settings.rotationSpeed;
-            angleDifferenceToAttack.value = settings.angleDifferenceToAttack;
-            centerAttackAngle.value = settings.centerAttackAngle;
-            delayAfterAttack.value = settings.delayAfterAttack;
+            chaseDistance.Value = settings.chaseDistance;
+            distanceToAttack.Value = settings.distanceToAttack;
+            rotationSpeed.Value = settings.rotationSpeed;
+            angleDifferenceToAttack.Value = settings.angleDifferenceToAttack;
+            centerAttackAngle.Value = settings.centerAttackAngle;
+            delayAfterAttack.Value = settings.delayAfterAttack;
         }
     }
 }

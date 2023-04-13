@@ -1,22 +1,22 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Rigidbody)]
-    [Description("Add Force")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Add Force")]
     public class AddForce : ActionTask<Rigidbody>
     {
-        public BBParameter<Vector3> force;
-        public BBParameter<ForceMode> forceMode = ForceMode.Force;
+        public Parameter<Vector3> force;
+        public Parameter<ForceMode> forceMode = ForceMode.Force;
 
-        protected override string info => $"Add Force = {force}, {forceMode}";
+        public override string Info => $"Add Force = {force}, {forceMode}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.AddForce(force.value, forceMode.value);
+            Agent.AddForce(force.Value, forceMode.Value);
             EndAction(true);
         }
     }

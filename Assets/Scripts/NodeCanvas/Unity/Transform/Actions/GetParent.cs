@@ -1,17 +1,17 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Return the parent's transform from the agent.")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Return the parent's transform from the Agent.")]
     public class GetParent : ActionTask <Transform>
     {
-        public BBParameter<Transform> returnParent;
-        protected override void OnExecute() {
-            returnParent.value = agent.parent;
+        public Parameter<Transform> returnParent;
+        protected override void StartAction() {
+            returnParent.Value = Agent.parent;
             EndAction(true);
         }
     }

@@ -1,37 +1,37 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Movement)]
-    [Description("Move a GameObject to the target from the Agent position.")]
+    [NodeCategory(Categories.Movement)]
+    [NodeDescription("Move a GameObject to the target from the Agent position.")]
     public class MoveTowardReferenced : ActionTask<Transform> 
     {
-        public BBParameter<Vector3> targetPosition;
-        public BBParameter<float> speed;
+        public Parameter<Vector3> targetPosition;
+        public Parameter<float> speed;
 
         private Vector3 target;
         private const float ThresholdDistance = 0.02f;
 
-        protected override string info => $"Move Referenced {targetPosition}";
+        public override string Info => $"Move Referenced {targetPosition}";
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
             target = new Vector3()
             {
-                x = agent.right.x * targetPosition.value.x + agent.position.x,
-                y = agent.up.y * targetPosition.value.y + agent.position.y,
-                z = agent.forward.z * targetPosition.value.z + agent.position.z
+                x = Agent.right.x * targetPosition.Value.x + Agent.position.x,
+                y = Agent.up.y * targetPosition.Value.y + Agent.position.y,
+                z = Agent.forward.z * targetPosition.Value.z + Agent.position.z
             };
         }
 
-        protected override void OnUpdate() 
+        protected override void UpdateAction() 
         {
-            agent.position = Vector3.MoveTowards(agent.position, target, Time.fixedDeltaTime * speed.value);
+            Agent.position = Vector3.MoveTowards(Agent.position, target, Time.fixedDeltaTime * speed.Value);
 
-            if (Vector3.Distance(agent.position, target) < ThresholdDistance) 
+            if (Vector3.Distance(Agent.position, target) < ThresholdDistance) 
             {
                 EndAction(true);
             }

@@ -1,23 +1,23 @@
 using AdventureGame.BattleSystem;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI
 {
-    [Category(Categories.AI)]
-    [Description("Deals damage to an IDamageable based on a percentage")]
+    [NodeCategory(Categories.AI)]
+    [NodeDescription("Deals damage to an IDamageable based on a percentage")]
     public class TakePercentageDamage : ActionTask<IStatusOwner>
     {
-        public BBParameter<Transform> sender;
-        public BBParameter<float> damagePercentage;
+        public Parameter<Transform> sender;
+        public Parameter<float> damagePercentage;
 
-        protected override string info => $"Take {damagePercentage.value}% Damage";
+        public override string Info => $"Take {damagePercentage.Value}% Damage";
         
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.TakeDamagePercentage(damagePercentage.value);
+            Agent.TakeDamagePercentage(damagePercentage.Value);
             EndAction(true);
         }
     }

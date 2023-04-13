@@ -1,79 +1,79 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using static AdventureGame.NodeCanvas.Utils.GraphReferences;
 
 namespace AdventureGame.NodeCanvas.Utils 
 { 
-    [Category(Categories.Events)]
-    [Description("Sends an event to a graph")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Sends an event to a graph")]
     public class SendEventToReference : ActionTask<GraphReferences> 
     {
-        [RequiredField] public BBParameter<string> graph;
-        [RequiredField] public BBParameter<string> eventName;
+        /*[RequiredField]*/ public Parameter<string> graph;
+        /*[RequiredField]*/ public Parameter<string> eventName;
 
-        protected override string info => $"Send Event to {graph} [{eventName}]";
+        public override string Info => $"Send Event to {graph} [{eventName}]";
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            GraphOwner owner = agent.GetGraph(graph.value);
-            owner.SendEvent(eventName.value);
+            GraphOwner owner = Agent.GetGraph(graph.Value);
+            owner.SendEvent(eventName.Value);
             EndAction(true);
         }
     }
     
-    [Category(Categories.Events)]
-    [Description("Sends an event to a graph passing a value")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Sends an event to a graph passing a value")]
     public class SendEventToReference<T> : ActionTask<GraphReferences> 
     {
-        [RequiredField] public BBParameter<string> graph;
-        [RequiredField] public BBParameter<string> eventName;
-        public BBParameter<T> value;
+        /*[RequiredField]*/ public Parameter<string> graph;
+        /*[RequiredField]*/ public Parameter<string> eventName;
+        public Parameter<T> value;
 
-        protected override string info => $"Send Event to {graph} [{eventName}]\nPassing {value}";
+        public override string Info => $"Send Event to {graph} [{eventName}]\nPassing {value}";
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            GraphOwner owner = agent.GetGraph(graph.value);
-            owner.SendEvent(eventName.value, value.value, agent.transform);
+            GraphOwner owner = Agent.GetGraph(graph.Value);
+            owner.SendEvent(eventName.Value, value.Value, Agent.transform);
             EndAction(true);
         }
     }
     
-    [Category(Categories.Events)]
-    [Description("Sends an event to all graphs at Graph References")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Sends an event to all graphs at Graph References")]
     public class SendEventToReferences : ActionTask<GraphReferences>
     {
-        [RequiredField] public BBParameter<string> eventName;
+        /*[RequiredField]*/ public Parameter<string> eventName;
         
-        protected override string info => $"Send {eventName.value} to all graphs";
+        public override string Info => $"Send {eventName.Value} to all graphs";
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            GraphReference[] owners = agent.Graphs;
+            GraphReference[] owners = Agent.Graphs;
             
             foreach (GraphReference owner in owners)
-                owner.graphOwner.SendEvent(eventName.value);
+                owner.graphOwner.SendEvent(eventName.Value);
             
             EndAction(true);
         }
     }
     
-    [Category(Categories.Events)]
-    [Description("Sends an event to all graphs at Graph References")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Sends an event to all graphs at Graph References")]
     public class SendEventToReferences<T> : ActionTask<GraphReferences>
     {
-        [RequiredField] public BBParameter<string> eventName;
-        public BBParameter<T> value;
+        /*[RequiredField]*/ public Parameter<string> eventName;
+        public Parameter<T> value;
         
-        protected override string info => $"Send {eventName.value} to all graphs\nPassing {value}";
+        public override string Info => $"Send {eventName.Value} to all graphs\nPassing {value}";
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            GraphReference[] owners = agent.Graphs;
+            GraphReference[] owners = Agent.Graphs;
             
             foreach (GraphReference owner in owners)
-                owner.graphOwner.SendEvent(eventName.value, value.value, agent.transform);
+                owner.graphOwner.SendEvent(eventName.Value, value.Value, Agent.transform);
             
             EndAction(true);
         }

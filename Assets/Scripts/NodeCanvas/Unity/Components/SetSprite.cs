@@ -1,19 +1,19 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas
 {
-    [Category(Categories.Components)]
-    [Description("Sets a Sprite Renderer Sprite")]
+    [NodeCategory(Categories.Components)]
+    [NodeDescription("Sets a Sprite Renderer Sprite")]
     public class SetSprite : ActionTask<SpriteRenderer> 
     {
-        public BBParameter<Sprite> sprite;
+        public Parameter<Sprite> sprite;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.sprite = sprite.value;
+            Agent.sprite = sprite.Value;
             EndAction(true);
         }
     }

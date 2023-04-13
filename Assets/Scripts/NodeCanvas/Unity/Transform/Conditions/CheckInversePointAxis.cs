@@ -1,27 +1,26 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 using AdventureGame.Shared.NodeCanvas;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using ParadoxNotion;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Compare the Inverse Transform Point to target + offset.")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Compare the Inverse Transform Point to target + offset.")]
     public class CheckInversePointAxis : ConditionTask<Transform>
     {
-        public BBParameter<Axis3> axis;
-        public BBParameter<Vector3> target;
-        public BBParameter<float> offset;
-        public BBParameter<float> value;
+        public Parameter<Axis3> axis;
+        public Parameter<Vector3> target;
+        public Parameter<float> offset;
+        public Parameter<float> value;
         public CompareMethod checkType = CompareMethod.EqualTo;
 
-        protected override string info => $"Inverse Point {axis} {target}" + OperationTools.GetCompareString(checkType) + $"{value}";
-        protected override bool OnCheck()
+        public override string Info => $"Inverse Point {axis} {target}" + OperationTools.GetCompareString(checkType) + $"{value}";
+        public override bool CheckCondition()
         {
-            Vector3 inverse = agent.InverseTransformPoint(target.value);
+            Vector3 inverse = Agent.InverseTransformPoint(target.Value);
 
-            float axisDistance = offset.value + axis.value switch
+            float axisDistance = offset.Value + axis.Value switch
             {
                 Axis3.X => inverse.x,
                 Axis3.Y => inverse.y,
@@ -29,7 +28,7 @@ namespace AdventureGame.NodeCanvas.Unity
                 _ => throw new System.NotImplementedException(),
             };
 
-            return OperationTools.Compare(axisDistance, value.value, checkType, 0f);
+            return OperationTools.Compare(axisDistance, value.Value, checkType, 0f);
         }
     }
 }

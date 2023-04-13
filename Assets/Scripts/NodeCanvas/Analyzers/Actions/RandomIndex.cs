@@ -1,27 +1,28 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
+using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Analyzers {
 
-    [Category(Categories.Analyzers)]
-    [Description("Draws the number index based on the probability of its value.")]
+    [NodeCategory(Categories.Analyzers)]
+    [NodeDescription("Draws the number index based on the probability of its value.")]
     public class RandomIndex : ActionTask {
                 
         [Header("Out")]
-        [RequiredField] public BBParameter<List<float>> actionChance;
-        [RequiredField] public BBParameter<int> actionIndex = -1;
+        /*[RequiredField]*/ public Parameter<List<float>> actionChance;
+        /*[RequiredField]*/ public Parameter<int> actionIndex = -1;
 
-        protected override string info => actionChance.value == null || actionChance.value.Count == 0 ?
+        public override string Info => actionChance.Value == null || actionChance.Value.Count == 0 ?
             $"Random Index" :
-            $"Random between 0 - {actionChance.value.Count - 1}";
+            $"Random between 0 - {actionChance.Value.Count - 1}";
 
-        protected override void OnExecute() {
-            List<float> actions = actionChance.value;
+        protected override void StartAction() {
+            List<float> actions = actionChance.Value;
 
             float maxChance = actions.Sum();
             float random = Random.Range(0, maxChance);
@@ -31,7 +32,7 @@ namespace AdventureGame.NodeCanvas.Analyzers {
                 counter += actions[i];
 
                 if (counter >= random) {
-                    actionIndex.value = i;
+                    actionIndex.Value = i;
                     EndAction(true);
                     return;
                 }

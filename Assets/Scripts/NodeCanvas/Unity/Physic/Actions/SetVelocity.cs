@@ -1,18 +1,18 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Rigidbody)]
-    [Description("Set Rigidbody velocity")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Set Rigidbody velocity")]
     public class SetVelocity : ActionTask<Rigidbody> {
 
-        public BBParameter<Vector3> velocity;
-        protected override string info => $"Velocity = {velocity}";
-        protected override void OnExecute() {
-            agent.velocity = velocity.value;
+        public Parameter<Vector3> velocity;
+        public override string Info => $"Velocity = {velocity}";
+        protected override void StartAction() {
+            Agent.velocity = velocity.Value;
             EndAction(true);
         }
     }

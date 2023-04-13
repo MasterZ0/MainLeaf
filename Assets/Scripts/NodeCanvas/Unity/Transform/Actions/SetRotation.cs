@@ -1,21 +1,21 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
 
-    [Category(Categories.Transform)]
-    [Description("Set Transform.position")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Set Transform.position")]
     public class SetRotation : ActionTask<Transform> {
 
-        public BBParameter<Quaternion> rotation = Quaternion.identity;
+        public Parameter<Quaternion> rotation = Quaternion.identity;
 
-        protected override string info => $"Rotation = {rotation}";
+        public override string Info => $"Rotation = {rotation}";
 
-        protected override void OnExecute() {
-            agent.rotation = rotation.value;
+        protected override void StartAction() {
+            Agent.rotation = rotation.Value;
             EndAction(true);
         }
     }

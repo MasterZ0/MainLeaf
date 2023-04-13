@@ -1,27 +1,27 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using Header = ParadoxNotion.Design.HeaderAttribute;
+
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Transform)]
-    [Description("Correct a body based on current slope")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Correct a body based on current slope")]
     public class CorrectSlope : ActionTask<Transform>
     {
         [Header("Inputs")]
-        public BBParameter<Vector3> slopeCheckPoint;
-        public BBParameter<LayerMask> groundLayer;
-        public BBParameter<float> speed;
-        public BBParameter<float> maxSlopeAngle = 45f;
-        public BBParameter<float> slopeCheckDistance = 0.5f;
+        public Parameter<Vector3> slopeCheckPoint;
+        public Parameter<LayerMask> groundLayer;
+        public Parameter<float> speed;
+        public Parameter<float> maxSlopeAngle = 45f;
+        public Parameter<float> slopeCheckDistance = 0.5f;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             float slopeDownAngle = CheckSlope();
-            float currentDegrees = Mathf.MoveTowardsAngle(agent.eulerAngles.z, slopeDownAngle, Time.fixedDeltaTime * speed.value);
-            agent.rotation = Quaternion.Euler(agent.eulerAngles.x, agent.eulerAngles.y, currentDegrees);
+            float currentDegrees = Mathf.MoveTowardsAngle(Agent.eulerAngles.z, slopeDownAngle, Time.fixedDeltaTime * speed.Value);
+            Agent.rotation = Quaternion.Euler(Agent.eulerAngles.x, Agent.eulerAngles.y, currentDegrees);
             
             EndAction(true);
         }
@@ -29,15 +29,15 @@ namespace AdventureGame.NodeCanvas.Unity.Physic
 
         private float CheckSlope()
         {
-            RaycastHit2D hit = Physics2D.Raycast(slopeCheckPoint.value, Vector2.down, slopeCheckDistance.value, groundLayer.value);
+            RaycastHit2D hit = Physics2D.Raycast(slopeCheckPoint.Value, Vector2.down, slopeCheckDistance.Value, groundLayer.Value);
             
             if (hit)
             {
                 float slopeAngle = -Vector2.SignedAngle(hit.normal, Vector2.up);
 
-                if (Mathf.Abs(slopeAngle) <= maxSlopeAngle.value)
+                if (Mathf.Abs(slopeAngle) <= maxSlopeAngle.Value)
                 {
-                    return agent.right.x > 0 ? slopeAngle : -slopeAngle;
+                    return Agent.right.x > 0 ? slopeAngle : -slopeAngle;
                 }
             }
 

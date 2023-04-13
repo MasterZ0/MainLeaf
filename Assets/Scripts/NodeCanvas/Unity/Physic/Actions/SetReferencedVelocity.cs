@@ -1,23 +1,23 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity 
 {    
-    [Category(Categories.Rigidbody)]
-    [Description("Set Rigidbody velocity based on Transform direction")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Set Rigidbody velocity based on Transform direction")]
     public class SetReferencedVelocity : ActionTask<Rigidbody> 
     {        
-        [RequiredField] public BBParameter<Vector3> velocity;
-        protected override string info => $"Referenced velocity = {velocity}";
-        protected override void OnExecute() 
+        /*[RequiredField]*/ public Parameter<Vector3> velocity;
+        public override string Info => $"Referenced velocity = {velocity}";
+        protected override void StartAction() 
         {
-            agent.velocity = new Vector3()
+            Agent.velocity = new Vector3()
             {
-                x = agent.transform.right.x * velocity.value.x,
-                y = agent.transform.up.y * velocity.value.y,
-                z = agent.transform.forward.z * velocity.value.z
+                x = Agent.transform.right.x * velocity.Value.x,
+                y = Agent.transform.up.y * velocity.Value.y,
+                z = Agent.transform.forward.z * velocity.Value.z
             };
             EndAction(true);
         }

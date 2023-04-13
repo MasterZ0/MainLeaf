@@ -1,21 +1,21 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Physics)]
-    [Description("Get Character Controller Velocity")]
+    [NodeCategory(Categories.Physics)]
+    [NodeDescription("Get Character Controller Velocity")]
     public class GetCharacterControllerVelocity : ActionTask<CharacterController>
     {
-        public BBParameter<Vector3> velocity;
+        public Parameter<Vector3> velocity;
 
-        protected override string info => $"Get {agentInfo} Velocity";
+        public override string Info => $"Get {AgentInfo} Velocity";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            velocity.value = agent.velocity;
+            velocity.Value = Agent.velocity;
             EndAction();
         }
     }

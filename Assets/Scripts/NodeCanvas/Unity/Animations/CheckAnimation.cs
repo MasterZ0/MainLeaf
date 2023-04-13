@@ -1,22 +1,23 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Animations)]
-    [Description("Check the current animation by state name")]
+    [NodeCategory(Categories.Animations)]
+    [NodeDescription("Check the current animation by state name")]
     public class CheckAnimation : ConditionTask<Animator>
     {
-        public BBParameter<string> stateName;
+        public Parameter<string> stateName;
 
-        protected override string info => $"Animation == {stateName}";
+        public override string Info => $"Animation == {stateName}";
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            var stateInfo = agent.GetCurrentAnimatorStateInfo(0);
-            return stateInfo.IsName(stateName.value);
+            var stateInfo = Agent.GetCurrentAnimatorStateInfo(0);
+            return stateInfo.IsName(stateName.Value);
         }
     }
 }

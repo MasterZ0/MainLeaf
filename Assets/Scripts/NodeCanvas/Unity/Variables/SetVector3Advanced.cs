@@ -1,47 +1,45 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Name("Set Vector3 Advanced")]
-    [Category(Categories.Variables)]
-    [Description("Easy way to set a specific axis")]
+    //[Name("Set Vector3 Advanced")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Easy way to set a specific axis")]
     public class SetVector3Advanced : ActionTask 
     {
         [Header("In")]
-        public BBParameter<Vector3> initialVector;
-        public BBParameter<Vector3> otherVector;
+        public Parameter<Vector3> initialVector;
+        public Parameter<Vector3> otherVector;
 
         [Header("Config")]
         public OperationMethod operation = OperationMethod.Set;
-        public BBParameter<bool> setX;
-        public BBParameter<bool> setY;
-        public BBParameter<bool> setZ;
+        public Parameter<bool> setX;
+        public Parameter<bool> setY;
+        public Parameter<bool> setZ;
 
         [Header("Out")]
-        public BBParameter<Vector3> returnedVector;
+        public Parameter<Vector3> returnedVector;
 
-        protected override string info
+        public override string Info
         {
             get
             {
                 string info = string.Empty;
 
-                if (setX.value)
+                if (setX.Value)
                 {
                     info = AddText(info, "X");
                 }
 
-                if (setY.value)
+                if (setY.Value)
                 {
                     info = AddText(info, "Y");
                 }
 
-                if (setZ.value)
+                if (setZ.Value)
                 {
                     info = AddText(info, "Z");
                 }
@@ -66,24 +64,24 @@ namespace AdventureGame.NodeCanvas.Unity
             return info + $", {axis}";
         }
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            Vector3 finalVector = initialVector.value;
+            Vector3 finalVector = initialVector.Value;
 
-            if (setX.value)
+            if (setX.Value)
             {
-                finalVector.x = OperationTools.Operate(finalVector.x, otherVector.value.x, operation);
+                finalVector.x = OperationTools.Operate(finalVector.x, otherVector.Value.x, operation);
             }
-            if (setY.value)
+            if (setY.Value)
             {
-                finalVector.y = OperationTools.Operate(finalVector.y, otherVector.value.y, operation);
+                finalVector.y = OperationTools.Operate(finalVector.y, otherVector.Value.y, operation);
             }
-            if (setZ.value)
+            if (setZ.Value)
             {
-                finalVector.z = OperationTools.Operate(finalVector.z, otherVector.value.z, operation);
+                finalVector.z = OperationTools.Operate(finalVector.z, otherVector.Value.z, operation);
             }
 
-            returnedVector.value = finalVector;
+            returnedVector.Value = finalVector;
             EndAction(true);
         }
     }

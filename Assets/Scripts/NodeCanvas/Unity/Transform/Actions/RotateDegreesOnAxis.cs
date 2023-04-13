@@ -1,45 +1,45 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Rotate axis of a GameObject")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Rotate axis of a GameObject")]
     public class RotateDegreesOnAxis : ActionTask<Transform>
     {
-        public BBParameter<float> degrees;
-        public BBParameter<float> speed;
-        public BBParameter<Axis3> axis;
+        public Parameter<float> degrees;
+        public Parameter<float> speed;
+        public Parameter<Axis3> axis;
 
-        protected override string info => $"Rotate {agentInfo} {axis} {degrees} degrees";
+        public override string Info => $"Rotate {AgentInfo} {axis} {degrees} degrees";
 
         private float currentDegrees;
         private Vector3 initialAngle;
 
         private Func<Quaternion> updateRotation;
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             currentDegrees = 0;
-            initialAngle = agent.eulerAngles;
+            initialAngle = Agent.eulerAngles;
 
-            updateRotation = () => axis.value switch
+            updateRotation = () => axis.Value switch
             {
-                Axis3.X => Quaternion.Euler(currentDegrees + initialAngle.x, agent.eulerAngles.y, agent.eulerAngles.z),
-                Axis3.Y => Quaternion.Euler(agent.eulerAngles.x, currentDegrees + initialAngle.y, agent.eulerAngles.z),
-                Axis3.Z => Quaternion.Euler(agent.eulerAngles.x, agent.eulerAngles.y, currentDegrees + initialAngle.z),
+                Axis3.X => Quaternion.Euler(currentDegrees + initialAngle.x, Agent.eulerAngles.y, Agent.eulerAngles.z),
+                Axis3.Y => Quaternion.Euler(Agent.eulerAngles.x, currentDegrees + initialAngle.y, Agent.eulerAngles.z),
+                Axis3.Z => Quaternion.Euler(Agent.eulerAngles.x, Agent.eulerAngles.y, currentDegrees + initialAngle.z),
                 _ => throw new NotImplementedException(),
             };
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            currentDegrees = Mathf.MoveTowards(currentDegrees, degrees.value, Time.fixedDeltaTime * speed.value);
-            agent.rotation = updateRotation();
+            currentDegrees = Mathf.MoveTowards(currentDegrees, degrees.Value, Time.fixedDeltaTime * speed.Value);
+            Agent.rotation = updateRotation();
 
-            if (currentDegrees == degrees.value)
+            if (currentDegrees == degrees.Value)
             {
                 EndAction(true);
             }

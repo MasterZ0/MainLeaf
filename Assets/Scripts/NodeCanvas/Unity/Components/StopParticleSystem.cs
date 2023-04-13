@@ -1,22 +1,22 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
 
-    [Category(Categories.Components)]
-    [Description("Stop a particle system.")]
+    [NodeCategory(Categories.Components)]
+    [NodeDescription("Stop a particle system.")]
     public class StopParticleSystem : ActionTask<ParticleSystem>
     {
-        protected override string info => $"Stop {agentInfo}";
+        public override string Info => $"Stop {AgentInfo}";
 
-        public BBParameter<bool> stopChildren;
+        public Parameter<bool> stopChildren;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.Stop(stopChildren.value);
+            Agent.Stop(stopChildren.Value);
             EndAction(true);
         }
     }

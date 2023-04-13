@@ -7,9 +7,9 @@ using AdventureGame.Data;
 using System;
 using AdventureGame.Items;
 using System.Collections.Generic;
-using NodeCanvas.StateMachines;
 using AdventureGame.Gameplay;
 using AdventureGame.UI.AppOptions;
+using Z3.NodeGraph.Core;
 
 namespace AdventureGame.Player
 {
@@ -36,7 +36,7 @@ namespace AdventureGame.Player
         [Space]
         [SerializeField] private Transform center;
         [SerializeField] private Transform head;
-        [SerializeField] private FSMOwner stateMachine;
+        [SerializeField] private GraphRunner stateMachine;
         [SerializeField] private PlayerEvents playerEvents;
         [Space]
         [SerializeField] private PlayerInventory playerInventory;
@@ -57,7 +57,7 @@ namespace AdventureGame.Player
         public event Action<DamageInfo> OnTakeDamage = delegate { };
         public event Action<PlayerEvent> OnPlayerEvent = delegate { };
 
-        public FSMOwner FSM => stateMachine; // Remove??
+        public GraphRunner FSM => stateMachine; // Remove??
         public PlayerStatus Status => playerStatus;
         public PlayerAnimator Animator => playerAnimator;
         public PlayerPhysics Physics => playerPhysics;
@@ -150,7 +150,7 @@ namespace AdventureGame.Player
         }
         private void FixedUpdate()
         {
-            stateMachine.graph.UpdateGraph();
+            stateMachine.UpdateGraph();
 
             Physics.Update();
             playerStatus.Update();
@@ -204,7 +204,7 @@ namespace AdventureGame.Player
         private void ResetPlayer()
         {
             Status.Attributes.RecoveryAllPoints();
-            stateMachine.RestartBehaviour();
+            //stateMachine.RestartBehaviour();
         }
 
         [Button]

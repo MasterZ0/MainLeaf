@@ -1,10 +1,10 @@
-﻿using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+﻿using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System;
 
 namespace AdventureGame.Player.States
 {
-    [Description("It becomes true when the selected input changes to the desired state, disregarding the current state")]
+    [NodeDescription("It becomes true when the selected input changes to the desired state, disregarding the current state")]
     public class CheckInputEventPS : PlayerCondition
     {
         public enum InputEvent
@@ -15,16 +15,16 @@ namespace AdventureGame.Player.States
             SecondarySkillPressed
         }
 
-        public BBParameter<InputEvent> inputButton;
+        public Parameter<InputEvent> inputButton;
 
         private bool actionCalled;
 
-        protected override string info => $"{name}: {inputButton}";
+        public override string Info => $"{name}: {inputButton}";
 
-        protected override void OnEnable()
+        public override void StartCondition() // Enable
         {
             actionCalled = false;
-            switch (inputButton.value)
+            switch (inputButton.Value)
             {
                 case InputEvent.JumpPressed:
                     Inputs.OnJumpPressed += OnCallAction;
@@ -43,9 +43,9 @@ namespace AdventureGame.Player.States
             }
         }
 
-        protected override void OnDisable()
+        public override void StopCondition() // Disable
         {
-            switch (inputButton.value)
+            switch (inputButton.Value)
             {
                 case InputEvent.JumpPressed:
                     Inputs.OnJumpPressed -= OnCallAction;
@@ -66,7 +66,7 @@ namespace AdventureGame.Player.States
 
         private void OnCallAction() => actionCalled = true;
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
             bool value = actionCalled;
             actionCalled = false;

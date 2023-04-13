@@ -1,19 +1,19 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.ApplicationManager;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.GameController
 {
-    [Category(Categories.GameManager)]
+    [NodeCategory(Categories.GameManager)]
     public class LoadScene : ActionTask
     {
-        public BBParameter<GameScene> scene;
+        public Parameter<GameScene> scene;
 
-        protected override string info => $"{name}: {scene}";
-        protected override void OnExecute()
+        public override string Info => $"{name}: {scene}";
+        protected override void StartAction()
         {
-            GameManager.RequestLoadScene(scene.value);
+            GameManager.RequestLoadScene(scene.Value);
             EndAction(true);
         }
     }

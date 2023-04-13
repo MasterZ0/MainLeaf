@@ -1,27 +1,27 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Shared.Utils;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Rigidbody)]
-    [Description("Set Rigidbody velocity by angle")]
+    [NodeCategory(Categories.Rigidbody)]
+    [NodeDescription("Set Rigidbody velocity by angle")]
     public class SetVelocityAngle : ActionTask<Rigidbody>
     {
-        public BBParameter<Axis3> axis = Axis3.Z;
-        public BBParameter<float> velocity;
-        public BBParameter<float> angle;
-        protected override string info => $"Velocity Angle = {velocity}";
-        protected override void OnExecute()
+        public Parameter<Axis3> axis = Axis3.Z;
+        public Parameter<float> velocity;
+        public Parameter<float> angle;
+        public override string Info => $"Velocity Angle = {velocity}";
+        protected override void StartAction()
         {
             // TODO: Review, use axis?
-            Quaternion redAxisRotation = Quaternion.AngleAxis(angle.value, agent.transform.right);
+            Quaternion redAxisRotation = Quaternion.AngleAxis(angle.Value, Agent.transform.right);
 
-            float finalAngle = redAxisRotation.eulerAngles.x + agent.transform.eulerAngles.y;
+            float finalAngle = redAxisRotation.eulerAngles.x + Agent.transform.eulerAngles.y;
 
-            agent.velocity = MathUtils.AngleToDirection(finalAngle, velocity.value);
+            Agent.velocity = MathUtils.AngleToDirection(finalAngle, velocity.Value);
             EndAction(true);
         }
     }

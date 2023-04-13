@@ -1,26 +1,25 @@
 using AdventureGame.Data;
 using AdventureGame.Inputs;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using NodeCanvas.StateMachines;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System.Linq;
 
 namespace AdventureGame.Player.States
 {
-    [Category(Categories.PlayerStates)]
+    [NodeCategory(Categories.PlayerStates)]
     public abstract class PlayerCondition : ConditionTask<PlayerController>
     {
         #region Player Components
-        protected PlayerStatus Status => agent.Status;
-        protected PlayerArsenal Arsenal => agent.Arsenal;
-        protected PlayerPhysics Physics => agent.Physics;
-        protected PlayerInputs Inputs => agent.Inputs;
-        protected FacilitatorBuffer FacilitatorBuffer => agent.FacilitatorBuffer;
+        protected PlayerStatus Status => Agent.Status;
+        protected PlayerArsenal Arsenal => Agent.Arsenal;
+        protected PlayerPhysics Physics => Agent.Physics;
+        protected PlayerInputs Inputs => Agent.Inputs;
+        protected FacilitatorBuffer FacilitatorBuffer => Agent.FacilitatorBuffer;
         #endregion
 
         #region Settings
-        protected PlayerSettings Settings => agent.PlayerSettings;
+        protected PlayerSettings Settings => Agent.PlayerSettings;
         protected PlayerPhysicsSettings PhysicsSettings => Settings.Physics;
         #endregion
     }
@@ -30,39 +29,40 @@ namespace AdventureGame.Player.States
     /// Note to developers: Please describe what this class does.
     /// </summary>
 
-    [Category(Categories.PlayerStates)]
+    [NodeCategory(Categories.PlayerStates)]
     public abstract class PlayerAction : ActionTask<PlayerController>
     {
         #region Player Components
-        protected PlayerStatus Status => agent.Status;
-        protected PlayerCamera Camera => agent.Camera;
-        protected PlayerPhysics Physics => agent.Physics;
-        protected PlayerAnimator Animator => agent.Animator;
-        protected PlayerVFX VFX => agent.VFX;
-        protected PlayerSFX SFX => agent.SFX;
-        protected PlayerInputs Inputs => agent.Inputs;
-        protected FacilitatorBuffer FacilitatorBuffer => agent.FacilitatorBuffer;
+        protected PlayerStatus Status => Agent.Status;
+        protected PlayerCamera Camera => Agent.Camera;
+        protected PlayerPhysics Physics => Agent.Physics;
+        protected PlayerAnimator Animator => Agent.Animator;
+        protected PlayerVFX VFX => Agent.VFX;
+        protected PlayerSFX SFX => Agent.SFX;
+        protected PlayerInputs Inputs => Agent.Inputs;
+        protected FacilitatorBuffer FacilitatorBuffer => Agent.FacilitatorBuffer;
         #endregion
 
         #region Settings
-        protected PlayerSettings Settings => agent.PlayerSettings;
+        protected PlayerSettings Settings => Agent.PlayerSettings;
         protected PlayerPhysicsSettings PhysicsSettings => Settings.Physics;
         #endregion
 
-        protected sealed override void OnExecute()
+
+        protected sealed override void StartAction()
         {
-            agent.EnterState(this);
+            Agent.EnterState(this);
             EnterState();
         }
 
-        protected sealed override void OnStop()
+        protected sealed override void StopAction()
         {
-            agent.ExitState(this);
+            Agent.ExitState(this);
             ExitState();
         }
 
         // There could exist a history with the class and exit time
-        private bool GetPreviousState<T>() => (agent.FSM.GetPreviousState() as ActionState).actionList.actions.Any(s => s.GetType() == typeof(T));
+        //private bool GetPreviousState<T>() => (Agent.FSM.GetPreviousState() as ActionState).actionList.actions.Any(s => s.GetType() == typeof(T));
 
         protected virtual void EnterState() { }
         protected virtual void ExitState() { }

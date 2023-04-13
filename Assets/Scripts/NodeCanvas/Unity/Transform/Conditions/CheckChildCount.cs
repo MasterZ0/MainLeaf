@@ -1,26 +1,25 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity { 
 
-    [Category(Categories.Transform)]
-    [Description("Compares how many children a transform has")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Compares how many children a transform has")]
     public class CheckChildCount : ConditionTask<Transform> {
 
         public CompareMethod checkType = CompareMethod.EqualTo;
-        public BBParameter<int> value;
+        public Parameter<int> value;
 
-        protected override string info
+        public override string Info
         {
             get { return "Child Count" + OperationTools.GetCompareString(checkType) + value; }
         }
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            return OperationTools.Compare(agent.childCount, value.value, checkType);
+            return OperationTools.Compare(Agent.childCount, value.Value, checkType);
         }
     }
 }

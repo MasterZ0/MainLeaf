@@ -1,46 +1,45 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Shared.ExtensionMethods;
 using AdventureGame.Shared.Utils;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Get a quatertion with Z rotation inside of a opening angle")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Get a quatertion with Z rotation inside of a opening angle")]
     public class GetRotationWithinOpeningAngle : ActionTask
     {
         [Header("In")]
-        public BBParameter<Transform> directedTransform;
-        public BBParameter<float> desiredAngle;
-        public BBParameter<float> openingAngle;
+        public Parameter<Transform> directedTransform;
+        public Parameter<float> desiredAngle;
+        public Parameter<float> openingAngle;
 
         [Header("Out")]
-        public BBParameter<Quaternion> rotation;
+        public Parameter<Quaternion> rotation;
 
-        protected override string info => $"{name} = {openingAngle}";
+        public override string Info => $"{name} = {openingAngle}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            float angleZ = MathUtils.DirectionToAngle(directedTransform.value.right);
+            float angleZ = MathUtils.DirectionToAngle(directedTransform.Value.right);
             
-            float halfAngle = openingAngle.value / 2;
+            float halfAngle = openingAngle.Value / 2;
             float minAngle = (angleZ - halfAngle).NormalizeAngle();
             float maxAngle = (angleZ + halfAngle).NormalizeAngle();
 
-            float eulerZ = desiredAngle.value;
+            float eulerZ = desiredAngle.Value;
             Vector2 angleRange = new Vector2(minAngle, maxAngle);
             if (!angleRange.InsideRange(eulerZ))
             {
-                float a = MathUtils.AngleDiference(desiredAngle.value, angleRange.x);
-                float b = MathUtils.AngleDiference(desiredAngle.value, angleRange.y);
+                float a = MathUtils.AngleDiference(desiredAngle.Value, angleRange.x);
+                float b = MathUtils.AngleDiference(desiredAngle.Value, angleRange.y);
 
                 eulerZ = a < b ? angleRange.x : angleRange.y;
             }
 
-            rotation.value = Quaternion.Euler(0f,0f, eulerZ);
+            rotation.Value = Quaternion.Euler(0f,0f, eulerZ);
             EndAction(true);
         }
     }

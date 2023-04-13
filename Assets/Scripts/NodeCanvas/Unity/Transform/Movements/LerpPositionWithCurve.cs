@@ -1,36 +1,36 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
 
 namespace AdventureGame.NodeCanvas.Unity.Movement
 {
 
-    [Category(Categories.Movement)]
-    [Description("Move a GameObject to the target position, through an animationCurve.")]
+    [NodeCategory(Categories.Movement)]
+    [NodeDescription("Move a GameObject to the target position, through an animationCurve.")]
     public class LerpPositionWithCurve : ActionTask<Transform>
     {
-        public BBParameter<Vector3> targetPosition;
-        public BBParameter<float> time;
-        public BBParameter<AnimationCurve> animationCurve;
+        public Parameter<Vector3> targetPosition;
+        public Parameter<float> time;
+        public Parameter<AnimationCurve> animationCurve;
 
         private Vector2 initPosition;
         private Vector2 finalPosition;
         private float t;
 
-        protected override string info => $"Lerping To {targetPosition}";
+        public override string Info => $"Lerping To {targetPosition}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            initPosition = agent.position;
-            finalPosition = targetPosition.value;
+            initPosition = Agent.position;
+            finalPosition = targetPosition.Value;
             t = 0f;
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            t += Time.deltaTime / time.value;
-            agent.position = Vector2.Lerp(initPosition, finalPosition, animationCurve.value.Evaluate(t));
+            t += Time.deltaTime / time.Value;
+            Agent.position = Vector2.Lerp(initPosition, finalPosition, animationCurve.Value.Evaluate(t));
 
             if (t >= 1)
                 EndAction(true);

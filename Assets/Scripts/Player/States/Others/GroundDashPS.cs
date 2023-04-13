@@ -20,7 +20,7 @@ namespace AdventureGame.Player.States
             SFX.Dash();
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
             //Physics.SetGroundDashVelocity(Physics.Direction, PhysicsSettings.GroundDashVelocity);
         }

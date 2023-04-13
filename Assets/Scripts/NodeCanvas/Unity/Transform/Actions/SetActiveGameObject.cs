@@ -1,21 +1,21 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("GameObject.SetActive(active)")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("GameObject.SetActive(active)")]
     public class SetActiveGameObject : ActionTask<Transform> 
     {
-        [RequiredField] public BBParameter<bool> active;
+        /*[RequiredField]*/ public Parameter<bool> active;
 
-        protected override string info => active.value ?
-            $"Enable {agentInfo}" : $"Disable {agentInfo}";
+        public override string Info => active.Value ?
+            $"Enable {AgentInfo}" : $"Disable {AgentInfo}";
 
-        protected override void OnExecute() {
-            agent.gameObject.SetActive(active.value);
+        protected override void StartAction() {
+            Agent.gameObject.SetActive(active.Value);
             EndAction(true);
         }
     }

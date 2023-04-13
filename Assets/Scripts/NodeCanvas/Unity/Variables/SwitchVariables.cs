@@ -1,20 +1,20 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Variables)]
-    [Description("Switch the value variable A to B")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Switch the value variable A to B")]
     public class SwitchVariables<T> : ActionTask {
 
-        [RequiredField] public BBParameter<T> variableA;
-        [RequiredField] public BBParameter<T> variableB;
+        /*[RequiredField]*/ public Parameter<T> variableA;
+        /*[RequiredField]*/ public Parameter<T> variableB;
 
-        protected override void OnExecute() {
-            T aux = variableA.value;
-            variableA.value = variableB.value;
-            variableB.value = aux;
+        protected override void StartAction() {
+            T aux = variableA.Value;
+            variableA.Value = variableB.Value;
+            variableB.Value = aux;
             EndAction(true);
         }
     }

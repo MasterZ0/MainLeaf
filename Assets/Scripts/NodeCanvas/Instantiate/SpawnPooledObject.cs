@@ -1,30 +1,30 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.ObjectPooling;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using Header = ParadoxNotion.Design.HeaderAttribute;
+
 
 namespace AdventureGame.NodeCanvas.Instantiate 
 {
-    [Category(Categories.Instantiate)]
-    [Description("Get object from ObjectPool")]
+    [NodeCategory(Categories.Instantiate)]
+    [NodeDescription("Get object from ObjectPool")]
     public class SpawnPooledObject<T> : ActionTask where T : Component 
     {
         [Header("Spawn Pooled Object")]
-        [RequiredField] public BBParameter<T> prefab;
-        public BBParameter<Vector3> position = Vector3.zero;
-        public BBParameter<Quaternion> rotation = Quaternion.identity;
-        public BBParameter<Transform> parent = null;
+        /*[RequiredField]*/ public Parameter<T> prefab;
+        public Parameter<Vector3> position = Vector3.zero;
+        public Parameter<Quaternion> rotation = Quaternion.identity;
+        public Parameter<Transform> parent = null;
 
         [Header("Out")]
-        public BBParameter<T> returnedObject;
+        public Parameter<T> returnedObject;
 
-        protected override string info => $"Spawn {prefab}";
+        public override string Info => $"Spawn {prefab}";
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            returnedObject.value = ObjectPool.SpawnPooledObject(prefab.value, position.value, rotation.value, parent.value);
+            returnedObject.Value = ObjectPool.SpawnPooledObject(prefab.Value, position.Value, rotation.Value, parent.Value);
             EndAction(true);
         }
     }

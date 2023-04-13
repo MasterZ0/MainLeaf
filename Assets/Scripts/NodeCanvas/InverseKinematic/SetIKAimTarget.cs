@@ -1,25 +1,25 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using RootMotion.FinalIK;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.InverseKinematic
 {
-    [Name("Set IK Aim Target")]
-    [Category(Categories.IK)]
-    [Description("TODO")]
+    //[Name("Set IK Aim Target")]
+    [NodeCategory(Categories.IK)]
+    [NodeDescription("TODO")]
     public class SetIKAimTarget : ActionTask<AimIK>
     {
-        public BBParameter<Transform> target;
+        public Parameter<Transform> target;
 
-        protected override string info => $"{name} = {target}";
+        public override string Info => $"{name} = {target}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            IKSolverAim ikAim = agent.GetIKSolver() as IKSolverAim;
+            IKSolverAim ikAim = Agent.GetIKSolver() as IKSolverAim;
 
-            ikAim.target = target.value;
+            ikAim.target = target.Value;
             EndAction();
         }
     }

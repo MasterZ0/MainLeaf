@@ -1,52 +1,52 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Animations)]
-    [Description("Play animation by state name in all layers")]
+    [NodeCategory(Categories.Animations)]
+    [NodeDescription("Play animation by state name in all layers")]
     public class PlayAnimationAllLayers : ActionTask<Animator>
     {
-        public BBParameter<string> stateName;
-        [SliderField(0, 1)]
-        public BBParameter<float> transition = 0.25f;
+        public Parameter<string> stateName;
+        [Range(0, 1)]
+        public Parameter<float> transition = 0.25f;
 
-        public BBParameter<bool> waitUntilFinish;
-        [ShowIf(nameof(waitUntilFinish), 1)]
-        public BBParameter<int> waitLayer;
+        public Parameter<bool> waitUntilFinish;
+        //[ShowIf(nameof(waitUntilFinish), 1)]
+        public Parameter<int> waitLayer;
 
-        protected override string info => $"► Play All: {stateName}";
+        public override string Info => $"► Play All: {stateName}";
 
         private AnimatorStateInfo stateInfo;
         private bool played;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             played = false;
 
-            for (int i = 0; i <= agent.layerCount; i++)
+            for (int i = 0; i <= Agent.layerCount; i++)
             {
-                AnimatorStateInfo current = agent.GetCurrentAnimatorStateInfo(i);
-                agent.CrossFade(stateName.value, transition.value / current.length, i);
+                AnimatorStateInfo current = Agent.GetCurrentAnimatorStateInfo(i);
+                Agent.CrossFade(stateName.Value, transition.Value / current.length, i);
             }
 
-            if (!waitUntilFinish.value)
+            if (!waitUntilFinish.Value)
             {
                 EndAction(true);
             }
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            stateInfo = agent.GetCurrentAnimatorStateInfo(waitLayer.value);
+            stateInfo = Agent.GetCurrentAnimatorStateInfo(waitLayer.Value);
 
-            if (stateInfo.IsName(stateName.value))
+            if (stateInfo.IsName(stateName.Value))
             {
 
                 played = true;
-                if (elapsedTime >= (stateInfo.length / agent.speed))
+                if (NodeRunningTime >= (stateInfo.length / Agent.speed))
                 {
                     EndAction(true);
                 }

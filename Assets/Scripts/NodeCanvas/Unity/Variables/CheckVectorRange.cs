@@ -1,13 +1,13 @@
 ﻿using AdventureGame.Shared.ExtensionMethods;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Best way to check if some object is null")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Best way to check if some object is null")]
     public class CheckVectorRange : ConditionTask
     {
         public enum RangeCompareMethod
@@ -17,13 +17,13 @@ namespace AdventureGame.NodeCanvas.Unity
             Above
         }
 
-        public BBParameter<float> variable;
-        public BBParameter<Vector2> range;
-        public BBParameter<RangeCompareMethod> checkType = RangeCompareMethod.Inside;
+        public Parameter<float> variable;
+        public Parameter<Vector2> range;
+        public Parameter<RangeCompareMethod> checkType = RangeCompareMethod.Inside;
 
-        protected override string info
+        public override string Info
         {
-            get => checkType.value switch
+            get => checkType.Value switch
             {
                 RangeCompareMethod.Below => $"{variable} < {range}.X",
                 RangeCompareMethod.Inside => $"{variable} Inside {range}",
@@ -32,13 +32,13 @@ namespace AdventureGame.NodeCanvas.Unity
             };
         }
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            return checkType.value switch
+            return checkType.Value switch
             {
-                RangeCompareMethod.Below => variable.value < range.value.x,
-                RangeCompareMethod.Inside => range.value.InsideRange(variable.value),
-                RangeCompareMethod.Above => variable.value > range.value.y,
+                RangeCompareMethod.Below => variable.Value < range.Value.x,
+                RangeCompareMethod.Inside => range.Value.InsideRange(variable.Value),
+                RangeCompareMethod.Above => variable.Value > range.Value.y,
                 _ => throw new System.NotImplementedException(),
             };
         }

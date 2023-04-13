@@ -1,3 +1,55 @@
+
+
+using System;
+using UnityEngine;
+
+namespace AdventureGame
+{
+    public class GraphOwner
+    {
+        public void SendEvent(string eventname, object value = null, Transform transform = null)
+        {
+
+        }
+    }
+    public interface IEventData
+    {
+
+    }
+    public enum CompareMethod
+    {
+        LessOrEqualTo,
+        EqualTo
+    }
+    public enum OperationMethod
+    {
+        Set
+    }
+
+    public class OperationTools
+    {
+        public static bool Compare(float healthPercentage, float v1, CompareMethod checkType, float v2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool Compare(int count, int value, CompareMethod checkType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static string GetCompareString(CompareMethod checkType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static float Operate(float x1, float x2, OperationMethod operation)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
 namespace AdventureGame.Shared.NodeCanvas
 {
     /// <summary>

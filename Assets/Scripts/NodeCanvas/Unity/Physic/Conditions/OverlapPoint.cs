@@ -1,25 +1,25 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Physics)]
-    [Description("Create a OverlapPoint in the transform.position")]
+    [NodeCategory(Categories.Physics)]
+    [NodeDescription("Create a OverlapPoint in the transform.position")]
     public class OverlapPoint : ConditionTask<Transform> 
     {
-        public BBParameter<Vector3> offset;
-        public BBParameter<LayerMask> layerMask;
+        public Parameter<Vector3> offset;
+        public Parameter<LayerMask> layerMask;
 
-        protected override bool OnCheck() 
+        public override bool CheckCondition() 
         {
-            return Physics.CheckSphere(agent.position + offset.value, float.MinValue, layerMask.value);
+            return Physics.CheckSphere(Agent.position + offset.Value, float.MinValue, layerMask.Value);
         }
 
-        public override void OnDrawGizmosSelected() {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(agent.position + offset.value, .2f);
-        }
+        //public override void OnDrawGizmosSelected() {
+        //    Gizmos.color = Color.green;
+        //    Gizmos.DrawWireSphere(Agent.position + offset.Value, .2f);
+        //}
     }
 }

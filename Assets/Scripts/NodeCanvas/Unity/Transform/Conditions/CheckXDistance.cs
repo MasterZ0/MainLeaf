@@ -1,24 +1,23 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 using AdventureGame.Shared.NodeCanvas;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using ParadoxNotion;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Check the distance beetwen the agent to the target comparing the distance.")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Check the distance beetwen the agent to the target comparing the distance.")]
     public class CheckXDistance : ConditionTask<Transform> {
 
-        public BBParameter<Vector3> target;
-        public BBParameter<float> distance;
+        public Parameter<Vector3> target;
+        public Parameter<float> distance;
         public CompareMethod checkType = CompareMethod.LessOrEqualTo;
 
-        protected override string info => $"{agentInfo}.X - {target}.X" + OperationTools.GetCompareString(checkType) + distance;
+        public override string Info => $"{AgentInfo}.X - {target}.X" + OperationTools.GetCompareString(checkType) + distance;
 
-        protected override bool OnCheck() {
-            float xDistance = Mathf.Abs(agent.position.x - target.value.x);
-            return OperationTools.Compare(xDistance, distance.value, checkType, 0f);
+        public override bool CheckCondition() {
+            float xDistance = Mathf.Abs(Agent.position.x - target.Value.x);
+            return OperationTools.Compare(xDistance, distance.Value, checkType, 0f);
         }
     }
 }

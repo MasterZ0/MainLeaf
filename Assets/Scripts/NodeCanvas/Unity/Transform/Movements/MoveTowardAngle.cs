@@ -1,37 +1,37 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Shared.Utils;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Movement)]
-    [Description("Move a GameObject to the target position.")]
+    [NodeCategory(Categories.Movement)]
+    [NodeDescription("Move a GameObject to the target position.")]
     public class MoveTowardAngle : ActionTask<Transform> {
 
-        public BBParameter<Axis3> axis = Axis3.Z;
-        public BBParameter<float> speed;
-        public BBParameter<float> angle;
-        public BBParameter<float> distance;
+        public Parameter<Axis3> axis = Axis3.Z;
+        public Parameter<float> speed;
+        public Parameter<float> angle;
+        public Parameter<float> distance;
 
         private Vector2 target;
         private const float ThresholdDistance = 0.02f;
 
-        protected override string info => agent != null ? $"Move To {angle}º" : name;
-        private Vector2 Target => MathUtils.AngleToDirection(angle.value, distance.value) + (Vector2)agent.position;
+        public override string Info => Agent != null ? $"Move To {angle}º" : name;
+        private Vector2 Target => MathUtils.AngleToDirection(angle.Value, distance.Value) + (Vector2)Agent.position;
 
-        protected override void OnExecute() {
+        protected override void StartAction() {
             target = Target;
         }
 
 
-        protected override void OnUpdate() {
+        protected override void UpdateAction() {
 
-            agent.position = Vector3.MoveTowards(agent.position, target, Time.fixedDeltaTime * speed.value);
+            Agent.position = Vector3.MoveTowards(Agent.position, target, Time.fixedDeltaTime * speed.Value);
 
-            if (Vector3.Distance(agent.position, target) < ThresholdDistance) {
-                agent.position = target;
+            if (Vector3.Distance(Agent.position, target) < ThresholdDistance) {
+                Agent.position = target;
                 EndAction(true);
             }
         }

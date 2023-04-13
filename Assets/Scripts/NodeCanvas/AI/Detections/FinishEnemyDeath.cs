@@ -1,17 +1,17 @@
 ﻿using AdventureGame.AI;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 
 namespace AdventureGame.NodeCanvas.AI 
 {
-    [Category(Categories.AI)]
-    [Description("Kills given enemy")]
+    [NodeCategory(Categories.AI)]
+    [NodeDescription("Kills given enemy")]
     public class FinishEnemyDeath : ActionTask<Enemy> 
     {
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            agent.FinishEnemyDeath();
+            Agent.FinishEnemyDeath();
             EndAction(true);
         }
     }

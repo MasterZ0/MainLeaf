@@ -1,31 +1,31 @@
-﻿using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+﻿using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.Player.States
 {
-    [Description("It becomes true when the selected input changes to the desired state, disregarding the current state")]
+    [NodeDescription("It becomes true when the selected input changes to the desired state, disregarding the current state")]
     public class CheckPlayerEventPS : PlayerCondition
     {
-        public BBParameter<PlayerEvent> eventType;
+        public Parameter<PlayerEvent> eventType;
 
         private bool actionCalled;
 
-        protected override string info => $"{name}: {eventType}";
+        public override string Info => $"{name}: {eventType}";
 
-        protected override void OnEnable()
+        public override void StartCondition()
         {
             actionCalled = false;
-            agent.OnPlayerEvent += OnPlayerEvent;
+            Agent.OnPlayerEvent += OnPlayerEvent;
         }
 
-        protected override void OnDisable()
+        public override void StopCondition()
         {
-            agent.OnPlayerEvent -= OnPlayerEvent;
+            Agent.OnPlayerEvent -= OnPlayerEvent;
         }
 
-        private void OnPlayerEvent(PlayerEvent playerEvent) => actionCalled = playerEvent == eventType.value;
+        private void OnPlayerEvent(PlayerEvent playerEvent) => actionCalled = playerEvent == eventType.Value;
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
             bool value = actionCalled;
             actionCalled = false;

@@ -1,22 +1,22 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity 
 {
-    [Category(Categories.Components)]
-    [Description("MonoBehaviour.enable = active")]
+    [NodeCategory(Categories.Components)]
+    [NodeDescription("MonoBehaviour.enable = active")]
     public class SetActiveComponent : ActionTask<Behaviour> 
     {
-        [RequiredField] public BBParameter<bool> active;
+        /*[RequiredField]*/ public Parameter<bool> active;
 
-        protected override string info => active.value ? 
-            $"Enable {agentInfo}" : 
-            $"Disable {agentInfo}";
+        public override string Info => active.Value ? 
+            $"Enable {AgentInfo}" : 
+            $"Disable {AgentInfo}";
 
-        protected override void OnExecute() {
-            agent.enabled = active.value;
+        protected override void StartAction() {
+            Agent.enabled = active.Value;
             EndAction(true);
         }
     }

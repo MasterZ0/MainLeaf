@@ -1,30 +1,30 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using Header = ParadoxNotion.Design.HeaderAttribute;
+
 
 namespace AdventureGame.NodeCanvas.Instantiate
 {
-    [Category(Categories.Instantiate)]
-    [Description("This class allows to use Quaterion")]
+    [NodeCategory(Categories.Instantiate)]
+    [NodeDescription("This class allows to use Quaterion")]
     public class InstantiateComponent<T> : ActionTask where T : Component
     {
         [Header("Spawn Pooled Object")]
-        [RequiredField] public BBParameter<T> prefab;
-        public BBParameter<Vector3> position = Vector3.zero;
-        public BBParameter<Quaternion> rotation = Quaternion.identity;
-        public BBParameter<Transform> parent = null;
+        /*[RequiredField]*/ public Parameter<T> prefab;
+        public Parameter<Vector3> position = Vector3.zero;
+        public Parameter<Quaternion> rotation = Quaternion.identity;
+        public Parameter<Transform> parent = null;
 
         [Header("Out")]
-        public BBParameter<T> returnedObject;
+        public Parameter<T> returnedObject;
 
-        protected override string info => prefab.value == null ?
+        public override string Info => prefab.Value == null ?
             name : $"Instantiate {prefab}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            returnedObject = Object.Instantiate(prefab.value, position.value, rotation.value, parent.value);
+            returnedObject = Object.Instantiate(prefab.Value, position.Value, rotation.Value, parent.Value);
             EndAction(true);
         }
     }

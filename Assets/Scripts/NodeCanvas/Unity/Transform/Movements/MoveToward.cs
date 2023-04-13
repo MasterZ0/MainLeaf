@@ -1,26 +1,26 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity {
 
-    [Category(Categories.Movement)]
-    [Description("Move a GameObject to the target position.")]
+    [NodeCategory(Categories.Movement)]
+    [NodeDescription("Move a GameObject to the target position.")]
     public class MoveToward : ActionTask<Transform> 
     {
-        public BBParameter<Vector3> targetPosition;
-        public BBParameter<float> speed;
+        public Parameter<Vector3> targetPosition;
+        public Parameter<float> speed;
 
-        protected override string info => $"Move To {targetPosition}";
+        public override string Info => $"Move To {targetPosition}";
 
         private const float ThresholdDistance = 0.02f;
 
-        protected override void OnUpdate() 
+        protected override void UpdateAction() 
         {
-            agent.position = Vector3.MoveTowards(agent.position, targetPosition.value, Time.fixedDeltaTime * speed.value);
+            Agent.position = Vector3.MoveTowards(Agent.position, targetPosition.Value, Time.fixedDeltaTime * speed.Value);
 
-            if (Vector3.Distance(agent.position, targetPosition.value) < ThresholdDistance) 
+            if (Vector3.Distance(Agent.position, targetPosition.Value) < ThresholdDistance) 
             {
                 EndAction();
             }

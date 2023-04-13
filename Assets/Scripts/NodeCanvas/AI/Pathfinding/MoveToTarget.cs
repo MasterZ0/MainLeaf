@@ -1,39 +1,39 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using Pathfinding;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI.Pathfinding
 {
-    [Category(Categories.Pathfinding)]
-    [Description("TODO")]
+    [NodeCategory(Categories.Pathfinding)]
+    [NodeDescription("TODO")]
     public class MoveToTarget : ActionTask<AIPath>
     {
-        public BBParameter<Vector3> target;
+        public Parameter<Vector3> target;
 
-        protected override string info => $"Move To {target}";
+        public override string Info => $"Move To {target}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.canMove = true;
-            agent.canSearch = true;
+            Agent.canMove = true;
+            Agent.canSearch = true;
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            agent.destination = target.value;
+            Agent.destination = target.Value;
 
-            if (agent.reachedDestination)
+            if (Agent.reachedDestination)
             {
                 EndAction();
             }
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            agent.canMove = false;
-            agent.canSearch = false;
+            Agent.canMove = false;
+            Agent.canSearch = false;
         }
     }
 }

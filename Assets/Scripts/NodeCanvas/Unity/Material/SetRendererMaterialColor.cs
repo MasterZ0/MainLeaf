@@ -1,33 +1,33 @@
 ﻿using AdventureGame.Shared.ExtensionMethods;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas
 {
-    [Category(Categories.Components)]
-    [Description("Set Renderer Material Color")]
+    [NodeCategory(Categories.Components)]
+    [NodeDescription("Set Renderer Material Color")]
     public class SetRendererMaterialColor : ActionTask<Renderer>
     {
-        public BBParameter<string> property = "_Color"; // You can see properties in inspector by debug like "_UnlitColor"
-        public BBParameter<Color> color;
+        public Parameter<string> property = "_Color"; // You can see properties in inspector by debug like "_UnlitColor"
+        public Parameter<Color> color;
 
-        protected override string info => $"Set Color {agentInfo} = {GetColorInfo(color)}";
+        public override string Info => $"Set Color {AgentInfo} = {GetColorInfo(color)}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.material.SetColor(property.value, color.value);
+            Agent.material.SetColor(property.Value, color.Value);
 
             EndAction(true);
         }
 
-        private string GetColorInfo(BBParameter<Color> parameter)
+        private string GetColorInfo(Parameter<Color> parameter)
         {
             if (parameter.isDefined)
                 return parameter.ToString();
 
-            return parameter.value switch
+            return parameter.Value switch
             {
                 Color color when color == Color.red => "Red".AddRichBold(),
                 Color color when color == Color.green => "Green".AddRichBold(),

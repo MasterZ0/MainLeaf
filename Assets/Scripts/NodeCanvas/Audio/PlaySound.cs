@@ -1,26 +1,26 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Audio;
 using AdventureGame.Shared.ExtensionMethods;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Audio
 {
-    [Category(Categories.Audio)]
-    [Description("Play the current SoundData")]
+    [NodeCategory(Categories.Audio)]
+    [NodeDescription("Play the current SoundData")]
     public class PlaySound : ActionTask<Transform>
     {
-        public BBParameter<SoundData> soundData;
-        public BBParameter<SoundInstance> instanceReturned;
+        public Parameter<SoundData> soundData;
+        public Parameter<SoundInstance> instanceReturned;
 
-        protected override string info =>
+        public override string Info =>
             soundData.isNoneOrNull ? "♫ Play <b>NULL</b>" :
-            $"♫ Play <b>{soundData.value.name.StringReduction()}</b>";
+            $"♫ Play <b>{soundData.Value.name.StringReduction()}</b>";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            instanceReturned.value = soundData.value.PlaySound(agent);
+            instanceReturned.Value = soundData.Value.PlaySound(Agent);
             EndAction(true);
         }
     }

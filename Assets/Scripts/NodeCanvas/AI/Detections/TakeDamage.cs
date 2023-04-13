@@ -1,23 +1,23 @@
 ﻿using AdventureGame.BattleSystem;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI
 {
-    [Category(Categories.AI)]
-    [Description("Deals damage to IHitable")]
+    [NodeCategory(Categories.AI)]
+    [NodeDescription("Deals damage to IHitable")]
     public class TakeDamage : ActionTask<IStatusOwner>
     {
-        public BBParameter<Transform> sender;
-        public BBParameter<int> damageValue;
+        public Parameter<Transform> sender;
+        public Parameter<int> damageValue;
 
-        protected override string info => $"{name} = {damageValue}";
+        public override string Info => $"{name} = {damageValue}";
         
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.TakeDamage(damageValue.value);
+            Agent.TakeDamage(damageValue.Value);
             EndAction(true);
         }
     }

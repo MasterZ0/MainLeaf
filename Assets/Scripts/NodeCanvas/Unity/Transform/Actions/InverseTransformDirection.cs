@@ -1,22 +1,22 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Get Character Controller Velocity")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Get Character Controller Velocity")]
     public class InverseTransformDirection : ActionTask
     {
-        public BBParameter<Vector3> direction;
-        public BBParameter<Vector3> inverse;
+        public Parameter<Vector3> direction;
+        public Parameter<Vector3> inverse;
 
-        protected override string info => $"Get {agentInfo} Velocity";
+        public override string Info => $"Get {AgentInfo} Velocity";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            inverse.value = agent.transform.InverseTransformDirection(direction.value);
+            inverse.Value = Agent.transform.InverseTransformDirection(direction.Value);
             EndAction();
         }
     }

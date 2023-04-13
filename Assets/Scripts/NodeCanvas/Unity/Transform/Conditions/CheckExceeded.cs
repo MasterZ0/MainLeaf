@@ -1,28 +1,28 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 using AdventureGame.Shared.NodeCanvas;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
 
-    [Category(Categories.Transform)]
-    [Description("Compare the agent passed the target + offset.")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Compare the agent passed the target + offset.")]
     public class CheckExceed : ConditionTask<Transform> 
     {
-        public BBParameter<Axis3> axis;
-        public BBParameter<Vector3> target;
-        public BBParameter<float> offset;
+        public Parameter<Axis3> axis;
+        public Parameter<Vector3> target;
+        public Parameter<float> offset;
 
-        protected override string info => offset.value == 0 ?
+        public override string Info => offset.Value == 0 ?
             $"Exceeded {axis} {target}":
             $"Exceeded {axis} {target} {offset}";
 
-        protected override bool OnCheck() 
+        public override bool CheckCondition() 
         {
-            Vector3 inverse = agent.InverseTransformPoint(target.value);
+            Vector3 inverse = Agent.InverseTransformPoint(target.Value);
             
-            return offset.value > axis.value switch
+            return offset.Value > axis.Value switch
             {
                 Axis3.X => inverse.x,
                 Axis3.Y => inverse.y,

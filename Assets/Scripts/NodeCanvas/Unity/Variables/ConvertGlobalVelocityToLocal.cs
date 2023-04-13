@@ -1,26 +1,26 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("Convert the global velocity to the velocity the transform is directed")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("Convert the global velocity to the velocity the transform is directed")]
     public class ConvertGlobalVelocityToLocal : ActionTask<Transform>
     {
-        public BBParameter<Vector3> globalVelocity;
-        public BBParameter<Vector3> localVelocity;
+        public Parameter<Vector3> globalVelocity;
+        public Parameter<Vector3> localVelocity;
 
-        protected override string info => $"Convert {globalVelocity} to Velocity";
+        public override string Info => $"Convert {globalVelocity} to Velocity";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            localVelocity.value = new Vector3()
+            localVelocity.Value = new Vector3()
             {
-                x = Vector3.Dot(agent.right, globalVelocity.value),
-                y = Vector3.Dot(agent.up, globalVelocity.value),
-                z = Vector3.Dot(agent.forward, globalVelocity.value)
+                x = Vector3.Dot(Agent.right, globalVelocity.Value),
+                y = Vector3.Dot(Agent.up, globalVelocity.Value),
+                z = Vector3.Dot(Agent.forward, globalVelocity.Value)
             };
 
             EndAction();

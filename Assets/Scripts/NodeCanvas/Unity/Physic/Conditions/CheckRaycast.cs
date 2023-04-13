@@ -1,29 +1,28 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Physics)]
-    [Description("Launch a Raycast and return true or false if something was hit.")]
+    [NodeCategory(Categories.Physics)]
+    [NodeDescription("Launch a Raycast and return true or false if something was hit.")]
     public class CheckRaycast : ConditionTask
     {
         [Header("Out")]
-        public BBParameter<Vector3> rayOrigin;
-        public BBParameter<Vector3> direction;
-        public BBParameter<LayerMask> layerMask;
-        public BBParameter<float> distance;
+        public Parameter<Vector3> rayOrigin;
+        public Parameter<Vector3> direction;
+        public Parameter<LayerMask> layerMask;
+        public Parameter<float> distance;
         
         [Header("Out")]
-        public BBParameter<Vector2> positionHit;
+        public Parameter<Vector2> positionHit;
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            bool successful = Physics.Raycast(rayOrigin.value, direction.value, out RaycastHit hit, distance.value, layerMask.value);
+            bool successful = Physics.Raycast(rayOrigin.Value, direction.Value, out RaycastHit hit, distance.Value, layerMask.Value);
 
-            positionHit.value = hit.point;
+            positionHit.Value = hit.point;
             
             return successful;
         }

@@ -1,31 +1,31 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI
 {
-    [Category(Categories.Pathfinding)]
-    [Description("TODO")]
+    [NodeCategory(Categories.Pathfinding)]
+    [NodeDescription("TODO")]
     public class GetDeltaMovement : ActionTask<Transform>
     {
-        public BBParameter<Vector3> velocity;
+        public Parameter<Vector3> velocity;
 
-        protected override string info => $"Get {agentInfo} AI Velocity";
+        public override string Info => $"Get {AgentInfo} AI Velocity";
 
         private Vector3 previousPosition;
         private int previousFrame;
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             previousFrame = Time.frameCount;
-            previousPosition = agent.position;
+            previousPosition = Agent.position;
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
             if (Time.frameCount > previousFrame)
             {
-                velocity.value = (agent.position - previousPosition) / Time.fixedDeltaTime;
+                velocity.Value = (Agent.position - previousPosition) / Time.fixedDeltaTime;
                 EndAction();
             }
         }

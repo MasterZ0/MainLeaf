@@ -1,9 +1,9 @@
-﻿using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+﻿using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.Player.States
 {
-    [Description("Used to evaluate the equipped items")]
+    [NodeDescription("Used to evaluate the equipped items")]
     public class CheckArsenalPS : PlayerCondition
     {
         public enum ArsenalCondition
@@ -11,11 +11,11 @@ namespace AdventureGame.Player.States
             CanShootArrow
         }
 
-        public BBParameter<ArsenalCondition> condition;
+        public Parameter<ArsenalCondition> condition;
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            return condition.value switch
+            return condition.Value switch
             {
                 ArsenalCondition.CanShootArrow => Arsenal.CanShootArrow,
                 _ => throw new System.NotImplementedException(),

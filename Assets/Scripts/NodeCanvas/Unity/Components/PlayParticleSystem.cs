@@ -1,22 +1,22 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
 
-    [Category(Categories.Components)]
-    [Description("Play a particle system.")]
+    [NodeCategory(Categories.Components)]
+    [NodeDescription("Play a particle system.")]
     public class PlayParticleSystem : ActionTask<ParticleSystem>
     {
-        protected override string info => $"Play {agentInfo}";
+        public override string Info => $"Play {AgentInfo}";
 
-        public BBParameter<bool> playChildren;
+        public Parameter<bool> playChildren;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.Play(playChildren.value);
+            Agent.Play(playChildren.Value);
             EndAction(true);
         }
     }

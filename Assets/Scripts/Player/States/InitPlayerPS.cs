@@ -1,30 +1,30 @@
 ﻿using AdventureGame.Data;
-using NodeCanvas.Framework;
+using Z3.NodeGraph.Core;
 
 namespace AdventureGame.Player.States
 {
     public abstract class InitPlayerPS<T> : PlayerAction where T : PlayerSettings
     {
-        public BBParameter<float> aimMoveSpeed;
-        public BBParameter<float> walkSpeed;
-        public BBParameter<float> sprintSpeed;
+        public Parameter<float> aimMoveSpeed;
+        public Parameter<float> walkSpeed;
+        public Parameter<float> sprintSpeed;
 
-        public BBParameter<float> jumpGravity;
-        public BBParameter<float> groundedGravity;
-        public BBParameter<float> fallingGravity;
+        public Parameter<float> jumpGravity;
+        public Parameter<float> groundedGravity;
+        public Parameter<float> fallingGravity;
 
         protected sealed override void EnterState()
         {
-            T settings = agent.PlayerSettings as T;
+            T settings = Agent.PlayerSettings as T;
             Init(settings);
 
-            aimMoveSpeed.value = settings.Physics.AimMoveSpeed;
-            walkSpeed.value = settings.Physics.WalkSpeed;
-            sprintSpeed.value = settings.Physics.SprintSpeed;
+            aimMoveSpeed.Value = settings.Physics.AimMoveSpeed;
+            walkSpeed.Value = settings.Physics.WalkSpeed;
+            sprintSpeed.Value = settings.Physics.SprintSpeed;
 
-            jumpGravity.value = settings.Physics.JumpGravity;
-            groundedGravity.value = settings.Physics.GroundedGravity;
-            fallingGravity.value = settings.Physics.FallingGravity;
+            jumpGravity.Value = settings.Physics.JumpGravity;
+            groundedGravity.Value = settings.Physics.GroundedGravity;
+            fallingGravity.Value = settings.Physics.FallingGravity;
 
             EndAction(true);
         }

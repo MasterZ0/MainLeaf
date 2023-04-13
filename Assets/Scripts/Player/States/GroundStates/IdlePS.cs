@@ -1,17 +1,17 @@
-    using NodeCanvas.Framework;
+    using Z3.NodeGraph.Core;
 
 namespace AdventureGame.Player.States
 {
     public class IdlePS : PlayerAction
     {
-        public BBParameter<string> idleState;
-        public BBParameter<string> overrideIdleState;
+        public Parameter<string> idleState;
+        public Parameter<string> overrideIdleState;
 
         protected override void EnterState()
         {
-            string stateName = string.IsNullOrEmpty(overrideIdleState.value) ? idleState.value : overrideIdleState.value;
+            string stateName = string.IsNullOrEmpty(overrideIdleState.Value) ? idleState.Value : overrideIdleState.Value;
             Animator.PlayAllLayers(stateName);
-            overrideIdleState.value = string.Empty;
+            overrideIdleState.Value = string.Empty;
             EndAction();
         }
     }

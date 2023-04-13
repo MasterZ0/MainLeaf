@@ -1,45 +1,45 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using RootMotion.FinalIK;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.InverseKinematic
 {
-    [Name("Set IK Weight")]
-    [Category(Categories.IK)]
-    [Description("TODO")]
+    //[Name("Set IK Weight")]
+    [NodeCategory(Categories.IK)]
+    [NodeDescription("TODO")]
     public class SetIKWeight : ActionTask<IK>
     {
         public bool useSpeed = true;
-        [SliderField(0f, 1f)]
-        public BBParameter<float> weight;
-        [ShowIf(nameof(useSpeed), 1)]
-        public BBParameter<float> duration;
+        //[Range(0f, 1f)]
+        public Parameter<float> weight;
+        ////[ShowIf(nameof(useSpeed), 1)]
+        public Parameter<float> duration;
 
         private float currentWeight;
 
-        protected override string info => $"Set {agentInfo} Weight = {weight}";
+        //public override string Info => $"Set {AgentInfo} Weight = {weight}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             if (useSpeed)
             {
-                currentWeight = agent.GetIKSolver().GetIKPositionWeight();
+                currentWeight = Agent.GetIKSolver().GetIKPositionWeight();
             }
             else
             {
-                agent.GetIKSolver().SetIKPositionWeight(weight.value);
+                Agent.GetIKSolver().SetIKPositionWeight(weight.Value);
                 EndAction();
             }
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            currentWeight = Mathf.MoveTowards(currentWeight, weight.value, 1f / duration.value * Time.fixedDeltaTime);
-            agent.GetIKSolver().SetIKPositionWeight(currentWeight);
+            currentWeight = Mathf.MoveTowards(currentWeight, weight.Value, 1f / duration.Value * Time.fixedDeltaTime);
+            Agent.GetIKSolver().SetIKPositionWeight(currentWeight);
 
-            if (currentWeight == weight.value)
+            if (currentWeight == weight.Value)
             {
                 EndAction();
             }

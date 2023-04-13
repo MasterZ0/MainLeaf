@@ -1,15 +1,15 @@
-using NodeCanvas.Framework;
+using Z3.NodeGraph.Core;
 using UnityEngine;
 
 namespace AdventureGame.Player.States
 {
     public class SetGravityScalePS : PlayerAction 
     {
-        public BBParameter<float> gravityScale;
+        public Parameter<float> gravityScale;
 
         protected override void EnterState()
         {
-            Physics.SetGravityScale(gravityScale.value);
+            Physics.SetGravityScale(gravityScale.Value);
             EndAction();
         }
     }

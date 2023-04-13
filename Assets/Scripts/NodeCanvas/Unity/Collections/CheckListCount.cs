@@ -1,24 +1,23 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using System.Collections;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Collections)]
-    [Description("Compare the list Count")]
+    [NodeCategory(Categories.Collections)]
+    [NodeDescription("Compare the list Count")]
     public class CheckListCount : ConditionTask {
 
-        public BBParameter<IList> list;
+        public Parameter<IList> list;
         public CompareMethod checkType = CompareMethod.EqualTo;
-        public BBParameter<int> value;
-        protected override string info {
+        public Parameter<int> value;
+        public override string Info {
             get { return list + ".Count" + OperationTools.GetCompareString(checkType) + value; }
         }
 
-        protected override bool OnCheck() {
-            return OperationTools.Compare(list.value.Count, value.value, checkType);
+        public override bool CheckCondition() {
+            return OperationTools.Compare(list.Value.Count, value.Value, checkType);
         }
     }
 }

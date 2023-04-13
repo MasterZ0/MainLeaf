@@ -1,17 +1,17 @@
 using AdventureGame.AI;
 using AdventureGame.Data;
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.AI
 {
-    [Category(Categories.AIInit)]
+    [NodeCategory(Categories.AIInit)]
     public abstract class InitEnemy<T> : ActionTask<Enemy> where T : EnemyData
     {
-        protected T EnemyData => agent.EnemyData as T;
+        protected T EnemyData => Agent.EnemyData as T;
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
             SetParameters();
 
@@ -22,7 +22,7 @@ namespace AdventureGame.NodeCanvas.AI
 
         private void OnDataChanged()
         {
-            if (agent && agent.gameObject.activeSelf)//ownerSystemBlackboard
+            if (Agent && Agent.gameObject.activeSelf)//ownerSystemBlackboard
             {
                 SetParameters();
             }

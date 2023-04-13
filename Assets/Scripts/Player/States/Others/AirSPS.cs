@@ -1,29 +1,29 @@
-using NodeCanvas.Framework;
+using Z3.NodeGraph.Core;
 using UnityEngine;
 
 namespace AdventureGame.Player.States
 {
     public class AirSPS : PlayerAction
     {
-        public BBParameter<bool> jumping;
+        public Parameter<bool> jumping;
 
-        public BBParameter<float> jumpGravity;
-        public BBParameter<float> fallingGravity;
+        public Parameter<float> jumpGravity;
+        public Parameter<float> fallingGravity;
 
         private bool falling;
 
-        private bool MinJumpApplied => elapsedTime > PhysicsSettings.JumpRangeDuration.x;
-        private bool MaxJumpApplied => elapsedTime >= PhysicsSettings.JumpRangeDuration.y;
+        private bool MinJumpApplied => NodeRunningTime > PhysicsSettings.JumpRangeDuration.x;
+        private bool MaxJumpApplied => NodeRunningTime >= PhysicsSettings.JumpRangeDuration.y;
         private bool JumpPressed => Inputs.JumpPressed;
 
         #region Action
         protected override void EnterState()
         {
-            falling = !jumping.value;
+            falling = !jumping.Value;
 
             if (falling)
             {
-                Physics.SetGravityScale(fallingGravity.value);
+                Physics.SetGravityScale(fallingGravity.Value);
                 Animator.Falling();
             }
             else
@@ -33,18 +33,18 @@ namespace AdventureGame.Player.States
 
                 VFX.Jump();
                 SFX.Jump();
-                Physics.SetGravityScale(jumpGravity.value);
+                Physics.SetGravityScale(jumpGravity.Value);
             }
         }
 
-        protected override void OnUpdate()
+        protected override void UpdateAction()
         {
-            if (jumping.value)
+            if (jumping.Value)
             {
                 Physics.Jump(PhysicsSettings.JumpVelocity);
                 if (MinJumpApplied && (!JumpPressed || MaxJumpApplied))
                 {
-                    jumping.value = false;
+                    jumping.Value = false;
                 }
                 return;
             }
@@ -52,7 +52,7 @@ namespace AdventureGame.Player.States
             if (!falling && MinJumpApplied && Physics.Velocity.y < 0) // Wait until start fall
             {
                 falling = true;
-                Physics.SetGravityScale(fallingGravity.value);
+                Physics.SetGravityScale(fallingGravity.Value);
                 Animator.Falling();
             }
         }

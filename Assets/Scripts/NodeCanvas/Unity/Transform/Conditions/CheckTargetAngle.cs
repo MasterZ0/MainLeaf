@@ -1,27 +1,26 @@
-﻿using NodeCanvas.Framework;
+﻿using Z3.NodeGraph.Core;
 using AdventureGame.Shared.NodeCanvas;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using ParadoxNotion;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Transform)]
-    [Description("TODO")]
+    [NodeCategory(Categories.Transform)]
+    [NodeDescription("TODO")]
     public class CheckTargetAngle : ConditionTask<Transform>
     {
-        public BBParameter<Vector3> target;
+        public Parameter<Vector3> target;
         [Range(0f, 180f)]
-        public BBParameter<float> angle;
+        public Parameter<float> angle;
         public CompareMethod checkType = CompareMethod.LessThan;
 
-        protected override string info => $"{target} Angle" + OperationTools.GetCompareString(checkType) + angle;
+        public override string Info => $"{target} Angle" + OperationTools.GetCompareString(checkType) + angle;
 
-        protected override bool OnCheck()
+        public override bool CheckCondition()
         {
-            Vector3 directionToCheck = target.value - agent.position;
-            float targetAngle = Vector3.Angle(agent.forward, directionToCheck);
-            return OperationTools.Compare(targetAngle, angle.value, checkType, 0f);
+            Vector3 directionToCheck = target.Value - Agent.position;
+            float targetAngle = Vector3.Angle(Agent.forward, directionToCheck);
+            return OperationTools.Compare(targetAngle, angle.Value, checkType, 0f);
         }
     }
 }

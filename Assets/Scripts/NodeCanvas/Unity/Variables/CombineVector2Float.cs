@@ -1,29 +1,28 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Name("Combine Vector2 Float")]
-    [Category(Categories.Variables)]
-    [Description("Easy way to combine vector and floats")]
+    //[Name("Combine Vector2 Float")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Easy way to combine vector and floats")]
     public class CombineVector2Float : ActionTask
     {
         [Header("In")]
-        public BBParameter<Vector2> initialVector;
-        public BBParameter<float> xPosition;
-        public BBParameter<float> yPosition;
+        public Parameter<Vector2> initialVector;
+        public Parameter<float> xPosition;
+        public Parameter<float> yPosition;
 
         [Header("Config")]
-        public BBParameter<bool> useFloatX;
-        public BBParameter<bool> useFloatY;
+        public Parameter<bool> useFloatX;
+        public Parameter<bool> useFloatY;
 
         [Header("Out")]
-        public BBParameter<Vector2> returnedVector;
+        public Parameter<Vector2> returnedVector;
 
-        protected override string info
+        public override string Info
         {
             get
             {
@@ -37,31 +36,31 @@ namespace AdventureGame.NodeCanvas.Unity
                 }
                 else
                 {
-                    initialX = $"<b>{initialVector.value.x}</b>";
-                    initialY = $"<b>{initialVector.value.y}</b>";
+                    initialX = $"<b>{initialVector.Value.x}</b>";
+                    initialY = $"<b>{initialVector.Value.y}</b>";
                 }
 
-                string x = useFloatX.value ? xPosition.ToString() : initialX;
-                string y = useFloatY.value ? yPosition.ToString() : initialY;
+                string x = useFloatX.Value ? xPosition.ToString() : initialX;
+                string y = useFloatY.Value ? yPosition.ToString() : initialY;
 
                 return $"{returnedVector} = ({x}, {y})";
             }
         }
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            Vector2 newVector = initialVector.value;
+            Vector2 newVector = initialVector.Value;
 
-            if (useFloatX.value)
+            if (useFloatX.Value)
             {
-                newVector.x = xPosition.value;
+                newVector.x = xPosition.Value;
             }
-            if (useFloatY.value)
+            if (useFloatY.Value)
             {
-                newVector.y = yPosition.value;
+                newVector.y = yPosition.Value;
             }
 
-            returnedVector.value = newVector;
+            returnedVector.Value = newVector;
             EndAction(true);
         }
     }

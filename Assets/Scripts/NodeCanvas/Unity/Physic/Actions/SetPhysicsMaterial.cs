@@ -1,21 +1,21 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Physics)]
-    [Description("Change the PhysicsMaterial of a Rigidbody.")]
+    [NodeCategory(Categories.Physics)]
+    [NodeDescription("Change the PhysicsMaterial of a Rigidbody.")]
     public class SetPhysicsMaterial : ActionTask<Collider>
     {
-        [RequiredField] public BBParameter<PhysicMaterial> physicsMaterial;
+        /*[RequiredField]*/ public Parameter<PhysicMaterial> physicsMaterial;
 
-        protected override string info => $"Set PhysicsMaterial to {physicsMaterial}";
+        public override string Info => $"Set PhysicsMaterial to {physicsMaterial}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            agent.sharedMaterial = physicsMaterial.value;
+            Agent.sharedMaterial = physicsMaterial.Value;
             EndAction(true);
         }
     }

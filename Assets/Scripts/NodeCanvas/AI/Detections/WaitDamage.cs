@@ -1,37 +1,37 @@
 ﻿using AdventureGame.BattleSystem;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.AI
 {
 
-    [Category(Categories.AI)]
-    [Description("Event that is triggered when the enemy receive a damage.")]
+    [NodeCategory(Categories.AI)]
+    [NodeDescription("Event that is triggered when the enemy receive a damage.")]
     public class WaitDamage : ActionTask<IStatusOwner> 
     {
-        public BBParameter<Transform> senderPivot;
-        public BBParameter<Transform> senderCenter;
-        public BBParameter<Transform> senderHead;
+        public Parameter<Transform> senderPivot;
+        public Parameter<Transform> senderCenter;
+        public Parameter<Transform> senderHead;
 
-        protected override void OnExecute() 
+        protected override void StartAction() 
         {
-            agent.Status.OnTakeDamage += OnTakeDamage;
+            Agent.Status.OnTakeDamage += OnTakeDamage;
         }
 
-        protected override void OnStop()
+        protected override void StopAction()
         {
-            agent.Status.OnTakeDamage -= OnTakeDamage;
+            Agent.Status.OnTakeDamage -= OnTakeDamage;
         }
 
         public void OnTakeDamage(DamageInfo damageInfo)
         {
             if (damageInfo.Sender != null)
             {
-                senderPivot.value = damageInfo.Sender.Pivot;
-                senderCenter.value = damageInfo.Sender.Center;
-                senderHead.value = damageInfo.Sender.Head;
+                senderPivot.Value = damageInfo.Sender.Pivot;
+                senderCenter.Value = damageInfo.Sender.Center;
+                senderHead.Value = damageInfo.Sender.Head;
             }
             EndAction(true);
         }

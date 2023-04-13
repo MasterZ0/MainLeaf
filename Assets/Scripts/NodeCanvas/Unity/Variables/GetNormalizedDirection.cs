@@ -1,26 +1,25 @@
-﻿using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+﻿using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 using AdventureGame.Shared.NodeCanvas;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity.Physic
 {
-    [Category(Categories.Variables)]
-    [Description("Get (target.value - from.value).normalized")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Get (target.Value - from.Value).normalized")]
     public class GetNormalizedDirection : ActionTask
     {
         [Header("In")]
-        public BBParameter<Vector3> from;
-        public BBParameter<Vector3> target;
+        public Parameter<Vector3> from;
+        public Parameter<Vector3> target;
 
         [Header("Out")]
-        public BBParameter<Vector3> direction;
+        public Parameter<Vector3> direction;
 
-        protected override string info => $"Get Direction {from} to {target}";
-        protected override void OnExecute()
+        public override string Info => $"Get Direction {from} to {target}";
+        protected override void StartAction()
         {
-            direction.value = (target.value - from.value).normalized;
+            direction.Value = (target.Value - from.Value).normalized;
             EndAction(true);
         }
     }

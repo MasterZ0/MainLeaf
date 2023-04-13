@@ -1,41 +1,40 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Shared.ExtensionMethods;
 using AdventureGame.Shared.Utils;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
 
-    [Category(Categories.Variables)]
-    [Description("Please describe what this ActionTask does.")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Please describe what this ActionTask does.")]
     public class WithinOpeningAngle : ActionTask {
 
         [Header("Config")]
-        public BBParameter<float> angleDirection;
-        public BBParameter<float> openingAngle;
+        public Parameter<float> angleDirection;
+        public Parameter<float> openingAngle;
 
         [Header("Set")]
-        public BBParameter<float> currentAngle;
+        public Parameter<float> currentAngle;
 
-        protected override string info => $"Filter {currentAngle} into {openingAngle}";
+        public override string Info => $"Filter {currentAngle} into {openingAngle}";
 
-        protected override void OnExecute() {
-            float halfAngle = openingAngle.value / 2;
-            float minAngle = (angleDirection.value - halfAngle).NormalizeAngle();
-            float maxAngle = (angleDirection.value + halfAngle).NormalizeAngle();
+        protected override void StartAction() {
+            float halfAngle = openingAngle.Value / 2;
+            float minAngle = (angleDirection.Value - halfAngle).NormalizeAngle();
+            float maxAngle = (angleDirection.Value + halfAngle).NormalizeAngle();
 
             Vector2 angleRange = new Vector2(minAngle, maxAngle);
             if (minAngle > maxAngle) {
-                if (angleRange.InsideRange(currentAngle.value)) {
+                if (angleRange.InsideRange(currentAngle.Value)) {
 
                     RecalculateAngle(angleRange);
                 }
             }
             else {
-                if (!angleRange.InsideRange(currentAngle.value)) {
+                if (!angleRange.InsideRange(currentAngle.Value)) {
 
                     RecalculateAngle(angleRange);
                 }
@@ -47,9 +46,9 @@ namespace AdventureGame.NodeCanvas.Unity
         private void RecalculateAngle(Vector2 range) {
             
             
-            float a = MathUtils.AngleDiference(currentAngle.value, range.x);
-            float b = MathUtils.AngleDiference(currentAngle.value, range.y);
-            currentAngle.value = a < b ? range.x : range.y;
+            float a = MathUtils.AngleDiference(currentAngle.Value, range.x);
+            float b = MathUtils.AngleDiference(currentAngle.Value, range.y);
+            currentAngle.Value = a < b ? range.x : range.y;
         }
     }
 }

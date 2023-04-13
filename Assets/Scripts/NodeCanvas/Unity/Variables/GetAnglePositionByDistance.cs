@@ -1,29 +1,28 @@
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using AdventureGame.Shared.NodeCanvas;
 using UnityEngine;
-using HeaderAttribute = ParadoxNotion.Design.HeaderAttribute;
 using AdventureGame.Shared.Utils;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Variables)]
-    [Description("Returns a poin with a distance by angle.")]
+    [NodeCategory(Categories.Variables)]
+    [NodeDescription("Returns a poin with a distance by angle.")]
     public class GetAnglePositionByDistance : ActionTask 
     {
         [Header("In")]
-        public BBParameter<Vector3> origin;
-        public BBParameter<float> angle;
-        public BBParameter<float> distance;
+        public Parameter<Vector3> origin;
+        public Parameter<float> angle;
+        public Parameter<float> distance;
         [Header("Out")]
-        public BBParameter<Vector3> returnedPosition;
+        public Parameter<Vector3> returnedPosition;
 
-        protected override string info => $"{origin} to {returnedPosition} through angle";
+        public override string Info => $"{origin} to {returnedPosition} through angle";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            Vector3 newPosition = MathUtils.AngleToDirection(angle.value, distance.value);
-            returnedPosition.value = newPosition + origin.value;
+            Vector3 newPosition = MathUtils.AngleToDirection(angle.Value, distance.Value);
+            returnedPosition.Value = newPosition + origin.Value;
             EndAction(true);
         }
     }

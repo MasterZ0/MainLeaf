@@ -1,35 +1,35 @@
 using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Unity
 {
-    [Category(Categories.Animations)]
-    [Description("Sets the sprite layer")]
+    [NodeCategory(Categories.Animations)]
+    [NodeDescription("Sets the sprite layer")]
     public class SetSpriteSortingLayer : ActionTask<SpriteRenderer>
     {
-        [ParadoxNotion.Design.Header("Layer")]
-        public BBParameter<int> sortingLayerIndex;
-        public BBParameter<string> sortingLayerName;
+        [Header("Layer")]
+        public Parameter<int> sortingLayerIndex;
+        public Parameter<string> sortingLayerName;
 
-        [ParadoxNotion.Design.Header("Parameters")]
-        public BBParameter<bool> useName;
+        [Header("Parameters")]
+        public Parameter<bool> useName;
 
-        protected override string info => $"Set sprite layer to {(useName.value ? sortingLayerName.value : SortingLayer.layers[sortingLayerIndex.value].name)}";
+        public override string Info => $"Set sprite layer to {(useName.Value ? sortingLayerName.Value : SortingLayer.layers[sortingLayerIndex.Value].name)}";
 
-        protected override void OnExecute()
+        protected override void StartAction()
         {
-            string layerName = useName.value 
-                ? sortingLayerName.value 
-                : SortingLayer.layers[sortingLayerIndex.value].name;
+            string layerName = useName.Value 
+                ? sortingLayerName.Value 
+                : SortingLayer.layers[sortingLayerIndex.Value].name;
 
             int layerID = SortingLayer.NameToID(layerName);
             
             if(!SortingLayer.IsValid(layerID))
                 EndAction(false);
             
-            agent.sortingLayerID = layerID;
+            Agent.sortingLayerID = layerID;
             EndAction(true);
         }
     }

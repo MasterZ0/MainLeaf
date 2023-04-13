@@ -1,22 +1,22 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
 using AdventureGame.Shared;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 
 namespace AdventureGame.NodeCanvas.Events
 {
-    [Category(Categories.Events)]
-    [Description("Invoke a Game Event")]
+    [NodeCategory(Categories.Events)]
+    [NodeDescription("Invoke a Game Event")]
     public class InvokeGameEvent : ActionTask 
     {
 
-        [RequiredField] public BBParameter<GameEvent> gameEvent;
+        /*[RequiredField]*/ public Parameter<GameEvent> gameEvent;
 
-        protected override string info => !gameEvent.isNoneOrNull ?
-            $"Raise Event <b>{gameEvent.value.name}</b>" : name; 
+        public override string Info => !gameEvent.isNoneOrNull ?
+            $"Raise Event <b>{gameEvent.Value.name}</b>" : name; 
 
-        protected override void OnExecute() {
-            gameEvent.value.Invoke();
+        protected override void StartAction() {
+            gameEvent.Value.Invoke();
             EndAction(true);
         }
     }

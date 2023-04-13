@@ -1,25 +1,25 @@
 ﻿using AdventureGame.Shared.NodeCanvas;
-using NodeCanvas.Framework;
-using ParadoxNotion.Design;
+using Z3.NodeGraph.Core;
+using Z3.NodeGraph.Tasks;
 using UnityEngine;
 
 namespace AdventureGame.NodeCanvas.Analyzers 
 {
-    [Category(Categories.Analyzers)]
-    [Description("Randomizes a value from 0 to 100 and returns true based on chance value")]
+    [NodeCategory(Categories.Analyzers)]
+    [NodeDescription("Randomizes a value from 0 to 100 and returns true based on chance value")]
     public class RandomChance : ConditionTask 
     {
-        [RequiredField] public BBParameter<float> chance;
+        /*[RequiredField]*/ public Parameter<float> chance;
 
-        protected override string info => $"{chance}% chance";
+        public override string Info => $"{chance}% chance";
 
-        protected override bool OnCheck() 
+        public override bool CheckCondition() 
         {
             float random = Random.Range(0f, 100f);
-            if (chance.value == 0)
+            if (chance.Value == 0)
                 return false;
 
-            return chance.value >= random;
+            return chance.Value >= random;
         }
     }
 }
