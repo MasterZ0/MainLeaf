@@ -3,7 +3,7 @@ using AdventureGame.ObjectPooling;
 using AdventureGame.Audio;
 using System.Collections;
 using UnityEngine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Projectiles
 {

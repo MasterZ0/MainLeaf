@@ -1,7 +1,7 @@
 using AdventureGame.Inputs;
 using UnityEngine;
 using AdventureGame.Player.States;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using AdventureGame.BattleSystem;
 using AdventureGame.Data;
 using System;
@@ -93,7 +93,7 @@ namespace AdventureGame.Player
 
         private SensitivityType sensitivity = SensitivityType.Default;
 
-        [ShowInInspector, ReadOnly, TextArea]
+        [/*ShowInInspector,*/ ReadOnly, TextArea]
         private string CurrentState;
         private List<PlayerAction> CurrentActions = new List<PlayerAction>();
 

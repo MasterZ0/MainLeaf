@@ -1,10 +1,10 @@
 using AdventureGame.ObjectPooling;
-using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.VFX;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Effects
 {
@@ -27,11 +27,11 @@ namespace AdventureGame.Effects
         private float lightIntensity;
 
         [Header("Test Only")]
-        [ShowInInspector]
+        //[ShowInInspector]
         private float warmingDuration = 2;
-        [ShowInInspector]
+        //[ShowInInspector]
         private float disappearsDuration = 3;
-        [ShowInInspector]
+        //[ShowInInspector]
         private float delayToDestroy = 2; // Particle lifetime
 
         private void Awake()

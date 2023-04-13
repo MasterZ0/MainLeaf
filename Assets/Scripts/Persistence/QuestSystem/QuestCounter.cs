@@ -1,20 +1,20 @@
 ﻿using AdventureGame.Shared;
-using Sirenix.OdinInspector;
 using UnityEngine;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Persistence.QuestSystem
 {
     /// <summary>
     /// Stores quest information.
     /// </summary>
-    [CreateAssetMenu(menuName = MenuPath.ScriptableObjects +  "/QuestCounter")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.ScriptableObjects +  "/QuestCounter")]
     public class QuestCounter : ScriptableObject
     {
         #region Dev Tools
         [TextArea(10, 50)]
         [SerializeField] private string questDescription = string.Empty;
 
-        [ShowInInspector, ReadOnly]
+        //[ShowInInspector, ReadOnly]
         private bool state;
         private bool ButtonEnable => Application.isPlaying;
         #endregion
@@ -36,10 +36,10 @@ namespace AdventureGame.Persistence.QuestSystem
         }
 
         #region Dev Tools
-        [Button, EnableIf(nameof(ButtonEnable))]
+        [Button/*, EnableIf(nameof(ButtonEnable))*/]
         private void SetCompleteQuest() => SaveState(true);
 
-        [Button, EnableIf(nameof(ButtonEnable))]
+        [Button/*, EnableIf(nameof(ButtonEnable))*/]
         private void ResetQuest() => SaveState(false);
         #endregion
     }

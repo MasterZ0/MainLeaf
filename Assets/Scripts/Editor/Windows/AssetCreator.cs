@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Reflection;
 using System;
 using AdventureGame.Shared;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -12,13 +12,13 @@ namespace AdventureGame.Editor
     [Serializable]
     public class AssetCreator<T> where T : ScriptableObject
     {
-        [TitleGroup("File Settings"), HorizontalGroup("File Settings/Main")]
+        //[TitleGroup("File Settings"), HorizontalGroup("File Settings/Main")]
         [SerializeField] private string fileName;
         [SerializeField] private string subFolder;
-        [DropdownIndex(nameof(Types), Expression = "x => x.Name"), OnValueChanged(nameof(ValidateSubFolder))]
+        [DropdownIndex(nameof(Types), Expression = "x => x.Name")/*, OnValueChanged(nameof(ValidateSubFolder))*/]
         [SerializeField] private int selectedType;
 
-        [ShowInInspector]
+        //[ShowInInspector]
         private string AssetPath => $"{Path}/{subFolder}/{fileName}.asset";
 
         private Type[] Types { get; }
@@ -49,7 +49,7 @@ namespace AdventureGame.Editor
         /// <summary> Try to give a simplified subFolder </summary>
         private void ValidateSubFolder() => subFolder = Types[selectedType].Name.Replace(typeof(T).Name, string.Empty);
         
-        [HorizontalGroup("File Settings/Main"), Button]
+        //[HorizontalGroup("File Settings/Main"), Button]
         private void Create()
         {
             Type type = Types[selectedType];

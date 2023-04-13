@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using AdventureGame.Shared;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using AdventureGame.BattleSystem;
 
 namespace AdventureGame.Data
 {
-    [CreateAssetMenu(menuName = MenuPath.SettingsEnemies + "WarriorSkeleton", fileName = "WarriorSkeletonSettings")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.SettingsEnemies + "WarriorSkeleton", fileName = "WarriorSkeletonSettings")]
     public class WarriorSkeletonSettings : EnemyData
     {
         [Title("Warrior Skeleton")]

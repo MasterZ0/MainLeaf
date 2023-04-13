@@ -1,14 +1,14 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
 using AdventureGame.Inputs;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("Status"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Status"), HideLabel, InlineProperty]
     public class PlayerStatus : BasicStatusController<BasicAttributesController>
     {
         [Title("Status")]

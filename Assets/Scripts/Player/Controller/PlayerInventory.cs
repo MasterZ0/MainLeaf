@@ -1,12 +1,12 @@
 ﻿using AdventureGame.Items;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using System.Linq;
 
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("Inventory"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Inventory"), HideLabel, InlineProperty]
     public class PlayerInventory : PlayerClass, IInventoryController
     {
         [Title("Inventory")]

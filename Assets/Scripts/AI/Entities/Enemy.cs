@@ -1,15 +1,15 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.Data;
 using AdventureGame.ObjectPooling;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 using AdventureGame.Effects;
 using AdventureGame.Audio;
 using System.Linq;
 using AdventureGame.Gameplay.Components;
-using Sirenix.Utilities;
 using AdventureGame.Gameplay;
+using Z3.UIBuilder.Reflection;
 
 namespace AdventureGame.AI
 {
@@ -36,7 +36,7 @@ namespace AdventureGame.AI
 
         [Header("Optional")]
         [SerializeField] private Renderer[] bodyRenderers;
-        [ListDrawerSettings(Expanded = true)]
+        //[ListDrawerSettings(Expanded = true)]
         [SerializeField] private HitBox[] bodyHitBoxes;
 
         #region Public properties and events

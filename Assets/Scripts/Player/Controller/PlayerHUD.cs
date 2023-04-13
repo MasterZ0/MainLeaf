@@ -4,7 +4,7 @@ using AdventureGame.Gameplay;
 using AdventureGame.Items;
 using AdventureGame.UI;
 using AdventureGame.UI.Window;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +12,7 @@ using UnityEngine.UI;
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("HUD"), HideLabel, InlineProperty]
+    //[FoldoutGroup("HUD"), HideLabel, InlineProperty]
     public class PlayerHUD : PlayerClass
     {
         [Title("Player HUD")]

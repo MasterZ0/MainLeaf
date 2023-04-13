@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +15,7 @@ namespace AdventureGame.Data
     /// <summary>
     /// Storage all data and variables
     /// </summary>
-    [CreateAssetMenu(menuName = MenuPath.Settings + "Game Settings", fileName = "NewGameSettings")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.Settings + "Game Settings", fileName = "NewGameSettings")]
     public class GameSettings : ScriptableObject 
     {
         [Title("Game Settings")]

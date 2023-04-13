@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sirenix.Utilities;
 using UnityEngine;
 
 namespace AdventureGame.ObjectPooling
@@ -35,7 +34,7 @@ namespace AdventureGame.ObjectPooling
 
         public void AddToPool(Component component)
         {
-            if (component.SafeIsUnityNull())
+            if (!component)
             {
                 Debug.LogError(ObjectPool.NullError);
                 return;

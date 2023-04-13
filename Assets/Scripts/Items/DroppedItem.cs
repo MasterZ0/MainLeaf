@@ -4,7 +4,7 @@ using AdventureGame.Data;
 using AdventureGame.Items.Data;
 using AdventureGame.ObjectPooling;
 using AdventureGame.Shared.ExtensionMethods;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;

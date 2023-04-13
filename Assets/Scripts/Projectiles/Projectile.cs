@@ -1,7 +1,7 @@
 ﻿using AdventureGame.BattleSystem;
 using AdventureGame.ObjectPooling;
 using AdventureGame.Shared.ExtensionMethods;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 
 namespace AdventureGame.Projectiles

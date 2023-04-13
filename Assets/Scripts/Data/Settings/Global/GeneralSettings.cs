@@ -1,10 +1,10 @@
-﻿using Sirenix.OdinInspector;
+﻿using Z3.UIBuilder.Core;
 using UnityEngine;
 using AdventureGame.Shared;
 
 namespace AdventureGame.Data
 {
-    [CreateAssetMenu(menuName = MenuPath.SettingsGlobal + "General", fileName = "GeneralSettings")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.SettingsGlobal + "General", fileName = "GeneralSettings")]
     public class GeneralSettings : ScriptableObject
     {
         [Title("Platform and Tools")]
@@ -19,7 +19,7 @@ namespace AdventureGame.Data
         [SerializeField] private float heathBarReductionDamageDealt = 1f;
 
         [Title("Items")]
-        [MinMaxSlider(0f, 30f, true)]
+        //[MinMaxSlider(0f, 30f, true)]
         [SerializeField] private Vector2 dropItemYVelocityRange = new Vector2(0, 5);
         [Range(0f, 30f)]
         [SerializeField] private float dropItemZXMaxVelocity = 2;

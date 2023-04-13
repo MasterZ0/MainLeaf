@@ -3,7 +3,7 @@ using AdventureGame.Items;
 using AdventureGame.Items.Data;
 using AdventureGame.Projectiles;
 using AdventureGame.Shared.ExtensionMethods;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 using AdventureGame.ObjectPooling;
@@ -11,7 +11,7 @@ using AdventureGame.ObjectPooling;
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("Arsenal"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Arsenal"), HideLabel, InlineProperty]
     public class PlayerArsenal : PlayerClass
     {
         [Title("Arsenal")]

@@ -1,4 +1,4 @@
-﻿using Sirenix.OdinInspector;
+﻿using Z3.UIBuilder.Core;
 using UnityEngine;
 using AdventureGame.Shared;
 using I2.Loc;
@@ -8,21 +8,21 @@ namespace AdventureGame.Data
     /// <summary>
     /// Stores all player Basic Settings
     /// </summary>
-    [CreateAssetMenu(menuName = MenuPath.SettingsPlayers + "Archer", fileName = "PlayerSettings")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.SettingsPlayers + "Archer", fileName = "PlayerSettings")]
     public class PlayerSettings : ScriptableObject
     {
         [SerializeField] private LocalizedString characterName;
 
-        [TabGroup("Player", "Status"), HideLabel, InlineProperty]
+        //[TabGroup("Player", "Status"), HideLabel, InlineProperty]
         [SerializeField] private PlayerStatusSettings status;
 
-        [TabGroup("Player", "Physics"), HideLabel, InlineProperty]
+        //[TabGroup("Player", "Physics"), HideLabel, InlineProperty]
         [SerializeField] private PlayerPhysicsSettings physics;
 
-        [TabGroup("Player", "Visual"), HideLabel, InlineProperty]
+        //[TabGroup("Player", "Visual"), HideLabel, InlineProperty]
         [SerializeField] private PlayerVisualSettings visual;
 
-        [TabGroup("Player", "Default Inventory"), HideLabel, InlineProperty]
+        //[TabGroup("Player", "Default Inventory"), HideLabel, InlineProperty]
         [SerializeField] private DefaultInventory defaultInventory;
 
         //[TabGroup("Player", "Action Windows"), HideLabel, InlineProperty]

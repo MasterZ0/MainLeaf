@@ -1,5 +1,5 @@
 using AdventureGame.Data;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 using RootMotion.FinalIK;
@@ -16,7 +16,7 @@ namespace AdventureGame.Player
     }
 
     [Serializable]
-    [FoldoutGroup("Animator"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Animator"), HideLabel, InlineProperty]
     public class PlayerAnimator : PlayerClass
     {
         [Header("Components")]

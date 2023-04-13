@@ -2,7 +2,7 @@ using System;
 using AdventureGame.Data;
 using AdventureGame.Shared.ExtensionMethods;
 using AdventureGame.Shared.Utils;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 
 namespace AdventureGame.Player
@@ -11,7 +11,7 @@ namespace AdventureGame.Player
     /// Handles player physics
     /// </summary>
     [Serializable]
-    [FoldoutGroup("Physics"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Physics"), HideLabel, InlineProperty]
     public class PlayerPhysics : PlayerClass
     {
         [Title("Layers")]

@@ -1,5 +1,5 @@
 ﻿using Cinemachine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 
@@ -21,10 +21,10 @@ namespace AdventureGame.Shake
         [Range(0, 10)]
         [SerializeField] private float fadeOut;
 
-        [ShowInInspector, PropertyOrder(1)]
+        //[ShowInInspector, PropertyOrder(1)]
         public float TotalDuration => fadeIn + duration + fadeOut;
 
-        [InlineEditor, PropertyOrder(2)]
+        //[InlineEditor, PropertyOrder(2)]
         public NoiseSettings noiseSettings;
 
         public int SortOrder => sortOrder;

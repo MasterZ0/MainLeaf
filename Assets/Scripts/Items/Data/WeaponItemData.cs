@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using AdventureGame.Shared;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using AdventureGame.BattleSystem;
 
 namespace AdventureGame.Items.Data
 {
-    [CreateAssetMenu(menuName = MenuPath.Items + "Weapon", fileName = "New" + nameof(WeaponItemData))]
+    [CreateAssetMenu(menuName = Shared.MenuPath.Items + "Weapon", fileName = "New" + nameof(WeaponItemData))]
     public class WeaponItemData : ItemData
     {
         [Title(" Weapon")]

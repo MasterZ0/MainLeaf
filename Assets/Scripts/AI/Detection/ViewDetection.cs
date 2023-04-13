@@ -1,5 +1,5 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.AI
 {

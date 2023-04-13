@@ -2,22 +2,22 @@
 using UnityEditor;
 using System;
 using Object = UnityEngine.Object;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Editor
 {
-    [InlineProperty, HideLabel, HideReferenceObjectPicker]
+    [/*InlineProperty,*/ HideLabel, HideReferenceObjectPicker]
     public class LevelDesignTools
     {
         #region Rounder
         [Title("Rounder")]
-        [Range(1, 4), PropertyOrder(1)]
+        [Range(1, 4)/*, PropertyOrder(1)*/]
         public int divisionFactor = 2;
 
-        [ShowInInspector, PropertyOrder(0)]
+        //[ShowInInspector, PropertyOrder(0)]
         public int SelectedGameObjectCount => Selection.gameObjects.Length;
 
-        [Button, PropertyOrder(2)]
+        [Button/*, PropertyOrder(2)*/]
         private void RoundTransform()
         {
             foreach (GameObject obj in Selection.gameObjects)
@@ -28,7 +28,7 @@ namespace AdventureGame.Editor
             }
         }
 
-        [Button, PropertyOrder(3)]
+        [Button/*, PropertyOrder(3)*/]
         private void RoundColliders()
         {
             foreach (GameObject obj in Selection.gameObjects)
@@ -111,10 +111,10 @@ namespace AdventureGame.Editor
         #endregion
 
         #region Prefab Replacer
-        [Title("Prefab Replacer"), PropertyOrder(4)]
+        [Title("Prefab Replacer")/*, PropertyOrder(4)*/]
         public Transform selectedPrefab;
 
-        [Button, PropertyOrder(5)]
+        [Button/*, PropertyOrder(5)*/]
         private void Replace()
         {
             if (selectedPrefab != null)

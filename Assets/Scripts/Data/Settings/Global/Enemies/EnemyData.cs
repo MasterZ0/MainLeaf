@@ -1,4 +1,4 @@
-﻿using Sirenix.OdinInspector;
+﻿using Z3.UIBuilder.Core;
 using UnityEngine;
 using AdventureGame.Shared;
 using AdventureGame.BattleSystem;
@@ -19,7 +19,7 @@ namespace AdventureGame.Data
     /// <summary>
     /// Enemy Data
     /// </summary>
-    [CreateAssetMenu(menuName = MenuPath.SettingsSub + "Enemy", fileName = "EnemyData")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.SettingsSub + "Enemy", fileName = "EnemyData")]
     public class EnemyData : ScriptableObject
     {
         [Title("Enemy")]

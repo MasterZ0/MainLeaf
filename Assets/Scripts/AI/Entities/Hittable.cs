@@ -2,7 +2,7 @@ using System;
 using AdventureGame.BattleSystem;
 using AdventureGame.Effects;
 using AdventureGame.ObjectPooling;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 using UnityEngine.Events;
 

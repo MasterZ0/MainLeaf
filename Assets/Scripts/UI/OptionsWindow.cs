@@ -1,7 +1,7 @@
 ﻿using AdventureGame.Shared;
 using AdventureGame.UI.AppOptions;
 using AdventureGame.UI.Window;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 
 namespace AdventureGame.UI

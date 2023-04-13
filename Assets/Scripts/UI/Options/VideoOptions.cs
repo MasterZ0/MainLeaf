@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.Rendering;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.UI.AppOptions
 {

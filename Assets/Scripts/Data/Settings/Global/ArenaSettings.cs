@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using AdventureGame.Shared;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Data
 {
-    [CreateAssetMenu(menuName = MenuPath.SettingsGlobal + "Arena", fileName = "ArenaSettings")]
+    [CreateAssetMenu(menuName = Shared.MenuPath.SettingsGlobal + "Arena", fileName = "ArenaSettings")]
     public class ArenaSettings : ScriptableObject
     {
         [Title("Arena Settings")]
@@ -20,7 +20,7 @@ namespace AdventureGame.Data
 
         [Title("Times")]
         [SerializeField, Min(0)] private int secondsToStart = 3;
-        [InfoBox("$" + nameof(GetTimePreview))]
+        //[InfoBox("$" + nameof(GetTimePreview))]
         [SerializeField, Min(0)] private float roundDuration = 3f;
         [SerializeField, Range(0f, 10f)] private float endGameDelay = 3f;
 

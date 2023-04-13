@@ -1,6 +1,5 @@
 ﻿using FMODUnity;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
 namespace AdventureGame.Audio
 {
@@ -8,7 +7,7 @@ namespace AdventureGame.Audio
     /// Pure sound class. Works just lite the SoundData, but it is not a ScriptableObject.
     /// Store a SoundInstance through PlaySound to have more control of it, if needed.
     /// </summary>
-    [System.Serializable, InlineProperty, HideLabel] // There is a drawer called SoundReferenceDrawer.cs
+    [System.Serializable/*, /*InlineProperty, HideLabel*/] // There is a drawer called SoundReferenceDrawer.cs
     public class SoundReference
     {
         [SerializeField] private EventReference eventReference;

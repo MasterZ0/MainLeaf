@@ -1,8 +1,8 @@
-﻿using Sirenix.OdinInspector;
+﻿
 
 namespace AdventureGame.BattleSystem
 {
-    [System.Serializable, HideReferenceObjectPicker, InlineProperty]
+    [System.Serializable/*, HideReferenceObjectPicker, InlineProperty*/]
     public abstract class SkillEffect 
     {
         public abstract void Start();

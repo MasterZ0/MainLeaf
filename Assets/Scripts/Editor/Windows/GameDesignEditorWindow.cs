@@ -1,5 +1,6 @@
+/*
 using AdventureGame.Data;
-using Sirenix.OdinInspector.Editor;
+using Z3.UIBuilder.Core.Editor;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
@@ -7,7 +8,7 @@ using AdventureGame.Shared.ExtensionMethods;
 using System.Reflection;
 using System;
 using AdventureGame.Shared;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using AdventureGame.Items.Data;
 
 namespace AdventureGame.Editor
@@ -234,4 +235,4 @@ namespace AdventureGame.Editor
         }
         #endregion
     }
-}
+}*/

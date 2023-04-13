@@ -4,7 +4,7 @@ using AdventureGame.Inputs;
 using AdventureGame.UI;
 using AdventureGame.UI.Window;
 using I2.Loc;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,7 +15,7 @@ namespace AdventureGame.Gameplay
     /// <summary>
     /// Open the pause menu
     /// </summary>
-    public class PauseMenu : SerializedMonoBehaviour, IControlInput
+    public class PauseMenu : MonoBehaviour, IControlInput
     {
         [Title("Pause Menu")]
         [SerializeField] private LocalizedString mainMenuQuestion;

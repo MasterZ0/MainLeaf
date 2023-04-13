@@ -1,17 +1,15 @@
-﻿using Sirenix.OdinInspector.Editor;
-using Sirenix.Utilities.Editor;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using System;
-using Sirenix.Utilities;
 using System.Reflection;
 using AdventureGame.Shared;
 using AdventureGame.Shared.ExtensionMethods;
 
 namespace AdventureGame.Editor {
+    /*
     public class TypeSelectionAttributeDrawer<TList, TElement> : OdinAttributeDrawer<TypeSelectionAttribute, TList> where TList : IEnumerable<TElement> {
 
         private string error;
@@ -228,5 +226,5 @@ namespace AdventureGame.Editor {
                 ValueEntry.WeakSmartValue = elements.ToList();
             }
         }
-    }
+    }*/
 }

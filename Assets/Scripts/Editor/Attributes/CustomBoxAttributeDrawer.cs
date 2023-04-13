@@ -1,7 +1,7 @@
-﻿using Sirenix.OdinInspector.Editor;
-using Sirenix.Utilities.Editor;
+﻿//using Z3.UIBuilder.Core.Editor;
+//using Sirenix.Utilities.Editor;
 using UnityEngine;
-
+/*
 namespace AdventureGame.Editor
 {
     public class CustomBoxAttributeDrawer : OdinAttributeDrawer<CustomBoxAttribute>
@@ -48,4 +48,4 @@ namespace AdventureGame.Editor
             }
         }
     }
-}
+}*/

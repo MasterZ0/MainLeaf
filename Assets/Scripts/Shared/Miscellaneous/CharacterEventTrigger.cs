@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using Sirenix.OdinInspector;
 using UnityEngine.Events;
 using System.Linq;
 using System;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Shared
 {
@@ -13,7 +13,7 @@ namespace AdventureGame.Shared
         {
             public string eventName;
             public string state;
-            [ShowIf("@!string.IsNullOrEmpty(state)")]
+            //[ShowIf("@!string.IsNullOrEmpty(state)")]
             public int layer;
             public UnityEvent unityEvent;
         }

@@ -1,5 +1,5 @@
 ﻿using Cinemachine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 
 namespace AdventureGame.Shake

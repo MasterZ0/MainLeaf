@@ -1,12 +1,11 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AdventureGame.BattleSystem
 {
     /// <summary>
     /// When the character takes damage, it will receive this type of effect
     /// </summary>
-    [System.Serializable, HideReferenceObjectPicker, InlineProperty]
+    [System.Serializable/*, HideReferenceObjectPicker, InlineProperty*/]
     public abstract class HitEffect : SkillEffect 
     {
         /// <summary> If true the effect affects the attacker character. </summary>

@@ -1,21 +1,21 @@
 using UnityEngine;
 using AdventureGame.Shared;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System.Collections.Generic;
 using TMPro;
 using AdventureGame.BattleSystem;
 
 namespace AdventureGame.Data
 {
-    [CreateAssetMenu(menuName = MenuPath.SettingsGlobal + "UI", fileName = "UISettings")]
-    public class UISettings : SerializedScriptableObject
+    [CreateAssetMenu(menuName = Shared.MenuPath.SettingsGlobal + "UI", fileName = "UISettings")]
+    public class UISettings : ScriptableObject
     {
         [Title("UI Settings")]
         [SerializeField] private Color outlineSelectedColor = Color.green;
         [SerializeField] private float rebindTimeOut = 10f;
 
         [Title("Damage Text Popup")]
-        [DictionaryDrawerSettings]
+        //[DictionaryDrawerSettings]
         [SerializeField] private Dictionary<DamageType, TMP_ColorGradient> damageColors = new Dictionary<DamageType, TMP_ColorGradient>();
 
 

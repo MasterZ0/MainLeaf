@@ -3,7 +3,7 @@ using AdventureGame.Persistence;
 using AdventureGame.Shake;
 using AdventureGame.UIElements;
 using I2.Loc;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

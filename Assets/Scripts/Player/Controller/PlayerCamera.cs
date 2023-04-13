@@ -1,13 +1,13 @@
 ﻿using AdventureGame.Data;
 using AdventureGame.Gameplay;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("Camera Controller"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Camera Controller"), HideLabel, InlineProperty]
     public class PlayerCamera : PlayerClass
     {
         [Title("Camera")]

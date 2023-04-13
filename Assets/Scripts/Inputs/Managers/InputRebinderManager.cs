@@ -1,5 +1,5 @@
 ﻿using AdventureGame.Shared.ExtensionMethods;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

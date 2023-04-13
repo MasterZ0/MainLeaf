@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using Unity.Profiling;
 using System.Text;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.DevTools
 {

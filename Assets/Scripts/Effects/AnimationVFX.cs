@@ -1,6 +1,6 @@
 ﻿using AdventureGame.ObjectPooling;
 using UnityEngine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Effects
 {

@@ -1,4 +1,4 @@
-﻿using Sirenix.OdinInspector;
+﻿using Z3.UIBuilder.Core;
 using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,19 +16,19 @@ namespace AdventureGame.Inputs
         [SerializeField] private Image inputIcon;
 
         [Title("Action")]
-        [OnValueChanged(nameof(ValidateInputActionReference))]
+        //[OnValueChanged(nameof(ValidateInputActionReference))]
         [SerializeField] private InputActionReference inputReference;
 
-        [OnValueChanged(nameof(ValidateBindIndex))]
-        [EnableIf(nameof(BindIndexEnabled)), PropertyRange(0, nameof(maxIndex))]
+        //[OnValueChanged(nameof(ValidateBindIndex))]
+        //[EnableIf(nameof(BindIndexEnabled)), PropertyRange(0, nameof(maxIndex))]
         [SerializeField] private int bindIndex;
 
         #region Dev Tools Variables
         [Title("Dev Tools")]
-        [ShowInInspector, ReadOnly, InlineProperty, HideLabel, Title("Input Binding", HorizontalLine = false, Bold = false)]
+        //[ShowInInspector, ReadOnly, /*InlineProperty,*/ HideLabel, Title("Input Binding", HorizontalLine = false, Bold = false)]
         private InputBinding inputBinding;
 
-        [Space, ShowInInspector, ReadOnly, TextArea]
+        //[Space, ShowInInspector, ReadOnly, TextArea]
         private string debugArea;
         private int maxIndex;
         private bool BindIndexEnabled => inputReference;
@@ -40,7 +40,7 @@ namespace AdventureGame.Inputs
         private InputRebinderManager manager;
 
         #region Dev Tools Methods
-        [OnInspectorInit]
+        //[OnInspectorInit]
         private void ValidateInputActionReference()
         {
             if (InputReference)

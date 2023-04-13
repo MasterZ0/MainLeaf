@@ -1,4 +1,4 @@
-﻿using Sirenix.OdinInspector;
+﻿using Z3.UIBuilder.Core;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -6,10 +6,10 @@ using AdventureGame.Items.Data;
 
 namespace AdventureGame.Data
 {
-    [Serializable, InlineProperty, HideLabel]
+    [Serializable/*, InlineProperty*/, HideLabel]
     public class DropChanceData
     {
-        [MinMaxSlider(0, 20, true)]
+        //[MinMaxSlider(0, 20, true)]
         [SerializeField] private Vector2Int goldRange;
 
         [SerializeField] private List<DropChance<DropItem>> loot;
@@ -26,11 +26,11 @@ namespace AdventureGame.Data
         public float chance;
     }
 
-    [Serializable, InlineProperty, HideLabel]
+    [Serializable/*, InlineProperty*/, HideLabel]
     public class DropItem
     {
         public ItemData item;
-        [MinMaxSlider(0, 1000, true), ShowIf(nameof(ShowAmount))]
+        //[MinMaxSlider(0, 1000, true), ShowIf(nameof(ShowAmount))]
         public Vector2Int amountRange;
 
         private bool ShowAmount => item is IQuantifiable;

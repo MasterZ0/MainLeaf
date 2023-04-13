@@ -1,6 +1,6 @@
 ﻿using AdventureGame.Shared;
 using AdventureGame.UI.Window;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;

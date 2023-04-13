@@ -1,9 +1,9 @@
-﻿using Sirenix.OdinInspector;
+﻿//using Z3.UIBuilder.Core;
 using System;
 
 namespace AdventureGame
 {
-    [IncludeMyAttributes, InlineProperty, HideLabel]
+    //[IncludeMyAttributes, /*InlineProperty,*/ HideLabel]
     [AttributeUsage(AttributeTargets.Field)]
     public class CustomBoxAttribute : Attribute
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Collections.Generic;
 using AdventureGame.Data;
 using Object = UnityEngine.Object;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Editor
 {
-    [InlineProperty, HideLabel, HideReferenceObjectPicker]
+    [/*InlineProperty,*/ HideLabel, HideReferenceObjectPicker]
     public class RepairTools
     {
         #region Missing Script
@@ -67,10 +67,10 @@ namespace AdventureGame.Editor
         #endregion
 
         #region Animator Override
-        [Title("Animator Override Repair"), PropertyOrder(-2f)]
+        [Title("Animator Override Repair")/*, PropertyOrder(-2f)*/]
         public AnimationClip clipToReplace;
 
-        [Button, PropertyOrder(-2f)]
+        [Button/*, PropertyOrder(-2f)*/]
         private void ReplaceEmptyClipsFromSelection()
         {
             foreach (Object obj in Selection.objects)

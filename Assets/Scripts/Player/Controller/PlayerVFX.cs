@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using AdventureGame.Data;
 using AdventureGame.ObjectPooling;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 using AdventureGame.BattleSystem;
 using AdventureGame.Effects;
@@ -12,7 +12,7 @@ using RootMotion.Demos;
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("Visual Effects"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Visual Effects"), HideLabel, InlineProperty]
     public class PlayerVFX : PlayerClass
     {
         [Title("VFX")]

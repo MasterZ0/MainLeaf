@@ -1,6 +1,6 @@
-using Sirenix.OdinInspector.Editor;
-using Sirenix.OdinInspector.Editor.ValueResolvers;
-using Sirenix.Utilities.Editor;
+//using Z3.UIBuilder.Core.Editor;
+//using Z3.UIBuilder.Core.Editor.ValueResolvers;
+//using Sirenix.Utilities.Editor;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEditor;
@@ -14,6 +14,7 @@ using System;
 
 namespace AdventureGame.Editor
 {
+    /*
     public class DropdownIndexAttributeDrawer : OdinAttributeDrawer<DropdownIndexAttribute, int> 
     {
         private int currentIndex;
@@ -140,5 +141,5 @@ namespace AdventureGame.Editor
             
             EditorGUILayout.EndHorizontal();
         }
-    }
+    }*/
 }

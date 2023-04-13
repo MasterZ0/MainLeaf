@@ -1,6 +1,6 @@
 ﻿using AdventureGame.Audio;
 using AdventureGame.Persistence;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

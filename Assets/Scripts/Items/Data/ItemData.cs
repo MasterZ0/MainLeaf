@@ -1,5 +1,5 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using I2.Loc;
 
 namespace AdventureGame.Items.Data
@@ -13,18 +13,18 @@ namespace AdventureGame.Items.Data
         public LocalizedString itemName;
         public LocalizedString itemDescription;
 
-        [VerticalGroup("Vertical")]
-        [HorizontalGroup("Vertical/Horizontal")]
-        [BoxGroup("Vertical/Horizontal/Icon", centerLabel: true)]
-        [PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
+        //[VerticalGroup("Vertical")]
+        //[HorizontalGroup("Vertical/Horizontal")]
+        //[BoxGroup("Vertical/Horizontal/Icon", centerLabel: true)]
+        //[PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
         public Sprite icon;
 
-        [BoxGroup("Vertical/Horizontal/Image", centerLabel: true)]
-        [PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
+        //[BoxGroup("Vertical/Horizontal/Image", centerLabel: true)]
+        //[PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
         public Sprite image;
 
-        [BoxGroup("Vertical/Horizontal/Model", centerLabel: true)]
-        [PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
+        //[BoxGroup("Vertical/Horizontal/Model", centerLabel: true)]
+        //[PreviewField(200, ObjectFieldAlignment.Center), HideLabel]
         public GameObject model;
 
         public Transform collectFX;

@@ -1,4 +1,4 @@
-﻿using Sirenix.OdinInspector.Editor;
+﻿/*using Z3.UIBuilder.Core.Editor;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
@@ -52,4 +52,4 @@ namespace AdventureGame.Editor
             ValueEntry.SmartValue = value;
         }
     }
-}
+}*/

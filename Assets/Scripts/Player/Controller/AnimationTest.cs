@@ -1,5 +1,5 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Player
 {
@@ -13,11 +13,11 @@ namespace AdventureGame.Player
         //[Title("AnimationTest")] // Remember to use attributes, #regions and XML Documentation :)
         public Animator animator;
 
-        [Range(-1, 1), OnValueChanged(nameof(UpdateParameters))]
+        [Range(-1, 1)/*, OnValueChanged(nameof(UpdateParameters))*/]
         public float velocityX;
-        [Range(-1, 1), OnValueChanged(nameof(UpdateParameters))]
+        [Range(-1, 1)/*, OnValueChanged(nameof(UpdateParameters))*/]
         public float velocityZ;
-        [Range(0, 1), OnValueChanged(nameof(UpdateParameters))]
+        [Range(0, 1)/*, OnValueChanged(nameof(UpdateParameters))*/]
         public float moveSpeed;
 
         [Button]

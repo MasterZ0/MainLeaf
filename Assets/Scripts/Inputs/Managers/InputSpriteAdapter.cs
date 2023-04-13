@@ -1,5 +1,5 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine.UI;
 using AdventureGame.Inputs.Data;
 

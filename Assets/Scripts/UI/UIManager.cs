@@ -1,7 +1,7 @@
 using AdventureGame.Inputs;
 using AdventureGame.Shared;
 using AdventureGame.UIElements;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;

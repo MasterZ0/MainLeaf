@@ -1,8 +1,8 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
 using UnityEngine.Events;
 using System.Linq;
 using System;
+using Z3.UIBuilder.Core;
 
 namespace AdventureGame.Shared
 {

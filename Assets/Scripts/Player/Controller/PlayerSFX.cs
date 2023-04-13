@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AdventureGame.Audio;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using UnityEngine;
 
 namespace AdventureGame.Player
 {
     [Serializable]
-    [FoldoutGroup("Sound Effects"), HideLabel, InlineProperty]
+    //[FoldoutGroup("Sound Effects"), HideLabel, InlineProperty]
     public class PlayerSFX : PlayerClass
     {
         [Title("SFX")]

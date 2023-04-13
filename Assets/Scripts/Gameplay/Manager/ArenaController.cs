@@ -4,7 +4,7 @@ using AdventureGame.Shared;
 using AdventureGame.UI;
 using AdventureGame.UI.Window;
 using I2.Loc;
-using Sirenix.OdinInspector;
+using Z3.UIBuilder.Core;
 using System;
 using System.Collections;
 using TMPro;
