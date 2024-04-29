@@ -46,7 +46,7 @@ My inspiration comes from games like: Diablo, Dark Souls, Megaman Legends, Leagu
 
 - Behavior Tree
 
-![image](https://github.com/MasterZ0/Skull/assets/64444068/3ae9984c-1d31-4d0e-a0e2-fddb65131d52)
+![BT](https://user-images.githubusercontent.com/64444068/197429900-1116e220-0e51-42e0-93fd-8dc61332a897.gif)
 
 <h3> Odin </h3>
 
